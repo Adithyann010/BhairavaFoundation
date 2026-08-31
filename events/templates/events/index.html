@@ -1,0 +1,260 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Bairava Event Management — Weddings & Corporate Events Chennai{% endblock %}
+
+{% block content %}
+<style>
+  .events-hero {
+    background: #3A2017;
+    color: var(--paper);
+    padding: 75px 0 65px;
+  }
+  .events-hero h1 {
+    color: var(--paper);
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    margin-bottom: 18px;
+  }
+  .events-hero p {
+    color: #EBD8C8;
+    font-size: 1.1rem;
+    max-width: 58ch;
+  }
+  .filter-bar {
+    padding: 24px 0;
+    background: var(--sand);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 73px;
+    z-index: 80;
+  }
+  .filter-pills {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .pill-btn {
+    padding: 9px 18px;
+    border-radius: var(--radius);
+    font-size: 0.88rem;
+    font-weight: 500;
+    border: 1px solid var(--charcoal);
+    background: var(--paper);
+    color: var(--charcoal);
+    transition: all 0.2s ease;
+  }
+  .pill-btn:hover, .pill-btn.active {
+    background: #8C5A3C;
+    color: var(--paper);
+    border-color: #8C5A3C;
+  }
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 32px;
+    padding: 50px 0 70px;
+  }
+  .portfolio-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+  }
+  .portfolio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  .portfolio-image-box {
+    aspect-ratio: 16/10;
+    background: #3A2017;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--paper);
+    padding: 20px;
+    text-align: center;
+  }
+  .portfolio-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .portfolio-body {
+    padding: 26px 22px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .portfolio-tag {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #8C5A3C;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+  }
+  .portfolio-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+  }
+  .portfolio-specs {
+    margin-top: auto;
+    display: flex;
+    gap: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    font-size: 0.84rem;
+    color: var(--slate);
+  }
+</style>
+
+<section class="events-hero">
+  <div class="wrap">
+    <div style="font-size:0.95rem; color:var(--brass); font-weight:600; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:12px;">Event Planning &amp; Production</div>
+    <h1>End-to-end wedding &amp; event management.</h1>
+    <p>From venue booking and floral styling to vendor coordination and full day-of execution — so your family enjoys the celebration instead of running it.</p>
+
+    <div style="display: flex; gap: 36px; margin-top: 30px; border-top: 1px solid rgba(251,247,239,0.15); padding-top: 24px; flex-wrap: wrap;">
+      <div>
+        <strong style="font-family:'Fraunces', serif; font-size: 1.8rem; display:block; color:var(--paper);">100+</strong>
+        <span style="font-size: 0.85rem; color: #EBD8C8;">Managed Celebrations</span>
+      </div>
+      <div>
+        <strong style="font-family:'Fraunces', serif; font-size: 1.8rem; display:block; color:var(--brass);">Turnkey</strong>
+        <span style="font-size: 0.85rem; color: #EBD8C8;">Full Production</span>
+      </div>
+      <div>
+        <strong style="font-family:'Fraunces', serif; font-size: 1.8rem; display:block; color:var(--paper);">100%</strong>
+        <span style="font-size: 0.85rem; color: #EBD8C8;">On-Schedule Execution</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="wrap">
+    <div class="filter-pills">
+      <span style="font-size: 0.9rem; font-weight: 600; margin-right: 8px;">Filter Showcase:</span>
+      <a href="{% url 'events:index' %}" class="pill-btn {% if not selected_category %}active{% endif %}">All Events</a>
+      <a href="{% url 'events:index' %}?category=wedding" class="pill-btn {% if selected_category == 'wedding' %}active{% endif %}">Weddings &amp; Receptions</a>
+      <a href="{% url 'events:index' %}?category=corporate" class="pill-btn {% if selected_category == 'corporate' %}active{% endif %}">Corporate Conferences</a>
+      <a href="{% url 'events:index' %}?category=social" class="pill-btn {% if selected_category == 'social' %}active{% endif %}">Social Galas</a>
+      <a href="{% url 'events:index' %}?category=decor" class="pill-btn {% if selected_category == 'decor' %}active{% endif %}">Custom Decor</a>
+    </div>
+  </div>
+</div>
+
+<!-- PORTFOLIO SHOWCASE GRID -->
+<section class="section" style="padding-top: 20px;">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom: 24px;">
+      <div>
+        <h2>Featured Event Portfolio</h2>
+        <p>A look at weddings, corporate launches, and social celebrations managed across Chennai.</p>
+      </div>
+    </div>
+
+    <div class="portfolio-grid">
+      {% for item in portfolio_items %}
+      <div class="portfolio-card">
+        <div class="portfolio-image-box">
+          <img src="{% static 'core/images/founder.jpeg' %}" alt="{{ item.title }}" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <div class="portfolio-body">
+          <div class="portfolio-tag">{{ item.get_category_display }}</div>
+          <h3>{{ item.title }}</h3>
+          <p style="font-size:0.92rem; color:var(--slate); line-height:1.6; margin-bottom:18px;">{{ item.description }}</p>
+          <div class="portfolio-specs">
+            {% if item.guest_capacity %}
+            <div><strong>Capacity:</strong> {{ item.guest_capacity }}</div>
+            {% endif %}
+            <div><strong>Year:</strong> {{ item.completion_year }}</div>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div style="grid-column: 1 / -1; text-align: center; padding: 50px 20px; color: var(--slate);">
+        <h3>No event showcase items found in this category</h3>
+        <a href="{% url 'events:index' %}" class="btn btn-outline" style="margin-top: 16px;">Show All Events</a>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- BOOKING ENQUIRY FORM -->
+    <div id="plan-event" style="background: var(--sand); border: 1px solid var(--line); padding: 50px 40px; border-radius: var(--radius); margin-top: 20px;">
+      <div style="text-align: center; margin-bottom: 30px;">
+        <h3 style="font-size: 1.8rem; margin-bottom: 14px;">Planning an Event in Chennai?</h3>
+        <p style="color: var(--slate); max-width: 50ch; margin: 0 auto;">Reach out for custom decor concepts, venue availability, and catering packages.</p>
+      </div>
+
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-success" style="max-width: 650px; margin: 0 auto 24px; text-align: left; background:#d4edda; color:#155724; padding:14px 20px; border-radius:4px;">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+
+      <form method="post" action="#plan-event" class="enquiry-card-form" style="max-width: 780px; margin: 0 auto; text-align: left;">
+        {% csrf_token %}
+        <div style="border-bottom: 2px solid #8C5A3C; padding-bottom: 12px; margin-bottom: 6px;">
+          <span style="font-size: 0.8rem; font-weight: 700; color: #8C5A3C; text-transform: uppercase; letter-spacing: 0.06em;">Turnkey Event Management</span>
+          <h4 style="font-size: 1.4rem; color: var(--charcoal); margin-top: 2px;">Plan a Wedding, Corporate, or Social Event</h4>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <label>Full Name <span class="req">*</span></label>
+            {{ form.name }}
+          </div>
+          <div>
+            <label>Phone Number <span class="req">*</span></label>
+            {{ form.phone }}
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <label>Email Address</label>
+            {{ form.email }}
+          </div>
+          <div>
+            <label>Event Type <span class="req">*</span></label>
+            {{ form.event_type }}
+          </div>
+        </div>
+
+        <div class="three-col">
+          <div>
+            <label>Target Event Date</label>
+            {{ form.event_date }}
+          </div>
+          <div>
+            <label>Expected Guests</label>
+            {{ form.expected_guests }}
+          </div>
+          <div>
+            <label>Preferred Location</label>
+            {{ form.preferred_location }}
+          </div>
+        </div>
+
+        <div>
+          <label>Special Requirements &amp; Themes <span class="req">*</span></label>
+          {{ form.special_requirements }}
+        </div>
+
+        <button type="submit" class="btn btn-solid" style="background: #8C5A3C; border-color: #8C5A3C; color: var(--paper);">
+          Submit Event Booking Enquiry &rarr;
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

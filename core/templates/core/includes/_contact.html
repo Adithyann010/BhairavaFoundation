@@ -1,0 +1,91 @@
+<!-- CONTACT -->
+<section class="section contact-section" id="contact">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge-label">Get in Touch</span>
+        <h2>Reach Out to Our Team</h2>
+        <p>For construction enquiries, Trust donations, legal consultations, or event bookings across Chennai.</p>
+      </div>
+    </div>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{% if message.tags %}{{ message.tags }}{% else %}info{% endif %}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <div class="contact-layout">
+      <div class="contact-info">
+        <div class="row">
+          <div style="font-size: 1.5rem; color: var(--brick); flex-shrink: 0;">📍</div>
+          <div>
+            <h4>Head Office Visit</h4>
+            <p>New #18, Plot 644, 46th Street, 9th Sector, KK Nagar, Chennai – 600078</p>
+          </div>
+        </div>
+        <div class="row">
+          <div style="font-size: 1.5rem; color: var(--brick); flex-shrink: 0;">📞</div>
+          <div>
+            <h4>Direct Phone</h4>
+            <a href="tel:+919941757555" style="font-weight: 600; color: var(--charcoal);">+91 99417 57555</a>
+            <p style="font-size:0.85rem; color:var(--slate); margin-top:2px;">Mon – Sat: 9:00 AM – 7:00 PM</p>
+          </div>
+        </div>
+        <div class="row">
+          <div style="font-size: 1.5rem; color: var(--brick); flex-shrink: 0;">✉️</div>
+          <div>
+            <h4>Official Email</h4>
+            <a href="mailto:sribairavaassociates@gmail.com">sribairavaassociates@gmail.com</a>
+          </div>
+        </div>
+        <div class="row">
+          <div style="font-size: 1.5rem; color: #25D366; flex-shrink: 0;">💬</div>
+          <div>
+            <h4>WhatsApp Support</h4>
+            <a href="https://wa.me/919941757555" target="_blank" rel="noopener" style="font-weight: 600; color: #25D366;">Message us directly on WhatsApp →</a>
+          </div>
+        </div>
+      </div>
+
+      <form class="enquiry" method="post" action="#contact">
+        {% csrf_token %}
+        <h3 style="font-size: 1.3rem; color: var(--charcoal); margin-bottom: 4px; border-bottom: 2px solid var(--brick); padding-bottom: 8px;">General Quick Enquiry</h3>
+
+        <div class="two-col">
+          <div>
+            <label for="{{ form.name.id_for_label }}">{{ form.name.label }} *</label>
+            {{ form.name }}
+            {% if form.name.errors %}
+              <div style="color: #dc3545; font-size: 0.8rem; margin-top: 4px;">{{ form.name.errors }}</div>
+            {% endif %}
+          </div>
+          <div>
+            <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }} *</label>
+            {{ form.phone }}
+            {% if form.phone.errors %}
+              <div style="color: #dc3545; font-size: 0.8rem; margin-top: 4px;">{{ form.phone.errors }}</div>
+            {% endif %}
+          </div>
+        </div>
+        <div>
+          <label for="{{ form.service.id_for_label }}">{{ form.service.label }} *</label>
+          {{ form.service }}
+          {% if form.service.errors %}
+            <div style="color: #dc3545; font-size: 0.8rem; margin-top: 4px;">{{ form.service.errors }}</div>
+          {% endif %}
+        </div>
+        <div>
+          <label for="{{ form.message.id_for_label }}">{{ form.message.label }} *</label>
+          {{ form.message }}
+          {% if form.message.errors %}
+            <div style="color: #dc3545; font-size: 0.8rem; margin-top: 4px;">{{ form.message.errors }}</div>
+          {% endif %}
+        </div>
+        <button type="submit" class="btn btn-solid" style="background: var(--brick); border-color: var(--brick);">Submit General Enquiry</button>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,23 @@
+<!-- EVENTS -->
+<section class="section" id="events">
+  <div class="wrap">
+    <div class="events-band">
+      <div>
+        <h2 style="font-size:clamp(1.9rem,3vw,2.6rem); margin-bottom:18px;">Event management</h2>
+        <p style="color:var(--slate); font-size:1.05rem; margin-bottom:28px; max-width:46ch;">Weddings and events planned and run end to end — venue, vendors and the schedule for the day, so the family attends the event instead of running it.</p>
+        <a href="#contact" class="btn btn-outline">Plan an event with us</a>
+      </div>
+      <div class="events-list">
+        {% for event in event_types %}
+        <div class="tile"><strong>{{ event.title }}</strong>{{ event.description }}</div>
+        {% empty %}
+        <!-- Fallback if no event types in DB -->
+        <div class="tile"><strong>Weddings</strong>Full ceremony &amp; reception planning</div>
+        <div class="tile"><strong>Corporate events</strong>Launches, conferences, offsites</div>
+        <div class="tile"><strong>Vendor sourcing</strong>Catering, décor, photography</div>
+        <div class="tile"><strong>Day-of coordination</strong>One team, start to finish</div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

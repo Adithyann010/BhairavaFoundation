@@ -1,0 +1,364 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Construction Projects & Portfolio — Bairava Groups Chennai{% endblock %}
+
+{% block content %}
+<style>
+  .project-hero {
+    background: var(--charcoal);
+    color: var(--paper);
+    padding: 70px 0 60px;
+    position: relative;
+    border-bottom: 1px solid var(--line);
+  }
+  .project-hero-kicker {
+    font-size: 0.95rem;
+    color: var(--brass);
+    font-weight: 600;
+    margin-bottom: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .project-hero h1 {
+    color: var(--paper);
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    margin-bottom: 18px;
+  }
+  .project-hero h1 em {
+    font-style: italic;
+    color: #E6B366;
+  }
+  .project-hero p {
+    color: #C9BEAE;
+    font-size: 1.08rem;
+    max-width: 58ch;
+    margin-bottom: 30px;
+  }
+  .filter-bar {
+    padding: 30px 0;
+    background: var(--sand);
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 73px;
+    z-index: 80;
+  }
+  .filter-pills {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .pill-btn {
+    padding: 10px 20px;
+    border-radius: var(--radius);
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid var(--charcoal);
+    background: var(--paper);
+    color: var(--charcoal);
+    transition: all 0.2s ease;
+  }
+  .pill-btn:hover, .pill-btn.active {
+    background: var(--brick);
+    color: var(--paper);
+    border-color: var(--brick);
+  }
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 36px;
+    padding: 60px 0 90px;
+  }
+  .project-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(36, 31, 28, 0.1);
+  }
+  .project-image-box {
+    aspect-ratio: 16/10;
+    background: #E8DEC9;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .project-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .project-placeholder-pattern {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #7C3B29 0%, #3D1E15 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--sand);
+    padding: 20px;
+    text-align: center;
+  }
+  .project-placeholder-pattern svg {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+    opacity: 0.85;
+  }
+  .project-status-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .badge-completed {
+    background: #2D5A3F;
+    color: #E0F2E9;
+  }
+  .badge-ongoing {
+    background: var(--brass);
+    color: var(--paper);
+  }
+  .badge-upcoming {
+    background: var(--charcoal);
+    color: var(--sand);
+  }
+  .project-body {
+    padding: 28px 26px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  .project-category-tag {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--brick);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+  .project-card h3 {
+    font-size: 1.35rem;
+    margin-bottom: 8px;
+  }
+  .project-location {
+    font-size: 0.9rem;
+    color: var(--slate);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .project-description {
+    font-size: 0.94rem;
+    color: var(--slate);
+    line-height: 1.6;
+    margin-bottom: 22px;
+  }
+  .project-specs {
+    margin-top: auto;
+    display: flex;
+    gap: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-size: 0.85rem;
+    color: var(--charcoal);
+  }
+  .spec-item strong {
+    display: block;
+    font-weight: 600;
+    color: var(--charcoal);
+  }
+  .spec-item span {
+    color: var(--slate);
+  }
+  .project-cta-banner {
+    background: var(--brick);
+    color: var(--paper);
+    padding: 70px 0;
+    text-align: center;
+  }
+  .project-cta-banner h2 {
+    color: var(--paper);
+    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+    margin-bottom: 16px;
+  }
+  .project-cta-banner p {
+    color: #EBD8C8;
+    max-width: 50ch;
+    margin: 0 auto 30px;
+    font-size: 1.05rem;
+  }
+</style>
+
+<!-- PROJECT HERO HEADER -->
+<section class="project-hero">
+  <div class="wrap">
+    <div class="project-hero-kicker">Bairava Construction &amp; Architecture</div>
+    <h1>Built with structural integrity, <em>delivered on time</em>.</h1>
+    <p>Explore our showcase of residential bungalows, commercial spaces, apartment blocks, and custom interiors built across Chennai.</p>
+
+    <div style="display: flex; gap: 40px; border-top: 1px solid rgba(251,247,239,0.15); padding-top: 24px; flex-wrap: wrap;">
+      <div>
+        <strong style="font-family:'Fraunces', serif; font-size: 1.8rem; display:block;">50+</strong>
+        <span style="font-size: 0.85rem; color: #C9BEAE;">Delivered Projects</span>
+      </div>
+      <div>
+        <strong style="font-family:'Fraunces', serif; font-size: 1.8rem; display:block;">100%</strong>
+        <span style="font-size: 0.85rem; color: #C9BEAE;">Regulatory Compliance</span>
+      </div>
+      <div>
+        <strong style="font-family:'Fraunces', serif; font-size: 1.8rem; display:block;">20+</strong>
+        <span style="font-size: 0.85rem; color: #C9BEAE;">Years Architectural Expertise</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="wrap">
+    <div class="filter-pills">
+      <span style="font-size: 0.9rem; font-weight: 600; margin-right: 8px;">Filter by:</span>
+      <a href="{% url 'construction:project_list' %}" class="pill-btn {% if not selected_category %}active{% endif %}">All Projects</a>
+      <a href="{% url 'construction:project_list' %}?category=residential" class="pill-btn {% if selected_category == 'residential' %}active{% endif %}">Residential</a>
+      <a href="{% url 'construction:project_list' %}?category=commercial" class="pill-btn {% if selected_category == 'commercial' %}active{% endif %}">Commercial</a>
+      <a href="{% url 'construction:project_list' %}?category=villas" class="pill-btn {% if selected_category == 'villas' %}active{% endif %}">Villas &amp; Bungalows</a>
+      <a href="{% url 'construction:project_list' %}?category=interiors" class="pill-btn {% if selected_category == 'interiors' %}active{% endif %}">Interiors &amp; Renovations</a>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS GRID -->
+<section class="section" style="padding-top: 20px;">
+  <div class="wrap">
+    <div class="project-grid">
+      {% for project in projects %}
+      <div class="project-card">
+        <div class="project-image-box">
+          <img src="{% static 'core/images/founder.jpeg' %}" alt="{{ project.title }}" style="width: 100%; height: 100%; object-fit: cover;">
+          <span class="project-status-badge badge-{{ project.status }}">
+            {{ project.get_status_display }}
+          </span>
+        </div>
+        <div class="project-body">
+          <div class="project-category-tag">{{ project.get_category_display }}</div>
+          <h3>{{ project.title }}</h3>
+          <div class="project-location">
+            📍 {{ project.location }}
+          </div>
+          <p class="project-description">{{ project.description }}</p>
+          <div class="project-specs">
+            {% if project.built_up_area %}
+            <div class="spec-item">
+              <span>Area</span>
+              <strong>{{ project.built_up_area }}</strong>
+            </div>
+            {% endif %}
+            <div class="spec-item">
+              <span>Completion</span>
+              <strong>{{ project.completion_year }}</strong>
+            </div>
+            <div class="spec-item">
+              <span>Status</span>
+              <strong>{{ project.get_status_display }}</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--slate);">
+        <h3>No projects found in this category</h3>
+        <p style="margin-top: 8px;">Try selecting another filter category or check back soon.</p>
+        <a href="{% url 'construction:project_list' %}" class="btn btn-outline" style="margin-top: 20px;">Show All Projects</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CALL TO ACTION & DEDICATED ENQUIRY FORM -->
+<section class="project-cta-banner" id="enquire">
+  <div class="wrap">
+    <h2>Have a site in mind in Chennai?</h2>
+    <p>Schedule a site visit and structural consultation with our engineering team today.</p>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-success" style="max-width: 650px; margin: 0 auto 24px; text-align: left;">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <form method="post" action="#enquire" class="enquiry-card-form" style="max-width: 780px; margin: 0 auto; text-align: left;">
+      {% csrf_token %}
+      <div style="border-bottom: 2px solid var(--brick); padding-bottom: 12px; margin-bottom: 6px;">
+        <span style="font-size: 0.8rem; font-weight: 700; color: var(--brick); text-transform: uppercase; letter-spacing: 0.06em;">Civil &amp; Architectural Consultation</span>
+        <h3 style="font-size: 1.5rem; color: var(--charcoal); margin-top: 2px;">Request a Construction Site Estimate</h3>
+      </div>
+      
+      <div class="two-col">
+        <div>
+          <label>Full Name <span class="req">*</span></label>
+          {{ form.name }}
+        </div>
+        <div>
+          <label>Phone Number <span class="req">*</span></label>
+          {{ form.phone }}
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div>
+          <label>Email Address</label>
+          {{ form.email }}
+        </div>
+        <div>
+          <label>Project Type <span class="req">*</span></label>
+          {{ form.project_type }}
+        </div>
+      </div>
+
+      <div class="three-col">
+        <div>
+          <label>Site Location <span class="req">*</span></label>
+          {{ form.location }}
+        </div>
+        <div>
+          <label>Plot Area (sq.ft)</label>
+          {{ form.plot_area }}
+        </div>
+        <div>
+          <label>Estimated Budget</label>
+          {{ form.estimated_budget }}
+        </div>
+      </div>
+
+      <div>
+        <label>Requirements &amp; Details <span class="req">*</span></label>
+        {{ form.message }}
+      </div>
+
+      <button type="submit" class="btn btn-solid" style="background: var(--brick); border-color: var(--brick); color: var(--paper);">
+        Submit Construction Enquiry &rarr;
+      </button>
+    </form>
+  </div>
+</section>
+{% endblock %}

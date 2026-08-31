@@ -1,0 +1,43 @@
+{% load static %}
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+          <img src="{% static 'core/images/logo.jpg' %}" alt="Bairava Groups Logo" style="height:36px; width:auto; border-radius:3px; display:block;">
+          <h4 style="margin:0; font-size:1.1rem;">Bairava Groups</h4>
+        </div>
+        <p>A Chennai-based family business spanning construction, a charitable trust, legal services and event management — run under one name for over two decades.</p>
+      </div>
+      <div>
+        <h4>Businesses</h4>
+        <ul>
+          <li><a href="{% url 'construction:project_list' %}">Construction</a></li>
+          <li><a href="{% url 'trust:index' %}">Bairava Trust</a></li>
+          <li><a href="{% url 'law_associates:index' %}">Legal Associates</a></li>
+          <li><a href="{% url 'events:index' %}">Event Management</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="{% url 'core:home' %}">Home</a></li>
+          <li><a href="{% url 'core:home' %}#contact">Contact</a></li>
+          <li><a href="{% url 'trust:index' %}">Donate</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>New #18, Plot 644, 46th St, 9th Sector, KK Nagar, Chennai – 78</li>
+          <li><a href="tel:+919941757555">+91 99417 57555</a></li>
+          <li><a href="mailto:sribairavaassociates@gmail.com">sribairavaassociates@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© {% now "Y" %} Bairava Groups. All rights reserved.</span>
+      <span>Chennai, Tamil Nadu</span>
+    </div>
+  </div>
+</footer>

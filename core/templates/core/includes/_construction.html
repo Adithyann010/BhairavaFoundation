@@ -1,0 +1,56 @@
+<!-- CONSTRUCTION DETAIL -->
+<section class="section" id="construction">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <h2>Construction &amp; architecture</h2>
+        <p>From a single villa to a full apartment block, the same site team carries a project from drawing to handover.</p>
+      </div>
+      <div>
+        <a href="{% url 'construction:project_list' %}" class="btn btn-solid">View Portfolio &amp; Projects →</a>
+      </div>
+    </div>
+    <div class="services-grid">
+      {% for service in services %}
+      <div class="service-card">
+        <h4>{{ service.title }}</h4>
+        <p>{{ service.description }}</p>
+      </div>
+      {% empty %}
+      <!-- Fallback if no services in DB -->
+      <div class="service-card">
+        <h4>Residential builds</h4>
+        <p>Individual houses built to the owner's brief, not a catalogue plan.</p>
+      </div>
+      <div class="service-card">
+        <h4>Commercial builds</h4>
+        <p>Offices and retail spaces delivered on an agreed schedule.</p>
+      </div>
+      <div class="service-card">
+        <h4>Villas &amp; bungalows</h4>
+        <p>Independent houses with full architectural and structural planning.</p>
+      </div>
+      <div class="service-card">
+        <h4>Flat construction</h4>
+        <p>Multi-unit residential blocks from foundation to fit-out.</p>
+      </div>
+      <div class="service-card">
+        <h4>Interior design</h4>
+        <p>Space planning and finishing for homes and offices alike.</p>
+      </div>
+      <div class="service-card">
+        <h4>Architecture &amp; 3D visualisation</h4>
+        <p>Structural drawings and 3D models before a single brick is laid.</p>
+      </div>
+      <div class="service-card">
+        <h4>False ceiling</h4>
+        <p>Gypsum and POP ceiling work for homes and commercial interiors.</p>
+      </div>
+      <div class="service-card">
+        <h4>Modular kitchens</h4>
+        <p>Custom-built kitchen layouts measured for the actual space.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
