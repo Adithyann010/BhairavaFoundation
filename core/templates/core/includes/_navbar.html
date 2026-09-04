@@ -1,0 +1,183 @@
+{% load static %}
+<header>
+  <div class="navbar">
+    <!-- Brand Logo & Positioning -->
+    <a href="{% url 'core:home' %}" class="brand" aria-label="Bairava Groups Home">
+      <img src="{% static 'core/images/logo.jpg' %}" alt="Bairava Groups Logo" class="brand-logo">
+      <div class="brand-info">
+        <span class="brand-title">Bairava Groups</span>
+        <span class="brand-subtitle">Building · Creating · Serving</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="nav-links" aria-label="Main Navigation">
+      <div class="nav-item">
+        <a href="{% url 'core:home' %}" class="nav-link">Home</a>
+      </div>
+      
+      <div class="nav-item">
+        <a href="{% url 'core:about' %}" class="nav-link">About</a>
+      </div>
+
+      <!-- Businesses Dropdown (7 Divisions) -->
+      <div class="nav-item">
+        <a href="{% url 'core:businesses_index' %}" class="nav-link">
+          Businesses
+          <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="dropdown-menu dropdown-menu-wide">
+          <a href="{% url 'core:business_detail' slug='finance' %}" class="dropdown-item">
+            <div class="dropdown-item-content">
+              <h5>Bairava Finance</h5>
+              <p>Transparent financial solutions &amp; advisory</p>
+            </div>
+          </a>
+          <a href="{% url 'core:business_detail' slug='construction' %}" class="dropdown-item">
+            <div class="dropdown-item-content">
+              <h5>Bairava Construction &amp; Promoters</h5>
+              <p>Turnkey residential &amp; commercial builds</p>
+            </div>
+          </a>
+          <a href="{% url 'core:business_detail' slug='cloud-kitchen' %}" class="dropdown-item">
+            <div class="dropdown-item-content">
+              <h5>Bairava Cloud Kitchen</h5>
+              <p>Hygienic, authentic regional gourmet dining</p>
+            </div>
+          </a>
+          <a href="{% url 'core:business_detail' slug='sports-club' %}" class="dropdown-item">
+            <div class="dropdown-item-content">
+              <h5>Bairava Sports Club</h5>
+              <p>Indoor badminton, training &amp; fitness facilities</p>
+            </div>
+          </a>
+          <a href="{% url 'core:business_detail' slug='event-management' %}" class="dropdown-item">
+            <div class="dropdown-item-content">
+              <h5>Bairava Event Management</h5>
+              <p>Weddings, corporate summits &amp; turnkey galas</p>
+            </div>
+          </a>
+          <a href="{% url 'core:business_detail' slug='aadukalam' %}" class="dropdown-item">
+            <div class="dropdown-item-content">
+              <h5>Bairava Aadukalam</h5>
+              <p>Traditional sports, Kabaddi &amp; community games</p>
+            </div>
+          </a>
+          <a href="{% url 'core:business_detail' slug='media' %}" class="dropdown-item">
+            <div class="dropdown-item-content">
+              <h5>Bairava Media</h5>
+              <p>Video production, podcasting &amp; storytelling</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Foundation & Trust Dropdown (2 Initiatives) -->
+      <div class="nav-item">
+        <a href="{% url 'core:foundation' %}" class="nav-link">
+          Foundation &amp; Trust
+          <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="dropdown-menu">
+          <a href="{% url 'core:foundation' %}" class="dropdown-item">
+            <div class="dropdown-item-content">
+              <h5>Bairava Foundation</h5>
+              <p>Community education, welfare &amp; youth development</p>
+            </div>
+          </a>
+          <a href="{% url 'trust:index' %}" class="dropdown-item">
+            <div class="dropdown-item-content">
+              <h5>Bairava Trust</h5>
+              <p>Daily Annadhanam meals &amp; senior citizen care</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="{% url 'law_associates:index' %}" class="nav-link">Legal</a>
+      </div>
+
+      <div class="nav-item">
+        <a href="{% url 'core:contact' %}" class="nav-link">Contact</a>
+      </div>
+    </nav>
+
+    <!-- Header Action & Mobile Hamburger -->
+    <div class="nav-right">
+      <a class="call-pill" href="tel:+919941757555" aria-label="Call +91 99417 57555">
+        <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
+        <span>+91 99417 57555</span>
+      </a>
+      <button class="burger-btn" id="burgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Backdrop & Drawer -->
+  <div class="mobile-backdrop" id="mobileBackdrop"></div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-head">
+      <div class="brand">
+        <img src="{% static 'core/images/logo.jpg' %}" alt="Bairava Groups" style="height:32px; width:auto;">
+        <span style="font-family:'Fraunces', serif; font-weight:700; font-size:1.15rem;">Bairava Groups</span>
+      </div>
+      <button class="drawer-close" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
+    </div>
+
+    <div class="mobile-nav-list">
+      <div class="mobile-nav-item">
+        <a href="{% url 'core:home' %}">Home</a>
+      </div>
+      <div class="mobile-nav-item">
+        <a href="{% url 'core:about' %}">About Bairava Groups</a>
+      </div>
+
+      <!-- Mobile Businesses Accordion -->
+      <div class="mobile-nav-item">
+        <button class="mobile-accordion-toggle" data-target="mBusinesses">
+          <span>Businesses (7 Divisions)</span>
+          <svg class="dropdown-arrow accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px; height:14px;"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="mobile-accordion-content" id="mBusinesses">
+          <a href="{% url 'core:businesses_index' %}" class="mobile-sublink" style="font-weight:600; color:var(--brick);">→ View All Businesses Overview</a>
+          <a href="{% url 'core:business_detail' slug='finance' %}" class="mobile-sublink">Bairava Finance</a>
+          <a href="{% url 'core:business_detail' slug='construction' %}" class="mobile-sublink">Bairava Construction &amp; Promoters</a>
+          <a href="{% url 'core:business_detail' slug='cloud-kitchen' %}" class="mobile-sublink">Bairava Cloud Kitchen</a>
+          <a href="{% url 'core:business_detail' slug='sports-club' %}" class="mobile-sublink">Bairava Sports Club</a>
+          <a href="{% url 'core:business_detail' slug='event-management' %}" class="mobile-sublink">Bairava Event Management</a>
+          <a href="{% url 'core:business_detail' slug='aadukalam' %}" class="mobile-sublink">Bairava Aadukalam</a>
+          <a href="{% url 'core:business_detail' slug='media' %}" class="mobile-sublink">Bairava Media</a>
+        </div>
+      </div>
+
+      <!-- Mobile Foundation & Trust Accordion -->
+      <div class="mobile-nav-item">
+        <button class="mobile-accordion-toggle" data-target="mFoundation">
+          <span>Foundation &amp; Trust</span>
+          <svg class="dropdown-arrow accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px; height:14px;"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="mobile-accordion-content" id="mFoundation">
+          <a href="{% url 'core:foundation' %}" class="mobile-sublink">Bairava Foundation</a>
+          <a href="{% url 'trust:index' %}" class="mobile-sublink">Bairava Trust</a>
+        </div>
+      </div>
+
+      <div class="mobile-nav-item">
+        <a href="{% url 'law_associates:index' %}">Legal Associates</a>
+      </div>
+
+      <div class="mobile-nav-item">
+        <a href="{% url 'core:contact' %}">Contact Us</a>
+      </div>
+
+      <div style="margin-top:24px; padding-top:20px; border-top:1px solid var(--line);">
+        <a class="btn btn-solid" href="tel:+919941757555" style="width:100%;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
+          Call +91 99417 57555
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

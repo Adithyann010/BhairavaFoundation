@@ -1,0 +1,73 @@
+{% load static %}
+<!-- FOUNDATION & TRUST SPOTLIGHT -->
+<section class="section spotlight-section" id="foundation-trust">
+  <div class="wrap">
+    <div class="section-head-center">
+      <span class="badge badge-brass">Community &amp; Social Impact</span>
+      <h2>Foundation &amp; Charitable Trust</h2>
+      <p>Driving grassroots change, caring for senior citizens, and creating educational opportunities for the next generation.</p>
+    </div>
+
+    <div class="spotlight-grid">
+      <!-- Bairava Foundation Spotlight Card -->
+      <div class="spotlight-card">
+        <div>
+          <span class="badge" style="margin-bottom: 12px;">Community Development</span>
+          <h3 style="font-size: 1.6rem; margin-bottom: 12px;">Bairava Foundation</h3>
+          <p>Bairava Foundation focuses on initiatives that support communities through education, welfare, development and meaningful social programmes.</p>
+          
+          <ul class="spotlight-card-list">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Primary education scholarships &amp; notebook kits</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Community welfare drives &amp; healthcare checkups</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Youth skill development &amp; career guidance</span>
+            </li>
+          </ul>
+        </div>
+
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line);">
+          <a href="{% url 'core:foundation' %}" class="btn btn-solid" style="width: 100%;">
+            Explore Bairava Foundation →
+          </a>
+        </div>
+      </div>
+
+      <!-- Bairava Trust Spotlight Card (Featured Dark Card) -->
+      <div class="spotlight-card featured">
+        <div>
+          <span class="badge badge-brass" style="margin-bottom: 12px;">Charitable Welfare</span>
+          <h3 style="font-size: 1.6rem; margin-bottom: 12px;">Bairava Trust</h3>
+          <p>Bairava Trust focuses on social welfare and community-oriented initiatives designed to support people and create positive community impact.</p>
+          
+          <ul class="spotlight-card-list">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span style="color:#E6DFD5;">Daily Annadhanam — 500+ fresh hot meals served</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span style="color:#E6DFD5;">Bairava Senior Care Sanctuary — 40+ permanent residents</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span style="color:#E6DFD5;">Emergency cyclone &amp; calamity relief assistance</span>
+            </li>
+          </ul>
+        </div>
+
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line-dark);">
+          <a href="{% url 'trust:index' %}" class="btn btn-brass" style="width: 100%;">
+            Explore Bairava Trust &amp; Donate →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

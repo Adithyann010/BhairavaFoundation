@@ -1,0 +1,74 @@
+{% load static %}
+<!-- FEATURED PROJECTS & INITIATIVES -->
+<section class="section" id="featured-projects">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge">Portfolio Highlights</span>
+        <h2>Featured Projects &amp; Initiatives</h2>
+        <p style="max-width: 600px; margin-top: 8px;">A selection of key architectural developments and community projects delivered across Chennai.</p>
+      </div>
+      <div>
+        <a href="{% url 'core:business_detail' slug='construction' %}" class="btn btn-outline btn-sm">Explore Construction Portfolio →</a>
+      </div>
+    </div>
+
+    <div class="projects-grid">
+      {% for project in featured_projects %}
+      <div class="project-item-card">
+        {% if project.image %}
+          <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-item-img" loading="lazy">
+        {% else %}
+          <img src="{% static 'core/images/divisions/construction.jpg' %}" alt="{{ project.title }}" class="project-item-img" loading="lazy">
+        {% endif %}
+        <div class="project-item-body">
+          <span class="project-item-cat">{{ project.get_category_display }}</span>
+          <h4>{{ project.title }}</h4>
+          <p>{{ project.description|truncatewords:20 }}</p>
+          <div class="project-meta-row">
+            <span>📍 {{ project.location }}</span>
+            <span>Est. {{ project.completion_year }}</span>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="project-item-card">
+        <img src="{% static 'core/images/divisions/construction.jpg' %}" alt="Bairava Heights" class="project-item-img">
+        <div class="project-item-body">
+          <span class="project-item-cat">Residential Complex</span>
+          <h4>Bairava Heights</h4>
+          <p>Luxury multi-story residential complex with RCC earthquake-resistant structure in Anna Nagar.</p>
+          <div class="project-meta-row">
+            <span>📍 Anna Nagar, Chennai</span>
+            <span>Est. 2027</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-item-card">
+        <img src="{% static 'core/images/divisions/construction.jpg' %}" alt="Bairava Tech Hub" class="project-item-img">
+        <div class="project-item-body">
+          <span class="project-item-cat">Commercial</span>
+          <h4>Bairava Tech Hub</h4>
+          <p>Premium multi-tenant corporate office building with green building certifications on OMR.</p>
+          <div class="project-meta-row">
+            <span>📍 Perungudi, Chennai</span>
+            <span>Est. 2025</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-item-card">
+        <img src="{% static 'core/images/divisions/construction.jpg' %}" alt="The Golden Villas" class="project-item-img">
+        <div class="project-item-body">
+          <span class="project-item-cat">Villas &amp; Bungalows</span>
+          <h4>The Golden Villas</h4>
+          <p>Signature sea-facing villas featuring Italian marble, private pools, and security systems.</p>
+          <div class="project-meta-row">
+            <span>📍 ECR, Chennai</span>
+            <span>Est. 2024</span>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

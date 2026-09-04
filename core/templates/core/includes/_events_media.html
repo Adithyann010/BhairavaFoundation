@@ -1,0 +1,67 @@
+{% load static %}
+<!-- EVENTS & MEDIA SPOTLIGHT -->
+<section class="section" style="background-color: var(--sand-light);" id="events-media">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge badge-charcoal">Engagements &amp; Stories</span>
+        <h2>Events, Media &amp; Recent News</h2>
+        <p style="max-width: 620px; margin-top: 8px;">Updates from our event productions, digital storytelling, sports tournaments, and community initiatives.</p>
+      </div>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <a href="{% url 'core:business_detail' slug='event-management' %}" class="btn btn-outline btn-sm">Event Management →</a>
+        <a href="{% url 'core:business_detail' slug='media' %}" class="btn btn-outline btn-sm">Bairava Media →</a>
+      </div>
+    </div>
+
+    <div class="projects-grid">
+      {% for item in news_items %}
+      <div class="project-item-card">
+        <div class="project-item-body">
+          <span class="badge badge-brass" style="margin-bottom: 8px; font-size: 0.72rem;">{{ item.get_category_display }}</span>
+          <h4 style="font-size: 1.15rem; margin-bottom: 8px;">{{ item.title }}</h4>
+          <p style="font-size: 0.9rem; line-height: 1.55; margin-bottom: 16px;">{{ item.description }}</p>
+          <div class="project-meta-row">
+            <span>{{ item.created_at|date:"d M Y" }}</span>
+            <span style="color: var(--brick); font-weight: 600;">Bairava Groups Update</span>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="project-item-card">
+        <div class="project-item-body">
+          <span class="badge badge-brass" style="margin-bottom: 8px;">Sports &amp; Youth</span>
+          <h4>State-Level Kabaddi Championship 2026</h4>
+          <p>Over 24 top teams competed with extraordinary sportsmanship; trophies, medals, and scholarships were awarded.</p>
+          <div class="project-meta-row">
+            <span>Recent</span>
+            <span style="color: var(--brick); font-weight: 600;">Aadukalam</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-item-card">
+        <div class="project-item-body">
+          <span class="badge badge-brass" style="margin-bottom: 8px;">Charitable Welfare</span>
+          <h4>Expansion of Daily Annadhanam</h4>
+          <p>Meal distribution increased to support 500+ senior citizens and underserved individuals daily.</p>
+          <div class="project-meta-row">
+            <span>Recent</span>
+            <span style="color: var(--brick); font-weight: 600;">Bairava Trust</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-item-card">
+        <div class="project-item-body">
+          <span class="badge badge-brass" style="margin-bottom: 8px;">Digital Media</span>
+          <h4>Grassroots Community Documentary</h4>
+          <p>Bairava Media produced a digital series highlighting inspiring stories of regional entrepreneurs and athletes.</p>
+          <div class="project-meta-row">
+            <span>Recent</span>
+            <span style="color: var(--brick); font-weight: 600;">Bairava Media</span>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

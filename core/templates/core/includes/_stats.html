@@ -1,0 +1,16 @@
+<!-- STATS -->
+<section class="stats">
+  <div class="wrap stats-grid">
+    {% for stat in stats %}
+    <div class="stat">
+      <b>{{ stat.value }}</b>
+      <span>{{ stat.label }}</span>
+    </div>
+    {% empty %}
+    <div class="stat"><b>20+</b><span>Years of Excellence</span></div>
+    <div class="stat"><b>100+</b><span>Workforce &amp; Engineers</span></div>
+    <div class="stat"><b>50+</b><span>Delivered Builds</span></div>
+    <div class="stat"><b>40+</b><span>Seniors in Daily Care</span></div>
+    {% endfor %}
+  </div>
+</section>

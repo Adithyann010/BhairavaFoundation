@@ -1,0 +1,262 @@
+import json
+from django.test import TestCase, Client
+from django.urls import reverse
+from core.models import BusinessDivision, DivisionOffering, Stat, NewsItem
+from construction.models import ConstructionProject, Service as ConstructionService
+from trust.models import TrustActivityItem, TrustProgram
+from events.models import EventPortfolioItem, EventType
+from services.rag_retriever import retrieve_website_context, get_suggested_questions
+from services.ai_chat import process_chat_message
+
+
+class AIChatbotTestCase(TestCase):
+    def setUp(self):
+        self.client = Client()
+
+        # Create business divisions
+        self.div_construction = BusinessDivision.objects.create(
+            name="Bairava Construction & Promoters",
+            slug="construction",
+            tagline="Mastering Structural Excellence",
+            short_description="Turnkey construction in Chennai.",
+            full_description="Over two decades of engineering excellence in Chennai.",
+            division_type="business",
+            order=1
+        )
+        self.div_foundation = BusinessDivision.objects.create(
+            name="Bairava Foundation",
+            slug="foundation",
+            tagline="Empowering Communities",
+            short_description="Community welfare and educational support.",
+            full_description="Dedicated to sustainable community empowerment.",
+            division_type="foundation_trust",
+            order=2
+        )
+        self.div_trust = BusinessDivision.objects.create(
+            name="Bairava Trust",
+            slug="trust",
+            tagline="Compassionate Social Care",
+            short_description="Daily Annadhanam and elder care.",
+            full_description="Daily Annadhanam serving 500+ daily meals.",
+            division_type="foundation_trust",
+            order=3
+        )
+        self.div_finance = BusinessDivision.objects.create(
+            name="Bairava Finance",
+            slug="finance",
+            tagline="Transparent Financial Solutions",
+            short_description="Responsible financial advisory.",
+            full_description="Tailored financial planning and capital advisory.",
+            division_type="business",
+            order=4
+        )
+
+        # Create Construction project and service
+        self.project = ConstructionProject.objects.create(
+            title="Bairava Heights",
+            location="Anna Nagar, Chennai",
+            category="residential",
+            status="completed",
+            description="Premium residential complex.",
+            built_up_area="24,000 sq.ft"
+        )
+        self.const_service = ConstructionService.objects.create(
+            title="Civil & Structural Construction",
+            description="Turnkey architectural build."
+        )
+
+        # Create Trust activities
+        self.trust_act = TrustActivityItem.objects.create(
+            title="Daily Free Meals",
+            category="annadhanam",
+            impact_stat="500+ meals daily",
+            description="Nutritious meals served every single day."
+        )
+
+    def test_suggestions_endpoint(self):
+        """Test GET /api/chat/suggestions/ returns contextual suggestions."""
+        url = reverse('core:chat_suggestions_api')
+
+        # Homepage suggestions
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIn("suggestions", data)
+        self.assertTrue(len(data["suggestions"]) >= 3)
+        self.assertIn("What businesses does Bairava Groups operate?", data["suggestions"])
+
+        # Construction page suggestions
+        response = self.client.get(url + '?current_page=/businesses/construction/')
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIn("What projects are available?", data["suggestions"])
+
+        # Trust page suggestions
+        response = self.client.get(url + '?current_page=/trust/')
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIn("What activities does the Trust conduct?", data["suggestions"])
+
+    def test_chat_api_validation(self):
+        """Test POST /api/chat/ request validation for bad payloads."""
+        url = reverse('core:chat_api')
+
+        # Invalid JSON
+        response = self.client.post(url, "not a json string", content_type="application/json")
+        self.assertEqual(response.status_code, 400)
+
+        # Empty message
+        response = self.client.post(url, json.dumps({"message": ""}), content_type="application/json")
+        self.assertEqual(response.status_code, 400)
+
+        # Exceedingly long message
+        long_message = "x" * 1001
+        response = self.client.post(url, json.dumps({"message": long_message}), content_type="application/json")
+        self.assertEqual(response.status_code, 400)
+
+    def test_chat_api_business_divisions_query(self):
+        """Test asking about business divisions."""
+        url = reverse('core:chat_api')
+        payload = {
+            "message": "What businesses does Bairava Groups have?",
+            "conversation_id": "test_conv_1"
+        }
+        response = self.client.post(url, json.dumps(payload), content_type="application/json")
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIn("response", data)
+        self.assertIn("Bairava Finance", data["response"])
+        self.assertIn("Bairava Construction", data["response"])
+        self.assertIn("Bairava Foundation", data["response"])
+        self.assertIn("Bairava Trust", data["response"])
+
+    def test_chat_api_construction_query(self):
+        """Test asking about construction & projects."""
+        url = reverse('core:chat_api')
+        payload = {
+            "message": "What projects does Bairava Construction have?",
+            "conversation_id": "test_conv_2",
+            "current_page": "/businesses/construction/"
+        }
+        response = self.client.post(url, json.dumps(payload), content_type="application/json")
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIn("response", data)
+        self.assertIn("Bairava Construction", data["response"])
+        self.assertIn("Bairava Heights", data["response"])
+
+    def test_chat_api_trust_and_annadhanam_query(self):
+        """Test asking about Bairava Trust activities and Annadhanam."""
+        url = reverse('core:chat_api')
+        payload = {
+            "message": "Tell me about Bairava Trust activities and Annadhanam",
+            "conversation_id": "test_conv_3"
+        }
+        response = self.client.post(url, json.dumps(payload), content_type="application/json")
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIn("response", data)
+        self.assertIn("Bairava Charitable Trust", data["response"])
+        self.assertIn("Annadhanam", data["response"])
+
+    def test_chat_api_contact_query(self):
+        """Test asking about contact information."""
+        url = reverse('core:chat_api')
+        payload = {
+            "message": "How can I contact Bairava Groups?",
+            "conversation_id": "test_conv_4"
+        }
+        response = self.client.post(url, json.dumps(payload), content_type="application/json")
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIn("response", data)
+        self.assertIn("Contact Us", data["response"])
+        self.assertIn("+91 99417 57555", data["response"])
+
+    def test_chat_api_no_hallucination_for_unknown_query(self):
+        """Test that unknown queries not present in DB return strict refusal."""
+        url = reverse('core:chat_api')
+        payload = {
+            "message": "What is the stock market ticker symbol for Bairava in New York?",
+            "conversation_id": "test_conv_5"
+        }
+        response = self.client.post(url, json.dumps(payload), content_type="application/json")
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIn("response", data)
+        self.assertIn("I don't have that information in the Bairava Groups website data", data["response"])
+
+    def test_chat_api_cloud_kitchen_query(self):
+        """Test asking about cloud kitchen food and menu."""
+        url = reverse('core:chat_api')
+        payload = {"message": "What does Bairava Cloud Kitchen offer?", "conversation_id": "test_conv_6"}
+        response = self.client.post(url, json.dumps(payload), content_type="application/json")
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIn("Bairava Cloud Kitchen", data["response"])
+        self.assertIn("Thali", data["response"])
+
+    def test_chat_api_sports_club_query(self):
+        """Test asking about sports club."""
+        url = reverse('core:chat_api')
+        payload = {"message": "What sports facilities are available at Bairava Sports Club?", "conversation_id": "test_conv_7"}
+        response = self.client.post(url, json.dumps(payload), content_type="application/json")
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIn("Bairava Sports Club", data["response"])
+        self.assertIn("Badminton", data["response"])
+
+    def test_chat_api_aadukalam_query(self):
+        """Test asking about Aadukalam."""
+        url = reverse('core:chat_api')
+        payload = {"message": "What is Bairava Aadukalam?", "conversation_id": "test_conv_8"}
+        response = self.client.post(url, json.dumps(payload), content_type="application/json")
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIn("Bairava Aadukalam", data["response"])
+        self.assertIn("Kabaddi", data["response"])
+
+    def test_chat_api_event_management_query(self):
+        """Test asking about event management."""
+        url = reverse('core:chat_api')
+        payload = {"message": "What types of events do you manage?", "conversation_id": "test_conv_9"}
+        response = self.client.post(url, json.dumps(payload), content_type="application/json")
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIn("Bairava Event Management", data["response"])
+        self.assertIn("Weddings", data["response"])
+
+    def test_chat_api_media_query(self):
+        """Test asking about Bairava Media."""
+        url = reverse('core:chat_api')
+        payload = {"message": "What does Bairava Media do?", "conversation_id": "test_conv_10"}
+        response = self.client.post(url, json.dumps(payload), content_type="application/json")
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIn("Bairava Media", data["response"])
+        self.assertIn("Documentary", data["response"])
+
+    def test_chat_api_rate_limiting(self):
+        """Test that excessive requests trigger rate limiting (HTTP 429)."""
+        url = reverse('core:chat_api')
+        # Simulate 35 requests within session
+        session = self.client.session
+        import time
+        now = time.time()
+        session['ai_chat_request_timestamps'] = [now - 10] * 32
+        session.save()
+
+        payload = {"message": "Hello", "conversation_id": "test_conv_rate"}
+        response = self.client.post(url, json.dumps(payload), content_type="application/json")
+        self.assertEqual(response.status_code, 429)
+
+    def test_rag_retriever_context(self):
+        """Test RAG retriever output directly."""
+        context_data = retrieve_website_context(
+            user_query="construction",
+            current_page="/businesses/construction/"
+        )
+        self.assertIn("context_text", context_data)
+        self.assertIn("Bairava Construction", context_data["context_text"])
+        self.assertIn("Bairava Heights", context_data["context_text"])
+

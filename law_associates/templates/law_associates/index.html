@@ -1,0 +1,184 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Legal Associates — Advocacy & Legal Consultation Chennai{% endblock %}
+{% block meta_desc %}Bairava Legal Associates provides direct advocacy in property due diligence, legal notices, money recovery, and criminal defense across Chennai courts.{% endblock %}
+
+{% block content %}
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumbs">
+      <a href="{% url 'core:home' %}">Home</a>
+      <span>/</span>
+      <span>Legal Associates</span>
+    </div>
+
+    <div class="page-hero-grid">
+      <div>
+        <span class="badge badge-brass">Advocacy &amp; Legal Practice</span>
+        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 12px;">Bairava Legal Associates</h1>
+        <p class="hero-subtitle" style="font-size: 1.25rem;">"Clear Answers &amp; Rapid Defense for Legal Matters."</p>
+        <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">Over a decade of dedicated legal advocacy in Chennai across property verification, legal notices, money recovery, and court defense.</p>
+        
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="#practice-areas" class="btn btn-solid">Practice Areas</a>
+          <a href="#consultation" class="btn btn-outline">Request Consultation</a>
+        </div>
+      </div>
+
+      <div class="page-hero-image-wrap">
+        <img src="{% static 'core/images/divisions/finance.jpg' %}" alt="Legal Associates Chennai">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN LEGAL SECTION -->
+<section class="section" id="practice-areas">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge">Legal Spectrum</span>
+        <h2>Practice Areas &amp; Specializations</h2>
+        <p style="max-width: 600px; margin-top: 8px;">Explore our key areas of legal advocacy and consultation.</p>
+      </div>
+    </div>
+
+    <!-- Category Filter Pills -->
+    <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px;">
+      {% for code, label in categories %}
+        <a href="?category={{ code }}#practice-areas" class="btn btn-sm {% if selected_category == code %}btn-solid{% else %}btn-outline{% endif %}">
+          {{ label }}
+        </a>
+      {% endfor %}
+    </div>
+
+    <!-- Practice Details Cards -->
+    <div class="offerings-grid" style="margin-bottom: 48px;">
+      {% for detail in practice_details %}
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>{{ detail.title }}</h4>
+          {% if detail.turnaround_time %}
+            <span class="offering-badge">{{ detail.turnaround_time }}</span>
+          {% endif %}
+        </div>
+        <p>{{ detail.description }}</p>
+      </div>
+      {% empty %}
+      <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--slate);">
+        <h3>No practice areas listed under this category</h3>
+        <a href="{% url 'law_associates:index' %}#practice-areas" class="btn btn-outline" style="margin-top: 16px;">Show All Areas</a>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Service Spectrum Items -->
+    <div style="background: var(--sand-light); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 36px; margin-bottom: 48px;">
+      <h3 style="margin-bottom: 20px;">Common Legal Consultations Handled</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px;">
+        {% for service in legal_services %}
+        <div style="background: var(--paper); border: 1px solid var(--line); padding: 18px 20px; border-radius: var(--radius-xs); display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.94rem; font-weight: 500;">{{ service.description }}</span>
+          <span style="font-size: 0.76rem; font-weight: 700; background: var(--brass-subtle); color: var(--brass-dark); padding: 3px 8px; border-radius: var(--radius-xs); text-transform: uppercase;">{{ service.tag }}</span>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIDENTIAL LEGAL CONSULTATION FORM -->
+<section class="section" style="background-color: var(--sand-light);" id="consultation">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge badge-brass">Confidential Review</span>
+        <h2>Schedule a Legal Consultation</h2>
+        <p style="max-width: 600px; margin-top: 8px;">Submit your legal matter details for an advocate's initial assessment.</p>
+      </div>
+    </div>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{% if message.tags == 'error' %}info{% else %}{{ message.tags }}{% endif %}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <div class="division-contact-grid">
+      <div class="contact-card-info">
+        <h3>Advocate Chamber</h3>
+        <p style="margin-bottom: 24px;">Matters requiring urgent bail or High Court appearance receive immediate priority review.</p>
+
+        <div class="contact-info-list">
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <h5>Chamber Address</h5>
+              <p>New #18, Plot 644, 46th Street, 9th Sector, KK Nagar, Chennai – 600078</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <div>
+              <h5>Direct Advocate Line</h5>
+              <a href="tel:+919941757555">+91 99417 57555</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <div>
+              <h5>Confidential Email</h5>
+              <a href="mailto:sribairavaassociates@gmail.com">sribairavaassociates@gmail.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-box">
+        <h3>Submit Case Details</h3>
+        <p style="font-size: 0.88rem; margin-bottom: 20px;">All submissions are treated with strict advocate-client confidentiality.</p>
+
+        <form method="post" action="{% url 'law_associates:index' %}#consultation">
+          {% csrf_token %}
+          <div class="form-row">
+            <div class="form-group">
+              <label for="{{ form.name.id_for_label }}">{{ form.name.label }} *</label>
+              {{ form.name }}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }} *</label>
+              {{ form.phone }}
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+              {{ form.email }}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.issue_type.id_for_label }}">{{ form.issue_type.label }} *</label>
+              {{ form.issue_type }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="{{ form.urgency.id_for_label }}">{{ form.urgency.label }} *</label>
+            {{ form.urgency }}
+          </div>
+          <div class="form-group">
+            <label for="{{ form.brief_details.id_for_label }}">{{ form.brief_details.label }} *</label>
+            {{ form.brief_details }}
+          </div>
+          <button type="submit" class="btn btn-solid" style="width: 100%;">Submit for Review</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+{% include "core/includes/_cta.html" %}
+{% endblock %}

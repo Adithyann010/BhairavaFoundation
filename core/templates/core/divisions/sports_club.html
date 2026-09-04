@@ -1,0 +1,248 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Bairava Sports Club — Training, Fitness & Sports Facilities{% endblock %}
+{% block meta_desc %}Bairava Sports Club promotes sports, fitness, training and community participation by creating opportunities for people to play, train and compete.{% endblock %}
+
+{% block content %}
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumbs">
+      <a href="{% url 'core:home' %}">Home</a>
+      <span>/</span>
+      <a href="{% url 'core:businesses_index' %}">Businesses</a>
+      <span>/</span>
+      <span>Bairava Sports Club</span>
+    </div>
+
+    <div class="page-hero-grid">
+      <div>
+        <span class="badge badge-charcoal">Commercial Division</span>
+        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 12px;">Bairava Sports Club</h1>
+        <p class="hero-subtitle" style="font-size: 1.25rem;">"Nurturing Athletic Talent &amp; Active Communities."</p>
+        <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">Bairava Sports Club promotes sports, fitness, training and community participation by creating opportunities for people to play, train and compete.</p>
+        
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="#facilities" class="btn btn-solid">Sports Facilities</a>
+          <a href="#sports-enquiry" class="btn btn-outline">Membership &amp; Booking</a>
+        </div>
+      </div>
+
+      <div class="page-hero-image-wrap">
+        <img src="{% static 'core/images/divisions/sports_club.jpg' %}" alt="Bairava Sports Club Badminton Arena">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT SPORTS CLUB -->
+<section class="section">
+  <div class="wrap">
+    <div class="about-intro-grid">
+      <div>
+        <span class="badge">About Sports Club</span>
+        <h2>High-Standard Infrastructure for Every Athlete</h2>
+        <p style="margin-bottom: 16px; font-size: 1.05rem;">Bairava Sports Club is dedicated to building active, healthy communities by providing quality sports infrastructure, structured coaching programs, and regular competitive tournaments.</p>
+        <p style="margin-bottom: 16px;">Whether you are an aspiring junior player looking for disciplined training, an amateur enthusiast booking evening court slots, or a corporate group organizing a sports tournament, our facilities provide a safe, modern, and energetic environment.</p>
+        <p>Led by certified coaches and experienced sports managers, we emphasize sportsmanship, fitness, and consistent athletic improvement.</p>
+      </div>
+
+      <div style="background: var(--sand-light); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 32px;">
+        <h4 style="color: var(--brick); margin-bottom: 16px;">Why Train at Bairava Sports Club</h4>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>BWF-Standard Synthetic Courts:</strong> Shock-absorbent multi-court badminton arena with glare-free LED floodlights.</div>
+          </div>
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Structured Coaching Academies:</strong> Beginner to advanced training batches for children, youth, and adults.</div>
+          </div>
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Tournaments &amp; League Hosting:</strong> Regular weekend tournaments, ranking matches, and corporate league events.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACILITIES & ACTIVITIES -->
+<section class="section" style="background-color: var(--sand-light);" id="facilities">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge badge-brass">Amenities &amp; Coaching</span>
+        <h2>Sports Activities &amp; Facilities</h2>
+        <p style="max-width: 620px; margin-top: 8px;">Explore our training programs, court infrastructure, and athletic fitness zones.</p>
+      </div>
+    </div>
+
+    <div class="offerings-grid">
+      {% for offering in offerings %}
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>{{ offering.title }}</h4>
+          {% if offering.badge %}
+            <span class="offering-badge">{{ offering.badge }}</span>
+          {% endif %}
+        </div>
+        <p>{{ offering.description }}</p>
+      </div>
+      {% empty %}
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>Indoor Badminton Courts</h4>
+          <span class="offering-badge">BWF Standard</span>
+        </div>
+        <p>Synthetic multi-court facility with professional glare-free LED floodlighting and tournament netting.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>Strength &amp; Conditioning Zone</h4>
+          <span class="offering-badge">Fitness</span>
+        </div>
+        <p>Modern resistance training machines, free weights, agility tracks, and personalized fitness training regimens.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>Junior Coaching Academy</h4>
+          <span class="offering-badge">Coaching</span>
+        </div>
+        <p>Structured coaching modules led by certified coaches focusing on fundamentals, discipline, and match tactics.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>Community Leagues &amp; Tournaments</h4>
+          <span class="offering-badge">Tournaments</span>
+        </div>
+        <p>Regular weekend friendly leagues and open tournaments encouraging healthy competitive spirit.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- SPORTS GALLERY -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head-center">
+      <span class="badge">Facility Gallery</span>
+      <h2>Energy, Passion &amp; Performance</h2>
+      <p>A view of our indoor court facilities, coaching batches, and training routines.</p>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-item-card">
+        <img src="{% static 'core/images/divisions/sports_club.jpg' %}" alt="Badminton Action" class="project-item-img">
+        <div class="project-item-body">
+          <span class="project-item-cat">Badminton Arena</span>
+          <h4>Tournament Court Matches</h4>
+          <p>Professional synthetic courts with clear court marking and spectator viewing gallery.</p>
+        </div>
+      </div>
+      <div class="project-item-card">
+        <img src="{% static 'core/images/divisions/aadukalam.jpg' %}" alt="Community Sports" class="project-item-img">
+        <div class="project-item-body">
+          <span class="project-item-cat">Outdoor Training</span>
+          <h4>Open Athletics &amp; Field Drills</h4>
+          <p>Endurance training, speed drills, and team sports conditioning.</p>
+        </div>
+      </div>
+      <div class="project-item-card">
+        <img src="{% static 'core/images/divisions/events.jpg' %}" alt="Tournament Ceremonies" class="project-item-img">
+        <div class="project-item-body">
+          <span class="project-item-cat">Events &amp; Awards</span>
+          <h4>Championships &amp; Felicitations</h4>
+          <p>Annual athletic celebrations recognizing winners, runners-up, and rising sports talent.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENQUIRY & MEMBERSHIP FORM -->
+<section class="section" style="background-color: var(--sand-light);" id="sports-enquiry">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge badge-brass">Join the Club</span>
+        <h2>Book a Slot or Enquire About Coaching</h2>
+        <p style="max-width: 600px; margin-top: 8px;">Contact us for court slot bookings, junior academy admissions, and corporate sports events.</p>
+      </div>
+    </div>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{% if message.tags == 'error' %}info{% else %}{{ message.tags }}{% endif %}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <div class="division-contact-grid">
+      <div class="contact-card-info">
+        <h3>Sports Complex Reception</h3>
+        <p style="margin-bottom: 24px;">Direct bookings for court timings and academy coaching registrations.</p>
+
+        <div class="contact-info-list">
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <h5>Facility Location</h5>
+              <p>KK Nagar Sports Arena, Chennai – 600078, Tamil Nadu</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <div>
+              <h5>Booking Helpline</h5>
+              <a href="tel:+919941757555">+91 99417 57555</a>
+              <p style="font-size:0.82rem; margin-top:2px;">Open 6:00 AM – 10:00 PM Daily</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-box">
+        <h3>Slot Booking &amp; Coaching Enquiry</h3>
+        <p style="font-size: 0.88rem; margin-bottom: 20px;">Send us your preferred timings and sport for quick confirmation.</p>
+
+        <form method="post" action="{% url 'core:business_detail' slug='sports-club' %}#sports-enquiry">
+          {% csrf_token %}
+          <div class="form-row">
+            <div class="form-group">
+              <label for="{{ form.name.id_for_label }}">{{ form.name.label }} *</label>
+              {{ form.name }}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }} *</label>
+              {{ form.phone }}
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+              {{ form.email }}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.subject.id_for_label }}">Sport / Preferred Timing</label>
+              {{ form.subject }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="{{ form.message.id_for_label }}">Message Details *</label>
+            {{ form.message }}
+          </div>
+          <button type="submit" class="btn btn-solid" style="width: 100%;">Submit Booking Enquiry</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+{% include "core/includes/_cta.html" %}
+{% endblock %}

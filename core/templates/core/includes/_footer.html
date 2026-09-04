@@ -1,0 +1,78 @@
+{% load static %}
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <!-- Column 1: Bairava Groups Brand Info -->
+      <div class="footer-brand">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+          <img src="{% static 'core/images/logo.jpg' %}" alt="Bairava Groups Logo" style="height: 38px; width: auto; border-radius: 4px; display: block;">
+          <h3 style="margin: 0; font-size: 1.25rem; color: var(--paper);">Bairava Groups</h3>
+        </div>
+        <p>Bairava Groups brings together diverse ventures across construction, finance, hospitality, sports, events, media and social initiatives, united by a commitment to quality, trust and long-term value.</p>
+        <p style="font-size: 0.84rem; color: var(--brass-light); font-weight: 500;">Building Businesses. Creating Opportunities. Serving Communities.</p>
+      </div>
+
+      <!-- Column 2: Businesses (7 Divisions) -->
+      <div class="footer-col">
+        <h4>Businesses</h4>
+        <ul>
+          <li><a href="{% url 'core:business_detail' slug='finance' %}">Bairava Finance</a></li>
+          <li><a href="{% url 'core:business_detail' slug='construction' %}">Bairava Construction &amp; Promoters</a></li>
+          <li><a href="{% url 'core:business_detail' slug='cloud-kitchen' %}">Bairava Cloud Kitchen</a></li>
+          <li><a href="{% url 'core:business_detail' slug='sports-club' %}">Bairava Sports Club</a></li>
+          <li><a href="{% url 'core:business_detail' slug='event-management' %}">Bairava Event Management</a></li>
+          <li><a href="{% url 'core:business_detail' slug='aadukalam' %}">Bairava Aadukalam</a></li>
+          <li><a href="{% url 'core:business_detail' slug='media' %}">Bairava Media</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Foundation & Trust -->
+      <div class="footer-col">
+        <h4>Foundation &amp; Trust</h4>
+        <ul>
+          <li><a href="{% url 'core:foundation' %}">Bairava Foundation</a></li>
+          <li><a href="{% url 'trust:index' %}">Bairava Trust</a></li>
+          <li><a href="{% url 'trust:index' %}#programs">Daily Annadhanam</a></li>
+          <li><a href="{% url 'trust:index' %}#elder-care">Senior Care Sanctuary</a></li>
+          <li><a href="{% url 'core:foundation' %}#initiatives">Student Scholarships</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Company & Head Office Contact -->
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="{% url 'core:about' %}">About Bairava Groups</a></li>
+          <li><a href="{% url 'law_associates:index' %}">Legal Associates</a></li>
+          <li><a href="{% url 'core:contact' %}">Contact Us</a></li>
+          <li><a href="{% url 'core:businesses_index' %}">All Businesses Directory</a></li>
+        </ul>
+
+        <div style="margin-top: 24px;">
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>New #18, Plot 644, 46th St, 9th Sector, KK Nagar, Chennai – 78</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+919941757555">+91 99417 57555</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:sribairavaassociates@gmail.com">sribairavaassociates@gmail.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright & Legal Links -->
+    <div class="footer-bottom">
+      <span>© {% now "Y" %} Bairava Groups. All rights reserved. Chennai, Tamil Nadu.</span>
+      <div class="footer-bottom-links">
+        <a href="{% url 'law_associates:index' %}">Privacy Policy</a>
+        <a href="{% url 'law_associates:index' %}">Terms &amp; Conditions</a>
+        <a href="{% url 'core:contact' %}">Support</a>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,287 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Bairava Media — Storytelling, Digital Content & Media Production{% endblock %}
+{% block meta_desc %}Bairava Media focuses on storytelling, digital content, communication and media initiatives that connect businesses, communities and audiences.{% endblock %}
+
+{% block content %}
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumbs">
+      <a href="{% url 'core:home' %}">Home</a>
+      <span>/</span>
+      <a href="{% url 'core:businesses_index' %}">Businesses</a>
+      <span>/</span>
+      <span>Bairava Media</span>
+    </div>
+
+    <div class="page-hero-grid">
+      <div>
+        <span class="badge badge-charcoal">Commercial Division</span>
+        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 12px;">Bairava Media</h1>
+        <p class="hero-subtitle" style="font-size: 1.25rem;">"Meaningful Stories, Digital Production &amp; Communication."</p>
+        <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">Bairava Media focuses on storytelling, digital content, communication and media initiatives that connect businesses, communities and audiences.</p>
+        
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="#featured-stories" class="btn btn-solid">Featured Stories</a>
+          <a href="#media-enquiry" class="btn btn-outline">Media Collaboration</a>
+        </div>
+      </div>
+
+      <div class="page-hero-image-wrap">
+        <img src="{% static 'core/images/divisions/media.jpg' %}" alt="Bairava Media Digital Production Studio">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT MEDIA -->
+<section class="section">
+  <div class="wrap">
+    <div class="about-intro-grid">
+      <div>
+        <span class="badge">About Bairava Media</span>
+        <h2>Compelling Visual Narratives &amp; Digital Production</h2>
+        <p style="margin-bottom: 16px; font-size: 1.05rem;">In a rapidly evolving digital landscape, authentic storytelling is the most powerful bridge between organizations, ideas, and communities.</p>
+        <p style="margin-bottom: 16px;">Bairava Media brings together cinematic video production, podcast recording, brand communication strategy, and community documentary filmmaking. We highlight the stories that matter—from grassroots social impact and sporting triumphs to corporate profiles and cultural milestones.</p>
+        <p>Equipped with 4K cinema gear, multi-track audio studios, and seasoned editors, we craft media that informs, engages, and endures.</p>
+      </div>
+
+      <div style="background: var(--sand-light); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 32px;">
+        <h4 style="color: var(--brick); margin-bottom: 16px;">Our Media Capabilities</h4>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Cinema-Grade Video Production:</strong> Brand films, documentary features, and promotional campaigns.</div>
+          </div>
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Studio Podcasts &amp; Discussions:</strong> Acoustically optimized multi-camera studio recordings for thought leadership.</div>
+          </div>
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Live Multi-Cam Streaming:</strong> High-bandwidth live broadcasting for corporate conferences and cultural festivals.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES & DISCIPLINES -->
+<section class="section" style="background-color: var(--sand-light);" id="capabilities">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge badge-brass">Production Services</span>
+        <h2>Media Disciplines &amp; Services</h2>
+        <p style="max-width: 620px; margin-top: 8px;">Comprehensive media solutions from concept drafting to final post-production delivery.</p>
+      </div>
+    </div>
+
+    <div class="offerings-grid">
+      {% for offering in offerings %}
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>{{ offering.title }}</h4>
+          {% if offering.badge %}
+            <span class="offering-badge">{{ offering.badge }}</span>
+          {% endif %}
+        </div>
+        <p>{{ offering.description }}</p>
+      </div>
+      {% empty %}
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>Video &amp; Documentary Production</h4>
+          <span class="offering-badge">Cinema</span>
+        </div>
+        <p>High-definition corporate films, brand profile stories, and community documentary features.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>Digital Content &amp; Podcast Studio</h4>
+          <span class="offering-badge">Studio</span>
+        </div>
+        <p>Acoustically treated multi-mic studio spaces equipped for podcast recordings and panel discussions.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>Event &amp; Live Stream Coverage</h4>
+          <span class="offering-badge">Broadcast</span>
+        </div>
+        <p>Multi-camera live streaming and high-speed social media feeds for corporate summits and cultural festivals.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>Brand Storytelling &amp; PR Strategy</h4>
+          <span class="offering-badge">Strategy</span>
+        </div>
+        <p>Narrative-driven press releases, promotional video campaigns, and social digital storytelling.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED STORIES & ARTICLES -->
+<section class="section" id="featured-stories">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge">Editorial Spotlight</span>
+        <h2>Featured Stories &amp; Articles</h2>
+        <p style="max-width: 620px; margin-top: 8px;">Explore recent features covering enterprise innovation, sports milestones, and community welfare.</p>
+      </div>
+    </div>
+
+    <div class="projects-grid">
+      {% for article in articles %}
+      <div class="project-item-card">
+        {% if article.static_image_path %}
+          <img src="{% static article.static_image_path %}" alt="{{ article.title }}" class="project-item-img" loading="lazy">
+        {% else %}
+          <img src="{% static 'core/images/divisions/media.jpg' %}" alt="{{ article.title }}" class="project-item-img" loading="lazy">
+        {% endif %}
+        <div class="project-item-body">
+          <span class="project-item-cat">{{ article.category }}</span>
+          <h4>{{ article.title }}</h4>
+          <p>{{ article.summary }}</p>
+          <div class="project-meta-row">
+            <span>{{ article.publish_date|date:"M Y" }}</span>
+            <span style="color: var(--brick); font-weight: 600;">Bairava Media</span>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div class="project-item-card">
+        <img src="{% static 'core/images/divisions/aadukalam.jpg' %}" alt="Aadukalam Story" class="project-item-img">
+        <div class="project-item-body">
+          <span class="project-item-cat">Sports &amp; Community</span>
+          <h4>Inside the Bairava Aadukalam Movement</h4>
+          <p>How traditional sports are reviving cultural pride and athletic discipline among rural youth in Tamil Nadu.</p>
+          <div class="project-meta-row">
+            <span>Story Feature</span>
+            <span style="color: var(--brick); font-weight: 600;">Bairava Media</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-item-card">
+        <img src="{% static 'core/images/divisions/construction.jpg' %}" alt="Construction Story" class="project-item-img">
+        <div class="project-item-body">
+          <span class="project-item-cat">Architecture &amp; Build</span>
+          <h4>Sustainable Engineering Shaping Chennai</h4>
+          <p>How modern engineering practices, RCC standards, and eco-conscious designs create enduring landmarks.</p>
+          <div class="project-meta-row">
+            <span>Story Feature</span>
+            <span style="color: var(--brick); font-weight: 600;">Bairava Media</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-item-card">
+        <img src="{% static 'core/images/divisions/trust.jpg' %}" alt="Trust Story" class="project-item-img">
+        <div class="project-item-body">
+          <span class="project-item-cat">Social Impact</span>
+          <h4>The Power of Compassion: Two Decades of Trust</h4>
+          <p>Uninterrupted daily meals, senior care sanctuary housing, and the human faces behind Bairava Trust.</p>
+          <div class="project-meta-row">
+            <span>Story Feature</span>
+            <span style="color: var(--brick); font-weight: 600;">Bairava Media</span>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ENQUIRY & COLLABORATION FORM -->
+<section class="section" style="background-color: var(--sand-light);" id="media-enquiry">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge badge-brass">Production Enquiry</span>
+        <h2>Collaborate with Bairava Media</h2>
+        <p style="max-width: 600px; margin-top: 8px;">For documentary commissions, corporate videos, podcast bookings, or press coverage.</p>
+      </div>
+    </div>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{% if message.tags == 'error' %}info{% else %}{{ message.tags }}{% endif %}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <div class="division-contact-grid">
+      <div class="contact-card-info">
+        <h3>Media Production Studio</h3>
+        <p style="margin-bottom: 24px;">Our studio and production crews are available for corporate and cultural media projects across Chennai.</p>
+
+        <div class="contact-info-list">
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <h5>Studio Location</h5>
+              <p>KK Nagar Media Desk, Chennai – 600078, Tamil Nadu</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <div>
+              <h5>Media Desk Phone</h5>
+              <a href="tel:+919941757555">+91 99417 57555</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <div>
+              <h5>Media Inquiries</h5>
+              <a href="mailto:sribairavaassociates@gmail.com">sribairavaassociates@gmail.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-box">
+        <h3>Project Collaboration Enquiry</h3>
+        <p style="font-size: 0.88rem; margin-bottom: 20px;">Share details about your production, shoot dates, or story concept.</p>
+
+        <form method="post" action="{% url 'core:business_detail' slug='media' %}#media-enquiry">
+          {% csrf_token %}
+          <div class="form-row">
+            <div class="form-group">
+              <label for="{{ form.name.id_for_label }}">{{ form.name.label }} *</label>
+              {{ form.name }}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }} *</label>
+              {{ form.phone }}
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+              {{ form.email }}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.subject.id_for_label }}">Project Type / Scope</label>
+              {{ form.subject }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="{{ form.message.id_for_label }}">Brief Project Description *</label>
+            {{ form.message }}
+          </div>
+          <button type="submit" class="btn btn-solid" style="width: 100%;">Submit Production Brief</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+{% include "core/includes/_cta.html" %}
+{% endblock %}

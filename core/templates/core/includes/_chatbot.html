@@ -1,0 +1,119 @@
+{% load static %}
+<!-- ==========================================================================
+     BAIRAVA GROUPS — AI CHATBOT FLOATING WIDGET
+     Brand: Bairava AI Assistant
+     ========================================================================== -->
+<div id="bairavaChatbotRoot" class="bairava-chatbot-root" data-current-page="{{ request.path }}" data-api-url="{% url 'core:chat_api' %}" data-suggestions-url="{% url 'core:chat_suggestions_api' %}">
+  {% csrf_token %}
+  
+  <!-- Floating Trigger Button -->
+  <button id="chatbotToggleBtn" class="chatbot-trigger-btn" type="button" aria-label="Open Bairava AI Assistant" aria-expanded="false" aria-controls="chatbotWindow">
+    <span class="trigger-icon trigger-icon-open">
+      <!-- AI Sparkle & Chat Icon -->
+      <svg class="ai-sparkle-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"/>
+        <path d="M17 4a2 2 0 0 0 2 2a2 2 0 0 0 -2 2a2 2 0 0 0 -2 -2a2 2 0 0 0 2 -2"/>
+        <path d="M19 11h2"/>
+      </svg>
+    </span>
+    <span class="trigger-icon trigger-icon-close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </span>
+    <span class="trigger-badge-pulse" aria-hidden="true"></span>
+    <span class="trigger-tooltip">Chat with Bairava AI</span>
+  </button>
+
+  <!-- Chatbot Modal Window -->
+  <div id="chatbotWindow" class="chatbot-window" role="dialog" aria-modal="true" aria-labelledby="chatHeaderTitle" aria-hidden="true">
+    <!-- Header -->
+    <header class="chatbot-header">
+      <div class="chatbot-header-brand">
+        <div class="brand-avatar">
+          <span>B</span>
+          <span class="online-indicator" title="AI Assistant Online"></span>
+        </div>
+        <div class="brand-info">
+          <h2 id="chatHeaderTitle" class="brand-title">Bairava AI Assistant</h2>
+          <p class="brand-subtitle">How can we help you today?</p>
+        </div>
+      </div>
+      <div class="chatbot-header-actions">
+        <!-- Clear History -->
+        <button id="chatbotClearBtn" class="header-btn" type="button" title="Clear conversation" aria-label="Clear chat conversation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="3 6 5 6 21 6"></polyline>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+          </svg>
+        </button>
+        <!-- Minimize -->
+        <button id="chatbotMinimizeBtn" class="header-btn" type="button" title="Minimize chat" aria-label="Minimize chat window">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </button>
+        <!-- Close -->
+        <button id="chatbotCloseBtn" class="header-btn" type="button" title="Close chat" aria-label="Close chat window">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Page Context Pill (Dynamic) -->
+    <div id="chatPageContextBar" class="chatbot-context-bar" style="display: none;">
+      <span class="context-icon">✦</span>
+      <span id="chatPageContextText" class="context-text">Viewing Construction & Land Promoters</span>
+    </div>
+
+    <!-- Messages Scroll Area -->
+    <div id="chatbotMessages" class="chatbot-messages" role="log" aria-live="polite">
+      <!-- Messages injected dynamically via JS -->
+    </div>
+
+    <!-- Quick Action / Suggested Prompts Container -->
+    <div id="chatbotQuickActions" class="chatbot-quick-actions">
+      <!-- Injected dynamically -->
+    </div>
+
+    <!-- Typing Indicator -->
+    <div id="chatbotTyping" class="chatbot-typing-bubble" style="display: none;" aria-hidden="true">
+      <div class="typing-avatar">B</div>
+      <div class="typing-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <span class="typing-text">Bairava AI is searching website context...</span>
+    </div>
+
+    <!-- Input Footer -->
+    <footer class="chatbot-footer">
+      <form id="chatbotForm" class="chatbot-form" autocomplete="off">
+        <div class="input-container">
+          <textarea
+            id="chatbotInput"
+            class="chatbot-input"
+            rows="1"
+            placeholder="Ask about our businesses, projects, services..."
+            aria-label="Type your question for Bairava AI Assistant"
+            maxlength="1000"
+          ></textarea>
+          <button id="chatbotSendBtn" class="chatbot-send-btn" type="submit" aria-label="Send message">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+          </button>
+        </div>
+      </form>
+      <div class="chatbot-footer-brand">
+        <span>Official AI Assistant • Bairava Groups</span>
+      </div>
+    </footer>
+  </div>
+</div>

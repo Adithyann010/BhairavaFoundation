@@ -1,0 +1,56 @@
+{% load static %}
+<!-- OUR BUSINESSES (9 DIVISIONS GRID) -->
+<section class="section" id="businesses">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge">Divisions &amp; Ventures</span>
+        <h2>Our Businesses</h2>
+        <p style="max-width: 680px; margin-top: 8px;">Explore the diverse operating divisions of Bairava Groups, delivering professional services and community programmes across Tamil Nadu.</p>
+      </div>
+      <div>
+        <a href="{% url 'core:businesses_index' %}" class="btn btn-outline btn-sm">View All Directory →</a>
+      </div>
+    </div>
+
+    <div class="businesses-grid">
+      {% for div in divisions %}
+      <div class="business-card">
+        <div class="business-card-img-wrap">
+          {% if div.hero_image %}
+            <img src="{{ div.hero_image.url }}" alt="{{ div.name }}" class="business-card-img" loading="lazy">
+          {% elif div.static_image_path %}
+            <img src="{% static div.static_image_path %}" alt="{{ div.name }}" class="business-card-img" loading="lazy">
+          {% else %}
+            <img src="{% static 'core/images/divisions/construction.jpg' %}" alt="{{ div.name }}" class="business-card-img" loading="lazy">
+          {% endif %}
+          <span class="business-card-tag">
+            {% if div.division_type == 'foundation_trust' %}
+              Social Initiative
+            {% else %}
+              Commercial Division
+            {% endif %}
+          </span>
+        </div>
+        <div class="business-card-body">
+          <h3 class="business-card-title">{{ div.name }}</h3>
+          <p class="business-card-desc">{{ div.short_description }}</p>
+          <div>
+            {% if div.target_url %}
+              <a href="{{ div.target_url }}" class="business-card-action">
+                <span>Explore {{ div.name }}</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            {% else %}
+              <a href="{% url 'core:business_detail' slug=div.slug %}" class="business-card-action">
+                <span>Explore {{ div.name }}</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

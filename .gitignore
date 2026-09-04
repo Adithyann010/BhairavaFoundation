@@ -1,0 +1,38 @@
+# Python / Django
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environment
+venv/
+.venv/
+env/
+ENV/
+
+# Database
+*.sqlite3
+db.sqlite3
+
+# Media and Static files
+media/
+staticfiles/
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# OS Generated
+.DS_Store
+Thumbs.db
+
+# Environment variables & secrets
+.env
+*.log
+
+.vercel

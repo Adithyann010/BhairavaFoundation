@@ -1,0 +1,46 @@
+<!-- TRUST -->
+<section class="section trust-section" id="trust">
+  <div class="wrap">
+    <div class="trust-layout">
+      <div>
+        <h2 style="font-size:clamp(1.9rem,3vw,2.6rem); margin-bottom:18px;">What you give comes back tenfold</h2>
+        <p style="color:var(--slate); font-size:1.05rem; margin-bottom:32px; max-width:48ch;">The Trust runs independently of the commercial businesses, funded in part by them and in part by public donors. Close to 40 senior citizens are currently under its full-time care — housing, meals, clothing and medical needs included.</p>
+        <a href="#contact" class="btn btn-solid">Make a donation</a>
+      </div>
+      <div class="trust-programs">
+        {% for program in trust_programs %}
+        <div class="trust-program">
+          <div class="mark"></div>
+          <div>
+            <h4>{{ program.title }}</h4>
+            <p>{{ program.description }}</p>
+          </div>
+        </div>
+        {% empty %}
+        <!-- Fallback if no programs in DB -->
+        <div class="trust-program">
+          <div class="mark"></div>
+          <div>
+            <h4>Annadhanam</h4>
+            <p>Free meals served on the premises every day, and at scale during festivals and special occasions.</p>
+          </div>
+        </div>
+        <div class="trust-program">
+          <div class="mark"></div>
+          <div>
+            <h4>Elder care</h4>
+            <p>Full-time accommodation, food, clothing and medical support for senior citizens with nowhere else to turn.</p>
+          </div>
+        </div>
+        <div class="trust-program">
+          <div class="mark"></div>
+          <div>
+            <h4>Scholarships</h4>
+            <p>Financial support for children from low-income families to continue their education.</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

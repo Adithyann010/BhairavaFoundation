@@ -1,0 +1,4 @@
+django>=5.0
+pillow>=10.0
+whitenoise>=6.0
+requests>=2.28.0

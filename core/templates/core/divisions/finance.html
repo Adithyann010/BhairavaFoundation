@@ -1,0 +1,216 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Bairava Finance — Responsible Financial Solutions & Advisory{% endblock %}
+{% block meta_desc %}Bairava Finance focuses on professional and responsible financial solutions with an emphasis on transparency, reliability and long-term customer relationships.{% endblock %}
+
+{% block content %}
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumbs">
+      <a href="{% url 'core:home' %}">Home</a>
+      <span>/</span>
+      <a href="{% url 'core:businesses_index' %}">Businesses</a>
+      <span>/</span>
+      <span>Bairava Finance</span>
+    </div>
+
+    <div class="page-hero-grid">
+      <div>
+        <span class="badge badge-charcoal">Commercial Division</span>
+        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 12px;">Bairava Finance</h1>
+        <p class="hero-subtitle" style="font-size: 1.25rem;">"Transparent, Professional &amp; Responsible Financial Solutions."</p>
+        <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">Bairava Finance focuses on professional and responsible financial solutions with an emphasis on transparency, reliability and long-term customer relationships.</p>
+        
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="#solutions" class="btn btn-solid">Financial Solutions</a>
+          <a href="#finance-enquiry" class="btn btn-outline">Enquire Now</a>
+        </div>
+      </div>
+
+      <div class="page-hero-image-wrap">
+        <img src="{% static 'core/images/divisions/finance.jpg' %}" alt="Bairava Finance Meeting">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT FINANCE & APPROACH -->
+<section class="section">
+  <div class="wrap">
+    <div class="about-intro-grid">
+      <div>
+        <span class="badge">About Bairava Finance</span>
+        <h2>Client-Centered Financial Solutions Built on Trust</h2>
+        <p style="margin-bottom: 16px; font-size: 1.05rem;">At Bairava Finance, we understand that sound financial management and structured planning are essential to business growth and personal financial security.</p>
+        <p style="margin-bottom: 16px;">We work closely with business owners, professionals, and individuals to understand their specific requirements, evaluate cash flow needs, and provide clear, prudent, and practical financial guidance.</p>
+        <p>Our commitment is rooted in straightforward terms, honest communication, and enduring relationships where customer priorities always come first.</p>
+      </div>
+
+      <div style="background: var(--sand-light); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 32px;">
+        <h4 style="color: var(--brick); margin-bottom: 16px;">Why Choose Bairava Finance</h4>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Transparent Practices:</strong> Clear terms and direct consultations without ambiguity.</div>
+          </div>
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Tailored Approach:</strong> Solutions matched to individual business cycles and realistic timelines.</div>
+          </div>
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Long-Term Relationships:</strong> Decades of group trust and dependable customer service.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINANCIAL SOLUTIONS & SERVICES -->
+<section class="section" style="background-color: var(--sand-light);" id="solutions">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge badge-brass">Areas of Focus</span>
+        <h2>Financial Solutions &amp; Advisory</h2>
+        <p style="max-width: 620px; margin-top: 8px;">Responsible and structured financial guidance to support business stability and enterprise expansion.</p>
+      </div>
+    </div>
+
+    <div class="offerings-grid">
+      {% for offering in offerings %}
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>{{ offering.title }}</h4>
+          {% if offering.badge %}
+            <span class="offering-badge">{{ offering.badge }}</span>
+          {% endif %}
+        </div>
+        <p>{{ offering.description }}</p>
+      </div>
+      {% empty %}
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>Financial Advisory &amp; Planning</h4>
+          <span class="offering-badge">Advisory</span>
+        </div>
+        <p>Objective guidance for corporate cash flow management, growth planning, and prudent capital allocation.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>Working Capital &amp; Business Assistance</h4>
+          <span class="offering-badge">Commercial</span>
+        </div>
+        <p>Structured consultation on managing operational overheads, vendor receivables, and business expansion cycles.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>Asset &amp; Equipment Financing Advisory</h4>
+          <span class="offering-badge">Enterprise</span>
+        </div>
+        <p>Assisting enterprises in evaluating machinery, commercial vehicle, and infrastructural funding options.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>Customer-First Transparent Terms</h4>
+          <span class="offering-badge">Integrity</span>
+        </div>
+        <p>Clear agreements without hidden clauses, straightforward timelines, and dedicated relationship managers.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ENQUIRY & CONTACT FORM -->
+<section class="section" id="finance-enquiry">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge">Consultation</span>
+        <h2>Connect with Bairava Finance</h2>
+        <p style="max-width: 600px; margin-top: 8px;">Schedule a confidential financial consultation or enquire about tailored business solutions.</p>
+      </div>
+    </div>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{% if message.tags == 'error' %}info{% else %}{{ message.tags }}{% endif %}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <div class="division-contact-grid">
+      <div class="contact-card-info">
+        <h3>Finance Division Office</h3>
+        <p style="margin-bottom: 24px;">Our advisors are available for in-person consultations at our KK Nagar corporate office.</p>
+
+        <div class="contact-info-list">
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <h5>Office Address</h5>
+              <p>New #18, Plot 644, 46th Street, 9th Sector, KK Nagar, Chennai – 600078</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <div>
+              <h5>Direct Phone</h5>
+              <a href="tel:+919941757555">+91 99417 57555</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <div>
+              <h5>Email</h5>
+              <a href="mailto:sribairavaassociates@gmail.com">sribairavaassociates@gmail.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-box">
+        <h3>Request a Financial Consultation</h3>
+        <p style="font-size: 0.88rem; margin-bottom: 20px;">Submit your requirements below and our advisor will reach out confidentially.</p>
+
+        <form method="post" action="{% url 'core:business_detail' slug='finance' %}#finance-enquiry">
+          {% csrf_token %}
+          <div class="form-row">
+            <div class="form-group">
+              <label for="{{ form.name.id_for_label }}">{{ form.name.label }} *</label>
+              {{ form.name }}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }} *</label>
+              {{ form.phone }}
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+              {{ form.email }}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.subject.id_for_label }}">{{ form.subject.label }}</label>
+              {{ form.subject }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="{{ form.message.id_for_label }}">{{ form.message.label }} *</label>
+            {{ form.message }}
+          </div>
+          <button type="submit" class="btn btn-solid" style="width: 100%;">Submit Consultation Request</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+{% include "core/includes/_cta.html" %}
+{% endblock %}

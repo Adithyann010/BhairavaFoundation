@@ -1,0 +1,181 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}{{ division.name }} — Bairava Groups{% endblock %}
+{% block meta_desc %}{{ division.short_description }}{% endblock %}
+
+{% block content %}
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumbs">
+      <a href="{% url 'core:home' %}">Home</a>
+      <span>/</span>
+      <a href="{% url 'core:businesses_index' %}">Businesses</a>
+      <span>/</span>
+      <span>{{ division.name }}</span>
+    </div>
+
+    <div class="page-hero-grid">
+      <div>
+        <span class="badge">{{ division.get_division_type_display }}</span>
+        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 12px;">{{ division.name }}</h1>
+        {% if division.tagline %}
+          <p class="hero-subtitle" style="font-size: 1.25rem;">"{{ division.tagline }}"</p>
+        {% endif %}
+        <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">{{ division.short_description }}</p>
+        
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="#offerings" class="btn btn-solid">Explore Offerings</a>
+          <a href="#division-enquiry" class="btn btn-outline">Enquire Now</a>
+        </div>
+      </div>
+
+      <div class="page-hero-image-wrap">
+        {% if division.hero_image %}
+          <img src="{{ division.hero_image.url }}" alt="{{ division.name }}">
+        {% elif division.static_image_path %}
+          <img src="{% static division.static_image_path %}" alt="{{ division.name }}">
+        {% else %}
+          <img src="{% static 'core/images/divisions/construction.jpg' %}" alt="{{ division.name }}">
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT DIVISION -->
+<section class="section">
+  <div class="wrap">
+    <div class="about-intro-grid">
+      <div>
+        <span class="badge">About {{ division.name }}</span>
+        <h2>Commitment to Excellence &amp; Value</h2>
+        <p style="margin-bottom: 16px; font-size: 1.05rem;">{{ division.full_description|default:division.short_description }}</p>
+        <p>Operating as an integral part of Bairava Groups, we uphold the highest standards of transparency, quality execution, and customer focus.</p>
+      </div>
+
+      <div style="background: var(--sand-light); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 32px;">
+        <h4 style="color: var(--brick); margin-bottom: 16px;">Core Highlights</h4>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Professional Management:</strong> Experienced team and dedicated customer coordination.</div>
+          </div>
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Reliable Execution:</strong> Delivering on commitments with high attention to detail.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFERINGS -->
+{% if offerings %}
+<section class="section" style="background-color: var(--sand-light);" id="offerings">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge badge-brass">Services &amp; Offerings</span>
+        <h2>Services &amp; Programs</h2>
+        <p style="max-width: 620px; margin-top: 8px;">Explore our key capabilities and service offerings.</p>
+      </div>
+    </div>
+
+    <div class="offerings-grid">
+      {% for offering in offerings %}
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>{{ offering.title }}</h4>
+          {% if offering.badge %}
+            <span class="offering-badge">{{ offering.badge }}</span>
+          {% endif %}
+        </div>
+        <p>{{ offering.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- ENQUIRY -->
+<section class="section" id="division-enquiry">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge">Contact</span>
+        <h2>Enquire with {{ division.name }}</h2>
+        <p style="max-width: 600px; margin-top: 8px;">Submit your requirements and our team will get in touch with you.</p>
+      </div>
+    </div>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{% if message.tags == 'error' %}info{% else %}{{ message.tags }}{% endif %}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <div class="division-contact-grid">
+      <div class="contact-card-info">
+        <h3>Direct Contact</h3>
+        <div class="contact-info-list">
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <h5>Office Address</h5>
+              <p>New #18, Plot 644, 46th Street, 9th Sector, KK Nagar, Chennai – 600078</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <div>
+              <h5>Helpline</h5>
+              <a href="tel:+919941757555">+91 99417 57555</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-box">
+        <h3>Submit Enquiry</h3>
+        <form method="post" action="{% url 'core:business_detail' slug=division.slug %}#division-enquiry">
+          {% csrf_token %}
+          <div class="form-row">
+            <div class="form-group">
+              <label for="{{ form.name.id_for_label }}">{{ form.name.label }} *</label>
+              {{ form.name }}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }} *</label>
+              {{ form.phone }}
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+              {{ form.email }}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.subject.id_for_label }}">{{ form.subject.label }}</label>
+              {{ form.subject }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="{{ form.message.id_for_label }}">{{ form.message.label }} *</label>
+            {{ form.message }}
+          </div>
+          <button type="submit" class="btn btn-solid" style="width: 100%;">Submit Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+{% include "core/includes/_cta.html" %}
+{% endblock %}

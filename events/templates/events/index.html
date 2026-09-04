@@ -1,0 +1,264 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Bairava Event Management — Weddings, Corporate & Social Galas Chennai{% endblock %}
+{% block meta_desc %}Bairava Event Management provides end-to-end event planning and execution for corporate, cultural, social, sporting and private occasions in Chennai.{% endblock %}
+
+{% block content %}
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumbs">
+      <a href="{% url 'core:home' %}">Home</a>
+      <span>/</span>
+      <a href="{% url 'core:businesses_index' %}">Businesses</a>
+      <span>/</span>
+      <span>Bairava Event Management</span>
+    </div>
+
+    <div class="page-hero-grid">
+      <div>
+        <span class="badge badge-charcoal">Commercial Division</span>
+        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 12px;">Bairava Event Management</h1>
+        <p class="hero-subtitle" style="font-size: 1.25rem;">"Turnkey Event Planning &amp; Flawless Celebrations."</p>
+        <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">Bairava Event Management provides end-to-end event planning and execution for corporate, cultural, social, sporting and private occasions.</p>
+        
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="#portfolio" class="btn btn-solid">Event Portfolio</a>
+          <a href="#plan-event" class="btn btn-outline">Book an Event</a>
+        </div>
+      </div>
+
+      <div class="page-hero-image-wrap">
+        <img src="{% static 'core/images/divisions/events.jpg' %}" alt="Bairava Event Management Luxury Ballroom Setup">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT EVENTS -->
+<section class="section">
+  <div class="wrap">
+    <div class="about-intro-grid">
+      <div>
+        <span class="badge">About Event Management</span>
+        <h2>End-to-End Coordination for Unforgettable Occasions</h2>
+        <p style="margin-bottom: 16px; font-size: 1.05rem;">From royal destination weddings and traditional family ceremonies to high-profile corporate conferences and sporting galas, Bairava Event Management delivers seamless, turnkey event experiences.</p>
+        <p style="margin-bottom: 16px;">We manage every component in-house: venue booking, theme &amp; floral mandap styling, acoustic stage &amp; LED engineering, catering staff coordination, guest hospitality, and complete day-of timeline execution.</p>
+        <p>Our single-point management approach ensures hosts enjoy their special milestones completely stress-free while our seasoned crew manages every fine detail.</p>
+      </div>
+
+      <div style="background: var(--sand-light); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 32px;">
+        <h4 style="color: var(--brick); margin-bottom: 16px;">Our Event Hallmarks</h4>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Complete Turnkey Management:</strong> Venue, floral decor, lighting, sound, and artist coordination.</div>
+          </div>
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Dedicated Day-of Crew:</strong> On-site event coordinators ensuring zero delays and flawless transitions.</div>
+          </div>
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Customized Theme Concepts:</strong> Tailored traditional, contemporary, or corporate visual aesthetics.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENT TYPES & SERVICES -->
+<section class="section" style="background-color: var(--sand-light);" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge badge-brass">Services Spectrum</span>
+        <h2>Event Disciplines &amp; Occasions</h2>
+        <p style="max-width: 620px; margin-top: 8px;">Explore the diverse event formats produced by our management team.</p>
+      </div>
+    </div>
+
+    <div class="offerings-grid">
+      {% for event_type in event_types %}
+      <div class="offering-card">
+        <h4>{{ event_type.title }}</h4>
+        <p>{{ event_type.description }}</p>
+      </div>
+      {% empty %}
+      <div class="offering-card">
+        <h4>Weddings &amp; Receptions</h4>
+        <p>Full ceremony, mandap styling, sangeet production, and reception guest coordination.</p>
+      </div>
+      <div class="offering-card">
+        <h4>Corporate Summits &amp; Conferences</h4>
+        <p>Stage set-ups, curved LED video walls, delegate hospitality, and audio-visual engineering.</p>
+      </div>
+      <div class="offering-card">
+        <h4>Social Galas &amp; Milestone Parties</h4>
+        <p>Anniversaries, birthdays, cultural festivals, and community celebrations planned end-to-end.</p>
+      </div>
+      <div class="offering-card">
+        <h4>Bespoke Floral &amp; Theme Decor</h4>
+        <p>Custom floral installations, mood lighting, fabric drapes, and entrance arches.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO WITH FILTERS -->
+<section class="section" id="portfolio">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge">Celebrations Gallery</span>
+        <h2>Featured Event Portfolio</h2>
+        <p style="max-width: 600px; margin-top: 8px;">Filter our past productions across weddings, corporate meets, and galas.</p>
+      </div>
+    </div>
+
+    <!-- Filter Pills -->
+    <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px;">
+      {% for code, label in categories %}
+        <a href="?category={{ code }}#portfolio" class="btn btn-sm {% if selected_category == code %}btn-solid{% else %}btn-outline{% endif %}">
+          {{ label }}
+        </a>
+      {% endfor %}
+    </div>
+
+    <div class="projects-grid">
+      {% for item in portfolio_items %}
+      <div class="project-item-card">
+        {% if item.image %}
+          <img src="{{ item.image.url }}" alt="{{ item.title }}" class="project-item-img" loading="lazy">
+        {% else %}
+          <img src="{% static 'core/images/divisions/events.jpg' %}" alt="{{ item.title }}" class="project-item-img" loading="lazy">
+        {% endif %}
+        <div class="project-item-body">
+          <span class="project-item-cat">{{ item.get_category_display }}</span>
+          <h4>{{ item.title }}</h4>
+          <p>{{ item.description }}</p>
+          <div class="project-meta-row">
+            <span>📍 {{ item.location }}</span>
+            {% if item.guest_capacity %}
+              <span>👥 {{ item.guest_capacity }}</span>
+            {% endif %}
+            <span>{{ item.completion_year }}</span>
+          </div>
+        </div>
+      </div>
+      {% empty %}
+      <div style="grid-column: 1 / -1; text-align: center; padding: 48px 20px; color: var(--slate);">
+        <h3>No event showcase items found in this category</h3>
+        <a href="{% url 'events:index' %}#portfolio" class="btn btn-outline" style="margin-top: 16px;">Show All Events</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ENQUIRY & BOOKING FORM -->
+<section class="section" style="background-color: var(--sand-light);" id="plan-event">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge badge-brass">Plan an Event</span>
+        <h2>Plan Your Celebration with Bairava Event Management</h2>
+        <p style="max-width: 600px; margin-top: 8px;">Connect with our event coordinators for dates, venue sourcing, and package estimates.</p>
+      </div>
+    </div>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{% if message.tags == 'error' %}info{% else %}{{ message.tags }}{% endif %}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <div class="division-contact-grid">
+      <div class="contact-card-info">
+        <h3>Events Production Desk</h3>
+        <p style="margin-bottom: 24px;">Our planning team will discuss your venue options, decor concepts, and guest itinerary.</p>
+
+        <div class="contact-info-list">
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <h5>Events Desk Address</h5>
+              <p>New #18, Plot 644, 46th Street, 9th Sector, KK Nagar, Chennai – 600078</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <div>
+              <h5>Events Coordinator Phone</h5>
+              <a href="tel:+919941757555">+91 99417 57555</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <div>
+              <h5>Email Inquiries</h5>
+              <a href="mailto:sribairavaassociates@gmail.com">sribairavaassociates@gmail.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-box">
+        <h3>Submit Event Details</h3>
+        <p style="font-size: 0.88rem; margin-bottom: 20px;">Provide event date, guest count, and requirements for a custom proposal.</p>
+
+        <form method="post" action="{% url 'events:index' %}#plan-event">
+          {% csrf_token %}
+          <div class="form-row">
+            <div class="form-group">
+              <label for="{{ form.name.id_for_label }}">{{ form.name.label }} *</label>
+              {{ form.name }}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }} *</label>
+              {{ form.phone }}
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+              {{ form.email }}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.event_type.id_for_label }}">{{ form.event_type.label }} *</label>
+              {{ form.event_type }}
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="{{ form.event_date.id_for_label }}">{{ form.event_date.label }}</label>
+              {{ form.event_date }}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.expected_guests.id_for_label }}">{{ form.expected_guests.label }}</label>
+              {{ form.expected_guests }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="{{ form.preferred_location.id_for_label }}">{{ form.preferred_location.label }}</label>
+            {{ form.preferred_location }}
+          </div>
+          <div class="form-group">
+            <label for="{{ form.special_requirements.id_for_label }}">{{ form.special_requirements.label }} *</label>
+            {{ form.special_requirements }}
+          </div>
+          <button type="submit" class="btn btn-solid" style="width: 100%;">Submit Event Booking Request</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+{% include "core/includes/_cta.html" %}
+{% endblock %}
