@@ -1,6 +1,7 @@
 import json
 from django.test import TestCase, Client
 from django.urls import reverse
+from django.conf import settings
 from core.models import BusinessDivision, DivisionOffering, Stat, NewsItem
 from construction.models import ConstructionProject, Service as ConstructionService
 from trust.models import TrustActivityItem, TrustProgram
@@ -245,6 +246,7 @@ class AIChatbotTestCase(TestCase):
         now = time.time()
         session['ai_chat_request_timestamps'] = [now - 10] * 32
         session.save()
+        self.client.cookies[settings.SESSION_COOKIE_NAME] = session.session_key
 
         payload = {"message": "Hello", "conversation_id": "test_conv_rate"}
         response = self.client.post(url, json.dumps(payload), content_type="application/json")
@@ -259,4 +261,72 @@ class AIChatbotTestCase(TestCase):
         self.assertIn("context_text", context_data)
         self.assertIn("Bairava Construction", context_data["context_text"])
         self.assertIn("Bairava Heights", context_data["context_text"])
+
+
+class FuturePlanTestCase(TestCase):
+    def setUp(self):
+        from django.test import RequestFactory
+        self.rf = RequestFactory()
+
+    def test_future_plan_page_status_and_content(self):
+        """Test GET /future-plan/ returns 200 and contains all required vision & venture details."""
+        from core.views import future_plan_view
+        req = self.rf.get(reverse('core:future_plan'))
+        response = future_plan_view(req)
+        self.assertEqual(response.status_code, 200)
+        content = response.content.decode('utf-8')
+
+        # Headings & Vision
+        self.assertIn("OUR VISION AHEAD", content)
+        self.assertIn("Future Plan", content)
+        self.assertIn("Expanding our horizons to create more value", content)
+        self.assertIn("Two new businesses coming soon under Bairava Groups", content)
+
+        # Business 1: Bairava Water Solutions
+        self.assertIn("Bairava Water Solutions", content)
+        self.assertIn("Pure Water. Healthier Lives.", content)
+        self.assertIn("Packaged drinking water and water-can distribution", content)
+        self.assertIn("Clean &amp; Safe Drinking Water", content)
+        self.assertIn("A Healthier Tomorrow with Bairava.", content)
+
+        # Business 2: Bairava Jewellery
+        self.assertIn("Bairava Jewellery", content)
+        self.assertIn("Timeless Beauty. Lasting Value.", content)
+        self.assertIn("Jewellery retail and elegant handcrafted collections", content)
+        self.assertIn("Gold Jewellery &amp; Traditional Collections", content)
+        self.assertIn("Tradition Today. For Generations Tomorrow.", content)
+
+        # Coming Soon indicators
+        self.assertIn("Coming Soon", content)
+
+        # Footer copyright test
+        self.assertIn("© 2026 La Fortune Makers. All rights reserved. Chennai, Tamil Nadu.", content)
+
+    def test_future_plan_nav_in_all_pages(self):
+        """Test that Future Plan appears in the header between Businesses and Foundation & Trust."""
+        from core.views import home
+        req = self.rf.get(reverse('core:home'))
+        response = home(req)
+        self.assertEqual(response.status_code, 200)
+        content = response.content.decode('utf-8')
+
+        self.assertIn("Future Plan", content)
+        self.assertIn("Bairava Water Solutions", content)
+        self.assertIn("Bairava Jewellery", content)
+
+        # Check navigation ordering in HTML
+        businesses_pos = content.find("Businesses")
+        future_plan_pos = content.find("Future Plan")
+        foundation_pos = content.find("Foundation &amp; Trust")
+        self.assertTrue(businesses_pos < future_plan_pos < foundation_pos)
+
+    def test_future_plan_suggestions(self):
+        """Test chatbot suggestions for future-plan page."""
+        from core.views_chat import chat_suggestions_api
+        req = self.rf.get(reverse('core:chat_suggestions_api') + '?current_page=/future-plan/')
+        response = chat_suggestions_api(req)
+        self.assertEqual(response.status_code, 200)
+        data = json.loads(response.content.decode('utf-8'))
+        self.assertIn("What is Bairava Water Solutions?", data["suggestions"])
+
 

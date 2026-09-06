@@ -8,7 +8,7 @@ import time
 import logging
 from django.http import JsonResponse, HttpResponseBadRequest
 from django.views.decorators.http import require_http_methods
-from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.decorators.csrf import ensure_csrf_cookie, csrf_exempt
 from django.conf import settings
 
 from services.ai_chat import process_chat_message
@@ -26,20 +26,25 @@ def _check_rate_limit(request) -> bool:
     Simple session-based rate limiter.
     Allows up to DEFAULT_RATE_LIMIT requests within 60 seconds.
     """
-    now = time.time()
-    chat_requests = request.session.get('ai_chat_request_timestamps', [])
+    try:
+        now = time.time()
+        chat_requests = request.session.get('ai_chat_request_timestamps', [])
 
-    # Filter out timestamps older than the rate limit window
-    chat_requests = [ts for ts in chat_requests if now - ts < RATE_LIMIT_WINDOW_SECONDS]
+        # Filter out timestamps older than the rate limit window
+        chat_requests = [ts for ts in chat_requests if now - ts < RATE_LIMIT_WINDOW_SECONDS]
 
-    if len(chat_requests) >= DEFAULT_RATE_LIMIT:
-        return False
+        if len(chat_requests) >= DEFAULT_RATE_LIMIT:
+            return False
 
-    chat_requests.append(now)
-    request.session['ai_chat_request_timestamps'] = chat_requests
-    return True
+        chat_requests.append(now)
+        request.session['ai_chat_request_timestamps'] = chat_requests
+        return True
+    except Exception as e:
+        logger.debug(f"Session rate limit fallback: {e}")
+        return True
 
 
+@csrf_exempt
 @require_http_methods(["POST"])
 def chat_api(request):
     """

@@ -229,6 +229,38 @@ def generate_rag_fallback_response(
             "Explore published articles on the **[Bairava Media Page](/businesses/media/)**."
         )
 
+    # 11. Future Plan (Upcoming Ventures - Coming Soon)
+    if any(term in q for term in ['future plan', 'future business', 'upcoming venture', 'upcoming business', 'vision ahead']) or ('future-plan' in page and any(term in q for term in ['what', 'tell me', 'about', 'plan'])):
+        return (
+            "**Future Plan — Our Vision Ahead**\n\n"
+            "Expanding our horizons to create more value, opportunities and meaningful impact. Bairava Groups has two exciting new ventures coming soon:\n\n"
+            "1. **[Bairava Water Solutions](/future-plan/#water-solutions)** — Planned venture focused on packaged drinking water and water-can distribution for homes, offices, and businesses (\"Pure Water. Healthier Lives.\")\n"
+            "2. **[Bairava Jewellery](/future-plan/#jewellery)** — Planned venture bringing elegant and high-quality jewellery collections combining traditional inspiration with modern craftsmanship (\"Timeless Beauty. Lasting Value.\")\n\n"
+            "Both ventures are currently marked as **Coming Soon**. Explore more details on our dedicated **[Future Plan Page](/future-plan/)**."
+        )
+
+    # 12. Specific Upcoming Venture: Bairava Water Solutions
+    if any(term in q for term in ['water solution', 'water solutions', 'bairava water', 'water can', 'drinking water', 'packaged water']):
+        return (
+            "**[Bairava Water Solutions](/future-plan/#water-solutions)** is a planned upcoming venture under Bairava Groups (\"Pure Water. Healthier Lives.\").\n\n"
+            "**Main Concept & Key Highlights:**\n"
+            "- Packaged drinking water & water-can distribution for homes, offices, and businesses.\n"
+            "- Clean, pure, and safe drinking water supply.\n"
+            "- Reliable and convenient doorstep delivery.\n\n"
+            "Status: **Coming Soon**. Read more on the **[Future Plan Page](/future-plan/)**."
+        )
+
+    # 13. Specific Upcoming Venture: Bairava Jewellery
+    if any(term in q for term in ['jewellery', 'jewelry', 'bairava jewellery', 'gold jewellery']):
+        return (
+            "**[Bairava Jewellery](/future-plan/#jewellery)** is a planned upcoming venture under Bairava Groups (\"Timeless Beauty. Lasting Value.\").\n\n"
+            "**Main Concept & Key Highlights:**\n"
+            "- Elegant and high-quality gold jewellery collections for meaningful celebrations and special occasions.\n"
+            "- Harmonious blend of traditional South Indian heritage with contemporary modern design.\n"
+            "- Expert craftsmanship and customer-focused shopping experience.\n\n"
+            "Status: **Coming Soon**. Read more on the **[Future Plan Page](/future-plan/)**."
+        )
+
     # 11. General businesses / divisions overview
     if any(term in q for term in ['what businesses', 'business divisions', 'seven business', '7 business', 'divisions', 'ventures', 'what does bairava do', 'tell me about bairava groups', 'about bairava groups', 'overview']):
         return (

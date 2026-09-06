@@ -84,6 +84,68 @@ def businesses_index(request):
     return render(request, 'core/businesses_index.html', context)
 
 
+def future_plan_view(request):
+    """Dedicated Future Plan page showcasing upcoming ventures under Bairava Groups."""
+    upcoming_businesses = [
+        {
+            'name': 'Bairava Water Solutions',
+            'slug': 'water-solutions',
+            'category': 'Future Business / Upcoming Venture',
+            'tagline': 'Pure Water. Healthier Lives.',
+            'main_concept': 'Packaged drinking water and water-can distribution.',
+            'description': 'Bairava Water Solutions will focus on providing high-quality packaged drinking water and water-can distribution, serving homes, offices and businesses with convenient and reliable delivery.',
+            'supporting_points': [
+                'Packaged Drinking Water',
+                'Water Can Distribution',
+                'Home Delivery',
+                'Office & Business Supply',
+                'Reliable Distribution',
+                'Convenient Service'
+            ],
+            'feature_items': [
+                'Clean & Safe Drinking Water',
+                'Home & Office Delivery',
+                'For Individuals & Businesses',
+                'Reliable & Convenient Service'
+            ],
+            'bottom_message': 'A Healthier Tomorrow with Bairava.',
+            'static_image': 'core/images/divisions/water_solutions.jpg',
+            'theme': 'water'
+        },
+        {
+            'name': 'Bairava Jewellery',
+            'slug': 'jewellery',
+            'category': 'Future Business / Upcoming Venture',
+            'tagline': 'Timeless Beauty. Lasting Value.',
+            'main_concept': 'Jewellery retail and collections.',
+            'description': 'Bairava Jewellery will bring elegant and high-quality jewellery collections that combine traditional inspiration with modern design, created for meaningful moments and special occasions.',
+            'supporting_points': [
+                'Gold Jewellery',
+                'Traditional Collections',
+                'Contemporary Designs',
+                'Elegant Craftsmanship',
+                'Special Occasion Collections',
+                'Customer-focused Experience'
+            ],
+            'feature_items': [
+                'Elegant Collections',
+                'Quality Craftsmanship',
+                'Traditional & Modern Designs',
+                'For Every Special Occasion'
+            ],
+            'bottom_message': 'Tradition Today. For Generations Tomorrow.',
+            'static_image': 'core/images/divisions/jewellery.jpg',
+            'theme': 'jewellery'
+        }
+    ]
+
+    context = {
+        'upcoming_businesses': upcoming_businesses,
+    }
+    return render(request, 'core/future_plan.html', context)
+
+
+
 def foundation_view(request):
     """Dedicated page for Bairava Foundation."""
     division = get_object_or_404(BusinessDivision, slug='foundation')

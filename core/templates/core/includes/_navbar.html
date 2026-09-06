@@ -21,7 +21,7 @@
       </div>
 
       <!-- Businesses Dropdown (7 Divisions) -->
-      <div class="nav-item">
+      <div class="nav-item {% if 'businesses' in request.path %}active{% endif %}">
         <a href="{% url 'core:businesses_index' %}" class="nav-link">
           Businesses
           <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
@@ -72,8 +72,42 @@
         </div>
       </div>
 
+      <!-- Future Plan Dropdown (2 Upcoming Ventures) -->
+      <div class="nav-item {% if request.resolver_match.url_name == 'future_plan' or 'future-plan' in request.path %}active{% endif %}">
+        <a href="{% url 'core:future_plan' %}" class="nav-link">
+          Future Plan
+          <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="dropdown-menu dropdown-menu-future">
+          <a href="{% url 'core:future_plan' %}#water-solutions" class="dropdown-item dropdown-item-rich">
+            <div class="dropdown-thumb-wrap">
+              <img src="{% static 'core/images/divisions/water_solutions.jpg' %}" alt="Bairava Water Solutions" class="dropdown-thumb">
+            </div>
+            <div class="dropdown-item-content">
+              <div class="dropdown-item-header">
+                <h5>Bairava Water Solutions</h5>
+                <span class="dropdown-item-badge badge-water">Coming Soon</span>
+              </div>
+              <p>Packaged drinking water &amp; water-can distribution for homes, offices and businesses.</p>
+            </div>
+          </a>
+          <a href="{% url 'core:future_plan' %}#jewellery" class="dropdown-item dropdown-item-rich">
+            <div class="dropdown-thumb-wrap">
+              <img src="{% static 'core/images/divisions/jewellery.jpg' %}" alt="Bairava Jewellery" class="dropdown-thumb">
+            </div>
+            <div class="dropdown-item-content">
+              <div class="dropdown-item-header">
+                <h5>Bairava Jewellery</h5>
+                <span class="dropdown-item-badge badge-jewellery">Coming Soon</span>
+              </div>
+              <p>Elegant and high-quality jewellery collections for every special occasion.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+
       <!-- Foundation & Trust Dropdown (2 Initiatives) -->
-      <div class="nav-item">
+      <div class="nav-item {% if request.resolver_match.url_name == 'foundation' or 'trust' in request.path %}active{% endif %}">
         <a href="{% url 'core:foundation' %}" class="nav-link">
           Foundation &amp; Trust
           <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
@@ -94,11 +128,11 @@
         </div>
       </div>
 
-      <div class="nav-item">
+      <div class="nav-item {% if 'legal' in request.path %}active{% endif %}">
         <a href="{% url 'law_associates:index' %}" class="nav-link">Legal</a>
       </div>
 
-      <div class="nav-item">
+      <div class="nav-item {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
         <a href="{% url 'core:contact' %}" class="nav-link">Contact</a>
       </div>
     </nav>
@@ -149,6 +183,19 @@
           <a href="{% url 'core:business_detail' slug='event-management' %}" class="mobile-sublink">Bairava Event Management</a>
           <a href="{% url 'core:business_detail' slug='aadukalam' %}" class="mobile-sublink">Bairava Aadukalam</a>
           <a href="{% url 'core:business_detail' slug='media' %}" class="mobile-sublink">Bairava Media</a>
+        </div>
+      </div>
+
+      <!-- Mobile Future Plan Accordion -->
+      <div class="mobile-nav-item">
+        <button class="mobile-accordion-toggle" data-target="mFuturePlan">
+          <span>Future Plan</span>
+          <svg class="dropdown-arrow accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px; height:14px;"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="mobile-accordion-content" id="mFuturePlan">
+          <a href="{% url 'core:future_plan' %}" class="mobile-sublink" style="font-weight:600; color:var(--brick);">→ View Future Plan Overview</a>
+          <a href="{% url 'core:future_plan' %}#water-solutions" class="mobile-sublink">Bairava Water Solutions</a>
+          <a href="{% url 'core:future_plan' %}#jewellery" class="mobile-sublink">Bairava Jewellery</a>
         </div>
       </div>
 

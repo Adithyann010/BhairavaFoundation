@@ -30,6 +30,10 @@ def get_group_general_knowledge() -> str:
         "TWO SOCIAL & COMMUNITY INITIATIVES:\n"
         "8. Bairava Foundation: Sustainable community empowerment through educational scholarships, healthcare access, welfare development, and youth mentorship (/foundation/).\n"
         "9. Bairava Trust: Compassionate social care, daily Annadhanam (free meals for 500+ daily), full-time elder care shelter, low-income student support, and community relief drives (/trust/).\n"
+        "\n"
+        "FUTURE PLAN (UPCOMING VENTURES - COMING SOON):\n"
+        "- Bairava Water Solutions: Planned venture for packaged drinking water and water-can distribution for homes, offices and businesses. Tagline: 'Pure Water. Healthier Lives.' (/future-plan/#water-solutions).\n"
+        "- Bairava Jewellery: Planned venture for elegant and high-quality jewellery collections, combining traditional inspiration with modern craftsmanship for meaningful moments and special occasions. Tagline: 'Timeless Beauty. Lasting Value.' (/future-plan/#jewellery).\n"
     )
 
 
@@ -298,6 +302,12 @@ def get_suggested_questions(current_page: str = "") -> List[str]:
             "What does Bairava Media do?",
             "What video production and podcast services exist?",
             "Tell me about your published stories."
+        ]
+    elif 'future-plan' in page or 'future' in page:
+        return [
+            "What is Bairava Water Solutions?",
+            "Tell me about Bairava Jewellery.",
+            "What are the upcoming ventures under Future Plan?"
         ]
     elif 'contact' in page:
         return [

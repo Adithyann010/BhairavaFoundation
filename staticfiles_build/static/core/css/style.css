@@ -285,24 +285,104 @@ header {
   line-height: 1.35;
 }
 
+/* Future Plan Rich Dropdown */
+.dropdown-menu-future {
+  min-width: 380px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dropdown-item-rich {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 12px;
+  border-radius: var(--radius-xs);
+  transition: all var(--transition-fast);
+  border: 1px solid transparent;
+}
+
+.dropdown-item-rich:hover {
+  background-color: var(--sand);
+  border-color: var(--line);
+}
+
+.dropdown-thumb-wrap {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--sand-light);
+}
+
+.dropdown-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-fast);
+}
+
+.dropdown-item-rich:hover .dropdown-thumb {
+  transform: scale(1.08);
+}
+
+.dropdown-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.dropdown-item-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  line-height: 1.2;
+}
+
+.badge-water {
+  background: rgba(30, 95, 140, 0.12);
+  color: #1E5F8C;
+}
+
+.badge-jewellery {
+  background: rgba(169, 130, 46, 0.14);
+  color: var(--brass-dark);
+}
+
 /* Nav Right & Call Pill */
 .nav-right {
   display: flex;
   align-items: center;
   gap: 16px;
+  flex-shrink: 0;
 }
 
 .call-pill {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 9px 18px;
   background-color: var(--brick);
   color: var(--white);
   border-radius: var(--radius-full);
+  font-family: 'Work Sans', sans-serif;
   font-size: 0.88rem;
   font-weight: 600;
   letter-spacing: 0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
+  line-height: 1.2;
+  text-decoration: none;
   transition: var(--transition);
   box-shadow: 0 2px 8px rgba(124, 59, 41, 0.25);
 }
@@ -318,6 +398,12 @@ header {
   width: 15px;
   height: 15px;
   fill: currentColor;
+  flex-shrink: 0;
+}
+
+.call-pill span {
+  white-space: nowrap;
+  display: inline;
 }
 
 /* Hamburger Button */
@@ -1419,12 +1505,349 @@ footer {
 }
 
 /* ==========================================================================
+   FUTURE PLAN PAGE & UPCOMING VENTURE CARDS
+   ========================================================================== */
+
+.future-plan-hero {
+  background: radial-gradient(circle at center top, var(--sand-light) 0%, var(--paper) 70%);
+  padding: 52px 0 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.future-plan-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px;
+  align-items: stretch;
+}
+
+.future-card {
+  background: var(--paper);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.future-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Subtle cool water accent */
+.future-card-water {
+  border-top: 4px solid #1E5F8C;
+}
+
+.future-card-water:hover {
+  border-color: #1E5F8C;
+}
+
+/* Subtle warm gold/brown luxury accent */
+.future-card-jewellery {
+  border-top: 4px solid var(--brass);
+}
+
+.future-card-jewellery:hover {
+  border-color: var(--brass);
+}
+
+.future-card-header {
+  padding: 30px 32px 20px 32px;
+  background: linear-gradient(180deg, var(--sand-light) 0%, var(--paper) 100%);
+  border-bottom: 1px solid var(--line);
+}
+
+.future-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.future-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+.future-badge-water {
+  background: rgba(30, 95, 140, 0.1);
+  color: #1E5F8C;
+}
+
+.future-badge-jewellery {
+  background: rgba(169, 130, 46, 0.12);
+  color: var(--brass-dark);
+}
+
+.future-status-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.status-water {
+  background: #E8F2F8;
+  color: #16486B;
+  border: 1px solid rgba(30, 95, 140, 0.25);
+}
+
+.status-jewellery {
+  background: #FAF3E3;
+  color: var(--brass-dark);
+  border: 1px solid rgba(169, 130, 46, 0.28);
+}
+
+.future-card-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.future-card-tagline {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.02rem;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--slate);
+}
+
+.future-card-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  background-color: var(--sand);
+}
+
+.future-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.future-card:hover .future-card-img {
+  transform: scale(1.04);
+}
+
+.future-card-img-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.overlay-water {
+  background: linear-gradient(180deg, rgba(30, 95, 140, 0.04) 0%, rgba(30, 95, 140, 0.16) 100%);
+}
+
+.overlay-jewellery {
+  background: linear-gradient(180deg, rgba(169, 130, 46, 0.04) 0%, rgba(169, 130, 46, 0.16) 100%);
+}
+
+.future-card-body {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-grow: 1;
+}
+
+.future-concept-box {
+  padding: 14px 18px;
+  border-radius: var(--radius-xs);
+  border-left: 3px solid;
+}
+
+.concept-water {
+  background: #F0F6FA;
+  border-left-color: #1E5F8C;
+}
+
+.concept-jewellery {
+  background: #FAF6ED;
+  border-left-color: var(--brass);
+}
+
+.concept-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--slate);
+  margin-bottom: 4px;
+}
+
+.concept-text {
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  line-height: 1.45;
+}
+
+.future-card-desc {
+  font-size: 0.96rem;
+  line-height: 1.68;
+  color: var(--slate);
+}
+
+.future-features-block {
+  margin-top: 4px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.future-features-heading {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--charcoal-light);
+  margin-bottom: 14px;
+}
+
+.future-features-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 14px;
+}
+
+.future-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  line-height: 1.35;
+}
+
+.feature-icon {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.item-water .feature-icon {
+  stroke: #1E5F8C;
+}
+
+.item-jewellery .feature-icon {
+  stroke: var(--brass-dark);
+}
+
+.future-card-action-wrap {
+  margin-top: auto;
+  padding-top: 16px;
+}
+
+.future-btn-coming-soon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 13px 24px;
+  border-radius: var(--radius-xs);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: default;
+  transition: var(--transition-fast);
+}
+
+.btn-water {
+  background: #EAF2F8;
+  color: #16486B;
+  border: 1px solid rgba(30, 95, 140, 0.3);
+}
+
+.btn-jewellery {
+  background: #F7EFE1;
+  color: var(--brass-dark);
+  border: 1px solid rgba(169, 130, 46, 0.35);
+}
+
+.future-card-footer {
+  padding: 15px 24px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.footer-water {
+  background: #F0F6FA;
+  color: #16486B;
+}
+
+.footer-jewellery {
+  background: #FAF6ED;
+  color: var(--brass-dark);
+}
+
+.future-bottom-banner {
+  margin-top: 56px;
+  background: var(--sand);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  padding: 36px 40px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ==========================================================================
    RESPONSIVE MEDIA QUERIES
    ========================================================================== */
 
-@media (max-width: 1080px) {
+@media (max-width: 1200px) {
   .nav-links {
-    gap: 20px;
+    gap: 18px;
+  }
+  .nav-link {
+    font-size: 0.88rem;
+  }
+  .call-pill {
+    padding: 8px 14px;
+    font-size: 0.84rem;
+    gap: 6px;
+  }
+}
+
+@media (max-width: 1040px) {
+  .nav-links {
+    gap: 12px;
+  }
+  .nav-link {
+    font-size: 0.82rem;
+  }
+  .call-pill {
+    padding: 7px 12px;
+    font-size: 0.8rem;
+    gap: 5px;
   }
   .businesses-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1435,6 +1858,16 @@ footer {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
     gap: 32px;
+  }
+}
+
+@media (max-width: 900px) {
+  .future-plan-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .future-features-list {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -1465,6 +1898,12 @@ footer {
   .wrap, .wrap-narrow, .navbar {
     padding-left: 20px;
     padding-right: 20px;
+  }
+  .future-card-header, .future-card-body {
+    padding: 24px 20px;
+  }
+  .future-bottom-banner {
+    padding: 24px 20px;
   }
   .businesses-grid, .values-grid {
     grid-template-columns: 1fr;
