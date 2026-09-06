@@ -10,17 +10,24 @@ The **Bairava Groups Website** serves as the central digital platform representi
 
 ---
 
-## Business Divisions
+## Business Divisions (8 Divisions)
 
 The website features dedicated sections and enquiry interfaces for each operational division:
 
-1. **Bairava Finance** — Comprehensive financial advisory, business funding, and financial solutions.
-2. **Bairava Construction & Land Promoters** — Turnkey residential & commercial construction, land development, and architectural projects.
-3. **Bairava Cloud Kitchen** — Premium culinary operations, bulk catering, and modern food delivery.
-4. **Bairava Sports Club** — Premier athletic training facilities, fitness academies, and sports tournaments.
-5. **Bairava Event Management** — End-to-end corporate event planning, weddings, cultural celebrations, and exhibitions.
-6. **Bairava Aadukalam** — State-of-the-art sports arenas, turf bookings, and competitive sports leagues.
-7. **Bairava Media** — Digital media production, brand promotion, video production, and advertising services.
+1. **BAIRAVA FINANCE** — Comprehensive financial advisory, business funding, and financial solutions.
+2. **BAIRAVA CONSTRUCTION & LAND PROMOTERS** — Turnkey residential & commercial construction, land development, and architectural projects.
+3. **BAIRAVA CLOUD KITCHEN** — Premium culinary operations, bulk catering, and modern food delivery.
+4. **BAIRAVA SPORTS CLUB** — Premier athletic training facilities, fitness academies, and sports tournaments.
+5. **BAIRAVA EVENT MANAGEMENT** — End-to-end corporate event planning, weddings, cultural celebrations, and exhibitions.
+6. **BAIRAVA AADUKALAM** — State-of-the-art sports arenas, Kabaddi championships, and indigenous sports leagues.
+7. **BAIRAVA MEDIA** — Digital media production, brand promotion, video production, and advertising services.
+8. **BHAIRAVA ASSOCIATION** — Community networking, professional collaboration, member engagement, and collective development.
+
+---
+
+## Legal Associates
+
+- **LEGAL ASSOCIATES** — Professional legal guidance for businesses, organizations and individuals in corporate law, commercial agreements, property title due diligence, and statutory compliance.
 
 ---
 
@@ -131,4 +138,4 @@ The project is configured for serverless deployment on **Vercel**:
 
 ## License & Copyright
 
-© Bairava Groups. All rights reserved.
+Copyrights 2026 Bairava Groups All Rights Reserved. Chennai, Tamil Nadu.

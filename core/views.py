@@ -199,6 +199,7 @@ def business_detail(request, slug):
         'sports-club': 'core/divisions/sports_club.html',
         'aadukalam': 'core/divisions/aadukalam.html',
         'media': 'core/divisions/media.html',
+        'bhairava-association': 'core/divisions/association.html',
     }
 
     template_name = template_map.get(slug, 'core/divisions/generic_division.html')

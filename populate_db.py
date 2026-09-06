@@ -18,9 +18,9 @@ print("Populating database with comprehensive Bairava Groups data...")
 # 1. POPULATE BUSINESS DIVISIONS
 divisions_data = [
     {
-        "name": "Bairava Foundation",
+        "name": "BAIRAVA FOUNDATION",
         "slug": "foundation",
-        "tagline": "Empowering Communities, Nurturing Potential",
+        "tagline": "EMPOWERING COMMUNITIES, NURTURING POTENTIAL",
         "short_description": "Bairava Foundation focuses on initiatives that support communities through education, welfare, development and meaningful social programmes.",
         "full_description": "Bairava Foundation is dedicated to driving sustainable community empowerment through focused programmes in primary education, youth mentorship, healthcare access, and welfare development. Working in close collaboration with grassroots stakeholders, the Foundation aims to create lasting social impact and opportunities for all.",
         "division_type": "foundation_trust",
@@ -31,9 +31,9 @@ divisions_data = [
         "order": 1,
     },
     {
-        "name": "Bairava Finance",
+        "name": "BAIRAVA FINANCE",
         "slug": "finance",
-        "tagline": "Transparent, Professional & Responsible Financial Solutions",
+        "tagline": "TRANSPARENT, PROFESSIONAL & RESPONSIBLE FINANCIAL SOLUTIONS",
         "short_description": "Bairava Finance focuses on professional and responsible financial solutions with an emphasis on transparency, reliability and long-term customer relationships.",
         "full_description": "Bairava Finance delivers tailored financial advisory and customized solutions for businesses and individuals. Guided by integrity and thorough market understanding, we prioritize transparent practices, prudent planning, and dependable customer relationships built on trust.",
         "division_type": "business",
@@ -44,11 +44,11 @@ divisions_data = [
         "order": 2,
     },
     {
-        "name": "Bairava Construction & Promoters",
+        "name": "BAIRAVA CONSTRUCTION & LAND PROMOTERS",
         "slug": "construction",
-        "tagline": "Mastering Structural Excellence & Architectural Integrity",
-        "short_description": "Bairava Construction & Promoters focuses on residential, commercial and property development projects with attention to planning, quality and dependable execution.",
-        "full_description": "With over two decades of engineering and civil construction excellence in Chennai, Bairava Construction & Promoters manages turnkey residential complexes, luxury individual villas, commercial buildings, and bespoke interior transformations from concept blueprint to flawless handover.",
+        "tagline": "MASTERING STRUCTURAL EXCELLENCE & ARCHITECTURAL INTEGRITY",
+        "short_description": "Bairava Construction & Land Promoters focuses on residential, commercial and property development projects with attention to planning, quality and dependable execution.",
+        "full_description": "With over two decades of engineering and civil construction excellence in Chennai, Bairava Construction & Land Promoters manages turnkey residential complexes, luxury individual villas, commercial buildings, and bespoke interior transformations from concept blueprint to flawless handover.",
         "division_type": "business",
         "icon_name": "building",
         "static_image_path": "core/images/divisions/construction.jpg",
@@ -57,9 +57,9 @@ divisions_data = [
         "order": 3,
     },
     {
-        "name": "Bairava Cloud Kitchen",
+        "name": "BAIRAVA CLOUD KITCHEN",
         "slug": "cloud-kitchen",
-        "tagline": "Hygienic, Authentic & Flavorful Culinary Experiences",
+        "tagline": "HYGIENIC, AUTHENTIC & FLAVORFUL CULINARY EXPERIENCES",
         "short_description": "Bairava Cloud Kitchen brings convenient food experiences to customers through professionally managed kitchen operations and carefully prepared menus.",
         "full_description": "Operating state-of-the-art commercial culinary hubs, Bairava Cloud Kitchen prepares wholesome regional specialties and contemporary meal packages. With rigorous hygiene standards, farm-fresh ingredients, and consistent delivery execution, we serve wholesome delight across every order.",
         "division_type": "business",
@@ -70,9 +70,9 @@ divisions_data = [
         "order": 4,
     },
     {
-        "name": "Bairava Sports Club",
+        "name": "BAIRAVA SPORTS CLUB",
         "slug": "sports-club",
-        "tagline": "Nurturing Athletic Talent & Fitness Communities",
+        "tagline": "NURTURING ATHLETIC TALENT & FITNESS COMMUNITIES",
         "short_description": "Bairava Sports Club promotes sports, fitness, training and community participation by creating opportunities for people to play, train and compete.",
         "full_description": "Bairava Sports Club features dedicated indoor and outdoor training infrastructure, professional coaching programmes, and community fitness initiatives designed to develop athletic skills, foster teamwork, and promote active lifestyles across all age groups.",
         "division_type": "business",
@@ -83,9 +83,9 @@ divisions_data = [
         "order": 5,
     },
     {
-        "name": "Bairava Event Management",
+        "name": "BAIRAVA EVENT MANAGEMENT",
         "slug": "event-management",
-        "tagline": "Turnkey Event Experiences & Flawless Celebrations",
+        "tagline": "TURNKEY EVENT EXPERIENCES & FLAWLESS CELEBRATIONS",
         "short_description": "Bairava Event Management provides end-to-end event planning and execution for corporate, cultural, social, sporting and private occasions.",
         "full_description": "From intimate ceremonies and grand royal weddings to high-profile corporate summits, Bairava Event Management coordinates every aspect of event design, venue logistics, audiovisual technology, catering coordination, and on-site hospitality so clients can enjoy seamless celebrations.",
         "division_type": "business",
@@ -96,9 +96,9 @@ divisions_data = [
         "order": 6,
     },
     {
-        "name": "Bairava Aadukalam",
+        "name": "BAIRAVA AADUKALAM",
         "slug": "aadukalam",
-        "tagline": "Celebrating Traditional Sports & Cultural Games",
+        "tagline": "CELEBRATING TRADITIONAL SPORTS & CULTURAL GAMES",
         "short_description": "Bairava Aadukalam is a platform for sports, recreation, traditional activities and community participation, bringing people together through engaging experiences.",
         "full_description": "Rooted in Tamil Nadu's rich heritage of indigenous games, Bairava Aadukalam hosts regional Kabaddi leagues, Silambam training, rural athletic festivals, and recreational events that preserve traditional sports culture and unite communities in healthy competition.",
         "division_type": "business",
@@ -109,9 +109,9 @@ divisions_data = [
         "order": 7,
     },
     {
-        "name": "Bairava Trust",
+        "name": "BAIRAVA TRUST",
         "slug": "trust",
-        "tagline": "Compassionate Social Care & Daily Community Service",
+        "tagline": "COMPASSIONATE SOCIAL CARE & DAILY COMMUNITY SERVICE",
         "short_description": "Bairava Trust focuses on social welfare and community-oriented initiatives designed to support people and create positive community impact.",
         "full_description": "Established as a registered non-profit charitable initiative, Bairava Trust operates daily Annadhanam (free meal distribution), full-time elder care shelters, educational scholarships for low-income students, and emergency disaster relief drives across Chennai and surrounding areas.",
         "division_type": "foundation_trust",
@@ -122,9 +122,9 @@ divisions_data = [
         "order": 8,
     },
     {
-        "name": "Bairava Media",
+        "name": "BAIRAVA MEDIA",
         "slug": "media",
-        "tagline": "Meaningful Stories, Digital Production & Communication",
+        "tagline": "MEANINGFUL STORIES, DIGITAL PRODUCTION & COMMUNICATION",
         "short_description": "Bairava Media focuses on storytelling, digital content, communication and media initiatives that connect businesses, communities and audiences.",
         "full_description": "Bairava Media produces engaging audiovisual content, corporate documentaries, podcast productions, and digital campaigns. We craft compelling visual narratives that inform, inspire, and foster meaningful connections between brands, communities, and audiences.",
         "division_type": "business",
@@ -132,7 +132,33 @@ divisions_data = [
         "static_image_path": "core/images/divisions/media.jpg",
         "target_url": "/businesses/media/",
         "accent_color": "#241F1C",
+        "order": 8,
+    },
+    {
+        "name": "BHAIRAVA ASSOCIATION",
+        "slug": "bhairava-association",
+        "tagline": "COMMUNITY • CONNECTION • COLLABORATION",
+        "short_description": "Building stronger communities through networking, collaboration, engagement and collective growth.",
+        "full_description": "Bhairava Association is focused on bringing people, professionals, businesses and communities together through meaningful connections, collaboration and organized initiatives. The association aims to create a strong platform for networking, community engagement, knowledge sharing and collective development.",
+        "division_type": "business",
+        "icon_name": "users",
+        "static_image_path": "core/images/divisions/association.jpg",
+        "target_url": "/businesses/bhairava-association/",
+        "accent_color": "#7C3B29",
         "order": 9,
+    },
+    {
+        "name": "BAIRAVA TRUST",
+        "slug": "trust",
+        "tagline": "COMPASSIONATE SOCIAL CARE & DAILY COMMUNITY SERVICE",
+        "short_description": "Bairava Trust focuses on social welfare and community-oriented initiatives designed to support people and create positive community impact.",
+        "full_description": "Established as a registered non-profit charitable initiative, Bairava Trust operates daily Annadhanam (free meal distribution), full-time elder care shelters, educational scholarships for low-income students, and emergency disaster relief drives across Chennai and surrounding areas.",
+        "division_type": "foundation_trust",
+        "icon_name": "shield",
+        "static_image_path": "core/images/divisions/trust.jpg",
+        "target_url": "/trust/",
+        "accent_color": "#7C3B29",
+        "order": 10,
     },
 ]
 
@@ -148,40 +174,48 @@ for d_data in divisions_data:
 # 2. POPULATE DIVISION OFFERINGS
 offerings_data = {
     "finance": [
-        {"title": "Financial Advisory & Planning", "badge": "Core", "description": "Objective guidance for corporate cash flow management, growth planning, and prudent capital allocation.", "order": 1},
-        {"title": "Working Capital & Business Assistance", "badge": "Commercial", "description": "Structured consultation on managing operational overheads, vendor receivables, and business expansion cycles.", "order": 2},
-        {"title": "Asset & Equipment Financing Advisory", "badge": "Enterprise", "description": "Assisting enterprises in evaluating machinery, commercial vehicle, and infrastructural funding options.", "order": 3},
-        {"title": "Customer-First Transparent Terms", "badge": "Integrity", "description": "Clear agreements without hidden clauses, straightforward timelines, and dedicated relationship managers.", "order": 4},
+        {"title": "FINANCIAL ADVISORY & PLANNING", "badge": "CORE", "description": "Objective guidance for corporate cash flow management, growth planning, and prudent capital allocation.", "order": 1},
+        {"title": "WORKING CAPITAL & BUSINESS ASSISTANCE", "badge": "COMMERCIAL", "description": "Structured consultation on managing operational overheads, vendor receivables, and business expansion cycles.", "order": 2},
+        {"title": "ASSET & EQUIPMENT FINANCING ADVISORY", "badge": "ENTERPRISE", "description": "Assisting enterprises in evaluating machinery, commercial vehicle, and infrastructural funding options.", "order": 3},
+        {"title": "CUSTOMER-FIRST TRANSPARENT TERMS", "badge": "INTEGRITY", "description": "Clear agreements without hidden clauses, straightforward timelines, and dedicated relationship managers.", "order": 4},
     ],
     "cloud-kitchen": [
-        {"title": "Signature South Indian Thali", "badge": "Best Seller", "description": "Authentic recipes featuring hand-ground spices, sambar, rasam, seasonal vegetable poriyal, and crisp appalam.", "order": 1},
-        {"title": "Dum Biryani Specialties", "badge": "Signature", "description": "Slow-cooked aromatic Seeraga Samba and Basmati rice preparations layered with tender spices and natural flavors.", "order": 2},
-        {"title": "Daily Wholesome Meal Boxes", "badge": "Subscription", "description": "Balanced, hygienic daily lunch and dinner boxes crafted for corporate staff, students, and busy families.", "order": 3},
-        {"title": "Bulk Catering & Party Orders", "badge": "Events", "description": "Freshly cooked banquet meals and high-tea packages delivered hot with reliable event timelines.", "order": 4},
+        {"title": "SIGNATURE SOUTH INDIAN THALI", "badge": "BEST SELLER", "description": "Authentic recipes featuring hand-ground spices, sambar, rasam, seasonal vegetable poriyal, and crisp appalam.", "order": 1},
+        {"title": "DUM BIRYANI SPECIALTIES", "badge": "SIGNATURE", "description": "Slow-cooked aromatic Seeraga Samba and Basmati rice preparations layered with tender spices and natural flavors.", "order": 2},
+        {"title": "DAILY WHOLESOME MEAL BOXES", "badge": "SUBSCRIPTION", "description": "Balanced, hygienic daily lunch and dinner boxes crafted for corporate staff, students, and busy families.", "order": 3},
+        {"title": "BULK CATERING & PARTY ORDERS", "badge": "EVENTS", "description": "Freshly cooked banquet meals and high-tea packages delivered hot with reliable event timelines.", "order": 4},
     ],
     "sports-club": [
-        {"title": "Indoor Badminton Courts", "badge": "BWF Standard", "description": "Synthetic multi-court facility with professional glare-free LED floodlighting and tournament netting.", "order": 1},
-        {"title": "Strength & Conditioning Zone", "badge": "Fitness", "description": "Modern resistance training machines, free weights, agility tracks, and personalized fitness training regimens.", "order": 2},
-        {"title": "Junior Coaching Academy", "badge": "Training", "description": "Structured coaching modules led by certified coaches focusing on fundamentals, discipline, and match tactics.", "order": 3},
-        {"title": "Community Leagues & Tournaments", "badge": "Events", "description": "Regular weekend friendly leagues and open tournaments encouraging healthy competitive spirit.", "order": 4},
+        {"title": "INDOOR BADMINTON COURTS", "badge": "BWF STANDARD", "description": "Synthetic multi-court facility with professional glare-free LED floodlighting and tournament netting.", "order": 1},
+        {"title": "STRENGTH & CONDITIONING ZONE", "badge": "FITNESS", "description": "Modern resistance training machines, free weights, agility tracks, and personalized fitness training regimens.", "order": 2},
+        {"title": "JUNIOR COACHING ACADEMY", "badge": "TRAINING", "description": "Structured coaching modules led by certified coaches focusing on fundamentals, discipline, and match tactics.", "order": 3},
+        {"title": "COMMUNITY LEAGUES & TOURNAMENTS", "badge": "EVENTS", "description": "Regular weekend friendly leagues and open tournaments encouraging healthy competitive spirit.", "order": 4},
     ],
     "aadukalam": [
-        {"title": "Kabaddi Tournaments & Coaching", "badge": "Heritage Sport", "description": "Professional clay court training, safety gear guidance, and regular district-level tournament hosting.", "order": 1},
-        {"title": "Silambam & Traditional Martial Arts", "badge": "Cultural Arts", "description": "Authentic staff-spinning and ancient self-defense art forms taught by seasoned traditional practitioners.", "order": 2},
-        {"title": "Rural & Recreational Sports Galas", "badge": "Community", "description": "Multi-discipline athletic festivals featuring Kho-Kho, volleyball, tug of war, and indigenous field games.", "order": 3},
-        {"title": "Youth Fitness Camps", "badge": "Development", "description": "Open ground conditioning drills and fitness workshops building stamina and discipline among local youth.", "order": 4},
+        {"title": "KABADDI TOURNAMENTS & COACHING", "badge": "HERITAGE SPORT", "description": "Professional clay court training, safety gear guidance, and regular district-level tournament hosting.", "order": 1},
+        {"title": "SILAMBAM & TRADITIONAL MARTIAL ARTS", "badge": "CULTURAL ARTS", "description": "Authentic staff-spinning and ancient self-defense art forms taught by seasoned traditional practitioners.", "order": 2},
+        {"title": "RURAL & RECREATIONAL SPORTS GALAS", "badge": "COMMUNITY", "description": "Multi-discipline athletic festivals featuring Kho-Kho, volleyball, tug of war, and indigenous field games.", "order": 3},
+        {"title": "YOUTH FITNESS CAMPS", "badge": "DEVELOPMENT", "description": "Open ground conditioning drills and fitness workshops building stamina and discipline among local youth.", "order": 4},
     ],
     "media": [
-        {"title": "Video & Documentary Production", "badge": "4K Cinema", "description": "High-definition corporate films, brand profile stories, and community documentary features.", "order": 1},
-        {"title": "Digital Content & Podcast Studio", "badge": "Studio Setup", "description": "Acoustically treated multi-mic studio spaces equipped for podcast recordings and panel discussions.", "order": 2},
-        {"title": "Event & Live Stream Coverage", "badge": "Live Broadcast", "description": "Multi-camera live streaming and high-speed social media feeds for corporate summits and cultural festivals.", "order": 3},
-        {"title": "Brand Storytelling & PR Strategy", "badge": "Strategy", "description": "Narrative-driven press releases, promotional video campaigns, and social digital storytelling.", "order": 4},
+        {"title": "VIDEO & DOCUMENTARY PRODUCTION", "badge": "4K CINEMA", "description": "High-definition corporate films, brand profile stories, and community documentary features.", "order": 1},
+        {"title": "DIGITAL CONTENT & PODCAST STUDIO", "badge": "STUDIO SETUP", "description": "Acoustically treated multi-mic studio spaces equipped for podcast recordings and panel discussions.", "order": 2},
+        {"title": "EVENT & LIVE STREAM COVERAGE", "badge": "LIVE BROADCAST", "description": "Multi-camera live streaming and high-speed social media feeds for corporate summits and cultural festivals.", "order": 3},
+        {"title": "BRAND STORYTELLING & PR STRATEGY", "badge": "STRATEGY", "description": "Narrative-driven press releases, promotional video campaigns, and social digital storytelling.", "order": 4},
+    ],
+    "bhairava-association": [
+        {"title": "COMMUNITY NETWORKING", "badge": "NETWORKING", "description": "Building meaningful connections among members, professionals and local communities.", "order": 1},
+        {"title": "PROFESSIONAL COLLABORATION", "badge": "COLLABORATION", "description": "Encouraging partnerships, knowledge sharing and opportunities for professional growth.", "order": 2},
+        {"title": "COMMUNITY INITIATIVES", "badge": "INITIATIVES", "description": "Supporting programs and activities that contribute to community development.", "order": 3},
+        {"title": "MEMBER ENGAGEMENT", "badge": "ENGAGEMENT", "description": "Creating events, meetings and activities that encourage participation and stronger relationships.", "order": 4},
+        {"title": "KNOWLEDGE & NETWORKING", "badge": "KNOWLEDGE", "description": "Providing opportunities to exchange ideas, experience and practical knowledge.", "order": 5},
+        {"title": "COLLECTIVE GROWTH", "badge": "GROWTH", "description": "Working together to create sustainable opportunities and positive community impact.", "order": 6},
     ],
     "foundation": [
-        {"title": "Educational Scholarships & Supplies", "badge": "Education", "description": "Direct financial aid for school fees, notebooks, uniform kits, and digital learning devices for deserving students.", "order": 1},
-        {"title": "Community Welfare & Medical Support", "badge": "Welfare", "description": "Regular health screenings, eye checkup camps, and distribution of essential health provisions in underserved areas.", "order": 2},
-        {"title": "Vocational Skill Workshops", "badge": "Empowerment", "description": "Practical training programs in computer literacy, handicrafts, and tailoring to foster financial independence.", "order": 3},
-        {"title": "Youth Leadership & Mentorship", "badge": "Mentorship", "description": "Career counseling sessions and personality development camps guiding teenagers toward higher education.", "order": 4},
+        {"title": "EDUCATIONAL SCHOLARSHIPS & SUPPLIES", "badge": "EDUCATION", "description": "Direct financial aid for school fees, notebooks, uniform kits, and digital learning devices for deserving students.", "order": 1},
+        {"title": "COMMUNITY WELFARE & MEDICAL SUPPORT", "badge": "WELFARE", "description": "Regular health screenings, eye checkup camps, and distribution of essential health provisions in underserved areas.", "order": 2},
+        {"title": "VOCATIONAL SKILL WORKSHOPS", "badge": "EMPOWERMENT", "description": "Practical training programs in computer literacy, handicrafts, and tailoring to foster financial independence.", "order": 3},
+        {"title": "YOUTH LEADERSHIP & MENTORSHIP", "badge": "MENTORSHIP", "description": "Career counseling sessions and personality development camps guiding teenagers toward higher education.", "order": 4},
     ]
 }
 
@@ -201,10 +235,10 @@ for slug, items in offerings_data.items():
 
 # 3. POPULATE STATS
 stats_data = [
-    {"value": "20+", "label": "Years of Excellence", "order": 1},
-    {"value": "9", "label": "Integrated Divisions", "order": 2},
-    {"value": "100+", "label": "Dedicated Team Members", "order": 3},
-    {"value": "500+", "label": "Daily Beneficiaries", "order": 4},
+    {"value": "20+", "label": "YEARS OF EXCELLENCE", "order": 1},
+    {"value": "10", "label": "INTEGRATED DIVISIONS", "order": 2},
+    {"value": "100+", "label": "DEDICATED TEAM MEMBERS", "order": 3},
+    {"value": "500+", "label": "DAILY BENEFICIARIES", "order": 4},
 ]
 
 for s in stats_data:
@@ -218,25 +252,25 @@ print("Stats populated!")
 news_data = [
     {
         "category": "sports",
-        "title": "Bairava Aadukalam State-Level Kabaddi Championship 2026",
+        "title": "BAIRAVA AADUKALAM STATE-LEVEL KABADDI CHAMPIONSHIP 2026",
         "description": "Over 24 top teams across Tamil Nadu competed with extraordinary spirit; trophies, sports scholarships, and merit certificates were awarded.",
         "link": ""
     },
     {
         "category": "trust",
-        "title": "Bairava Trust Expands Daily Annadhanam Initiative",
+        "title": "BAIRAVA TRUST EXPANDS DAILY ANNADHANAM INITIATIVE",
         "description": "Daily hot meal distribution capacity increased to serve over 500 senior citizens, underserved individuals, and hospital caregivers every single day.",
         "link": ""
     },
     {
         "category": "construction",
-        "title": "Completion Milestone: Premium Residential Complex Handover",
+        "title": "COMPLETION MILESTONE: PREMIUM RESIDENTIAL COMPLEX HANDOVER",
         "description": "Successfully completed Bairava Heights in Anna Nagar ahead of schedule with earthquake-resistant RCC structure and bespoke architectural detailing.",
         "link": ""
     },
     {
         "category": "media",
-        "title": "Bairava Media Launches Community Spotlight Documentary Series",
+        "title": "BAIRAVA MEDIA LAUNCHES COMMUNITY SPOTLIGHT DOCUMENTARY SERIES",
         "description": "A new digital storytelling initiative capturing inspiring real stories of grassroots entrepreneurs, athletes, and social change champions.",
         "link": ""
     }
@@ -252,9 +286,9 @@ print("News items populated!")
 # 5. POPULATE MEDIA ARTICLES
 media_articles = [
     {
-        "title": "Empowering Local Sports: Inside the Bairava Aadukalam Movement",
+        "title": "EMPOWERING LOCAL SPORTS: INSIDE THE BAIRAVA AADUKALAM MOVEMENT",
         "slug": "empowering-local-sports-bairava-aadukalam",
-        "category": "Sports & Community",
+        "category": "SPORTS & COMMUNITY",
         "summary": "How Bairava Aadukalam is reviving indigenous sports and training the next generation of regional athletes in Tamil Nadu.",
         "content": "Traditional sports carry the cultural soul of our communities. Bairava Aadukalam was created to provide young talent with quality sports infrastructure, professional coaching, and tournament exposure.",
         "static_image_path": "core/images/divisions/aadukalam.jpg",
@@ -262,19 +296,19 @@ media_articles = [
         "order": 1,
     },
     {
-        "title": "Sustainable Construction Practices Shaping Modern Chennai",
+        "title": "SUSTAINABLE CONSTRUCTION PRACTICES SHAPING MODERN CHENNAI",
         "slug": "sustainable-construction-practices-chennai",
-        "category": "Architecture & Build",
-        "summary": "An insightful look into how Bairava Construction & Promoters combines classic durability with energy-efficient construction design.",
+        "category": "ARCHITECTURE & BUILD",
+        "summary": "An insightful look into how Bairava Construction & Land Promoters combines classic durability with energy-efficient construction design.",
         "content": "From soil testing and structural stability to solar integration and rainwater harvesting, every Bairava build is designed for longevity and environmental harmony.",
         "static_image_path": "core/images/divisions/construction.jpg",
         "featured": True,
         "order": 2,
     },
     {
-        "title": "The Power of Compassion: Two Decades of Bairava Trust Initiatives",
+        "title": "THE POWER OF COMPASSION: TWO DECADES OF BAIRAVA TRUST INITIATIVES",
         "slug": "power-of-compassion-two-decades-bairava-trust",
-        "category": "Social Impact",
+        "category": "SOCIAL IMPACT",
         "summary": "Exploring the journey of Bairava Trust in providing uninterrupted shelter, nutrition, and dignity to senior citizens in need.",
         "content": "Every day at the Bairava Senior Sanctuary begins with warm meals, medical checks, and genuine companionship. Community support remains the cornerstone of our mission.",
         "static_image_path": "core/images/divisions/trust.jpg",
@@ -289,5 +323,129 @@ for ma in media_articles:
         defaults=ma
     )
 print("Media articles populated!")
+
+# 6. POPULATE CONSTRUCTION PROJECTS (4 DISTINCT PROJECTS WITH UNIQUE ARCHITECTURAL IMAGES)
+construction_projects_data = [
+    {
+        "title": "BAIRAVA HEIGHTS",
+        "location": "Anna Nagar, Chennai",
+        "category": "residential",
+        "status": "ongoing",
+        "description": "A luxury multi-story residential apartment enclave designed with earthquake-resistant RCC structure, elegant glass balconies, and landscaped entrance plaza in prime Anna Nagar.",
+        "completion_year": "2027",
+        "built_up_area": "24,000 sq.ft",
+        "image": "projects/bairava_heights.jpg",
+        "order": 1,
+    },
+    {
+        "title": "BAIRAVA TECH HUB",
+        "location": "Perungudi, OMR, Chennai",
+        "category": "commercial",
+        "status": "completed",
+        "description": "Modern corporate IT tech park featuring contemporary glass curtain wall facade, energy-efficient floor plates, water reflection plaza, and high-speed infrastructure on Chennai's IT corridor.",
+        "completion_year": "2025",
+        "built_up_area": "48,000 sq.ft",
+        "image": "projects/bairava_tech_hub.jpg",
+        "order": 2,
+    },
+    {
+        "title": "THE GOLDEN VILLAS",
+        "location": "East Coast Road (ECR), Chennai",
+        "category": "villas",
+        "status": "completed",
+        "description": "Exclusive beachfront luxury villa estate featuring Italian marble finishes, private crystal swimming pools, private tropical gardens, and biometric smart-home security systems.",
+        "completion_year": "2024",
+        "built_up_area": "8,500 sq.ft",
+        "image": "projects/golden_villas.jpg",
+        "order": 3,
+    },
+    {
+        "title": "CORPORATE HQ RENOVATION",
+        "location": "Nungambakkam, Chennai",
+        "category": "interiors",
+        "status": "completed",
+        "description": "Comprehensive structural restoration, modern architectural louver facade upgrade, acoustic glass executive suites, and luxury corporate reception interiors.",
+        "completion_year": "2024",
+        "built_up_area": "16,200 sq.ft",
+        "image": "projects/corporate_hq.jpg",
+        "order": 4,
+    },
+]
+
+for cp in construction_projects_data:
+    p_obj, created = ConstructionProject.objects.update_or_create(
+        title=cp["title"],
+        defaults=cp
+    )
+    print(f"{'Created' if created else 'Updated'} construction project: {p_obj.title}")
+
+# 7. POPULATE LEGAL ASSOCIATES DATA
+legal_practice_data = [
+    {
+        "title": "CORPORATE & BUSINESS LAW",
+        "category": "notice",
+        "turnaround_time": "ADVISORY & DRAFTING",
+        "description": "Legal support for business operations, agreements, corporate documentation and commercial matters.",
+        "order": 1,
+    },
+    {
+        "title": "CONTRACTS & AGREEMENTS",
+        "category": "notice",
+        "turnaround_time": "REVIEW & STRUCTURING",
+        "description": "Assistance with reviewing, preparing and organizing business contracts and agreements.",
+        "order": 2,
+    },
+    {
+        "title": "PROPERTY & REAL ESTATE LAW",
+        "category": "property",
+        "turnaround_time": "TITLE & DUE DILIGENCE",
+        "description": "Legal support related to property transactions, documentation and real-estate matters.",
+        "order": 3,
+    },
+    {
+        "title": "COMPLIANCE & DOCUMENTATION",
+        "category": "notice",
+        "turnaround_time": "STATUTORY AUDIT",
+        "description": "Support for maintaining appropriate legal documentation and business compliance processes.",
+        "order": 4,
+    },
+    {
+        "title": "LEGAL ADVISORY",
+        "category": "notice",
+        "turnaround_time": "STRATEGIC COUNSEL",
+        "description": "Professional legal guidance to help businesses make informed decisions and manage legal requirements.",
+        "order": 5,
+    },
+    {
+        "title": "DISPUTE SUPPORT",
+        "category": "recovery",
+        "turnaround_time": "COORDINATION & ADVOCACY",
+        "description": "Assistance in understanding legal matters and coordinating with appropriate legal professionals when disputes arise.",
+        "order": 6,
+    },
+]
+
+for lp in legal_practice_data:
+    LegalPracticeDetail.objects.update_or_create(
+        title=lp["title"],
+        defaults=lp
+    )
+print("Legal practice details populated!")
+
+legal_services_data = [
+    {"description": "Corporate & Business Law Support", "tag": "CORPORATE", "order": 1},
+    {"description": "Contracts, MOUs & Commercial Agreements", "tag": "CONTRACTS", "order": 2},
+    {"description": "Property Title Verification & Due Diligence", "tag": "PROPERTY", "order": 3},
+    {"description": "Business Compliance & Legal Documentation", "tag": "COMPLIANCE", "order": 4},
+    {"description": "Strategic Business Legal Advisory", "tag": "ADVISORY", "order": 5},
+    {"description": "Commercial Dispute Coordination & Resolution", "tag": "DISPUTE", "order": 6},
+]
+
+for ls in legal_services_data:
+    LegalService.objects.update_or_create(
+        description=ls["description"],
+        defaults=ls
+    )
+print("Legal services populated!")
 
 print("All Bairava Groups database models successfully populated and synced!")

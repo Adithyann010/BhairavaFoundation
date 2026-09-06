@@ -4,12 +4,12 @@
   <div class="wrap">
     <div class="section-head">
       <div>
-        <span class="badge">Portfolio Highlights</span>
-        <h2>Featured Projects &amp; Initiatives</h2>
+        <span class="badge">PORTFOLIO HIGHLIGHTS</span>
+        <h2>FEATURED PROJECTS &amp; INITIATIVES</h2>
         <p style="max-width: 600px; margin-top: 8px;">A selection of key architectural developments and community projects delivered across Chennai.</p>
       </div>
       <div>
-        <a href="{% url 'core:business_detail' slug='construction' %}" class="btn btn-outline btn-sm">Explore Construction Portfolio →</a>
+        <a href="{% url 'core:business_detail' slug='construction' %}" class="btn btn-outline btn-sm">EXPLORE CONSTRUCTION PORTFOLIO →</a>
       </div>
     </div>
 
@@ -18,6 +18,8 @@
       <div class="project-item-card">
         {% if project.image %}
           <img src="{{ project.image.url }}" alt="{{ project.title }}" class="project-item-img" loading="lazy">
+        {% elif project.static_image %}
+          <img src="{% static project.static_image %}" alt="{{ project.title }}" class="project-item-img" loading="lazy">
         {% else %}
           <img src="{% static 'core/images/divisions/construction.jpg' %}" alt="{{ project.title }}" class="project-item-img" loading="lazy">
         {% endif %}
@@ -33,10 +35,10 @@
       </div>
       {% empty %}
       <div class="project-item-card">
-        <img src="{% static 'core/images/divisions/construction.jpg' %}" alt="Bairava Heights" class="project-item-img">
+        <img src="{% static 'core/images/projects/bairava_heights.jpg' %}" alt="Bairava Heights" class="project-item-img">
         <div class="project-item-body">
-          <span class="project-item-cat">Residential Complex</span>
-          <h4>Bairava Heights</h4>
+          <span class="project-item-cat">RESIDENTIAL COMPLEX</span>
+          <h4>BAIRAVA HEIGHTS</h4>
           <p>Luxury multi-story residential complex with RCC earthquake-resistant structure in Anna Nagar.</p>
           <div class="project-meta-row">
             <span>📍 Anna Nagar, Chennai</span>
@@ -45,10 +47,10 @@
         </div>
       </div>
       <div class="project-item-card">
-        <img src="{% static 'core/images/divisions/construction.jpg' %}" alt="Bairava Tech Hub" class="project-item-img">
+        <img src="{% static 'core/images/projects/bairava_tech_hub.jpg' %}" alt="Bairava Tech Hub" class="project-item-img">
         <div class="project-item-body">
-          <span class="project-item-cat">Commercial</span>
-          <h4>Bairava Tech Hub</h4>
+          <span class="project-item-cat">COMMERCIAL</span>
+          <h4>BAIRAVA TECH HUB</h4>
           <p>Premium multi-tenant corporate office building with green building certifications on OMR.</p>
           <div class="project-meta-row">
             <span>📍 Perungudi, Chennai</span>
@@ -57,13 +59,25 @@
         </div>
       </div>
       <div class="project-item-card">
-        <img src="{% static 'core/images/divisions/construction.jpg' %}" alt="The Golden Villas" class="project-item-img">
+        <img src="{% static 'core/images/projects/golden_villas.jpg' %}" alt="The Golden Villas" class="project-item-img">
         <div class="project-item-body">
-          <span class="project-item-cat">Villas &amp; Bungalows</span>
-          <h4>The Golden Villas</h4>
+          <span class="project-item-cat">VILLAS &amp; BUNGALOWS</span>
+          <h4>THE GOLDEN VILLAS</h4>
           <p>Signature sea-facing villas featuring Italian marble, private pools, and security systems.</p>
           <div class="project-meta-row">
             <span>📍 ECR, Chennai</span>
+            <span>Est. 2024</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-item-card">
+        <img src="{% static 'core/images/projects/corporate_hq.jpg' %}" alt="Corporate HQ Renovation" class="project-item-img">
+        <div class="project-item-body">
+          <span class="project-item-cat">INTERIORS &amp; RENOVATIONS</span>
+          <h4>CORPORATE HQ RENOVATION</h4>
+          <p>Complete structural upgrade, luxury acoustic louvers, and bespoke executive suites in Nungambakkam.</p>
+          <div class="project-meta-row">
+            <span>📍 Nungambakkam, Chennai</span>
             <span>Est. 2024</span>
           </div>
         </div>

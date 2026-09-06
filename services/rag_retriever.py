@@ -11,29 +11,33 @@ def get_group_general_knowledge() -> str:
     """Return core foundational facts about Bairava Groups."""
     return (
         "BAIRAVA GROUPS GENERAL INFORMATION:\n"
-        "- Name: Bairava Groups\n"
+        "- Name: BAIRAVA GROUPS\n"
         "- Philosophy: 'Building Businesses. Creating Opportunities. Serving Communities.'\n"
         "- Heritage: Over 20+ years of excellence across diverse industry verticals.\n"
         "- Contact Phone: +91 99417 57555\n"
         "- Contact URL: /contact/\n"
-        "- Total Divisions: 9 integrated divisions comprising 7 commercial businesses and 2 social & charitable initiatives.\n"
+        "- Total Divisions: 10 integrated divisions comprising 8 commercial businesses and 2 social & charitable initiatives.\n"
         "\n"
-        "SEVEN COMMERCIAL BUSINESS DIVISIONS:\n"
-        "1. Bairava Finance: Transparent, professional & responsible financial solutions & advisory (/businesses/finance/).\n"
-        "2. Bairava Construction & Land Promoters (Bairava Construction & Promoters): Turnkey residential, commercial, luxury villas, architectural builds and property development in Chennai (/businesses/construction/).\n"
-        "3. Bairava Cloud Kitchen: Hygienic, authentic culinary experiences, traditional South Indian thalis, dum biryani, and daily wholesome meal boxes (/businesses/cloud-kitchen/).\n"
-        "4. Bairava Sports Club: World-class sports facilities, BWF-standard indoor badminton courts, fitness & strength conditioning, and junior coaching academies (/businesses/sports-club/).\n"
-        "5. Bairava Event Management: End-to-end event planning, luxury weddings, corporate summits, social galas, and bespoke decor coordination (/businesses/event-management/).\n"
-        "6. Bairava Aadukalam: Promoting traditional heritage sports, state-level Kabaddi championships, Silambam martial arts, and rural athletic galas (/businesses/aadukalam/).\n"
-        "7. Bairava Media: Meaningful visual storytelling, documentary production, digital content, podcast studio, and brand communications (/businesses/media/).\n"
+        "EIGHT COMMERCIAL BUSINESS DIVISIONS:\n"
+        "1. BAIRAVA FINANCE: Transparent, professional & responsible financial solutions & advisory (/businesses/finance/).\n"
+        "2. BAIRAVA CONSTRUCTION & LAND PROMOTERS: Turnkey residential, commercial, luxury villas, architectural builds and property development in Chennai (/businesses/construction/).\n"
+        "3. BAIRAVA CLOUD KITCHEN: Hygienic, authentic culinary experiences, traditional South Indian thalis, dum biryani, and daily wholesome meal boxes (/businesses/cloud-kitchen/).\n"
+        "4. BAIRAVA SPORTS CLUB: World-class sports facilities, BWF-standard indoor badminton courts, fitness & strength conditioning, and junior coaching academies (/businesses/sports-club/).\n"
+        "5. BAIRAVA EVENT MANAGEMENT: End-to-end event planning, luxury weddings, corporate summits, social galas, and bespoke decor coordination (/businesses/event-management/).\n"
+        "6. BAIRAVA AADUKALAM: Promoting traditional heritage sports, state-level Kabaddi championships, Silambam martial arts, and rural athletic galas (/businesses/aadukalam/).\n"
+        "7. BAIRAVA MEDIA: Meaningful visual storytelling, documentary production, digital content, podcast studio, and brand communications (/businesses/media/).\n"
+        "8. BHAIRAVA ASSOCIATION: Community networking, professional collaboration, member engagement, knowledge sharing and collective development (/businesses/bhairava-association/).\n"
         "\n"
         "TWO SOCIAL & COMMUNITY INITIATIVES:\n"
-        "8. Bairava Foundation: Sustainable community empowerment through educational scholarships, healthcare access, welfare development, and youth mentorship (/foundation/).\n"
-        "9. Bairava Trust: Compassionate social care, daily Annadhanam (free meals for 500+ daily), full-time elder care shelter, low-income student support, and community relief drives (/trust/).\n"
+        "9. BAIRAVA FOUNDATION: Sustainable community empowerment through educational scholarships, healthcare access, welfare development, and youth mentorship (/foundation/).\n"
+        "10. BAIRAVA TRUST: Compassionate social care, daily Annadhanam (free meals for 500+ daily), full-time elder care shelter, low-income student support, and community relief drives (/trust/).\n"
+        "\n"
+        "LEGAL ASSOCIATES:\n"
+        "- LEGAL ASSOCIATES: Professional legal guidance for businesses, organizations and individuals in corporate law, contracts, property titles, compliance and advisory (/legal/).\n"
         "\n"
         "FUTURE PLAN (UPCOMING VENTURES - COMING SOON):\n"
-        "- Bairava Water Solutions: Planned venture for packaged drinking water and water-can distribution for homes, offices and businesses. Tagline: 'Pure Water. Healthier Lives.' (/future-plan/#water-solutions).\n"
-        "- Bairava Jewellery: Planned venture for elegant and high-quality jewellery collections, combining traditional inspiration with modern craftsmanship for meaningful moments and special occasions. Tagline: 'Timeless Beauty. Lasting Value.' (/future-plan/#jewellery).\n"
+        "- BAIRAVA WATER SOLUTIONS: Planned venture for packaged drinking water and water-can distribution for homes, offices and businesses. Tagline: 'Pure Water. Healthier Lives.' (/future-plan/#water-solutions).\n"
+        "- BAIRAVA JEWELLERY: Planned venture for elegant and high-quality jewellery collections, combining traditional inspiration with modern craftsmanship for meaningful moments and special occasions. Tagline: 'Timeless Beauty. Lasting Value.' (/future-plan/#jewellery).\n"
     )
 
 
@@ -78,6 +82,9 @@ def retrieve_website_context(user_query: str, current_page: str = "", division_c
         'sports': 'sports-club',
         'aadukalam': 'aadukalam',
         'media': 'media',
+        'association': 'bhairava-association',
+        'bhairava-association': 'bhairava-association',
+        'legal': 'legal',
         'event': 'event-management',
         'events': 'event-management',
         'event-management': 'event-management',
@@ -99,6 +106,8 @@ def retrieve_website_context(user_query: str, current_page: str = "", division_c
         'aadukalam': ['aadukalam', 'kabaddi', 'silambam', 'traditional sport', 'heritage sport', 'martial art', 'rural sport', 'kho kho'],
         'event-management': ['event', 'events', 'wedding', 'reception', 'conference', 'summit', 'gala', 'decor', 'party', 'coordination', 'planner'],
         'media': ['media', 'video', 'documentary', 'podcast', 'storytelling', 'press', 'production', 'broadcast', 'article', 'news story'],
+        'association': ['association', 'bhairava association', 'networking', 'collaboration', 'community networking', 'member engagement', 'collective growth'],
+        'legal': ['legal', 'lawyer', 'advocate', 'corporate law', 'contracts', 'property law', 'compliance', 'legal advisory', 'dispute'],
         'contact': ['contact', 'phone', 'email', 'address', 'enquiry', 'reach', 'office', 'touch', 'call', 'talk', 'location', 'where', 'number']
     }
 
@@ -144,7 +153,7 @@ def retrieve_website_context(user_query: str, current_page: str = "", division_c
         try:
             projects = list(ConstructionProject.objects.all()[:10])
             services = list(ConstructionService.objects.all())
-            const_info = ["CONSTRUCTION PROJECTS & ENGINEERING SERVICES (Bairava Construction & Promoters):"]
+            const_info = ["CONSTRUCTION PROJECTS & ENGINEERING SERVICES (Bairava Construction & Land Promoters):"]
             if services:
                 const_info.append("Services Offered:")
                 for s in services:
@@ -302,6 +311,18 @@ def get_suggested_questions(current_page: str = "") -> List[str]:
             "What does Bairava Media do?",
             "What video production and podcast services exist?",
             "Tell me about your published stories."
+        ]
+    elif 'association' in page:
+        return [
+            "What is Bhairava Association?",
+            "Tell me about community networking and collaboration.",
+            "How can I participate or connect with the association?"
+        ]
+    elif 'legal' in page:
+        return [
+            "What legal guidance is provided by Legal Associates?",
+            "Tell me about corporate and business law support.",
+            "How can I schedule a confidential legal consultation?"
         ]
     elif 'future-plan' in page or 'future' in page:
         return [

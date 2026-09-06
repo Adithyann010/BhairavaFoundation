@@ -17,14 +17,14 @@ class Stat(models.Model):
 class NewsItem(models.Model):
     """News/activity cards displayed on the homepage and media highlights."""
     CATEGORY_CHOICES = [
-        ('trust', 'Trust activity'),
-        ('community', 'Community'),
-        ('construction', 'Construction'),
-        ('legal', 'Legal'),
-        ('events', 'Events'),
-        ('sports', 'Sports & Youth'),
-        ('media', 'Media & Press'),
-        ('general', 'Group Update'),
+        ('trust', 'TRUST ACTIVITY'),
+        ('community', 'COMMUNITY'),
+        ('construction', 'CONSTRUCTION'),
+        ('legal', 'LEGAL'),
+        ('events', 'EVENTS'),
+        ('sports', 'SPORTS & YOUTH'),
+        ('media', 'MEDIA & PRESS'),
+        ('general', 'GROUP UPDATE'),
     ]
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='trust')
     title = models.CharField(max_length=200)
@@ -43,8 +43,8 @@ class NewsItem(models.Model):
 class BusinessDivision(models.Model):
     """Core model representing each of the 9 Bairava Groups divisions."""
     DIVISION_TYPE_CHOICES = [
-        ('business', 'Commercial Business'),
-        ('foundation_trust', 'Foundation & Social Initiative'),
+        ('business', 'COMMERCIAL BUSINESS'),
+        ('foundation_trust', 'FOUNDATION & SOCIAL INITIATIVE'),
     ]
 
     name = models.CharField(max_length=150)
@@ -106,7 +106,7 @@ class MediaArticle(models.Model):
     """News, stories, and media releases for Bairava Media."""
     title = models.CharField(max_length=220)
     slug = models.SlugField(max_length=120, unique=True)
-    category = models.CharField(max_length=80, default="Press Release")
+    category = models.CharField(max_length=80, default="PRESS RELEASE")
     summary = models.TextField()
     content = models.TextField(blank=True)
     publish_date = models.DateField(auto_now_add=True)
@@ -125,17 +125,18 @@ class MediaArticle(models.Model):
 class ContactEnquiry(models.Model):
     """General contact enquiries submitted through the website."""
     SERVICE_CHOICES = [
-        ('general', 'General Enquiry'),
-        ('foundation', 'Bairava Foundation'),
-        ('finance', 'Bairava Finance'),
-        ('construction', 'Bairava Construction & Promoters'),
-        ('cloud_kitchen', 'Bairava Cloud Kitchen'),
-        ('sports_club', 'Bairava Sports Club'),
-        ('event_management', 'Bairava Event Management'),
-        ('aadukalam', 'Bairava Aadukalam'),
-        ('trust', 'Bairava Trust'),
-        ('media', 'Bairava Media'),
-        ('legal', 'Legal Consultation'),
+        ('general', 'GENERAL ENQUIRY'),
+        ('foundation', 'BAIRAVA FOUNDATION'),
+        ('finance', 'BAIRAVA FINANCE'),
+        ('construction', 'BAIRAVA CONSTRUCTION & LAND PROMOTERS'),
+        ('cloud_kitchen', 'BAIRAVA CLOUD KITCHEN'),
+        ('sports_club', 'BAIRAVA SPORTS CLUB'),
+        ('event_management', 'BAIRAVA EVENT MANAGEMENT'),
+        ('aadukalam', 'BAIRAVA AADUKALAM'),
+        ('trust', 'BAIRAVA TRUST'),
+        ('media', 'BAIRAVA MEDIA'),
+        ('association', 'BHAIRAVA ASSOCIATION'),
+        ('legal', 'LEGAL CONSULTATION'),
     ]
     name = models.CharField(max_length=150)
     phone = models.CharField(max_length=20)

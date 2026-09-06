@@ -1,7 +1,7 @@
 {% extends "core/base.html" %}
 {% load static %}
 
-{% block title %}{{ division.name }} — Bairava Groups{% endblock %}
+{% block title %}{{ division.name|upper }} — BAIRAVA GROUPS{% endblock %}
 {% block meta_desc %}{{ division.short_description }}{% endblock %}
 
 {% block content %}
@@ -9,25 +9,25 @@
 <section class="page-hero">
   <div class="wrap">
     <div class="breadcrumbs">
-      <a href="{% url 'core:home' %}">Home</a>
+      <a href="{% url 'core:home' %}">HOME</a>
       <span>/</span>
-      <a href="{% url 'core:businesses_index' %}">Businesses</a>
+      <a href="{% url 'core:businesses_index' %}">BUSINESSES</a>
       <span>/</span>
-      <span>{{ division.name }}</span>
+      <span>{{ division.name|upper }}</span>
     </div>
 
     <div class="page-hero-grid">
       <div>
-        <span class="badge">{{ division.get_division_type_display }}</span>
-        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 12px;">{{ division.name }}</h1>
+        <span class="badge">{{ division.get_division_type_display|upper }}</span>
+        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 12px;">{{ division.name|upper }}</h1>
         {% if division.tagline %}
           <p class="hero-subtitle" style="font-size: 1.25rem;">"{{ division.tagline }}"</p>
         {% endif %}
         <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">{{ division.short_description }}</p>
         
         <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-          <a href="#offerings" class="btn btn-solid">Explore Offerings</a>
-          <a href="#division-enquiry" class="btn btn-outline">Enquire Now</a>
+          <a href="#offerings" class="btn btn-solid">EXPLORE OFFERINGS</a>
+          <a href="#division-enquiry" class="btn btn-outline">ENQUIRE NOW</a>
         </div>
       </div>
 
@@ -49,22 +49,22 @@
   <div class="wrap">
     <div class="about-intro-grid">
       <div>
-        <span class="badge">About {{ division.name }}</span>
-        <h2>Commitment to Excellence &amp; Value</h2>
+        <span class="badge">ABOUT {{ division.name|upper }}</span>
+        <h2>COMMITMENT TO EXCELLENCE &amp; VALUE</h2>
         <p style="margin-bottom: 16px; font-size: 1.05rem;">{{ division.full_description|default:division.short_description }}</p>
         <p>Operating as an integral part of Bairava Groups, we uphold the highest standards of transparency, quality execution, and customer focus.</p>
       </div>
 
       <div style="background: var(--sand-light); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 32px;">
-        <h4 style="color: var(--brick); margin-bottom: 16px;">Core Highlights</h4>
+        <h4 style="color: var(--brick); margin-bottom: 16px;">CORE HIGHLIGHTS</h4>
         <div style="display: flex; flex-direction: column; gap: 14px;">
           <div style="display: flex; gap: 12px; font-size: 0.94rem;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
-            <div><strong>Professional Management:</strong> Experienced team and dedicated customer coordination.</div>
+            <div><strong>PROFESSIONAL MANAGEMENT:</strong> Experienced team and dedicated customer coordination.</div>
           </div>
           <div style="display: flex; gap: 12px; font-size: 0.94rem;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
-            <div><strong>Reliable Execution:</strong> Delivering on commitments with high attention to detail.</div>
+            <div><strong>RELIABLE EXECUTION:</strong> Delivering on commitments with high attention to detail.</div>
           </div>
         </div>
       </div>
@@ -78,8 +78,8 @@
   <div class="wrap">
     <div class="section-head">
       <div>
-        <span class="badge badge-brass">Services &amp; Offerings</span>
-        <h2>Services &amp; Programs</h2>
+        <span class="badge badge-brass">SERVICES &amp; OFFERINGS</span>
+        <h2>SERVICES &amp; PROGRAMS</h2>
         <p style="max-width: 620px; margin-top: 8px;">Explore our key capabilities and service offerings.</p>
       </div>
     </div>
@@ -88,9 +88,9 @@
       {% for offering in offerings %}
       <div class="offering-card">
         <div class="offering-head">
-          <h4>{{ offering.title }}</h4>
+          <h4>{{ offering.title|upper }}</h4>
           {% if offering.badge %}
-            <span class="offering-badge">{{ offering.badge }}</span>
+            <span class="offering-badge">{{ offering.badge|upper }}</span>
           {% endif %}
         </div>
         <p>{{ offering.description }}</p>
@@ -106,8 +106,8 @@
   <div class="wrap">
     <div class="section-head">
       <div>
-        <span class="badge">Contact</span>
-        <h2>Enquire with {{ division.name }}</h2>
+        <span class="badge">CONTACT</span>
+        <h2>ENQUIRE WITH {{ division.name|upper }}</h2>
         <p style="max-width: 600px; margin-top: 8px;">Submit your requirements and our team will get in touch with you.</p>
       </div>
     </div>
@@ -122,19 +122,19 @@
 
     <div class="division-contact-grid">
       <div class="contact-card-info">
-        <h3>Direct Contact</h3>
+        <h3>DIRECT CONTACT</h3>
         <div class="contact-info-list">
           <div class="contact-info-item">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <div>
-              <h5>Office Address</h5>
+              <h5>OFFICE ADDRESS</h5>
               <p>New #18, Plot 644, 46th Street, 9th Sector, KK Nagar, Chennai – 600078</p>
             </div>
           </div>
           <div class="contact-info-item">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <div>
-              <h5>Helpline</h5>
+              <h5>HELPLINE</h5>
               <a href="tel:+919941757555">+91 99417 57555</a>
             </div>
           </div>
@@ -142,34 +142,34 @@
       </div>
 
       <div class="form-box">
-        <h3>Submit Enquiry</h3>
+        <h3>SUBMIT ENQUIRY</h3>
         <form method="post" action="{% url 'core:business_detail' slug=division.slug %}#division-enquiry">
           {% csrf_token %}
           <div class="form-row">
             <div class="form-group">
-              <label for="{{ form.name.id_for_label }}">{{ form.name.label }} *</label>
+              <label for="{{ form.name.id_for_label }}">{{ form.name.label|upper }} *</label>
               {{ form.name }}
             </div>
             <div class="form-group">
-              <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }} *</label>
+              <label for="{{ form.phone.id_for_label }}">{{ form.phone.label|upper }} *</label>
               {{ form.phone }}
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+              <label for="{{ form.email.id_for_label }}">{{ form.email.label|upper }}</label>
               {{ form.email }}
             </div>
             <div class="form-group">
-              <label for="{{ form.subject.id_for_label }}">{{ form.subject.label }}</label>
+              <label for="{{ form.subject.id_for_label }}">{{ form.subject.label|upper }}</label>
               {{ form.subject }}
             </div>
           </div>
           <div class="form-group">
-            <label for="{{ form.message.id_for_label }}">{{ form.message.label }} *</label>
+            <label for="{{ form.message.id_for_label }}">{{ form.message.label|upper }} *</label>
             {{ form.message }}
           </div>
-          <button type="submit" class="btn btn-solid" style="width: 100%;">Submit Message</button>
+          <button type="submit" class="btn btn-solid" style="width: 100%;">SUBMIT MESSAGE</button>
         </form>
       </div>
     </div>

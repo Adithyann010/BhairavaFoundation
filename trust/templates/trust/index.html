@@ -1,7 +1,7 @@
 {% extends "core/base.html" %}
 {% load static %}
 
-{% block title %}Bairava Trust — Community Care, Annadhanam & Elder Sanctuary Chennai{% endblock %}
+{% block title %}BAIRAVA TRUST — COMMUNITY CARE, ANNADHANAM & ELDER SANCTUARY CHENNAI{% endblock %}
 {% block meta_desc %}Bairava Trust focuses on social welfare and community-oriented initiatives designed to support people and create positive community impact.{% endblock %}
 
 {% block content %}
@@ -9,23 +9,23 @@
 <section class="page-hero">
   <div class="wrap">
     <div class="breadcrumbs">
-      <a href="{% url 'core:home' %}">Home</a>
+      <a href="{% url 'core:home' %}">HOME</a>
       <span>/</span>
-      <a href="{% url 'core:businesses_index' %}">Businesses</a>
+      <a href="{% url 'core:businesses_index' %}">BUSINESSES</a>
       <span>/</span>
-      <span>Bairava Trust</span>
+      <span>BAIRAVA TRUST</span>
     </div>
 
     <div class="page-hero-grid">
       <div>
-        <span class="badge" style="background: rgba(124, 59, 41, 0.1);">Social Welfare &amp; Charity</span>
-        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 12px;">Bairava Trust</h1>
+        <span class="badge" style="background: rgba(124, 59, 41, 0.1);">SOCIAL WELFARE &amp; CHARITY</span>
+        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 12px;">BAIRAVA TRUST</h1>
         <p class="hero-subtitle" style="font-size: 1.25rem;">"What you give comes back tenfold."</p>
         <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">Bairava Trust focuses on social welfare and community-oriented initiatives designed to support people and create positive community impact.</p>
         
         <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-          <a href="#initiatives" class="btn btn-solid">Explore Programs</a>
-          <a href="#trust-enquiry" class="btn btn-outline">Support &amp; Donate</a>
+          <a href="#initiatives" class="btn btn-solid">EXPLORE PROGRAMS</a>
+          <a href="#trust-enquiry" class="btn btn-outline">SUPPORT &amp; DONATE</a>
         </div>
       </div>
 
@@ -41,27 +41,27 @@
   <div class="wrap">
     <div class="about-intro-grid">
       <div>
-        <span class="badge">About the Trust</span>
-        <h2>Compassionate Community Care for Over Two Decades</h2>
+        <span class="badge">ABOUT THE TRUST</span>
+        <h2>COMPASSIONATE COMMUNITY CARE FOR OVER TWO DECADES</h2>
         <p style="margin-bottom: 16px; font-size: 1.05rem;">The Bairava Charitable Trust is a registered non-profit organization dedicated to supporting senior citizens without family backing, providing hot nutritious daily meals, and offering student educational scholarships.</p>
         <p style="margin-bottom: 16px;">Our primary initiative, Daily Annadhanam, serves fresh nutritious meals to hundreds of elderly citizens, homeless individuals, and hospital attendants 365 days a year without pause. Our Senior Care Sanctuary provides full-time shelter, clothing, medical monitoring, and companionship to 40+ permanent senior residents.</p>
         <p>The Trust operates with complete transparency, funded by the Bairava family and compassionate public patrons.</p>
       </div>
 
       <div style="background: var(--sand-light); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 32px;">
-        <h4 style="color: var(--brick); margin-bottom: 16px;">Trust Impact Metrics</h4>
+        <h4 style="color: var(--brick); margin-bottom: 16px;">TRUST IMPACT METRICS</h4>
         <div style="display: flex; flex-direction: column; gap: 14px;">
           <div style="display: flex; gap: 12px; font-size: 0.94rem;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
-            <div><strong>500+ Meals Served Daily:</strong> Freshly prepared hot meals served at our Annadhanam center.</div>
+            <div><strong>500+ MEALS SERVED DAILY:</strong> Freshly prepared hot meals served at our Annadhanam center.</div>
           </div>
           <div style="display: flex; gap: 12px; font-size: 0.94rem;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
-            <div><strong>40+ Permanent Senior Residents:</strong> Safe housing, doctor care, nursing, and dignity in elder years.</div>
+            <div><strong>40+ PERMANENT SENIOR RESIDENTS:</strong> Safe housing, doctor care, nursing, and dignity in elder years.</div>
           </div>
           <div style="display: flex; gap: 12px; font-size: 0.94rem;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
-            <div><strong>150+ Annual Scholarships:</strong> Assisting underprivileged youth to complete schooling and college.</div>
+            <div><strong>150+ ANNUAL SCHOLARSHIPS:</strong> Assisting underprivileged youth to complete schooling and college.</div>
           </div>
         </div>
       </div>
@@ -74,8 +74,8 @@
   <div class="wrap">
     <div class="section-head">
       <div>
-        <span class="badge badge-brass">Pillars of Service</span>
-        <h2>Trust Initiatives &amp; Activities</h2>
+        <span class="badge badge-brass">PILLARS OF SERVICE</span>
+        <h2>TRUST INITIATIVES &amp; ACTIVITIES</h2>
         <p style="max-width: 620px; margin-top: 8px;">Explore our ongoing welfare drives and social support programs.</p>
       </div>
     </div>
@@ -84,7 +84,7 @@
     <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px;">
       {% for code, label in categories %}
         <a href="?category={{ code }}#initiatives" class="btn btn-sm {% if selected_category == code %}btn-solid{% else %}btn-outline{% endif %}">
-          {{ label }}
+          {{ label|upper }}
         </a>
       {% endfor %}
     </div>
@@ -98,11 +98,11 @@
           <img src="{% static 'core/images/divisions/trust.jpg' %}" alt="{{ item.title }}" class="project-item-img" loading="lazy">
         {% endif %}
         <div class="project-item-body">
-          <span class="project-item-cat">{{ item.get_category_display }}</span>
-          <h4>{{ item.title }}</h4>
+          <span class="project-item-cat">{{ item.get_category_display|upper }}</span>
+          <h4>{{ item.title|upper }}</h4>
           {% if item.impact_stat %}
             <div style="font-size: 0.82rem; font-weight: 600; color: var(--brick); margin-bottom: 8px;">
-              ✨ {{ item.impact_stat }}
+              ✨ {{ item.impact_stat|upper }}
             </div>
           {% endif %}
           <p>{{ item.description }}</p>
@@ -110,8 +110,8 @@
       </div>
       {% empty %}
       <div style="grid-column: 1 / -1; text-align: center; padding: 48px 20px; color: var(--slate);">
-        <h3>No activity showcase items found in this category</h3>
-        <a href="{% url 'trust:index' %}#initiatives" class="btn btn-outline" style="margin-top: 16px;">Show All Initiatives</a>
+        <h3>NO ACTIVITY SHOWCASE ITEMS FOUND IN THIS CATEGORY</h3>
+        <a href="{% url 'trust:index' %}#initiatives" class="btn btn-outline" style="margin-top: 16px;">SHOW ALL INITIATIVES</a>
       </div>
       {% endfor %}
     </div>
@@ -123,8 +123,8 @@
   <div class="wrap">
     <div class="section-head">
       <div>
-        <span class="badge">Sponsorship &amp; Service</span>
-        <h2>Support Bairava Trust or Sponsor Annadhanam</h2>
+        <span class="badge">SPONSORSHIP &amp; SERVICE</span>
+        <h2>SUPPORT BAIRAVA TRUST OR SPONSOR ANNADHANAM</h2>
         <p style="max-width: 600px; margin-top: 8px;">Your donations directly fund food, medical supplies, and shelter for senior citizens in need.</p>
       </div>
     </div>
@@ -139,28 +139,28 @@
 
     <div class="division-contact-grid">
       <div class="contact-card-info">
-        <h3>Trust Administration Office</h3>
+        <h3>TRUST ADMINISTRATION OFFICE</h3>
         <p style="margin-bottom: 24px;">Patrons and volunteers are warmly welcomed to visit our Annadhanam center and sanctuary.</p>
 
         <div class="contact-info-list">
           <div class="contact-info-item">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <div>
-              <h5>Trust Center Address</h5>
+              <h5>TRUST CENTER ADDRESS</h5>
               <p>New #18, Plot 644, 46th Street, 9th Sector, KK Nagar, Chennai – 600078</p>
             </div>
           </div>
           <div class="contact-info-item">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <div>
-              <h5>Trust Helpline</h5>
+              <h5>TRUST HELPLINE</h5>
               <a href="tel:+919941757555">+91 99417 57555</a>
             </div>
           </div>
           <div class="contact-info-item">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             <div>
-              <h5>Email Inquiries</h5>
+              <h5>EMAIL INQUIRIES</h5>
               <a href="mailto:sribairavaassociates@gmail.com">sribairavaassociates@gmail.com</a>
             </div>
           </div>
@@ -168,40 +168,40 @@
       </div>
 
       <div class="form-box">
-        <h3>Sponsor Meals or Elder Care</h3>
+        <h3>SPONSOR MEALS OR ELDER CARE</h3>
         <p style="font-size: 0.88rem; margin-bottom: 20px;">Fill in your details below to schedule an Annadhanam sponsorship or volunteer.</p>
 
         <form method="post" action="{% url 'trust:index' %}#trust-enquiry">
           {% csrf_token %}
           <div class="form-row">
             <div class="form-group">
-              <label for="{{ form.name.id_for_label }}">{{ form.name.label }} *</label>
+              <label for="{{ form.name.id_for_label }}">{{ form.name.label|upper }} *</label>
               {{ form.name }}
             </div>
             <div class="form-group">
-              <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }} *</label>
+              <label for="{{ form.phone.id_for_label }}">{{ form.phone.label|upper }} *</label>
               {{ form.phone }}
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+              <label for="{{ form.email.id_for_label }}">{{ form.email.label|upper }}</label>
               {{ form.email }}
             </div>
             <div class="form-group">
-              <label for="{{ form.support_type.id_for_label }}">{{ form.support_type.label }} *</label>
+              <label for="{{ form.support_type.id_for_label }}">{{ form.support_type.label|upper }} *</label>
               {{ form.support_type }}
             </div>
           </div>
           <div class="form-group">
-            <label for="{{ form.contribution_details.id_for_label }}">{{ form.contribution_details.label }}</label>
+            <label for="{{ form.contribution_details.id_for_label }}">{{ form.contribution_details.label|upper }}</label>
             {{ form.contribution_details }}
           </div>
           <div class="form-group">
-            <label for="{{ form.message.id_for_label }}">{{ form.message.label }} *</label>
+            <label for="{{ form.message.id_for_label }}">{{ form.message.label|upper }} *</label>
             {{ form.message }}
           </div>
-          <button type="submit" class="btn btn-solid" style="width: 100%;">Submit Sponsorship Enquiry</button>
+          <button type="submit" class="btn btn-solid" style="width: 100%;">SUBMIT SPONSORSHIP ENQUIRY</button>
         </form>
       </div>
     </div>

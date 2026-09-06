@@ -1,24 +1,24 @@
 {% extends "core/base.html" %}
 {% load static %}
 
-{% block title %}Our Businesses — Bairava Groups Divisions{% endblock %}
-{% block meta_desc %}Explore the nine complete divisions of Bairava Groups across construction, finance, hospitality, sports, events, media and social initiatives.{% endblock %}
+{% block title %}OUR BUSINESSES — BAIRAVA GROUPS DIVISIONS{% endblock %}
+{% block meta_desc %}Explore the complete operating divisions of Bairava Groups across construction, finance, hospitality, sports, events, media, association, and social initiatives.{% endblock %}
 
 {% block content %}
 <!-- PAGE HERO -->
 <section class="page-hero">
   <div class="wrap">
     <div class="breadcrumbs">
-      <a href="{% url 'core:home' %}">Home</a>
+      <a href="{% url 'core:home' %}">HOME</a>
       <span>/</span>
-      <span>Our Businesses</span>
+      <span>OUR BUSINESSES</span>
     </div>
 
     <div class="section-head" style="margin-bottom: 0;">
       <div>
-        <span class="badge">Group Portfolio</span>
-        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 12px;">Our Businesses &amp; Divisions</h1>
-        <p style="font-size: 1.1rem; max-width: 720px;">Bairava Groups brings together nine operating divisions united by a commitment to quality, trust, and long-term value creation.</p>
+        <span class="badge">GROUP PORTFOLIO</span>
+        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 12px;">OUR BUSINESSES &amp; DIVISIONS</h1>
+        <p style="font-size: 1.1rem; max-width: 720px;">Bairava Groups brings together operating divisions united by a commitment to quality, trust, and long-term value creation.</p>
       </div>
     </div>
   </div>
@@ -28,7 +28,7 @@
 <section class="section">
   <div class="wrap">
     <div style="margin-bottom: 36px; padding-bottom: 16px; border-bottom: 2px solid var(--brick);">
-      <h2 style="font-size: 1.8rem; color: var(--charcoal);">Commercial Divisions</h2>
+      <h2 style="font-size: 1.8rem; color: var(--charcoal);">COMMERCIAL DIVISIONS</h2>
       <p>Professional enterprises delivering specialised services and products.</p>
     </div>
 
@@ -43,20 +43,20 @@
           {% else %}
             <img src="{% static 'core/images/divisions/construction.jpg' %}" alt="{{ div.name }}" class="business-card-img" loading="lazy">
           {% endif %}
-          <span class="business-card-tag">Commercial Division</span>
+          <span class="business-card-tag">COMMERCIAL DIVISION</span>
         </div>
         <div class="business-card-body">
-          <h3 class="business-card-title">{{ div.name }}</h3>
+          <h3 class="business-card-title">{{ div.name|upper }}</h3>
           <p class="business-card-desc">{{ div.short_description }}</p>
           <div>
             {% if div.target_url %}
               <a href="{{ div.target_url }}" class="business-card-action">
-                <span>Explore {{ div.name }}</span>
+                <span>EXPLORE {{ div.name|upper }}</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </a>
             {% else %}
               <a href="{% url 'core:business_detail' slug=div.slug %}" class="business-card-action">
-                <span>Explore {{ div.name }}</span>
+                <span>EXPLORE {{ div.name|upper }}</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </a>
             {% endif %}
@@ -72,7 +72,7 @@
 <section class="section" style="background-color: var(--sand-light);">
   <div class="wrap">
     <div style="margin-bottom: 36px; padding-bottom: 16px; border-bottom: 2px solid var(--brass);">
-      <h2 style="font-size: 1.8rem; color: var(--charcoal);">Foundation &amp; Social Initiatives</h2>
+      <h2 style="font-size: 1.8rem; color: var(--charcoal);">FOUNDATION &amp; SOCIAL INITIATIVES</h2>
       <p>Non-profit community welfare programmes, elder care shelters, and scholarships.</p>
     </div>
 
@@ -87,20 +87,20 @@
           {% else %}
             <img src="{% static 'core/images/divisions/trust.jpg' %}" alt="{{ div.name }}" class="business-card-img" loading="lazy">
           {% endif %}
-          <span class="business-card-tag" style="background: rgba(124, 59, 41, 0.9);">Social Initiative</span>
+          <span class="business-card-tag" style="background: rgba(124, 59, 41, 0.9);">SOCIAL INITIATIVE</span>
         </div>
         <div class="business-card-body">
-          <h3 class="business-card-title">{{ div.name }}</h3>
+          <h3 class="business-card-title">{{ div.name|upper }}</h3>
           <p class="business-card-desc">{{ div.short_description }}</p>
           <div>
             {% if div.target_url %}
               <a href="{{ div.target_url }}" class="business-card-action">
-                <span>Explore {{ div.name }}</span>
+                <span>EXPLORE {{ div.name|upper }}</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </a>
             {% else %}
               <a href="{% url 'core:business_detail' slug=div.slug %}" class="business-card-action">
-                <span>Explore {{ div.name }}</span>
+                <span>EXPLORE {{ div.name|upper }}</span>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </a>
             {% endif %}

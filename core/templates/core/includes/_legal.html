@@ -2,26 +2,26 @@
 <section class="section legal-section" id="legal">
   <div class="wrap">
     <div class="section-head">
-      <h2>Legal Associates</h2>
+      <h2>LEGAL ASSOCIATES</h2>
       <p>Almost a decade of practice in and around Chennai, for people who need a straight answer quickly.</p>
     </div>
     <div class="legal-layout">
       <ul class="legal-list">
         {% for item in legal_services %}
-        <li>{{ item.description }} <span class="tag">{{ item.tag }}</span></li>
+        <li>{{ item.description }} <span class="tag">{{ item.tag|upper }}</span></li>
         {% empty %}
         <!-- Fallback if no legal services in DB -->
-        <li>Received a legal notice and don't know what it means? <span class="tag">Notices</span></li>
-        <li>Need help recovering money owed to you? <span class="tag">Recovery</span></li>
-        <li>Buying property and want a legal opinion first? <span class="tag">Property</span></li>
-        <li>Got a court summon on a case you don't recognise? <span class="tag">Criminal</span></li>
-        <li>Recovery agents contacting you outside their rights? <span class="tag">Protection</span></li>
+        <li>Received a legal notice and don't know what it means? <span class="tag">NOTICES</span></li>
+        <li>Need help recovering money owed to you? <span class="tag">RECOVERY</span></li>
+        <li>Buying property and want a legal opinion first? <span class="tag">PROPERTY</span></li>
+        <li>Got a court summon on a case you don't recognise? <span class="tag">CRIMINAL</span></li>
+        <li>Recovery agents contacting you outside their rights? <span class="tag">PROTECTION</span></li>
         {% endfor %}
       </ul>
       <div class="legal-card">
-        <h3>Talk to an advocate today</h3>
+        <h3>TALK TO AN ADVOCATE TODAY</h3>
         <p>Call directly for an initial opinion — no appointment required for urgent matters.</p>
-        <a href="tel:+919941757555" class="btn btn-solid" style="background:var(--brass); border-color:var(--brass);">Call +91 99417 57555</a>
+        <a href="tel:+919941757555" class="btn btn-solid" style="background:var(--brass); border-color:var(--brass);">CALL +91 99417 57555</a>
       </div>
     </div>
   </div>

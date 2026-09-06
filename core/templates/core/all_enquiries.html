@@ -1,6 +1,6 @@
 {% extends "core/base.html" %}
 
-{% block title %}All Form Enquiries Dashboard — Bairava Groups{% endblock %}
+{% block title %}ALL FORM ENQUIRIES DASHBOARD — BAIRAVA GROUPS{% endblock %}
 
 {% block content %}
 <style>
@@ -29,6 +29,7 @@
   .stat-badge span {
     font-size: 0.85rem;
     color: #C9BEAE;
+    text-transform: uppercase;
   }
   .enquiry-section {
     margin-bottom: 50px;
@@ -73,6 +74,7 @@
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 600;
+    text-transform: uppercase;
   }
   .enquiry-body {
     background: rgba(36,31,28,0.03);
@@ -86,34 +88,34 @@
 
 <section class="dashboard-header">
   <div class="wrap">
-    <div style="font-size:0.9rem; color:var(--brass); font-weight:600; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:8px;">Centralized Submissions Overview</div>
-    <h1>All Form Enquiries Dashboard</h1>
+    <div style="font-size:0.9rem; color:var(--brass); font-weight:600; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:8px;">CENTRALIZED SUBMISSIONS OVERVIEW</div>
+    <h1>ALL FORM ENQUIRIES DASHBOARD</h1>
     <p style="color:#C9BEAE; max-width:55ch; font-size:1.05rem;">Real-time overview of all messages and enquiries submitted across all 5 forms on the website.</p>
 
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 18px; margin-top: 36px;">
       <div class="stat-badge">
         <strong>{{ division_enquiries|length }}</strong>
-        <span>Division Enquiries</span>
+        <span>DIVISION ENQUIRIES</span>
       </div>
       <div class="stat-badge">
         <strong>{{ construction_enquiries|length }}</strong>
-        <span>Construction Enquiries</span>
+        <span>CONSTRUCTION ENQUIRIES</span>
       </div>
       <div class="stat-badge">
         <strong>{{ trust_enquiries|length }}</strong>
-        <span>Trust / Donations</span>
+        <span>TRUST / DONATIONS</span>
       </div>
       <div class="stat-badge">
         <strong>{{ legal_enquiries|length }}</strong>
-        <span>Legal Consultations</span>
+        <span>LEGAL CONSULTATIONS</span>
       </div>
       <div class="stat-badge">
         <strong>{{ event_enquiries|length }}</strong>
-        <span>Event Bookings</span>
+        <span>EVENT BOOKINGS</span>
       </div>
       <div class="stat-badge">
         <strong>{{ contact_enquiries|length }}</strong>
-        <span>General Contact</span>
+        <span>GENERAL CONTACT</span>
       </div>
     </div>
   </div>
@@ -125,19 +127,19 @@
     <!-- 0. DIVISION SPECIFIC ENQUIRIES -->
     <div class="enquiry-section">
       <h2>
-        <span>🏢 Business Division Enquiries</span>
-        <span class="enquiry-tag" style="background:var(--charcoal); color:var(--paper);">{{ division_enquiries|length }} Submissions</span>
+        <span>🏢 BUSINESS DIVISION ENQUIRIES</span>
+        <span class="enquiry-tag" style="background:var(--charcoal); color:var(--paper);">{{ division_enquiries|length }} SUBMISSIONS</span>
       </h2>
 
       {% for eq in division_enquiries %}
       <div class="enquiry-card">
         <div class="enquiry-header">
           <div>
-            <div class="enquiry-title">{{ eq.name }} <span style="font-size:0.85rem; color:var(--brick); font-weight:600;">[{{ eq.division.name }}]</span></div>
+            <div class="enquiry-title">{{ eq.name }} <span style="font-size:0.85rem; color:var(--brick); font-weight:600;">[{{ eq.division.name|upper }}]</span></div>
             <div class="enquiry-meta">📞 {{ eq.phone }} {% if eq.email %}| ✉️ {{ eq.email }}{% endif %}{% if eq.subject %} | 📌 {{ eq.subject }}{% endif %}</div>
           </div>
           <div style="text-align:right;">
-            <span class="enquiry-tag">{{ eq.division.name }}</span>
+            <span class="enquiry-tag">{{ eq.division.name|upper }}</span>
             <div style="font-size:0.78rem; color:var(--slate); margin-top:4px;">{{ eq.created_at|date:"d M Y, h:i A" }}</div>
           </div>
         </div>
@@ -153,8 +155,8 @@
     <!-- 1. CONSTRUCTION ENQUIRIES -->
     <div class="enquiry-section">
       <h2>
-        <span>🏗️ Construction Project Enquiries</span>
-        <span class="enquiry-tag" style="background:var(--brick); color:var(--paper);">{{ construction_enquiries|length }} Submissions</span>
+        <span>🏗️ CONSTRUCTION PROJECT ENQUIRIES</span>
+        <span class="enquiry-tag" style="background:var(--brick); color:var(--paper);">{{ construction_enquiries|length }} SUBMISSIONS</span>
       </h2>
 
       {% for eq in construction_enquiries %}
@@ -165,7 +167,7 @@
             <div class="enquiry-meta">📞 {{ eq.phone }} {% if eq.email %}| ✉️ {{ eq.email }}{% endif %} | 📍 {{ eq.location }}</div>
           </div>
           <div style="text-align:right;">
-            <span class="enquiry-tag">{{ eq.get_project_type_display }}</span>
+            <span class="enquiry-tag">{{ eq.get_project_type_display|upper }}</span>
             <div style="font-size:0.78rem; color:var(--slate); margin-top:4px;">{{ eq.created_at|date:"d M Y, h:i A" }}</div>
           </div>
         </div>
@@ -183,8 +185,8 @@
     <!-- 2. TRUST ENQUIRIES -->
     <div class="enquiry-section">
       <h2>
-        <span>🤝 Bairava Trust &amp; Donation Enquiries</span>
-        <span class="enquiry-tag" style="background:var(--brass); color:var(--paper);">{{ trust_enquiries|length }} Submissions</span>
+        <span>🤝 BAIRAVA TRUST &amp; DONATION ENQUIRIES</span>
+        <span class="enquiry-tag" style="background:var(--brass); color:var(--paper);">{{ trust_enquiries|length }} SUBMISSIONS</span>
       </h2>
 
       {% for eq in trust_enquiries %}
@@ -195,7 +197,7 @@
             <div class="enquiry-meta">📞 {{ eq.phone }} {% if eq.email %}| ✉️ {{ eq.email }}{% endif %}</div>
           </div>
           <div style="text-align:right;">
-            <span class="enquiry-tag">{{ eq.get_support_type_display }}</span>
+            <span class="enquiry-tag">{{ eq.get_support_type_display|upper }}</span>
             <div style="font-size:0.78rem; color:var(--slate); margin-top:4px;">{{ eq.created_at|date:"d M Y, h:i A" }}</div>
           </div>
         </div>
@@ -212,8 +214,8 @@
     <!-- 3. LEGAL ENQUIRIES -->
     <div class="enquiry-section">
       <h2>
-        <span>⚖️ Legal Associates Consultations</span>
-        <span class="enquiry-tag" style="background:var(--charcoal); color:var(--paper);">{{ legal_enquiries|length }} Submissions</span>
+        <span>⚖️ LEGAL ASSOCIATES CONSULTATIONS</span>
+        <span class="enquiry-tag" style="background:var(--charcoal); color:var(--paper);">{{ legal_enquiries|length }} SUBMISSIONS</span>
       </h2>
 
       {% for eq in legal_enquiries %}
@@ -224,7 +226,7 @@
             <div class="enquiry-meta">📞 {{ eq.phone }} {% if eq.email %}| ✉️ {{ eq.email }}{% endif %}</div>
           </div>
           <div style="text-align:right;">
-            <span class="enquiry-tag">{{ eq.get_issue_type_display }} ({{ eq.get_urgency_display }})</span>
+            <span class="enquiry-tag">{{ eq.get_issue_type_display|upper }} ({{ eq.get_urgency_display|upper }})</span>
             <div style="font-size:0.78rem; color:var(--slate); margin-top:4px;">{{ eq.created_at|date:"d M Y, h:i A" }}</div>
           </div>
         </div>
@@ -240,8 +242,8 @@
     <!-- 4. EVENT ENQUIRIES -->
     <div class="enquiry-section">
       <h2>
-        <span>🎉 Event Booking Enquiries</span>
-        <span class="enquiry-tag" style="background:#8C5A3C; color:var(--paper);">{{ event_enquiries|length }} Submissions</span>
+        <span>🎉 EVENT BOOKING ENQUIRIES</span>
+        <span class="enquiry-tag" style="#8C5A3C; color:var(--paper);">{{ event_enquiries|length }} SUBMISSIONS</span>
       </h2>
 
       {% for eq in event_enquiries %}
@@ -252,7 +254,7 @@
             <div class="enquiry-meta">📞 {{ eq.phone }} {% if eq.email %}| ✉️ {{ eq.email }}{% endif %}</div>
           </div>
           <div style="text-align:right;">
-            <span class="enquiry-tag">{{ eq.get_event_type_display }}</span>
+            <span class="enquiry-tag">{{ eq.get_event_type_display|upper }}</span>
             <div style="font-size:0.78rem; color:var(--slate); margin-top:4px;">{{ eq.created_at|date:"d M Y, h:i A" }}</div>
           </div>
         </div>
@@ -271,8 +273,8 @@
     <!-- 5. GENERAL CONTACT ENQUIRIES -->
     <div class="enquiry-section">
       <h2>
-        <span>📬 General Contact Enquiries</span>
-        <span class="enquiry-tag">{{ contact_enquiries|length }} Submissions</span>
+        <span>📬 GENERAL CONTACT ENQUIRIES</span>
+        <span class="enquiry-tag">{{ contact_enquiries|length }} SUBMISSIONS</span>
       </h2>
 
       {% for eq in contact_enquiries %}
@@ -283,7 +285,7 @@
             <div class="enquiry-meta">📞 {{ eq.phone }}</div>
           </div>
           <div style="text-align:right;">
-            <span class="enquiry-tag">{{ eq.get_service_display }}</span>
+            <span class="enquiry-tag">{{ eq.get_service_display|upper }}</span>
             <div style="font-size:0.78rem; color:var(--slate); margin-top:4px;">{{ eq.created_at|date:"d M Y, h:i A" }}</div>
           </div>
         </div>

@@ -1,0 +1,230 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}BHAIRAVA ASSOCIATION — COMMUNITY • CONNECTION • COLLABORATION{% endblock %}
+{% block meta_desc %}Bhairava Association is focused on bringing people, professionals, businesses and communities together through meaningful connections, collaboration and organized initiatives.{% endblock %}
+
+{% block content %}
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumbs">
+      <a href="{% url 'core:home' %}">HOME</a>
+      <span>/</span>
+      <a href="{% url 'core:businesses_index' %}">BUSINESSES</a>
+      <span>/</span>
+      <span>BHAIRAVA ASSOCIATION</span>
+    </div>
+
+    <div class="page-hero-grid">
+      <div>
+        <span class="badge badge-charcoal">COMMERCIAL DIVISION</span>
+        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 12px;">BHAIRAVA ASSOCIATION</h1>
+        <p class="hero-subtitle" style="font-size: 1.25rem;">"COMMUNITY • CONNECTION • COLLABORATION"</p>
+        <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">Bhairava Association is focused on bringing people, professionals, businesses and communities together through meaningful connections, collaboration and organized initiatives.</p>
+        
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="#key-areas" class="btn btn-solid">KEY FOCUS AREAS</a>
+          <a href="#association-enquiry" class="btn btn-outline">CONNECT WITH US</a>
+        </div>
+      </div>
+
+      <div class="page-hero-image-wrap">
+        <img src="{% static 'core/images/divisions/association.jpg' %}" alt="Bhairava Association Community and Professional Networking">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT BHAIRAVA ASSOCIATION -->
+<section class="section">
+  <div class="wrap">
+    <div class="about-intro-grid">
+      <div>
+        <span class="badge">ABOUT BHAIRAVA ASSOCIATION</span>
+        <h2>FOSTERING CONNECTIONS, EMPOWERING COMMUNITIES</h2>
+        <p style="margin-bottom: 16px; font-size: 1.05rem;">Bhairava Association is focused on bringing people, professionals, businesses and communities together through meaningful connections, collaboration and organized initiatives.</p>
+        <p style="margin-bottom: 16px;">The association aims to create a strong platform for networking, community engagement, knowledge sharing and collective development. By uniting diverse individuals and business leaders, we cultivate a supportive ecosystem that encourages innovation, mutual assistance, and shared prosperity.</p>
+        <p>Through curated events, community forums, and collaborative programs, Bhairava Association acts as a vital bridge connecting ambitions with opportunities across Tamil Nadu.</p>
+      </div>
+
+      <div style="background: var(--sand-light); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 32px;">
+        <h4 style="color: var(--brick); margin-bottom: 16px;">ASSOCIATION PILLARS</h4>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>COMMUNITY FIRST:</strong> Active platforms for authentic community engagement and grassroots empowerment.</div>
+          </div>
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>PROFESSIONAL NETWORKING:</strong> Bridging enterprises, entrepreneurs, and skilled professionals.</div>
+          </div>
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>COLLECTIVE IMPACT:</strong> Driving initiatives that create sustainable value and long-term community benefits.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY AREAS / OFFERINGS -->
+<section class="section" style="background-color: var(--sand-light);" id="key-areas">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge badge-brass">AREAS OF FOCUS</span>
+        <h2>KEY FOCUS AREAS</h2>
+        <p style="max-width: 620px; margin-top: 8px;">Explore the core pillars and initiatives driven by Bhairava Association.</p>
+      </div>
+    </div>
+
+    <div class="offerings-grid">
+      {% for offering in offerings %}
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>{{ offering.title|upper }}</h4>
+          {% if offering.badge %}
+            <span class="offering-badge">{{ offering.badge|upper }}</span>
+          {% endif %}
+        </div>
+        <p>{{ offering.description }}</p>
+      </div>
+      {% empty %}
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>COMMUNITY NETWORKING</h4>
+          <span class="offering-badge">NETWORKING</span>
+        </div>
+        <p>Building meaningful connections among members, professionals and local communities.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>PROFESSIONAL COLLABORATION</h4>
+          <span class="offering-badge">COLLABORATION</span>
+        </div>
+        <p>Encouraging partnerships, knowledge sharing and opportunities for professional growth.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>COMMUNITY INITIATIVES</h4>
+          <span class="offering-badge">INITIATIVES</span>
+        </div>
+        <p>Supporting programs and activities that contribute to community development.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>MEMBER ENGAGEMENT</h4>
+          <span class="offering-badge">ENGAGEMENT</span>
+        </div>
+        <p>Creating events, meetings and activities that encourage participation and stronger relationships.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>KNOWLEDGE &amp; NETWORKING</h4>
+          <span class="offering-badge">KNOWLEDGE</span>
+        </div>
+        <p>Providing opportunities to exchange ideas, experience and practical knowledge.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>COLLECTIVE GROWTH</h4>
+          <span class="offering-badge">GROWTH</span>
+        </div>
+        <p>Working together to create sustainable opportunities and positive community impact.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ENQUIRY & MEMBERSHIP CONNECT FORM -->
+<section class="section" id="association-enquiry">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge">MEMBERSHIP &amp; ENGAGEMENT</span>
+        <h2>CONNECT WITH BHAIRAVA ASSOCIATION</h2>
+        <p style="max-width: 600px; margin-top: 8px;">Enquire about association membership, community partnership, or networking initiatives.</p>
+      </div>
+    </div>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{% if message.tags == 'error' %}info{% else %}{{ message.tags }}{% endif %}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <div class="division-contact-grid">
+      <div class="contact-card-info">
+        <h3>ASSOCIATION OFFICE</h3>
+        <p style="margin-bottom: 24px;">Connect with our association coordinators for membership details, event participation, and collaborative community drives.</p>
+
+        <div class="contact-info-list">
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <h5>OFFICE ADDRESS</h5>
+              <p>New #18, Plot 644, 46th Street, 9th Sector, KK Nagar, Chennai – 600078</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <div>
+              <h5>DIRECT HELPLINE</h5>
+              <a href="tel:+919941757555">+91 99417 57555</a>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <div>
+              <h5>EMAIL</h5>
+              <a href="mailto:sribairavaassociates@gmail.com">sribairavaassociates@gmail.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-box">
+        <h3>SUBMIT AN ENQUIRY</h3>
+        <p style="font-size: 0.88rem; margin-bottom: 20px;">Share your details and area of interest to connect with the association team.</p>
+
+        <form method="post" action="{% url 'core:business_detail' slug='bhairava-association' %}#association-enquiry">
+          {% csrf_token %}
+          <div class="form-row">
+            <div class="form-group">
+              <label for="{{ form.name.id_for_label }}">{{ form.name.label|upper }} *</label>
+              {{ form.name }}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.phone.id_for_label }}">{{ form.phone.label|upper }} *</label>
+              {{ form.phone }}
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="{{ form.email.id_for_label }}">{{ form.email.label|upper }}</label>
+              {{ form.email }}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.subject.id_for_label }}">{{ form.subject.label|upper }}</label>
+              {{ form.subject }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="{{ form.message.id_for_label }}">{{ form.message.label|upper }} *</label>
+            {{ form.message }}
+          </div>
+          <button type="submit" class="btn btn-solid" style="width: 100%;">SUBMIT ENQUIRY</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+{% include "core/includes/_cta.html" %}
+{% endblock %}

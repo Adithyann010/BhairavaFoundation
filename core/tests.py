@@ -16,7 +16,7 @@ class AIChatbotTestCase(TestCase):
 
         # Create business divisions
         self.div_construction = BusinessDivision.objects.create(
-            name="Bairava Construction & Promoters",
+            name="Bairava Construction & Land Promoters",
             slug="construction",
             tagline="Mastering Structural Excellence",
             short_description="Turnkey construction in Chennai.",
@@ -278,29 +278,29 @@ class FuturePlanTestCase(TestCase):
 
         # Headings & Vision
         self.assertIn("OUR VISION AHEAD", content)
-        self.assertIn("Future Plan", content)
+        self.assertIn("FUTURE PLAN", content)
         self.assertIn("Expanding our horizons to create more value", content)
-        self.assertIn("Two new businesses coming soon under Bairava Groups", content)
+        self.assertIn("TWO NEW BUSINESSES COMING SOON UNDER BAIRAVA GROUPS", content)
 
         # Business 1: Bairava Water Solutions
-        self.assertIn("Bairava Water Solutions", content)
+        self.assertIn("BAIRAVA WATER SOLUTIONS", content)
         self.assertIn("Pure Water. Healthier Lives.", content)
         self.assertIn("Packaged drinking water and water-can distribution", content)
         self.assertIn("Clean &amp; Safe Drinking Water", content)
         self.assertIn("A Healthier Tomorrow with Bairava.", content)
 
         # Business 2: Bairava Jewellery
-        self.assertIn("Bairava Jewellery", content)
+        self.assertIn("BAIRAVA JEWELLERY", content)
         self.assertIn("Timeless Beauty. Lasting Value.", content)
         self.assertIn("Jewellery retail and elegant handcrafted collections", content)
         self.assertIn("Gold Jewellery &amp; Traditional Collections", content)
         self.assertIn("Tradition Today. For Generations Tomorrow.", content)
 
         # Coming Soon indicators
-        self.assertIn("Coming Soon", content)
+        self.assertIn("COMING SOON", content)
 
         # Footer copyright test
-        self.assertIn("© 2026 La Fortune Makers. All rights reserved. Chennai, Tamil Nadu.", content)
+        self.assertIn("Copyrights 2026 Bairava Groups All Rights Reserved. Chennai, Tamil Nadu.", content)
 
     def test_future_plan_nav_in_all_pages(self):
         """Test that Future Plan appears in the header between Businesses and Foundation & Trust."""
@@ -310,14 +310,14 @@ class FuturePlanTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         content = response.content.decode('utf-8')
 
-        self.assertIn("Future Plan", content)
-        self.assertIn("Bairava Water Solutions", content)
-        self.assertIn("Bairava Jewellery", content)
+        self.assertIn("FUTURE PLAN", content)
+        self.assertIn("BAIRAVA WATER SOLUTIONS", content)
+        self.assertIn("BAIRAVA JEWELLERY", content)
 
         # Check navigation ordering in HTML
-        businesses_pos = content.find("Businesses")
-        future_plan_pos = content.find("Future Plan")
-        foundation_pos = content.find("Foundation &amp; Trust")
+        businesses_pos = content.find("BUSINESSES")
+        future_plan_pos = content.find("FUTURE PLAN")
+        foundation_pos = content.find("FOUNDATION &amp; TRUST")
         self.assertTrue(businesses_pos < future_plan_pos < foundation_pos)
 
     def test_future_plan_suggestions(self):
@@ -328,5 +328,73 @@ class FuturePlanTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         data = json.loads(response.content.decode('utf-8'))
         self.assertIn("What is Bairava Water Solutions?", data["suggestions"])
+
+
+class BhairavaAssociationAndLegalTestCase(TestCase):
+    def setUp(self):
+        from django.test import RequestFactory
+        self.rf = RequestFactory()
+        self.div_assoc = BusinessDivision.objects.create(
+            name="BHAIRAVA ASSOCIATION",
+            slug="bhairava-association",
+            tagline="COMMUNITY • CONNECTION • COLLABORATION",
+            short_description="Building stronger communities through networking, collaboration, engagement and collective growth.",
+            full_description="Bhairava Association is focused on bringing people, professionals, businesses and communities together through meaningful connections, collaboration and organized initiatives.",
+            division_type="business",
+            order=8
+        )
+        DivisionOffering.objects.create(
+            division=self.div_assoc,
+            title="COMMUNITY NETWORKING",
+            badge="NETWORKING",
+            description="Building meaningful connections among members, professionals and local communities.",
+            order=1
+        )
+
+    def test_bhairava_association_page(self):
+        """Test GET /businesses/bhairava-association/ returns 200 and renders association template."""
+        from core.views import business_detail
+        req = self.rf.get(reverse('core:business_detail', kwargs={'slug': 'bhairava-association'}))
+        response = business_detail(req, slug='bhairava-association')
+        self.assertEqual(response.status_code, 200)
+        content = response.content.decode('utf-8')
+
+        self.assertIn("BHAIRAVA ASSOCIATION", content)
+        self.assertIn("COMMUNITY • CONNECTION • COLLABORATION", content)
+        self.assertIn("COMMUNITY NETWORKING", content)
+        self.assertIn("core/images/divisions/association.jpg", content)
+
+    def test_navbar_businesses_count_and_association(self):
+        """Test that navbar shows BUSINESSES (8 DIVISIONS) and includes BHAIRAVA ASSOCIATION."""
+        from core.views import home
+        req = self.rf.get(reverse('core:home'))
+        response = home(req)
+        self.assertEqual(response.status_code, 200)
+        content = response.content.decode('utf-8')
+
+        self.assertIn("BUSINESSES (8 DIVISIONS)", content)
+        self.assertIn("BHAIRAVA ASSOCIATION", content)
+        self.assertIn("BAIRAVA FINANCE", content)
+        self.assertIn("BAIRAVA MEDIA", content)
+
+    def test_legal_page_content_and_image(self):
+        """Test GET /legal/ returns 200 and renders updated Legal Associates content & image."""
+        from law_associates.views import legal_index
+        req = self.rf.get(reverse('law_associates:index'))
+        response = legal_index(req)
+        self.assertEqual(response.status_code, 200)
+        content = response.content.decode('utf-8')
+
+        self.assertIn("LEGAL", content)
+        self.assertIn("LEGAL ASSOCIATES", content)
+        self.assertIn("CORPORATE &amp; BUSINESS LAW", content)
+        self.assertIn("CONTRACTS &amp; AGREEMENTS", content)
+        self.assertIn("PROPERTY &amp; REAL ESTATE LAW", content)
+        self.assertIn("COMPLIANCE &amp; DOCUMENTATION", content)
+        self.assertIn("LEGAL ADVISORY", content)
+        self.assertIn("DISPUTE SUPPORT", content)
+        self.assertIn("core/images/divisions/legal.jpg", content)
+
+
 
 

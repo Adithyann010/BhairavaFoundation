@@ -5,68 +5,80 @@
     <a href="{% url 'core:home' %}" class="brand" aria-label="Bairava Groups Home">
       <img src="{% static 'core/images/logo.jpg' %}" alt="Bairava Groups Logo" class="brand-logo">
       <div class="brand-info">
-        <span class="brand-title">Bairava Groups</span>
-        <span class="brand-subtitle">Building · Creating · Serving</span>
+        <span class="brand-title">BAIRAVA GROUPS</span>
+        <span class="brand-subtitle">BUILDING · CREATING · SERVING</span>
       </div>
     </a>
 
     <!-- Desktop Navigation -->
     <nav class="nav-links" aria-label="Main Navigation">
       <div class="nav-item">
-        <a href="{% url 'core:home' %}" class="nav-link">Home</a>
+        <a href="{% url 'core:home' %}" class="nav-link">HOME</a>
       </div>
       
       <div class="nav-item">
-        <a href="{% url 'core:about' %}" class="nav-link">About</a>
+        <a href="{% url 'core:about' %}" class="nav-link">ABOUT</a>
       </div>
 
       <!-- Businesses Dropdown (7 Divisions) -->
       <div class="nav-item {% if 'businesses' in request.path %}active{% endif %}">
         <a href="{% url 'core:businesses_index' %}" class="nav-link">
-          Businesses
+          BUSINESSES
           <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
         </a>
         <div class="dropdown-menu dropdown-menu-wide">
+          <a href="{% url 'core:businesses_index' %}" class="dropdown-item" style="border-bottom: 1px solid var(--line); background: var(--sand-light);">
+            <div class="dropdown-item-content">
+              <h5 style="color: var(--brick); font-size: 0.95rem;">→ VIEW ALL BUSINESSES OVERVIEW</h5>
+              <p>Explore all operating commercial divisions</p>
+            </div>
+          </a>
           <a href="{% url 'core:business_detail' slug='finance' %}" class="dropdown-item">
             <div class="dropdown-item-content">
-              <h5>Bairava Finance</h5>
+              <h5>BAIRAVA FINANCE</h5>
               <p>Transparent financial solutions &amp; advisory</p>
             </div>
           </a>
           <a href="{% url 'core:business_detail' slug='construction' %}" class="dropdown-item">
             <div class="dropdown-item-content">
-              <h5>Bairava Construction &amp; Promoters</h5>
+              <h5>BAIRAVA CONSTRUCTION &amp; LAND PROMOTERS</h5>
               <p>Turnkey residential &amp; commercial builds</p>
             </div>
           </a>
           <a href="{% url 'core:business_detail' slug='cloud-kitchen' %}" class="dropdown-item">
             <div class="dropdown-item-content">
-              <h5>Bairava Cloud Kitchen</h5>
+              <h5>BAIRAVA CLOUD KITCHEN</h5>
               <p>Hygienic, authentic regional gourmet dining</p>
             </div>
           </a>
           <a href="{% url 'core:business_detail' slug='sports-club' %}" class="dropdown-item">
             <div class="dropdown-item-content">
-              <h5>Bairava Sports Club</h5>
+              <h5>BAIRAVA SPORTS CLUB</h5>
               <p>Indoor badminton, training &amp; fitness facilities</p>
             </div>
           </a>
           <a href="{% url 'core:business_detail' slug='event-management' %}" class="dropdown-item">
             <div class="dropdown-item-content">
-              <h5>Bairava Event Management</h5>
+              <h5>BAIRAVA EVENT MANAGEMENT</h5>
               <p>Weddings, corporate summits &amp; turnkey galas</p>
             </div>
           </a>
           <a href="{% url 'core:business_detail' slug='aadukalam' %}" class="dropdown-item">
             <div class="dropdown-item-content">
-              <h5>Bairava Aadukalam</h5>
+              <h5>BAIRAVA AADUKALAM</h5>
               <p>Traditional sports, Kabaddi &amp; community games</p>
             </div>
           </a>
           <a href="{% url 'core:business_detail' slug='media' %}" class="dropdown-item">
             <div class="dropdown-item-content">
-              <h5>Bairava Media</h5>
+              <h5>BAIRAVA MEDIA</h5>
               <p>Video production, podcasting &amp; storytelling</p>
+            </div>
+          </a>
+          <a href="{% url 'core:business_detail' slug='bhairava-association' %}" class="dropdown-item">
+            <div class="dropdown-item-content">
+              <h5>BHAIRAVA ASSOCIATION</h5>
+              <p>Community networking, collaboration &amp; initiatives</p>
             </div>
           </a>
         </div>
@@ -75,7 +87,7 @@
       <!-- Future Plan Dropdown (2 Upcoming Ventures) -->
       <div class="nav-item {% if request.resolver_match.url_name == 'future_plan' or 'future-plan' in request.path %}active{% endif %}">
         <a href="{% url 'core:future_plan' %}" class="nav-link">
-          Future Plan
+          FUTURE PLAN
           <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
         </a>
         <div class="dropdown-menu dropdown-menu-future">
@@ -85,8 +97,8 @@
             </div>
             <div class="dropdown-item-content">
               <div class="dropdown-item-header">
-                <h5>Bairava Water Solutions</h5>
-                <span class="dropdown-item-badge badge-water">Coming Soon</span>
+                <h5>BAIRAVA WATER SOLUTIONS</h5>
+                <span class="dropdown-item-badge badge-water">COMING SOON</span>
               </div>
               <p>Packaged drinking water &amp; water-can distribution for homes, offices and businesses.</p>
             </div>
@@ -97,8 +109,8 @@
             </div>
             <div class="dropdown-item-content">
               <div class="dropdown-item-header">
-                <h5>Bairava Jewellery</h5>
-                <span class="dropdown-item-badge badge-jewellery">Coming Soon</span>
+                <h5>BAIRAVA JEWELLERY</h5>
+                <span class="dropdown-item-badge badge-jewellery">COMING SOON</span>
               </div>
               <p>Elegant and high-quality jewellery collections for every special occasion.</p>
             </div>
@@ -106,34 +118,52 @@
         </div>
       </div>
 
-      <!-- Foundation & Trust Dropdown (2 Initiatives) -->
+      <!-- Foundation & Trust Dropdown (5 Initiatives & Pillars) -->
       <div class="nav-item {% if request.resolver_match.url_name == 'foundation' or 'trust' in request.path %}active{% endif %}">
         <a href="{% url 'core:foundation' %}" class="nav-link">
-          Foundation &amp; Trust
+          FOUNDATION &amp; TRUST
           <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
         </a>
         <div class="dropdown-menu">
           <a href="{% url 'core:foundation' %}" class="dropdown-item">
             <div class="dropdown-item-content">
-              <h5>Bairava Foundation</h5>
+              <h5>BAIRAVA FOUNDATION</h5>
               <p>Community education, welfare &amp; youth development</p>
             </div>
           </a>
           <a href="{% url 'trust:index' %}" class="dropdown-item">
             <div class="dropdown-item-content">
-              <h5>Bairava Trust</h5>
-              <p>Daily Annadhanam meals &amp; senior citizen care</p>
+              <h5>BAIRAVA TRUST</h5>
+              <p>Compassionate social care &amp; community welfare</p>
+            </div>
+          </a>
+          <a href="{% url 'trust:index' %}?category=annadhanam#initiatives" class="dropdown-item">
+            <div class="dropdown-item-content">
+              <h5>DAILY ANNADHANAM</h5>
+              <p>Serving 500+ free hot nutritious meals every day</p>
+            </div>
+          </a>
+          <a href="{% url 'trust:index' %}?category=elder_care#initiatives" class="dropdown-item">
+            <div class="dropdown-item-content">
+              <h5>SENIOR CARE SANCTUARY</h5>
+              <p>Full-time shelter &amp; medical monitoring for elders</p>
+            </div>
+          </a>
+          <a href="{% url 'core:foundation' %}#initiatives" class="dropdown-item">
+            <div class="dropdown-item-content">
+              <h5>STUDENT SCHOLARSHIPS</h5>
+              <p>Educational fees &amp; learning kits for youth</p>
             </div>
           </a>
         </div>
       </div>
 
       <div class="nav-item {% if 'legal' in request.path %}active{% endif %}">
-        <a href="{% url 'law_associates:index' %}" class="nav-link">Legal</a>
+        <a href="{% url 'law_associates:index' %}" class="nav-link">LEGAL</a>
       </div>
 
       <div class="nav-item {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
-        <a href="{% url 'core:contact' %}" class="nav-link">Contact</a>
+        <a href="{% url 'core:contact' %}" class="nav-link">CONTACT</a>
       </div>
     </nav>
 
@@ -155,74 +185,78 @@
     <div class="drawer-head">
       <div class="brand">
         <img src="{% static 'core/images/logo.jpg' %}" alt="Bairava Groups" style="height:32px; width:auto;">
-        <span style="font-family:'Fraunces', serif; font-weight:700; font-size:1.15rem;">Bairava Groups</span>
+        <span style="font-family:'Fraunces', serif; font-weight:700; font-size:1.15rem; letter-spacing:0.03em; text-transform:uppercase;">BAIRAVA GROUPS</span>
       </div>
       <button class="drawer-close" id="drawerCloseBtn" aria-label="Close menu">&times;</button>
     </div>
 
     <div class="mobile-nav-list">
       <div class="mobile-nav-item">
-        <a href="{% url 'core:home' %}">Home</a>
+        <a href="{% url 'core:home' %}">HOME</a>
       </div>
       <div class="mobile-nav-item">
-        <a href="{% url 'core:about' %}">About Bairava Groups</a>
+        <a href="{% url 'core:about' %}">ABOUT BAIRAVA GROUPS</a>
       </div>
 
       <!-- Mobile Businesses Accordion -->
       <div class="mobile-nav-item">
         <button class="mobile-accordion-toggle" data-target="mBusinesses">
-          <span>Businesses (7 Divisions)</span>
+          <span>BUSINESSES (8 DIVISIONS)</span>
           <svg class="dropdown-arrow accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px; height:14px;"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="mobile-accordion-content" id="mBusinesses">
-          <a href="{% url 'core:businesses_index' %}" class="mobile-sublink" style="font-weight:600; color:var(--brick);">→ View All Businesses Overview</a>
-          <a href="{% url 'core:business_detail' slug='finance' %}" class="mobile-sublink">Bairava Finance</a>
-          <a href="{% url 'core:business_detail' slug='construction' %}" class="mobile-sublink">Bairava Construction &amp; Promoters</a>
-          <a href="{% url 'core:business_detail' slug='cloud-kitchen' %}" class="mobile-sublink">Bairava Cloud Kitchen</a>
-          <a href="{% url 'core:business_detail' slug='sports-club' %}" class="mobile-sublink">Bairava Sports Club</a>
-          <a href="{% url 'core:business_detail' slug='event-management' %}" class="mobile-sublink">Bairava Event Management</a>
-          <a href="{% url 'core:business_detail' slug='aadukalam' %}" class="mobile-sublink">Bairava Aadukalam</a>
-          <a href="{% url 'core:business_detail' slug='media' %}" class="mobile-sublink">Bairava Media</a>
+          <a href="{% url 'core:businesses_index' %}" class="mobile-sublink" style="font-weight:700; color:var(--brick);">→ VIEW ALL BUSINESSES OVERVIEW</a>
+          <a href="{% url 'core:business_detail' slug='finance' %}" class="mobile-sublink">BAIRAVA FINANCE</a>
+          <a href="{% url 'core:business_detail' slug='construction' %}" class="mobile-sublink">BAIRAVA CONSTRUCTION &amp; LAND PROMOTERS</a>
+          <a href="{% url 'core:business_detail' slug='cloud-kitchen' %}" class="mobile-sublink">BAIRAVA CLOUD KITCHEN</a>
+          <a href="{% url 'core:business_detail' slug='sports-club' %}" class="mobile-sublink">BAIRAVA SPORTS CLUB</a>
+          <a href="{% url 'core:business_detail' slug='event-management' %}" class="mobile-sublink">BAIRAVA EVENT MANAGEMENT</a>
+          <a href="{% url 'core:business_detail' slug='aadukalam' %}" class="mobile-sublink">BAIRAVA AADUKALAM</a>
+          <a href="{% url 'core:business_detail' slug='media' %}" class="mobile-sublink">BAIRAVA MEDIA</a>
+          <a href="{% url 'core:business_detail' slug='bhairava-association' %}" class="mobile-sublink">BHAIRAVA ASSOCIATION</a>
         </div>
       </div>
 
       <!-- Mobile Future Plan Accordion -->
       <div class="mobile-nav-item">
         <button class="mobile-accordion-toggle" data-target="mFuturePlan">
-          <span>Future Plan</span>
+          <span>FUTURE PLAN</span>
           <svg class="dropdown-arrow accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px; height:14px;"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="mobile-accordion-content" id="mFuturePlan">
-          <a href="{% url 'core:future_plan' %}" class="mobile-sublink" style="font-weight:600; color:var(--brick);">→ View Future Plan Overview</a>
-          <a href="{% url 'core:future_plan' %}#water-solutions" class="mobile-sublink">Bairava Water Solutions</a>
-          <a href="{% url 'core:future_plan' %}#jewellery" class="mobile-sublink">Bairava Jewellery</a>
+          <a href="{% url 'core:future_plan' %}" class="mobile-sublink" style="font-weight:700; color:var(--brick);">→ VIEW FUTURE PLAN OVERVIEW</a>
+          <a href="{% url 'core:future_plan' %}#water-solutions" class="mobile-sublink">BAIRAVA WATER SOLUTIONS</a>
+          <a href="{% url 'core:future_plan' %}#jewellery" class="mobile-sublink">BAIRAVA JEWELLERY</a>
         </div>
       </div>
 
       <!-- Mobile Foundation & Trust Accordion -->
       <div class="mobile-nav-item">
         <button class="mobile-accordion-toggle" data-target="mFoundation">
-          <span>Foundation &amp; Trust</span>
+          <span>FOUNDATION &amp; TRUST</span>
           <svg class="dropdown-arrow accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px; height:14px;"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="mobile-accordion-content" id="mFoundation">
-          <a href="{% url 'core:foundation' %}" class="mobile-sublink">Bairava Foundation</a>
-          <a href="{% url 'trust:index' %}" class="mobile-sublink">Bairava Trust</a>
+          <a href="{% url 'core:foundation' %}" class="mobile-sublink">BAIRAVA FOUNDATION</a>
+          <a href="{% url 'trust:index' %}" class="mobile-sublink">BAIRAVA TRUST</a>
+          <a href="{% url 'trust:index' %}?category=annadhanam#initiatives" class="mobile-sublink">DAILY ANNADHANAM</a>
+          <a href="{% url 'trust:index' %}?category=elder_care#initiatives" class="mobile-sublink">SENIOR CARE SANCTUARY</a>
+          <a href="{% url 'core:foundation' %}#initiatives" class="mobile-sublink">STUDENT SCHOLARSHIPS</a>
         </div>
       </div>
 
       <div class="mobile-nav-item">
-        <a href="{% url 'law_associates:index' %}">Legal Associates</a>
+        <a href="{% url 'law_associates:index' %}">LEGAL ASSOCIATES</a>
       </div>
 
       <div class="mobile-nav-item">
-        <a href="{% url 'core:contact' %}">Contact Us</a>
+        <a href="{% url 'core:contact' %}">CONTACT US</a>
       </div>
 
       <div style="margin-top:24px; padding-top:20px; border-top:1px solid var(--line);">
         <a class="btn btn-solid" href="tel:+919941757555" style="width:100%;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.3 1.1L6.6 10.8z"/></svg>
-          Call +91 99417 57555
+          CALL +91 99417 57555
         </a>
       </div>
     </div>

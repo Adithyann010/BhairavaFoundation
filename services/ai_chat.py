@@ -145,15 +145,16 @@ def generate_rag_fallback_response(
     # 4. Specific Division: Construction & Land Promoters
     if any(term in q for term in ['construction', 'promoters', 'builder', 'project', 'villa', 'residential', 'commercial complex', 'interior', 'flat']) or ('construction' in page and any(term in q for term in ['what do you do', 'services', 'available', 'work', 'projects'])):
         return (
-            "**[Bairava Construction & Promoters](/businesses/construction/)** brings over two decades of engineering and structural excellence in Chennai.\n\n"
+            "**[Bairava Construction & Land Promoters](/businesses/construction/)** brings over two decades of engineering and structural excellence in Chennai.\n\n"
             "**Key Offerings:**\n"
             "- **Turnkey Residential Buildings & Luxury Villas**: Custom architectural blueprints, earthquake-resistant RCC design, and handover.\n"
             "- **Commercial Complexes**: Modern retail and office spaces built to strict safety and durability standards.\n"
             "- **Interiors & Renovations**: Modular kitchens, false ceilings, and interior styling.\n\n"
-            "**Featured Projects:**\n"
+            "**Projects Portfolio:**\n"
             "- *Bairava Heights* — Residential Complex in Anna Nagar\n"
-            "- *Bairava Palm Enclave* — Luxury Villas in ECR\n"
-            "- *Bairava Commercial Center* — Corporate Office Space in T. Nagar\n\n"
+            "- *Bairava Tech Hub* — Commercial Tech Park in Perungudi, OMR\n"
+            "- *The Golden Villas* — Luxury Beachside Villas in ECR\n"
+            "- *Corporate HQ Renovation* — Modern Commercial Renovation in Nungambakkam\n\n"
             "You can submit an enquiry for your site directly on the **[Construction & Projects Page](/businesses/construction/)** or via **[Contact Us](/contact/)**."
         )
 
@@ -229,7 +230,35 @@ def generate_rag_fallback_response(
             "Explore published articles on the **[Bairava Media Page](/businesses/media/)**."
         )
 
-    # 11. Future Plan (Upcoming Ventures - Coming Soon)
+    # 11. Specific Division: Bhairava Association
+    if any(term in q for term in ['association', 'bhairava association', 'networking', 'member engagement']) or ('association' in page and any(term in q for term in ['do', 'services', 'about', 'join', 'connect'])):
+        return (
+            "**[Bhairava Association](/businesses/bhairava-association/)** focuses on bringing people, professionals, businesses and communities together (\"Community • Connection • Collaboration\").\n\n"
+            "**Key Focus Areas:**\n"
+            "- **Community Networking**: Building meaningful connections among members, professionals and local communities.\n"
+            "- **Professional Collaboration**: Encouraging partnerships, knowledge sharing and professional growth.\n"
+            "- **Community Initiatives**: Supporting programs and activities that contribute to community development.\n"
+            "- **Member Engagement**: Creating events, meetings and activities that encourage participation.\n"
+            "- **Knowledge & Networking**: Exchanging ideas, experience and practical knowledge.\n"
+            "- **Collective Growth**: Working together for sustainable opportunities and positive community impact.\n\n"
+            "Connect with us on the **[Bhairava Association Page](/businesses/bhairava-association/)**."
+        )
+
+    # 12. Legal Associates Advisory
+    if any(term in q for term in ['legal', 'advocate', 'lawyer', 'legal notice', 'corporate law', 'property law', 'compliance']) or ('legal' in page and any(term in q for term in ['do', 'services', 'consultation', 'areas'])):
+        return (
+            "**[Legal Associates](/legal/)** provides professional legal guidance for businesses, organizations and individuals.\n\n"
+            "**Key Practice Areas:**\n"
+            "- **Corporate & Business Law**: Operations, agreements, corporate documentation, and commercial matters.\n"
+            "- **Contracts & Agreements**: Reviewing, preparing, and organizing business agreements.\n"
+            "- **Property & Real Estate Law**: Transactions, title verification, and real estate documentation.\n"
+            "- **Compliance & Documentation**: Statutory compliance processes and documentation audits.\n"
+            "- **Legal Advisory**: Professional guidance to manage legal requirements.\n"
+            "- **Dispute Support**: Coordinating with appropriate legal professionals when disputes arise.\n\n"
+            "Schedule a consultation on the **[Legal Associates Page](/legal/)**."
+        )
+
+    # 13. Future Plan (Upcoming Ventures - Coming Soon)
     if any(term in q for term in ['future plan', 'future business', 'upcoming venture', 'upcoming business', 'vision ahead']) or ('future-plan' in page and any(term in q for term in ['what', 'tell me', 'about', 'plan'])):
         return (
             "**Future Plan — Our Vision Ahead**\n\n"
@@ -239,7 +268,7 @@ def generate_rag_fallback_response(
             "Both ventures are currently marked as **Coming Soon**. Explore more details on our dedicated **[Future Plan Page](/future-plan/)**."
         )
 
-    # 12. Specific Upcoming Venture: Bairava Water Solutions
+    # 14. Specific Upcoming Venture: Bairava Water Solutions
     if any(term in q for term in ['water solution', 'water solutions', 'bairava water', 'water can', 'drinking water', 'packaged water']):
         return (
             "**[Bairava Water Solutions](/future-plan/#water-solutions)** is a planned upcoming venture under Bairava Groups (\"Pure Water. Healthier Lives.\").\n\n"
@@ -250,7 +279,7 @@ def generate_rag_fallback_response(
             "Status: **Coming Soon**. Read more on the **[Future Plan Page](/future-plan/)**."
         )
 
-    # 13. Specific Upcoming Venture: Bairava Jewellery
+    # 15. Specific Upcoming Venture: Bairava Jewellery
     if any(term in q for term in ['jewellery', 'jewelry', 'bairava jewellery', 'gold jewellery']):
         return (
             "**[Bairava Jewellery](/future-plan/#jewellery)** is a planned upcoming venture under Bairava Groups (\"Timeless Beauty. Lasting Value.\").\n\n"
@@ -261,21 +290,22 @@ def generate_rag_fallback_response(
             "Status: **Coming Soon**. Read more on the **[Future Plan Page](/future-plan/)**."
         )
 
-    # 11. General businesses / divisions overview
-    if any(term in q for term in ['what businesses', 'business divisions', 'seven business', '7 business', 'divisions', 'ventures', 'what does bairava do', 'tell me about bairava groups', 'about bairava groups', 'overview']):
+    # 16. General businesses / divisions overview
+    if any(term in q for term in ['what businesses', 'business divisions', 'eight business', '8 business', 'seven business', '7 business', 'divisions', 'ventures', 'what does bairava do', 'tell me about bairava groups', 'about bairava groups', 'overview']):
         return (
-            "**Bairava Groups** operates across **7 commercial business divisions** and **2 social & charitable initiatives**:\n\n"
+            "**Bairava Groups** operates across **8 commercial business divisions** and **2 social & charitable initiatives**:\n\n"
             "**Commercial Businesses:**\n"
             "1. **[Bairava Finance](/businesses/finance/)** — Transparent, professional, and responsible financial solutions & advisory.\n"
-            "2. **[Bairava Construction & Promoters](/businesses/construction/)** — Turnkey residential, luxury villas, commercial developments, and interior executions in Chennai.\n"
+            "2. **[Bairava Construction & Land Promoters](/businesses/construction/)** — Turnkey residential, luxury villas, commercial developments, and interior executions in Chennai.\n"
             "3. **[Bairava Cloud Kitchen](/businesses/cloud-kitchen/)** — Authentic regional thalis, dum biryani, wholesome daily meal boxes, and catering.\n"
             "4. **[Bairava Sports Club](/businesses/sports-club/)** — BWF-standard indoor badminton courts, gym fitness conditioning, and junior coaching.\n"
             "5. **[Bairava Event Management](/businesses/event-management/)** — Luxury weddings, corporate summits, social galas, and bespoke decor planning.\n"
             "6. **[Bairava Aadukalam](/businesses/aadukalam/)** — State-level Kabaddi tournaments, Silambam martial arts, and rural sports galas.\n"
-            "7. **[Bairava Media](/businesses/media/)** — Documentary production, podcast studio recordings, digital storytelling, and brand communications.\n\n"
+            "7. **[Bairava Media](/businesses/media/)** — Documentary production, podcast studio recordings, digital storytelling, and brand communications.\n"
+            "8. **[Bhairava Association](/businesses/bhairava-association/)** — Community networking, professional collaboration, member engagement, and collective growth.\n\n"
             "**Community & Social Initiatives:**\n"
-            "8. **[Bairava Foundation](/foundation/)** — Community empowerment, school scholarships, and healthcare access.\n"
-            "9. **[Bairava Trust](/trust/)** — Compassionate social care, daily Annadhanam (500+ free meals daily), and elder care shelter.\n\n"
+            "9. **[Bairava Foundation](/foundation/)** — Community empowerment, school scholarships, and healthcare access.\n"
+            "10. **[Bairava Trust](/trust/)** — Compassionate social care, daily Annadhanam (500+ free meals daily), and elder care shelter.\n\n"
             "How can I assist you with any specific division or project?"
         )
 

@@ -1,57 +1,84 @@
 {% extends "core/base.html" %}
 {% load static %}
 
-{% block title %}Legal Associates — Advocacy & Legal Consultation Chennai{% endblock %}
-{% block meta_desc %}Bairava Legal Associates provides direct advocacy in property due diligence, legal notices, money recovery, and criminal defense across Chennai courts.{% endblock %}
+{% block title %}LEGAL — LEGAL ASSOCIATES | BAIRAVA GROUPS{% endblock %}
+{% block meta_desc %}Bairava Groups works with legal professionals to support businesses and organizations with practical legal guidance, documentation and compliance requirements.{% endblock %}
 
 {% block content %}
 <!-- PAGE HERO -->
 <section class="page-hero">
   <div class="wrap">
     <div class="breadcrumbs">
-      <a href="{% url 'core:home' %}">Home</a>
+      <a href="{% url 'core:home' %}">HOME</a>
       <span>/</span>
-      <span>Legal Associates</span>
+      <span>LEGAL</span>
     </div>
 
     <div class="page-hero-grid">
       <div>
-        <span class="badge badge-brass">Advocacy &amp; Legal Practice</span>
-        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 12px;">Bairava Legal Associates</h1>
-        <p class="hero-subtitle" style="font-size: 1.25rem;">"Clear Answers &amp; Rapid Defense for Legal Matters."</p>
-        <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">Over a decade of dedicated legal advocacy in Chennai across property verification, legal notices, money recovery, and court defense.</p>
+        <span class="badge badge-brass">LEGAL GUIDANCE &amp; ADVISORY</span>
+        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 8px;">LEGAL</h1>
+        <h2 style="font-size: 1.5rem; color: var(--brick); margin-bottom: 12px; letter-spacing: 0.03em;">LEGAL ASSOCIATES</h2>
+        <p class="hero-subtitle" style="font-size: 1.2rem;">"Professional legal guidance for businesses, organizations and individuals."</p>
+        <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">Bairava Groups works with legal professionals to support businesses and organizations with practical legal guidance, documentation and compliance requirements.</p>
         
         <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-          <a href="#practice-areas" class="btn btn-solid">Practice Areas</a>
-          <a href="#consultation" class="btn btn-outline">Request Consultation</a>
+          <a href="#practice-areas" class="btn btn-solid">PRACTICE AREAS</a>
+          <a href="#consultation" class="btn btn-outline">REQUEST CONSULTATION</a>
         </div>
       </div>
 
       <div class="page-hero-image-wrap">
-        <img src="{% static 'core/images/divisions/finance.jpg' %}" alt="Legal Associates Chennai">
+        <img src="{% static 'core/images/divisions/legal.jpg' %}" alt="Legal Associates Law Office and Corporate Advisory">
       </div>
     </div>
   </div>
 </section>
 
-<!-- MAIN LEGAL SECTION -->
-<section class="section" id="practice-areas">
+<!-- ABOUT LEGAL ASSOCIATES -->
+<section class="section">
+  <div class="wrap">
+    <div class="about-intro-grid">
+      <div>
+        <span class="badge">ABOUT LEGAL ASSOCIATES</span>
+        <h2>PRACTICAL LEGAL GUIDANCE &amp; STATUTORY COMPLIANCE</h2>
+        <p style="margin-bottom: 16px; font-size: 1.05rem;">Bairava Groups works with legal professionals to support businesses and organizations with practical legal guidance, documentation and compliance requirements.</p>
+        <p style="margin-bottom: 16px;">Navigating the complex landscape of corporate compliance, property documentation, and commercial agreements requires experienced and dependable legal counsel. Our associated advocates offer straightforward, objective analysis and structured solutions tailored to the needs of modern enterprises and individuals.</p>
+        <div style="background: var(--sand-light); border-left: 4px solid var(--brass); padding: 14px 18px; border-radius: var(--radius-xs); font-size: 0.92rem; color: var(--charcoal);">
+          <strong>PROFESSIONAL NOTICE:</strong> Legal professional services are coordinated through qualified independent legal advocates and practitioners, distinct from Bairava Groups commercial business operations.
+        </div>
+      </div>
+
+      <div style="background: var(--sand-light); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 32px;">
+        <h4 style="color: var(--brick); margin-bottom: 16px;">CORE ADVOCACY PILLARS</h4>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>CORPORATE COMPLIANCE:</strong> Ensuring robust documentation and regulatory adherence.</div>
+          </div>
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>DUE DILIGENCE:</strong> Meticulous title verification and contract scrutiny.</div>
+          </div>
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>CONFIDENTIAL ADVISORY:</strong> Strict client confidentiality and dedicated case review.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN LEGAL SERVICES SECTION -->
+<section class="section" style="background-color: var(--sand-light);" id="practice-areas">
   <div class="wrap">
     <div class="section-head">
       <div>
-        <span class="badge">Legal Spectrum</span>
-        <h2>Practice Areas &amp; Specializations</h2>
-        <p style="max-width: 600px; margin-top: 8px;">Explore our key areas of legal advocacy and consultation.</p>
+        <span class="badge badge-brass">LEGAL SPECTRUM</span>
+        <h2>LEGAL SERVICES &amp; AREAS OF PRACTICE</h2>
+        <p style="max-width: 620px; margin-top: 8px;">Explore our key areas of corporate legal support and consultation.</p>
       </div>
-    </div>
-
-    <!-- Category Filter Pills -->
-    <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 36px;">
-      {% for code, label in categories %}
-        <a href="?category={{ code }}#practice-areas" class="btn btn-sm {% if selected_category == code %}btn-solid{% else %}btn-outline{% endif %}">
-          {{ label }}
-        </a>
-      {% endfor %}
     </div>
 
     <!-- Practice Details Cards -->
@@ -59,29 +86,92 @@
       {% for detail in practice_details %}
       <div class="offering-card">
         <div class="offering-head">
-          <h4>{{ detail.title }}</h4>
+          <h4>{{ detail.title|upper }}</h4>
           {% if detail.turnaround_time %}
-            <span class="offering-badge">{{ detail.turnaround_time }}</span>
+            <span class="offering-badge">{{ detail.turnaround_time|upper }}</span>
           {% endif %}
         </div>
         <p>{{ detail.description }}</p>
       </div>
       {% empty %}
-      <div style="grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--slate);">
-        <h3>No practice areas listed under this category</h3>
-        <a href="{% url 'law_associates:index' %}#practice-areas" class="btn btn-outline" style="margin-top: 16px;">Show All Areas</a>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>CORPORATE &amp; BUSINESS LAW</h4>
+          <span class="offering-badge">ADVISORY &amp; DRAFTING</span>
+        </div>
+        <p>Legal support for business operations, agreements, corporate documentation and commercial matters.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>CONTRACTS &amp; AGREEMENTS</h4>
+          <span class="offering-badge">REVIEW &amp; STRUCTURING</span>
+        </div>
+        <p>Assistance with reviewing, preparing and organizing business contracts and agreements.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>PROPERTY &amp; REAL ESTATE LAW</h4>
+          <span class="offering-badge">TITLE &amp; DUE DILIGENCE</span>
+        </div>
+        <p>Legal support related to property transactions, documentation and real-estate matters.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>COMPLIANCE &amp; DOCUMENTATION</h4>
+          <span class="offering-badge">STATUTORY AUDIT</span>
+        </div>
+        <p>Support for maintaining appropriate legal documentation and business compliance processes.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>LEGAL ADVISORY</h4>
+          <span class="offering-badge">STRATEGIC COUNSEL</span>
+        </div>
+        <p>Professional legal guidance to help businesses make informed decisions and manage legal requirements.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>DISPUTE SUPPORT</h4>
+          <span class="offering-badge">COORDINATION &amp; ADVOCACY</span>
+        </div>
+        <p>Assistance in understanding legal matters and coordinating with appropriate legal professionals when disputes arise.</p>
       </div>
       {% endfor %}
     </div>
 
     <!-- Service Spectrum Items -->
-    <div style="background: var(--sand-light); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 36px; margin-bottom: 48px;">
-      <h3 style="margin-bottom: 20px;">Common Legal Consultations Handled</h3>
+    <div style="background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 36px;">
+      <h3 style="margin-bottom: 20px;">COMMON LEGAL MATTERS &amp; CONSULTATIONS</h3>
       <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px;">
         {% for service in legal_services %}
-        <div style="background: var(--paper); border: 1px solid var(--line); padding: 18px 20px; border-radius: var(--radius-xs); display: flex; justify-content: space-between; align-items: center;">
+        <div style="background: var(--sand-light); border: 1px solid var(--line); padding: 18px 20px; border-radius: var(--radius-xs); display: flex; justify-content: space-between; align-items: center;">
           <span style="font-size: 0.94rem; font-weight: 500;">{{ service.description }}</span>
-          <span style="font-size: 0.76rem; font-weight: 700; background: var(--brass-subtle); color: var(--brass-dark); padding: 3px 8px; border-radius: var(--radius-xs); text-transform: uppercase;">{{ service.tag }}</span>
+          <span style="font-size: 0.76rem; font-weight: 700; background: var(--brass-subtle); color: var(--brass-dark); padding: 3px 8px; border-radius: var(--radius-xs); text-transform: uppercase;">{{ service.tag|upper }}</span>
+        </div>
+        {% empty %}
+        <div style="background: var(--sand-light); border: 1px solid var(--line); padding: 18px 20px; border-radius: var(--radius-xs); display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.94rem; font-weight: 500;">Corporate &amp; Business Law Support</span>
+          <span style="font-size: 0.76rem; font-weight: 700; background: var(--brass-subtle); color: var(--brass-dark); padding: 3px 8px; border-radius: var(--radius-xs); text-transform: uppercase;">CORPORATE</span>
+        </div>
+        <div style="background: var(--sand-light); border: 1px solid var(--line); padding: 18px 20px; border-radius: var(--radius-xs); display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.94rem; font-weight: 500;">Contracts, MOUs &amp; Commercial Agreements</span>
+          <span style="font-size: 0.76rem; font-weight: 700; background: var(--brass-subtle); color: var(--brass-dark); padding: 3px 8px; border-radius: var(--radius-xs); text-transform: uppercase;">CONTRACTS</span>
+        </div>
+        <div style="background: var(--sand-light); border: 1px solid var(--line); padding: 18px 20px; border-radius: var(--radius-xs); display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.94rem; font-weight: 500;">Property Title Verification &amp; Due Diligence</span>
+          <span style="font-size: 0.76rem; font-weight: 700; background: var(--brass-subtle); color: var(--brass-dark); padding: 3px 8px; border-radius: var(--radius-xs); text-transform: uppercase;">PROPERTY</span>
+        </div>
+        <div style="background: var(--sand-light); border: 1px solid var(--line); padding: 18px 20px; border-radius: var(--radius-xs); display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.94rem; font-weight: 500;">Business Compliance &amp; Legal Documentation</span>
+          <span style="font-size: 0.76rem; font-weight: 700; background: var(--brass-subtle); color: var(--brass-dark); padding: 3px 8px; border-radius: var(--radius-xs); text-transform: uppercase;">COMPLIANCE</span>
+        </div>
+        <div style="background: var(--sand-light); border: 1px solid var(--line); padding: 18px 20px; border-radius: var(--radius-xs); display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.94rem; font-weight: 500;">Strategic Business Legal Advisory</span>
+          <span style="font-size: 0.76rem; font-weight: 700; background: var(--brass-subtle); color: var(--brass-dark); padding: 3px 8px; border-radius: var(--radius-xs); text-transform: uppercase;">ADVISORY</span>
+        </div>
+        <div style="background: var(--sand-light); border: 1px solid var(--line); padding: 18px 20px; border-radius: var(--radius-xs); display: flex; justify-content: space-between; align-items: center;">
+          <span style="font-size: 0.94rem; font-weight: 500;">Commercial Dispute Coordination &amp; Resolution</span>
+          <span style="font-size: 0.76rem; font-weight: 700; background: var(--brass-subtle); color: var(--brass-dark); padding: 3px 8px; border-radius: var(--radius-xs); text-transform: uppercase;">DISPUTE</span>
         </div>
         {% endfor %}
       </div>
@@ -90,13 +180,13 @@
 </section>
 
 <!-- CONFIDENTIAL LEGAL CONSULTATION FORM -->
-<section class="section" style="background-color: var(--sand-light);" id="consultation">
+<section class="section" id="consultation">
   <div class="wrap">
     <div class="section-head">
       <div>
-        <span class="badge badge-brass">Confidential Review</span>
-        <h2>Schedule a Legal Consultation</h2>
-        <p style="max-width: 600px; margin-top: 8px;">Submit your legal matter details for an advocate's initial assessment.</p>
+        <span class="badge badge-brass">CONFIDENTIAL REVIEW</span>
+        <h2>SCHEDULE A LEGAL CONSULTATION</h2>
+        <p style="max-width: 600px; margin-top: 8px;">Submit your legal matter details for an initial assessment.</p>
       </div>
     </div>
 
@@ -110,28 +200,28 @@
 
     <div class="division-contact-grid">
       <div class="contact-card-info">
-        <h3>Advocate Chamber</h3>
-        <p style="margin-bottom: 24px;">Matters requiring urgent bail or High Court appearance receive immediate priority review.</p>
+        <h3>LEGAL ASSOCIATES OFFICE</h3>
+        <p style="margin-bottom: 24px;">Matters requiring urgent review or court representation receive prompt assessment.</p>
 
         <div class="contact-info-list">
           <div class="contact-info-item">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <div>
-              <h5>Chamber Address</h5>
+              <h5>OFFICE ADDRESS</h5>
               <p>New #18, Plot 644, 46th Street, 9th Sector, KK Nagar, Chennai – 600078</p>
             </div>
           </div>
           <div class="contact-info-item">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <div>
-              <h5>Direct Advocate Line</h5>
+              <h5>DIRECT HELPLINE</h5>
               <a href="tel:+919941757555">+91 99417 57555</a>
             </div>
           </div>
           <div class="contact-info-item">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             <div>
-              <h5>Confidential Email</h5>
+              <h5>CONFIDENTIAL EMAIL</h5>
               <a href="mailto:sribairavaassociates@gmail.com">sribairavaassociates@gmail.com</a>
             </div>
           </div>
@@ -139,40 +229,40 @@
       </div>
 
       <div class="form-box">
-        <h3>Submit Case Details</h3>
-        <p style="font-size: 0.88rem; margin-bottom: 20px;">All submissions are treated with strict advocate-client confidentiality.</p>
+        <h3>SUBMIT CASE DETAILS</h3>
+        <p style="font-size: 0.88rem; margin-bottom: 20px;">All submissions are treated with strict confidentiality.</p>
 
         <form method="post" action="{% url 'law_associates:index' %}#consultation">
           {% csrf_token %}
           <div class="form-row">
             <div class="form-group">
-              <label for="{{ form.name.id_for_label }}">{{ form.name.label }} *</label>
+              <label for="{{ form.name.id_for_label }}">{{ form.name.label|upper }} *</label>
               {{ form.name }}
             </div>
             <div class="form-group">
-              <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }} *</label>
+              <label for="{{ form.phone.id_for_label }}">{{ form.phone.label|upper }} *</label>
               {{ form.phone }}
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+              <label for="{{ form.email.id_for_label }}">{{ form.email.label|upper }}</label>
               {{ form.email }}
             </div>
             <div class="form-group">
-              <label for="{{ form.issue_type.id_for_label }}">{{ form.issue_type.label }} *</label>
+              <label for="{{ form.issue_type.id_for_label }}">{{ form.issue_type.label|upper }} *</label>
               {{ form.issue_type }}
             </div>
           </div>
           <div class="form-group">
-            <label for="{{ form.urgency.id_for_label }}">{{ form.urgency.label }} *</label>
+            <label for="{{ form.urgency.id_for_label }}">{{ form.urgency.label|upper }} *</label>
             {{ form.urgency }}
           </div>
           <div class="form-group">
-            <label for="{{ form.brief_details.id_for_label }}">{{ form.brief_details.label }} *</label>
+            <label for="{{ form.brief_details.id_for_label }}">{{ form.brief_details.label|upper }} *</label>
             {{ form.brief_details }}
           </div>
-          <button type="submit" class="btn btn-solid" style="width: 100%;">Submit for Review</button>
+          <button type="submit" class="btn btn-solid" style="width: 100%;">SUBMIT FOR REVIEW</button>
         </form>
       </div>
     </div>

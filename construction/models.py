@@ -43,6 +43,19 @@ class ConstructionProject(models.Model):
     class Meta:
         ordering = ['order', '-created_at']
 
+    @property
+    def static_image(self):
+        slug = self.title.lower().strip()
+        if 'height' in slug:
+            return 'core/images/projects/bairava_heights.jpg'
+        elif 'tech' in slug:
+            return 'core/images/projects/bairava_tech_hub.jpg'
+        elif 'villa' in slug:
+            return 'core/images/projects/golden_villas.jpg'
+        elif 'hq' in slug or 'renovation' in slug or 'corporate' in slug:
+            return 'core/images/projects/corporate_hq.jpg'
+        return 'core/images/divisions/construction.jpg'
+
     def __str__(self):
         return f"{self.title} ({self.location})"
 

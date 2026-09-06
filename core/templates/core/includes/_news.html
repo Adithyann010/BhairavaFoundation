@@ -2,36 +2,36 @@
 <section class="section" style="background:var(--sand);">
   <div class="wrap">
     <div class="section-head">
-      <h2>News &amp; events</h2>
+      <h2>NEWS &amp; EVENTS</h2>
       <p>Recent activity from the Trust and the wider Bairava family.</p>
     </div>
     <div class="news-grid">
       {% for item in news_items %}
       <div class="news-card">
-        <span class="news-date">{{ item.get_category_display }}</span>
-        <h4>{{ item.title }}</h4>
+        <span class="news-date">{{ item.get_category_display|upper }}</span>
+        <h4>{{ item.title|upper }}</h4>
         <p>{{ item.description }}</p>
-        <a href="{% if item.link %}{{ item.link }}{% else %}#contact{% endif %}">Read more</a>
+        <a href="{% if item.link %}{{ item.link }}{% else %}#contact{% endif %}">READ MORE →</a>
       </div>
       {% empty %}
       <!-- Fallback if no news items in DB -->
       <div class="news-card">
-        <span class="news-date">Trust activity</span>
-        <h4>Kabbadi tournament</h4>
+        <span class="news-date">TRUST ACTIVITY</span>
+        <h4>KABBADI TOURNAMENT</h4>
         <p>Teams competed with strong sportsmanship; winners were felicitated with medals, trophies and certificates.</p>
-        <a href="#contact">Read more</a>
+        <a href="#contact">READ MORE →</a>
       </div>
       <div class="news-card">
-        <span class="news-date">Trust activity</span>
-        <h4>Vinayagar Chathurthi annadhanam</h4>
+        <span class="news-date">TRUST ACTIVITY</span>
+        <h4>VINAYAGAR CHATHURTHI ANNADHANAM</h4>
         <p>An annadhanam program held alongside Vinayagar Chaturthi, with family members serving food themselves.</p>
-        <a href="#contact">Read more</a>
+        <a href="#contact">READ MORE →</a>
       </div>
       <div class="news-card">
-        <span class="news-date">Community</span>
-        <h4>Sri Angala Eswari &amp; Muneeswarar Temple</h4>
+        <span class="news-date">COMMUNITY</span>
+        <h4>SRI ANGALA ESWARI &amp; MUNEESWARAR TEMPLE</h4>
         <p>Support for the temple's ten-day Thiruvizha festival and its main annual celebrations.</p>
-        <a href="#contact">Read more</a>
+        <a href="#contact">READ MORE →</a>
       </div>
       {% endfor %}
     </div>
