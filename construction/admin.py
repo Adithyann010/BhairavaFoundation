@@ -10,9 +10,10 @@ class ServiceAdmin(admin.ModelAdmin):
 
 @admin.register(ConstructionProject)
 class ConstructionProjectAdmin(admin.ModelAdmin):
-    list_display = ('title', 'location', 'category', 'status', 'built_up_area', 'completion_year', 'order')
+    list_display = ('title', 'slug', 'location', 'category', 'status', 'built_up_area', 'completion_year', 'order')
     list_filter = ('category', 'status')
-    search_fields = ('title', 'location', 'description')
+    search_fields = ('title', 'slug', 'location', 'description')
+    prepopulated_fields = {'slug': ('title',)}
     list_editable = ('order',)
 
 

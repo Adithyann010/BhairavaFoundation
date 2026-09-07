@@ -30,6 +30,7 @@ class ConstructionProject(models.Model):
     ]
 
     title = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=100, unique=True, blank=True, null=True)
     location = models.CharField(max_length=150, help_text="e.g. Anna Nagar, Chennai")
     category = models.CharField(max_length=30, choices=CATEGORY_CHOICES, default='residential')
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='completed')
@@ -41,18 +42,18 @@ class ConstructionProject(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ['order', '-created_at']
+        ordering = ['order', 'id']
 
     @property
     def static_image(self):
-        slug = self.title.lower().strip()
-        if 'height' in slug:
+        slug_check = f"{self.slug or ''} {self.title or ''}".lower()
+        if 'height' in slug_check:
             return 'core/images/projects/bairava_heights.jpg'
-        elif 'tech' in slug:
+        elif 'tech' in slug_check:
             return 'core/images/projects/bairava_tech_hub.jpg'
-        elif 'villa' in slug:
+        elif 'villa' in slug_check:
             return 'core/images/projects/golden_villas.jpg'
-        elif 'hq' in slug or 'renovation' in slug or 'corporate' in slug:
+        elif 'hq' in slug_check or 'renovation' in slug_check or 'corporate' in slug_check:
             return 'core/images/projects/corporate_hq.jpg'
         return 'core/images/divisions/construction.jpg'
 

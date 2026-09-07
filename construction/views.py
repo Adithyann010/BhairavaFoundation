@@ -16,7 +16,7 @@ def project_list(request):
         form = ConstructionEnquiryForm()
 
     category_filter = request.GET.get('category', '')
-    projects = ConstructionProject.objects.all()
+    projects = ConstructionProject.objects.all().order_by('order', 'id')
     if category_filter:
         projects = projects.filter(category=category_filter)
 

@@ -55,6 +55,7 @@ class AIChatbotTestCase(TestCase):
         # Create Construction project and service
         self.project = ConstructionProject.objects.create(
             title="Bairava Heights",
+            slug="bairava-heights",
             location="Anna Nagar, Chennai",
             category="residential",
             status="completed",
@@ -394,6 +395,38 @@ class BhairavaAssociationAndLegalTestCase(TestCase):
         self.assertIn("LEGAL ADVISORY", content)
         self.assertIn("DISPUTE SUPPORT", content)
         self.assertIn("core/images/divisions/legal.jpg", content)
+
+
+class ConstructionProjectsTestCase(TestCase):
+    def setUp(self):
+        from django.test import RequestFactory
+        self.rf = RequestFactory()
+        # Seed the exact 4 canonical projects
+        projects_data = [
+            {"slug": "bairava-heights", "title": "BAIRAVA HEIGHTS", "location": "Anna Nagar, Chennai", "category": "residential", "status": "ongoing", "description": "Luxury multi-story residential enclave.", "completion_year": "2027", "built_up_area": "24,000 sq.ft", "order": 1},
+            {"slug": "bairava-tech-hub", "title": "BAIRAVA TECH HUB", "location": "Perungudi, OMR, Chennai", "category": "commercial", "status": "completed", "description": "Modern corporate IT tech park.", "completion_year": "2025", "built_up_area": "48,000 sq.ft", "order": 2},
+            {"slug": "the-golden-villas", "title": "THE GOLDEN VILLAS", "location": "ECR, Chennai", "category": "villas", "status": "completed", "description": "Exclusive beachfront luxury villa estate.", "completion_year": "2024", "built_up_area": "8,500 sq.ft", "order": 3},
+            {"slug": "corporate-hq-renovation", "title": "CORPORATE HQ RENOVATION", "location": "Nungambakkam, Chennai", "category": "interiors", "status": "completed", "description": "Comprehensive structural restoration.", "completion_year": "2024", "built_up_area": "16,200 sq.ft", "order": 4},
+        ]
+        for data in projects_data:
+            ConstructionProject.objects.create(**data)
+
+    def test_exactly_four_projects_rendered_without_duplicates(self):
+        """Test GET /construction/ returns 200 and renders exactly 4 unique project cards without duplicates."""
+        from construction.views import project_list
+        req = self.rf.get(reverse('construction:project_list'))
+        response = project_list(req)
+        self.assertEqual(response.status_code, 200)
+        content = response.content.decode('utf-8')
+
+        self.assertEqual(ConstructionProject.objects.count(), 4)
+        
+        # Check each project appears exactly once in the rendered HTML
+        self.assertEqual(content.count("<h4>BAIRAVA HEIGHTS</h4>"), 1)
+        self.assertEqual(content.count("<h4>BAIRAVA TECH HUB</h4>"), 1)
+        self.assertEqual(content.count("<h4>THE GOLDEN VILLAS</h4>"), 1)
+        self.assertEqual(content.count("<h4>CORPORATE HQ RENOVATION</h4>"), 1)
+
 
 
 

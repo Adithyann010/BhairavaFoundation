@@ -109,19 +109,6 @@ divisions_data = [
         "order": 7,
     },
     {
-        "name": "BAIRAVA TRUST",
-        "slug": "trust",
-        "tagline": "COMPASSIONATE SOCIAL CARE & DAILY COMMUNITY SERVICE",
-        "short_description": "Bairava Trust focuses on social welfare and community-oriented initiatives designed to support people and create positive community impact.",
-        "full_description": "Established as a registered non-profit charitable initiative, Bairava Trust operates daily Annadhanam (free meal distribution), full-time elder care shelters, educational scholarships for low-income students, and emergency disaster relief drives across Chennai and surrounding areas.",
-        "division_type": "foundation_trust",
-        "icon_name": "shield",
-        "static_image_path": "core/images/divisions/trust.jpg",
-        "target_url": "/trust/",
-        "accent_color": "#7C3B29",
-        "order": 8,
-    },
-    {
         "name": "BAIRAVA MEDIA",
         "slug": "media",
         "tagline": "MEANINGFUL STORIES, DIGITAL PRODUCTION & COMMUNICATION",
@@ -163,6 +150,7 @@ divisions_data = [
 ]
 
 division_objects = {}
+valid_division_slugs = {d["slug"] for d in divisions_data}
 for d_data in divisions_data:
     obj, created = BusinessDivision.objects.update_or_create(
         slug=d_data["slug"],
@@ -170,6 +158,11 @@ for d_data in divisions_data:
     )
     division_objects[d_data["slug"]] = obj
     print(f"{'Created' if created else 'Updated'} division: {obj.name}")
+
+# Clean up any non-canonical division records
+for d in BusinessDivision.objects.exclude(slug__in=valid_division_slugs):
+    print(f"Removing obsolete division: {d.name} ({d.slug})")
+    d.delete()
 
 # 2. POPULATE DIVISION OFFERINGS
 offerings_data = {
@@ -241,12 +234,16 @@ stats_data = [
     {"value": "500+", "label": "DAILY BENEFICIARIES", "order": 4},
 ]
 
+valid_stat_labels = {s["label"] for s in stats_data}
+# Remove old or duplicate stats
+Stat.objects.exclude(label__in=valid_stat_labels).delete()
+
 for s in stats_data:
     Stat.objects.update_or_create(
         label=s["label"],
         defaults=s
     )
-print("Stats populated!")
+print("Stats populated and deduplicated!")
 
 # 4. POPULATE NEWS / RECENT HIGHLIGHTS
 news_data = [
@@ -276,12 +273,16 @@ news_data = [
     }
 ]
 
+valid_news_titles = {n["title"] for n in news_data}
+# Remove old or duplicate news items
+NewsItem.objects.exclude(title__in=valid_news_titles).delete()
+
 for n in news_data:
     NewsItem.objects.update_or_create(
         title=n["title"],
         defaults=n
     )
-print("News items populated!")
+print("News items populated and deduplicated!")
 
 # 5. POPULATE MEDIA ARTICLES
 media_articles = [
@@ -317,16 +318,20 @@ media_articles = [
     },
 ]
 
+valid_media_slugs = {ma["slug"] for ma in media_articles}
+MediaArticle.objects.exclude(slug__in=valid_media_slugs).delete()
+
 for ma in media_articles:
     MediaArticle.objects.update_or_create(
         slug=ma["slug"],
         defaults=ma
     )
-print("Media articles populated!")
+print("Media articles populated and deduplicated!")
 
-# 6. POPULATE CONSTRUCTION PROJECTS (4 DISTINCT PROJECTS WITH UNIQUE ARCHITECTURAL IMAGES)
+# 6. POPULATE CONSTRUCTION PROJECTS (EXACTLY 4 DISTINCT PROJECTS WITH UNIQUE SLUGS & UNIQUE IMAGES)
 construction_projects_data = [
     {
+        "slug": "bairava-heights",
         "title": "BAIRAVA HEIGHTS",
         "location": "Anna Nagar, Chennai",
         "category": "residential",
@@ -338,6 +343,7 @@ construction_projects_data = [
         "order": 1,
     },
     {
+        "slug": "bairava-tech-hub",
         "title": "BAIRAVA TECH HUB",
         "location": "Perungudi, OMR, Chennai",
         "category": "commercial",
@@ -349,6 +355,7 @@ construction_projects_data = [
         "order": 2,
     },
     {
+        "slug": "the-golden-villas",
         "title": "THE GOLDEN VILLAS",
         "location": "East Coast Road (ECR), Chennai",
         "category": "villas",
@@ -360,6 +367,7 @@ construction_projects_data = [
         "order": 3,
     },
     {
+        "slug": "corporate-hq-renovation",
         "title": "CORPORATE HQ RENOVATION",
         "location": "Nungambakkam, Chennai",
         "category": "interiors",
@@ -372,12 +380,32 @@ construction_projects_data = [
     },
 ]
 
+valid_project_slugs = {cp["slug"] for cp in construction_projects_data}
+valid_project_titles = {cp["title"] for cp in construction_projects_data}
+
+# Safely remove any duplicate or obsolete construction project records
+for p in ConstructionProject.objects.all():
+    if p.slug not in valid_project_slugs and p.title not in valid_project_titles:
+        print(f"Removing obsolete construction project: {p.title} (ID: {p.id})")
+        p.delete()
+    elif not p.slug:
+        # If legacy record without slug, remove it so it's cleanly recreated with slug
+        print(f"Removing legacy un-slugged project: {p.title} (ID: {p.id})")
+        p.delete()
+
 for cp in construction_projects_data:
     p_obj, created = ConstructionProject.objects.update_or_create(
-        title=cp["title"],
+        slug=cp["slug"],
         defaults=cp
     )
-    print(f"{'Created' if created else 'Updated'} construction project: {p_obj.title}")
+    print(f"{'Created' if created else 'Updated'} construction project: {p_obj.title} (Slug: {p_obj.slug})")
+
+# Clean up any leftover records that exceed the 4 canonical projects
+for p in ConstructionProject.objects.exclude(slug__in=valid_project_slugs):
+    print(f"Removing excess construction project: {p.title} ({p.slug})")
+    p.delete()
+
+print(f"Construction projects verified count: {ConstructionProject.objects.count()}")
 
 # 7. POPULATE LEGAL ASSOCIATES DATA
 legal_practice_data = [
@@ -425,12 +453,15 @@ legal_practice_data = [
     },
 ]
 
+valid_legal_practice_titles = {lp["title"] for lp in legal_practice_data}
+LegalPracticeDetail.objects.exclude(title__in=valid_legal_practice_titles).delete()
+
 for lp in legal_practice_data:
     LegalPracticeDetail.objects.update_or_create(
         title=lp["title"],
         defaults=lp
     )
-print("Legal practice details populated!")
+print("Legal practice details populated and deduplicated!")
 
 legal_services_data = [
     {"description": "Corporate & Business Law Support", "tag": "CORPORATE", "order": 1},

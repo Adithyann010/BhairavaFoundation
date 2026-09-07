@@ -35,9 +35,9 @@ def home(request):
         'divisions': divisions,
         'commercial_divisions': commercial_divisions,
         'foundation_divisions': foundation_divisions,
-        'stats': Stat.objects.all(),
+        'stats': Stat.objects.all().order_by('order', 'id'),
         'news_items': NewsItem.objects.all()[:4],
-        'featured_projects': ConstructionProject.objects.all()[:3],
+        'featured_projects': ConstructionProject.objects.all().order_by('order', 'id')[:4],
         'trust_activities': TrustActivityItem.objects.all()[:3],
         'event_portfolio': EventPortfolioItem.objects.all()[:3],
         'form': form,
@@ -237,7 +237,7 @@ def construction_division_view(request, division):
         form = ConstructionEnquiryForm()
 
     category_filter = request.GET.get('category', '')
-    projects = ConstructionProject.objects.all()
+    projects = ConstructionProject.objects.all().order_by('order', 'id')
     if category_filter:
         projects = projects.filter(category=category_filter)
 
