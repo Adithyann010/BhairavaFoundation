@@ -443,7 +443,7 @@ class JKKitchenTestCase(TestCase):
         )
 
     def test_cloud_kitchen_jk_branding_and_brochure(self):
-        """Test GET /businesses/cloud-kitchen/ renders JK Kitchen logo, branding, and brochure download links."""
+        """Test GET /businesses/cloud-kitchen/ renders JK Kitchen logo, poster, gallery, and brochure download links."""
         from core.views import business_detail
         req = self.rf.get(reverse('core:business_detail', kwargs={'slug': 'cloud-kitchen'}))
         response = business_detail(req, slug='cloud-kitchen')
@@ -453,18 +453,27 @@ class JKKitchenTestCase(TestCase):
         # Headings & Uppercase Titles
         self.assertIn("BAIRAVA CLOUD KITCHEN", content)
         self.assertIn("JK KITCHEN", content)
-        self.assertIn("CULINARY EXCELLENCE", content)
+        self.assertIn("CULINARY EXCELLENCE • EVERY DAY", content)
         self.assertIn("FRESH &amp; HYGIENIC", content)
         self.assertIn("AUTHENTIC FLAVOURS", content)
-        self.assertIn("DELIVERY &amp; BULK ORDERS", content)
+        self.assertIn("CORPORATE &amp; INSTITUTIONAL", content)
+        self.assertIn("SPECIAL DIET SOLUTIONS", content)
+        self.assertIn("FOOD &amp; CATERING GALLERY", content)
+        self.assertIn("BULK CATERING", content)
+        self.assertIn("CLOUD KITCHEN", content)
+        self.assertIn("EVENT &amp; PARTY CATERING", content)
+        self.assertIn("PREMIUM CATERING", content)
         self.assertIn("JK KITCHEN PROFILE", content)
         self.assertIn("VIEW BROCHURE", content)
         self.assertIn("DOWNLOAD BROCHURE", content)
 
         # Uploaded Assets
-        self.assertIn("core/images/divisions/jk_kitchen_logo.jpg", content)
-        self.assertIn("core/images/divisions/jk_kitchen_hero.jpg", content)
-        self.assertIn("core/images/divisions/jk_kitchen_promo.jpg", content)
+        self.assertIn("core/images/divisions/bairava_cloud_kitchen_logo.jpg", content)
+        self.assertIn("core/images/divisions/jk_kitchen_poster.jpg", content)
+        self.assertIn("core/images/divisions/gallery_bulk_catering.jpg", content)
+        self.assertIn("core/images/divisions/gallery_cloud_kitchen.jpg", content)
+        self.assertIn("core/images/divisions/gallery_event_party.jpg", content)
+        self.assertIn("core/images/divisions/gallery_premium_catering.jpg", content)
         self.assertIn("core/docs/JK-Kitchen-Profile-July-2026.pdf", content)
 
         # Brochure View & Download Attributes
