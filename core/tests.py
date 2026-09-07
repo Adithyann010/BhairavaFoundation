@@ -428,6 +428,52 @@ class ConstructionProjectsTestCase(TestCase):
         self.assertEqual(content.count("<h4>CORPORATE HQ RENOVATION</h4>"), 1)
 
 
+class JKKitchenTestCase(TestCase):
+    def setUp(self):
+        from django.test import RequestFactory
+        self.rf = RequestFactory()
+        self.div_kitchen = BusinessDivision.objects.create(
+            name="BAIRAVA CLOUD KITCHEN",
+            slug="cloud-kitchen",
+            tagline="HYGIENIC, AUTHENTIC & FLAVORFUL CULINARY EXPERIENCES",
+            short_description="Bairava Cloud Kitchen brings convenient food experiences to customers through professionally managed kitchen operations and carefully prepared menus.",
+            full_description="Operating state-of-the-art commercial culinary hubs, Bairava Cloud Kitchen prepares wholesome regional specialties and contemporary meal packages.",
+            division_type="business",
+            order=4
+        )
+
+    def test_cloud_kitchen_jk_branding_and_brochure(self):
+        """Test GET /businesses/cloud-kitchen/ renders JK Kitchen logo, branding, and brochure download links."""
+        from core.views import business_detail
+        req = self.rf.get(reverse('core:business_detail', kwargs={'slug': 'cloud-kitchen'}))
+        response = business_detail(req, slug='cloud-kitchen')
+        self.assertEqual(response.status_code, 200)
+        content = response.content.decode('utf-8')
+
+        # Headings & Uppercase Titles
+        self.assertIn("BAIRAVA CLOUD KITCHEN", content)
+        self.assertIn("JK KITCHEN", content)
+        self.assertIn("CULINARY EXCELLENCE", content)
+        self.assertIn("FRESH &amp; HYGIENIC", content)
+        self.assertIn("AUTHENTIC FLAVOURS", content)
+        self.assertIn("DELIVERY &amp; BULK ORDERS", content)
+        self.assertIn("JK KITCHEN PROFILE", content)
+        self.assertIn("VIEW BROCHURE", content)
+        self.assertIn("DOWNLOAD BROCHURE", content)
+
+        # Uploaded Assets
+        self.assertIn("core/images/divisions/jk_kitchen_logo.jpg", content)
+        self.assertIn("core/images/divisions/jk_kitchen_hero.jpg", content)
+        self.assertIn("core/images/divisions/jk_kitchen_promo.jpg", content)
+        self.assertIn("core/docs/JK-Kitchen-Profile-July-2026.pdf", content)
+
+        # Brochure View & Download Attributes
+        self.assertIn('target="_blank"', content)
+        self.assertIn('rel="noopener noreferrer"', content)
+        self.assertIn('download="JK-Kitchen-Profile-July-2026.pdf"', content)
+
+
+
 
 
 

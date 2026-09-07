@@ -170,16 +170,17 @@ def generate_rag_fallback_response(
             "Submit your financial advisory enquiry on the **[Bairava Finance Page](/businesses/finance/)**."
         )
 
-    # 6. Specific Division: Cloud Kitchen
-    if any(term in q for term in ['cloud kitchen', 'kitchen', 'food', 'thali', 'biryani', 'menu', 'meal box', 'catering', 'culinary']) or ('cloud-kitchen' in page and any(term in q for term in ['offer', 'menu', 'food'])):
+    # 6. Specific Division: Cloud Kitchen & JK Kitchen
+    if any(term in q for term in ['cloud kitchen', 'jk kitchen', 'kitchen', 'food', 'thali', 'biryani', 'menu', 'meal box', 'catering', 'culinary', 'brochure']) or ('cloud-kitchen' in page and any(term in q for term in ['offer', 'menu', 'food', 'brochure', 'profile'])):
         return (
-            "**[Bairava Cloud Kitchen](/businesses/cloud-kitchen/)** prepares hygienic, authentic, and flavorful culinary experiences using farm-fresh ingredients.\n\n"
-            "**Menu Highlights:**\n"
+            "**[Bairava Cloud Kitchen (JK Kitchen)](/businesses/cloud-kitchen/)** prepares hygienic, authentic, and flavorful culinary dining and catering experiences using farm-fresh ingredients.\n\n"
+            "**JK Kitchen Specialities & Solutions:**\n"
             "- **Signature South Indian Thali**: Authentic recipes with hand-ground spices, sambar, rasam, seasonal poriyal, and appalam.\n"
             "- **Dum Biryani Specialties**: Slow-cooked aromatic Seeraga Samba and Basmati preparations.\n"
             "- **Daily Wholesome Meal Boxes**: Balanced subscription lunches and dinners for corporate staff, students, and families.\n"
-            "- **Bulk Catering & Party Orders**: Freshly prepared banquet meals for corporate and private gatherings.\n\n"
-            "Explore our menu on the **[Bairava Cloud Kitchen Page](/businesses/cloud-kitchen/)**."
+            "- **Bulk Catering & Party Orders**: Freshly prepared banquet meals and live counters for corporate and private gatherings.\n"
+            "- **Official Profile & Brochure**: Download or view our complete 4-page profile covering our culinary philosophy, safeguards, and hospitality management.\n\n"
+            "Explore our menu and download the profile on the **[Bairava Cloud Kitchen Page](/businesses/cloud-kitchen/)**."
         )
 
     # 7. Specific Division: Sports Club
