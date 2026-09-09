@@ -1,5 +1,12 @@
 import os
+import sys
 import django
+
+if sys.stdout.encoding != 'utf-8':
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+    except Exception:
+        pass
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'bairava_project.settings')
 django.setup()
@@ -96,16 +103,16 @@ divisions_data = [
         "order": 6,
     },
     {
-        "name": "BAIRAVA AADUKALAM",
+        "name": "BAIRAVA ஆடுகளம்",
         "slug": "aadukalam",
-        "tagline": "CELEBRATING TRADITIONAL SPORTS & CULTURAL GAMES",
-        "short_description": "Bairava Aadukalam is a platform for sports, recreation, traditional activities and community participation, bringing people together through engaging experiences.",
-        "full_description": "Rooted in Tamil Nadu's rich heritage of indigenous games, Bairava Aadukalam hosts regional Kabaddi leagues, Silambam training, rural athletic festivals, and recreational events that preserve traditional sports culture and unite communities in healthy competition.",
+        "tagline": "NEWS FOR THE PEOPLE, VOICE FOR THE TRUTH.",
+        "short_description": "BAIRAVA ஆடுகளம் is a people-focused news platform delivering clear, responsible and timely information from Tamil Nadu, India and around the world.",
+        "full_description": "BAIRAVA ஆடுகளம் is a people-focused news platform dedicated to clear, accurate and responsible journalism. We bring stories that matter to people, communities and businesses across Tamil Nadu, India and beyond.",
         "division_type": "business",
-        "icon_name": "trophy",
+        "icon_name": "radio",
         "static_image_path": "core/images/divisions/aadukalam.jpg",
         "target_url": "/businesses/aadukalam/",
-        "accent_color": "#7C3B29",
+        "accent_color": "#8B0000",
         "order": 7,
     },
     {
@@ -185,10 +192,10 @@ offerings_data = {
         {"title": "COMMUNITY LEAGUES & TOURNAMENTS", "badge": "EVENTS", "description": "Regular weekend friendly leagues and open tournaments encouraging healthy competitive spirit.", "order": 4},
     ],
     "aadukalam": [
-        {"title": "KABADDI TOURNAMENTS & COACHING", "badge": "HERITAGE SPORT", "description": "Professional clay court training, safety gear guidance, and regular district-level tournament hosting.", "order": 1},
-        {"title": "SILAMBAM & TRADITIONAL MARTIAL ARTS", "badge": "CULTURAL ARTS", "description": "Authentic staff-spinning and ancient self-defense art forms taught by seasoned traditional practitioners.", "order": 2},
-        {"title": "RURAL & RECREATIONAL SPORTS GALAS", "badge": "COMMUNITY", "description": "Multi-discipline athletic festivals featuring Kho-Kho, volleyball, tug of war, and indigenous field games.", "order": 3},
-        {"title": "YOUTH FITNESS CAMPS", "badge": "DEVELOPMENT", "description": "Open ground conditioning drills and fitness workshops building stamina and discipline among local youth.", "order": 4},
+        {"title": "ACCURATE & VERIFIED REPORTING", "badge": "INTEGRITY", "description": "Meticulous fact-checking, primary source verification, and precision in every published news report.", "order": 1},
+        {"title": "RESPONSIBLE & ETHICAL JOURNALISM", "badge": "ETHICS", "description": "Unwavering commitment to ethical standards, public interest, and balanced societal reporting.", "order": 2},
+        {"title": "PEOPLE-CENTRIC & COMMUNITY FOCUS", "badge": "COMMUNITY", "description": "Amplifying citizen voices, grassroots achievements, and local public-interest developments.", "order": 3},
+        {"title": "24X7 TIMELY DIGITAL BROADCAST", "badge": "REAL-TIME", "description": "Rapid coverage delivering unfolding state, national, and global developments with clarity.", "order": 4},
     ],
     "media": [
         {"title": "VIDEO & DOCUMENTARY PRODUCTION", "badge": "4K CINEMA", "description": "High-definition corporate films, brand profile stories, and community documentary features.", "order": 1},

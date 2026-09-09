@@ -24,7 +24,7 @@ def get_group_general_knowledge() -> str:
         "3. BAIRAVA CLOUD KITCHEN: Hygienic, authentic culinary experiences, traditional South Indian thalis, dum biryani, and daily wholesome meal boxes (/businesses/cloud-kitchen/).\n"
         "4. BAIRAVA SPORTS CLUB: World-class sports facilities, BWF-standard indoor badminton courts, fitness & strength conditioning, and junior coaching academies (/businesses/sports-club/).\n"
         "5. BAIRAVA EVENT MANAGEMENT: End-to-end event planning, luxury weddings, corporate summits, social galas, and bespoke decor coordination (/businesses/event-management/).\n"
-        "6. BAIRAVA AADUKALAM: Promoting traditional heritage sports, state-level Kabaddi championships, Silambam martial arts, and rural athletic galas (/businesses/aadukalam/).\n"
+        "6. BAIRAVA ஆடுகளம்: News channel committed to delivering accurate, unbiased, and people-centric journalism across Tamil Nadu, India and worldwide (/businesses/aadukalam/).\n"
         "7. BAIRAVA MEDIA: Meaningful visual storytelling, documentary production, digital content, podcast studio, and brand communications (/businesses/media/).\n"
         "8. BHAIRAVA ASSOCIATION: Community networking, professional collaboration, member engagement, knowledge sharing and collective development (/businesses/bhairava-association/).\n"
         "\n"
@@ -103,7 +103,7 @@ def retrieve_website_context(user_query: str, current_page: str = "", division_c
         'finance': ['finance', 'financial', 'advisory', 'loan', 'capital', 'working capital', 'equipment', 'funding', 'asset finance'],
         'cloud-kitchen': ['cloud kitchen', 'kitchen', 'food', 'meal', 'thali', 'biryani', 'catering', 'menu', 'culinary', 'lunch', 'dinner', 'order food', 'boxes'],
         'sports-club': ['sports club', 'badminton', 'court', 'fitness', 'gym', 'training', 'coach', 'coaching', 'athletic', 'bwf', 'indoor court'],
-        'aadukalam': ['aadukalam', 'kabaddi', 'silambam', 'traditional sport', 'heritage sport', 'martial art', 'rural sport', 'kho kho'],
+        'aadukalam': ['aadukalam', 'news', 'news channel', 'breaking news', 'tamil nadu news', 'broadcast', 'journalism', 'newsroom', 'livestream'],
         'event-management': ['event', 'events', 'wedding', 'reception', 'conference', 'summit', 'gala', 'decor', 'party', 'coordination', 'planner'],
         'media': ['media', 'video', 'documentary', 'podcast', 'storytelling', 'press', 'production', 'broadcast', 'article', 'news story'],
         'association': ['association', 'bhairava association', 'networking', 'collaboration', 'community networking', 'member engagement', 'collective growth'],

@@ -1,0 +1,252 @@
+<!--
+ORIGINAL BAIRAVA AADUKALAM SPORTS PAGE CONTENT
+PRESERVED FROM PREVIOUS VERSION
+-->
+
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}BAIRAVA AADUKALAM — TRADITIONAL SPORTS & COMMUNITY ACTIVITIES{% endblock %}
+{% block meta_desc %}Bairava Aadukalam is a platform for sports, recreation, traditional activities and community participation, bringing people together through engaging experiences.{% endblock %}
+
+{% block content %}
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumbs">
+      <a href="{% url 'core:home' %}">HOME</a>
+      <span>/</span>
+      <a href="{% url 'core:businesses_index' %}">BUSINESSES</a>
+      <span>/</span>
+      <span>BAIRAVA AADUKALAM</span>
+    </div>
+
+    <div class="page-hero-grid">
+      <div>
+        <span class="badge" style="background: rgba(124, 59, 41, 0.1);">HERITAGE &amp; COMMUNITY SPORTS</span>
+        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 12px;">BAIRAVA AADUKALAM</h1>
+        <p class="hero-subtitle" style="font-size: 1.25rem;">"Celebrating Traditional Sports, Cultural Games &amp; Community Spirit."</p>
+        <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">Bairava Aadukalam is a platform for sports, recreation, traditional activities and community participation, bringing people together through engaging experiences.</p>
+        
+        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+          <a href="#activities" class="btn btn-solid">EXPLORE ACTIVITIES</a>
+          <a href="#aadukalam-enquiry" class="btn btn-outline">PARTICIPATE / REGISTER</a>
+        </div>
+      </div>
+
+      <div class="page-hero-image-wrap">
+        <img src="{% static 'core/images/divisions/aadukalam.jpg' %}" alt="Bairava Aadukalam Kabaddi & Traditional Sports">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT AADUKALAM -->
+<section class="section">
+  <div class="wrap">
+    <div class="about-intro-grid">
+      <div>
+        <span class="badge">ABOUT AADUKALAM</span>
+        <h2>REVIVING INDIGENOUS SPORTS &amp; CULTURAL GAMES</h2>
+        <p style="margin-bottom: 16px; font-size: 1.05rem;">Bairava Aadukalam celebrates the rich sporting legacy of Tamil Nadu, creating vibrant platforms for grassroots athletes, rural sports practitioners, and community members of all generations.</p>
+        <p style="margin-bottom: 16px;">From hosting district-level Kabaddi tournaments and traditional Silambam staff martial arts workshops to organizing community Kho-Kho, volleyball, and rural sports festivals, Aadukalam brings people together through the power of collective play and cultural celebration.</p>
+        <p>We nurture raw athletic talent with coaching guidance, tournament safety equipment, official refereeing, and awards that recognize hard work and sportsmanship.</p>
+      </div>
+
+      <div style="background: var(--sand-light); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 32px;">
+        <h4 style="color: var(--brick); margin-bottom: 16px;">CORE AADUKALAM PILLARS</h4>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Preserving Heritage Sports:</strong> Dedicated focus on Kabaddi, Silambam, and traditional field games.</div>
+          </div>
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Grassroots Athletic Mentorship:</strong> Developing stamina, team coordination, and match discipline among rural and urban youth.</div>
+          </div>
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>Community Gathering:</strong> Bringing families and spectators together in joyful, energetic sporting celebrations.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITIES & PROGRAMMES -->
+<section class="section" style="background-color: var(--sand-light);" id="activities">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge badge-brass">DISCIPLINES</span>
+        <h2>SPORTS &amp; TRADITIONAL ACTIVITIES</h2>
+        <p style="max-width: 620px; margin-top: 8px;">Explore the key sporting disciplines and cultural initiatives promoted by Bairava Aadukalam.</p>
+      </div>
+    </div>
+
+    <div class="offerings-grid">
+      {% for offering in offerings %}
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>{{ offering.title }}</h4>
+          {% if offering.badge %}
+            <span class="offering-badge">{{ offering.badge }}</span>
+          {% endif %}
+        </div>
+        <p>{{ offering.description }}</p>
+      </div>
+      {% empty %}
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>KABADDI TOURNAMENTS &amp; COACHING</h4>
+          <span class="offering-badge">HERITAGE SPORT</span>
+        </div>
+        <p>Professional clay court training, safety gear guidance, and regular district-level tournament hosting.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>SILAMBAM &amp; TRADITIONAL MARTIAL ARTS</h4>
+          <span class="offering-badge">CULTURAL ARTS</span>
+        </div>
+        <p>Authentic staff-spinning and ancient self-defense art forms taught by seasoned traditional practitioners.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>RURAL &amp; RECREATIONAL SPORTS GALAS</h4>
+          <span class="offering-badge">COMMUNITY</span>
+        </div>
+        <p>Multi-discipline athletic festivals featuring Kho-Kho, volleyball, tug of war, and indigenous field games.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>YOUTH FITNESS CAMPS</h4>
+          <span class="offering-badge">DEVELOPMENT</span>
+        </div>
+        <p>Open ground conditioning drills and fitness workshops building stamina and discipline among local youth.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- AADUKALAM GALLERY -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head-center">
+      <span class="badge">AADUKALAM ARENA</span>
+      <h2>COMMUNITY ENERGY &amp; TRADITIONAL GLORY</h2>
+      <p>Photographs from regional Kabaddi leagues, Silambam demonstrations, and community athletic meets.</p>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-item-card">
+        <img src="{% static 'core/images/divisions/aadukalam.jpg' %}" alt="Kabaddi Match" class="project-item-img">
+        <div class="project-item-body">
+          <span class="project-item-cat">KABADDI LEAGUE</span>
+          <h4>STATE-LEVEL CHAMPIONSHIP</h4>
+          <p>Electric atmosphere as teams clash in intense competitive raids and tackles before thousands of spectators.</p>
+        </div>
+      </div>
+      <div class="project-item-card">
+        <img src="{% static 'core/images/divisions/sports_club.jpg' %}" alt="Athletic Training" class="project-item-img">
+        <div class="project-item-body">
+          <span class="project-item-cat">SKILL COACHING</span>
+          <h4>PHYSICAL CONDITIONING &amp; DRILLS</h4>
+          <p>Training camps focused on building endurance, speed, and agility for aspiring junior competitors.</p>
+        </div>
+      </div>
+      <div class="project-item-card">
+        <img src="{% static 'core/images/divisions/events.jpg' %}" alt="Ceremonial Awards" class="project-item-img">
+        <div class="project-item-body">
+          <span class="project-item-cat">FELICITATION</span>
+          <h4>AWARDS &amp; SPORTS SCHOLARSHIPS</h4>
+          <p>Presenting trophies, medals, and financial support to deserving rural players and champion teams.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENQUIRY & TOURNAMENT REGISTRATION -->
+<section class="section" style="background-color: var(--sand-light);" id="aadukalam-enquiry">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge badge-brass">PARTICIPATION</span>
+        <h2>TOURNAMENT REGISTRATION &amp; ENQUIRIES</h2>
+        <p style="max-width: 600px; margin-top: 8px;">Register your team for upcoming Kabaddi leagues, Silambam batches, or community games.</p>
+      </div>
+    </div>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-{% if message.tags == 'error' %}info{% else %}{{ message.tags }}{% endif %}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <div class="division-contact-grid">
+      <div class="contact-card-info">
+        <h3>AADUKALAM SPORTS DESK</h3>
+        <p style="margin-bottom: 24px;">Contact our sports coordinators for team registrations and upcoming tournament fixtures.</p>
+
+        <div class="contact-info-list">
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <h5>GROUND OFFICE</h5>
+              <p>KK Nagar Ground / Central Desk, Chennai – 600078, Tamil Nadu</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <div>
+              <h5>SPORTS HELPLINE</h5>
+              <a href="tel:+919941757555">+91 99417 57555</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-box">
+        <h3>TEAM REGISTRATION &amp; ENQUIRIES</h3>
+        <p style="font-size: 0.88rem; margin-bottom: 20px;">Provide your team details and sport category below.</p>
+
+        <form method="post" action="{% url 'core:business_detail' slug='aadukalam' %}#aadukalam-enquiry">
+          {% csrf_token %}
+          <div class="form-row">
+            <div class="form-group">
+              <label for="{{ form.name.id_for_label }}">Captain / Coordinator Name *</label>
+              {{ form.name }}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.phone.id_for_label }}">{{ form.phone.label }} *</label>
+              {{ form.phone }}
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
+              {{ form.email }}
+            </div>
+            <div class="form-group">
+              <label for="{{ form.subject.id_for_label }}">Sport / Team Name</label>
+              {{ form.subject }}
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="{{ form.message.id_for_label }}">Team Size &amp; Message *</label>
+            {{ form.message }}
+          </div>
+          <button type="submit" class="btn btn-solid" style="width: 100%;">SUBMIT REGISTRATION</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+{% include "core/includes/_cta.html" %}
+{% endblock %}

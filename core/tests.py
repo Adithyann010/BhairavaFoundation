@@ -215,8 +215,8 @@ class AIChatbotTestCase(TestCase):
         response = self.client.post(url, json.dumps(payload), content_type="application/json")
         self.assertEqual(response.status_code, 200)
         data = response.json()
-        self.assertIn("Bairava Aadukalam", data["response"])
-        self.assertIn("Kabaddi", data["response"])
+        self.assertIn("Bairava", data["response"])
+        self.assertTrue("ஆடுகளம்" in data["response"] or "Aadukalam" in data["response"] or "news" in data["response"].lower())
 
     def test_chat_api_event_management_query(self):
         """Test asking about event management."""
@@ -480,6 +480,95 @@ class JKKitchenTestCase(TestCase):
         self.assertIn('target="_blank"', content)
         self.assertIn('rel="noopener noreferrer"', content)
         self.assertIn('download="JK-Kitchen-Profile-July-2026.pdf"', content)
+
+
+class AadukalamNewsChannelTestCase(TestCase):
+    def setUp(self):
+        from django.test import RequestFactory
+        self.rf = RequestFactory()
+        self.div_aadukalam = BusinessDivision.objects.create(
+            name="BAIRAVA ஆடுகளம்",
+            slug="aadukalam",
+            tagline="NEWS FOR THE PEOPLE, VOICE FOR THE TRUTH.",
+            short_description="BAIRAVA ஆடுகளம் is a people-focused news platform delivering clear, responsible and timely information from Tamil Nadu, India and around the world.",
+            full_description="BAIRAVA ஆடுகளம் is a people-focused news platform committed to clear, responsible and timely reporting.",
+            division_type="business",
+            order=7
+        )
+
+    def test_aadukalam_news_channel_single_image_and_clean_structure(self):
+        """Test GET /businesses/aadukalam/ renders exactly 1 image in the hero, 3 text-only cards, and short about section."""
+        from core.views import business_detail
+        req = self.rf.get(reverse('core:business_detail', kwargs={'slug': 'aadukalam'}))
+        response = business_detail(req, slug='aadukalam')
+        self.assertEqual(response.status_code, 200)
+        content = response.content.decode('utf-8')
+
+        # 1. SEO & Breadcrumb & Hero
+        self.assertIn("BAIRAVA ஆடுகளம் | NEWS CHANNEL", content)
+        self.assertIn("NEWS CHANNEL", content)
+        self.assertIn("BAIRAVA ஆடுகளம்", content)
+        self.assertIn('"News for the People, Voice for the Truth."', content)
+        self.assertIn("Bairava ஆடுகளம் is a people-focused news platform delivering clear, responsible and timely information from Tamil Nadu, India and around the world.", content)
+        self.assertIn("WATCH LIVE NEWS", content)
+        self.assertIn("LATEST UPDATES", content)
+
+        # 2. Hero Single Image (The ONLY image on the entire page content)
+        self.assertIn("core/images/news/hero_studio.jpg", content)
+        
+        # Verify other images are NOT in the page content
+        self.assertNotIn("core/images/news/tamilnadu.jpg", content)
+        self.assertNotIn("core/images/news/india.jpg", content)
+        self.assertNotIn("core/images/news/world.jpg", content)
+        self.assertNotIn("core/images/news/business.jpg", content)
+        self.assertNotIn("core/images/news/technology.jpg", content)
+        self.assertNotIn("core/images/news/community.jpg", content)
+        self.assertNotIn("core/images/news/reporting.jpg", content)
+
+        # 3. Latest News (3 text-only cards)
+        self.assertIn("LATEST NEWS", content)
+        self.assertIn("TAMIL NADU", content)
+        self.assertIn("Latest updates and important stories from across Tamil Nadu.", content)
+        self.assertIn("INDIA", content)
+        self.assertIn("Key national developments and people-focused stories.", content)
+        self.assertIn("WORLD", content)
+        self.assertIn("Major international developments and global updates.", content)
+        self.assertIn("READ MORE →", content)
+
+        # 4. About Section & 3 Values
+        self.assertIn("ABOUT BAIRAVA ஆடுகளம்", content)
+        self.assertIn("BAIRAVA ஆடுகளம் is a people-focused news platform dedicated to delivering accurate, unbiased and responsible journalism.", content)
+        self.assertIn("PEOPLE", content)
+        self.assertIn("TRUTH", content)
+        self.assertIn("PROGRESS", content)
+
+        # 5. News Tips & Enquiries Form
+        self.assertIn("NEWS TIPS & ENQUIRIES", content)
+        self.assertIn("Share your news tips, stories or enquiries with our newsroom.", content)
+        self.assertIn("Your Name *", content)
+        self.assertIn("Phone Number *", content)
+        self.assertIn("Email Address *", content)
+        self.assertIn("Message *", content)
+        self.assertIn("SUBMIT", content)
+
+        # Verify old sports content is NOT present on the public Aadukalam page
+        self.assertNotIn("HERITAGE &amp; COMMUNITY SPORTS", content)
+        self.assertNotIn("HERITAGE & COMMUNITY SPORTS", content)
+        self.assertNotIn("TRADITIONAL SPORTS", content)
+        self.assertNotIn("KABADDI", content)
+        self.assertNotIn("COMMUNITY GAMES", content)
+        self.assertNotIn("SPORTS ACTIVITIES", content)
+        self.assertNotIn("PARTICIPATE / REGISTER", content)
+        self.assertNotIn("EXPLORE ACTIVITIES", content)
+        self.assertNotIn("SPORTS EVENTS", content)
+        self.assertNotIn("TRADITIONAL ACTIVITIES", content)
+        self.assertNotIn("RECREATION", content)
+        self.assertNotIn("SPORTS PROGRAMS", content)
+        self.assertNotIn("SPORTS FACILITIES", content)
+
+
+
+
 
 
 
