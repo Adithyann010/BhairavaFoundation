@@ -45,10 +45,10 @@
               <p>Turnkey residential &amp; commercial builds</p>
             </div>
           </a>
-          <a href="{% url 'core:business_detail' slug='cloud-kitchen' %}" class="dropdown-item">
+          <a href="{% url 'law_associates:index' %}" class="dropdown-item">
             <div class="dropdown-item-content">
-              <h5>BAIRAVA CLOUD KITCHEN</h5>
-              <p>Hygienic, authentic regional gourmet dining</p>
+              <h5>LEGAL</h5>
+              <p>Corporate, commercial &amp; civil legal advisory</p>
             </div>
           </a>
           <a href="{% url 'core:business_detail' slug='sports-club' %}" class="dropdown-item">
@@ -158,8 +158,8 @@
         </div>
       </div>
 
-      <div class="nav-item {% if 'legal' in request.path %}active{% endif %}">
-        <a href="{% url 'law_associates:index' %}" class="nav-link">LEGAL</a>
+      <div class="nav-item {% if 'cloud-kitchen' in request.path %}active{% endif %}">
+        <a href="{% url 'core:business_detail' slug='cloud-kitchen' %}" class="nav-link">BAIRAVA CLOUD KITCHEN</a>
       </div>
 
       <div class="nav-item {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
@@ -208,7 +208,7 @@
           <a href="{% url 'core:businesses_index' %}" class="mobile-sublink" style="font-weight:700; color:var(--brick);">→ VIEW ALL BUSINESSES OVERVIEW</a>
           <a href="{% url 'core:business_detail' slug='finance' %}" class="mobile-sublink">BAIRAVA FINANCE</a>
           <a href="{% url 'core:business_detail' slug='construction' %}" class="mobile-sublink">BAIRAVA CONSTRUCTION &amp; LAND PROMOTERS</a>
-          <a href="{% url 'core:business_detail' slug='cloud-kitchen' %}" class="mobile-sublink">BAIRAVA CLOUD KITCHEN</a>
+          <a href="{% url 'law_associates:index' %}" class="mobile-sublink">LEGAL</a>
           <a href="{% url 'core:business_detail' slug='sports-club' %}" class="mobile-sublink">BAIRAVA SPORTS CLUB</a>
           <a href="{% url 'core:business_detail' slug='event-management' %}" class="mobile-sublink">BAIRAVA EVENT MANAGEMENT</a>
           <a href="{% url 'core:business_detail' slug='aadukalam' %}" class="mobile-sublink">BAIRAVA ஆடுகளம் (POLITICAL NEWS)</a>
@@ -246,7 +246,7 @@
       </div>
 
       <div class="mobile-nav-item">
-        <a href="{% url 'law_associates:index' %}">LEGAL ASSOCIATES</a>
+        <a href="{% url 'core:business_detail' slug='cloud-kitchen' %}">BAIRAVA CLOUD KITCHEN</a>
       </div>
 
       <div class="mobile-nav-item">
