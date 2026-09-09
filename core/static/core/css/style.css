@@ -5279,185 +5279,499 @@ footer {
   opacity: 0.85;
 }
 
-/* 3. ABOUT & NEWS TIPS SECTION */
-.format-bottom-section {
-  padding: 10px 0 20px;
+/* 2. WEEKLY NEWSPAPER SECTION */
+.format-newspaper-section {
+  padding: 16px 0 32px;
 }
 
-.format-bottom-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  align-items: stretch;
-}
-
-.format-panel {
+.newspaper-feature-card {
   background-color: #FFFFFF;
   border: 1px solid #EAE1D5;
+  border-left: 5px solid #7B3426;
   border-radius: 12px;
-  padding: 32px 30px;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
+  padding: 32px 36px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
   display: flex;
-  flex-direction: column;
-}
-
-.format-about-panel {
+  align-items: center;
   justify-content: space-between;
+  gap: 32px;
 }
 
-.format-about-paragraph {
-  font-size: 0.94rem;
-  line-height: 1.65;
-  color: #4A443E;
-  margin: 12px 0 28px 0;
+.newspaper-card-main {
+  flex: 1;
 }
 
-.format-values-row {
+.newspaper-badge-row {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  padding-top: 18px;
-  border-top: 1px solid #EAE1D5;
-  margin-top: auto;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
 }
 
-.format-value-col {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.val-svg {
-  color: #7B3426;
-  flex-shrink: 0;
-}
-
-.val-text {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: 0.86rem;
+.newspaper-pill {
+  font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #4A443E;
+  background-color: #F8EFE4;
+  color: #7B3426;
+  padding: 4px 12px;
+  border-radius: 999px;
 }
 
-.format-val-divider {
+.newspaper-cycle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #8C7B6B;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.newspaper-edition-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 800;
+  color: #1F1C1A;
+  margin: 0 0 6px 0;
+  letter-spacing: 0.02em;
+}
+
+.newspaper-edition-tag {
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #7B3426;
+  margin: 0 0 18px 0;
+}
+
+.newspaper-meta-grid {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: #FAF6EE;
+  border: 1px solid #EAE1D5;
+  border-radius: 8px;
+  padding: 12px 18px;
+  flex-wrap: wrap;
+}
+
+.newspaper-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.n-meta-label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #7A7269;
+}
+
+.n-meta-val {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #1F1C1A;
+}
+
+.newspaper-meta-divider {
   width: 1px;
-  height: 24px;
+  height: 18px;
   background-color: #D6C8B8;
 }
 
-/* News Tips Form */
-.format-enquiry-lead {
-  font-size: 0.92rem;
-  color: #5C564F;
-  margin: 4px 0 20px 0;
-}
-
-.format-form {
+.newspaper-card-actions {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
+  flex-shrink: 0;
 }
 
-.format-form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-
-.format-form-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.format-form-group label {
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  color: #1F1C1A;
-  margin-bottom: 6px;
-}
-
-.format-input {
-  width: 100%;
-  padding: 9px 12px;
-  font-size: 0.88rem;
-  border: 1px solid #D6C8B8;
-  border-radius: 5px;
-  background-color: #FAFAFA;
-  color: #1F1C1A;
-  font-family: 'Work Sans', sans-serif;
-  transition: border-color var(--transition-fast), background-color var(--transition-fast);
-}
-
-.format-input:focus {
-  outline: none;
-  border-color: #7B3426;
-  background-color: #FFFFFF;
-}
-
-.btn-format-submit {
+.btn-newspaper-view {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   background-color: #7B3426;
-  color: #FFFFFF;
-  font-size: 0.88rem;
+  color: #FFFFFF !important;
+  font-size: 0.86rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 12px 20px;
+  padding: 13px 24px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
   transition: background-color var(--transition-fast), transform var(--transition-fast);
-  margin-top: 4px;
-  width: 100%;
+  box-shadow: 0 2px 8px rgba(123, 52, 38, 0.25);
 }
 
-.btn-format-submit:hover {
+.btn-newspaper-view:hover {
   background-color: #63281c;
   transform: translateY(-2px);
 }
 
+.btn-newspaper-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: transparent;
+  color: #1F1C1A !important;
+  font-size: 0.86rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  border: 1.5px solid #2B2623;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-newspaper-download:hover {
+  background-color: #EDE4D8;
+  transform: translateY(-2px);
+}
+
+/* 3. POLITICAL NEWS 4-CARD GRID */
+.political-news-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* 4. POLITICAL ANALYSIS SECTION */
+.format-analysis-section {
+  padding: 24px 0 32px;
+}
+
+.analysis-container-box {
+  background-color: #FFFFFF;
+  border: 1px solid #EAE1D5;
+  border-radius: 12px;
+  padding: 36px 36px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+}
+
+.analysis-header-block {
+  margin-bottom: 28px;
+  border-bottom: 1px solid #EAE1D5;
+  padding-bottom: 20px;
+}
+
+.analysis-lead {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #5C564F;
+  margin: 8px 0 0 0;
+  max-width: 800px;
+}
+
+.analysis-points-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.analysis-point-card {
+  background-color: #FAF6EE;
+  border: 1px solid #EAE1D5;
+  border-radius: 8px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.analysis-point-card:hover {
+  transform: translateY(-3px);
+  border-color: #7B3426;
+}
+
+.analysis-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  color: #7B3426;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.analysis-point-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #1F1C1A;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.analysis-point-desc {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #5C564F;
+  margin: 0;
+}
+
+/* 5. OUR WEEKLY EDITION SECTION */
+.format-weekly-section {
+  padding: 16px 0 36px;
+}
+
+.weekly-edition-banner {
+  background: linear-gradient(135deg, #1C1815 0%, #2B231D 60%, #171311 100%);
+  color: #FAF6F0;
+  border-radius: 12px;
+  border: 1px solid rgba(212, 163, 89, 0.35);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  padding: 36px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.weekly-edition-left {
+  flex: 1;
+}
+
+.weekly-edition-tag-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.edition-badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background-color: #7B3426;
+  color: #FFFFFF;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.edition-cycle-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #E8DCCF;
+  text-transform: uppercase;
+}
+
+.weekly-banner-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #FFFFFF;
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+}
+
+.weekly-banner-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #D3C5B4;
+  margin: 0 0 18px 0;
+  max-width: 680px;
+}
+
+.weekly-disclaimer-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 0.76rem;
+  color: #C8BAAA;
+  line-height: 1.4;
+}
+
+.disclaimer-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #C9A24D;
+  flex-shrink: 0;
+}
+
+.weekly-edition-right {
+  flex-shrink: 0;
+}
+
+.btn-read-edition {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #7B3426;
+  color: #FFFFFF !important;
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.btn-read-edition:hover {
+  background-color: #923e2d;
+  transform: translateY(-2px);
+}
+
+/* NEWSPAPER MODAL VIEWER */
+.newspaper-modal-window {
+  max-width: 640px !important;
+  text-align: left !important;
+}
+
+.modal-sub-tag {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7B3426;
+  margin: -8px 0 16px 0;
+}
+
+.newspaper-preview-body {
+  background-color: #FAF6EE;
+  border: 1px solid #EAE1D5;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.newspaper-header-strip {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #D6C8B8;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  font-size: 0.78rem;
+  color: #5C564F;
+}
+
+.newspaper-contents-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.n-list-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: #2B2623;
+}
+
+.n-row-badge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background-color: #7B3426;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.newspaper-demo-notice {
+  font-size: 0.78rem;
+  color: #7A7269;
+  margin: 0;
+  padding-top: 10px;
+  border-top: 1px dashed #D6C8B8;
+}
+
 /* RESPONSIVE LAYOUT FOR REFERENCE FORMAT */
+@media (max-width: 1080px) {
+  .political-news-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 992px) {
   .format-hero-grid {
     grid-template-columns: 1fr;
     gap: 32px;
   }
-  .format-news-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .newspaper-feature-card {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  .format-bottom-grid {
+  .newspaper-card-actions {
+    width: 100%;
+    flex-direction: row;
+  }
+  .analysis-points-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .weekly-edition-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .weekly-edition-right {
+    width: 100%;
+  }
+  .btn-read-edition {
+    width: 100%;
   }
 }
 
 @media (max-width: 680px) {
-  .format-news-cards-grid {
+  .political-news-grid {
     grid-template-columns: 1fr;
   }
-  .format-form-row {
-    grid-template-columns: 1fr;
-    gap: 12px;
+  .newspaper-card-actions {
+    flex-direction: column;
   }
-  .format-values-row {
-    flex-direction: row;
+  .btn-newspaper-view,
+  .btn-newspaper-download {
+    width: 100%;
+  }
+  .newspaper-meta-grid {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 8px;
-    justify-content: space-between;
   }
-  .format-val-divider {
+  .newspaper-meta-divider {
     display: none;
   }
-  .format-panel {
+  .analysis-container-box,
+  .newspaper-feature-card,
+  .weekly-edition-banner {
     padding: 24px 18px;
   }
 }
 
-/* LIVE BROADCAST MODAL */
+/* LIVE BROADCAST & NEWSPAPER MODAL */
 .news-modal-overlay {
   display: none;
   position: fixed;
@@ -5582,3 +5896,4 @@ footer {
 .btn-modal-close:hover {
   background: #63281c;
 }
+

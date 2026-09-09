@@ -1,14 +1,14 @@
 {% extends "core/base.html" %}
 {% load static %}
 
-{% block title %}BAIRAVA ஆடுகளம் | NEWS CHANNEL — BAIRAVA GROUPS{% endblock %}
-{% block meta_desc %}Bairava ஆடுகளம் is a people-focused news platform delivering clear, responsible and timely information from Tamil Nadu, India and around the world.{% endblock %}
+{% block title %}BAIRAVA ஆடுகளம் | POLITICAL NEWS & WEEKLY NEWSPAPER — BAIRAVA GROUPS{% endblock %}
+{% block meta_desc %}BAIRAVA ஆடுகளம் is a political news platform focused on Tamil Nadu, India and global political developments, presenting important political stories, public issues and policy discussions in a clear and responsible format.{% endblock %}
 
 {% block content %}
 <div class="format-page-container">
 
   <!-- =========================================================================
-       1. HERO SECTION (MATCHING EXACT REFERENCE DESIGN)
+       1. HERO SECTION (POLITICAL NEWS & WEEKLY NEWSPAPER)
        ========================================================================= -->
   <section class="format-hero-section">
     <div class="wrap">
@@ -26,32 +26,33 @@
         <!-- Left Column: Copy & Actions -->
         <div class="format-hero-left">
           <div class="format-badge-pill">
-            NEWS CHANNEL
+            POLITICAL NEWS
           </div>
           
           <h1 class="format-hero-heading">BAIRAVA ஆடுகளம்</h1>
           
-          <p class="format-hero-tagline">"News for the People, Voice for the Truth."</p>
+          <p class="format-hero-tagline">"POLITICS, PEOPLE & THE STORIES THAT SHAPE TOMORROW."</p>
           
           <p class="format-hero-lead">
-            Bairava ஆடுகளம் is a people-focused news platform delivering clear, responsible and timely information from Tamil Nadu, India and around the world.
+            BAIRAVA ஆடுகளம் is a political news platform focused on Tamil Nadu, India and global political developments, presenting important political stories, public issues and policy discussions in a clear and responsible format.
           </p>
 
           <div class="format-hero-btn-row">
-            <a href="#liveModal" class="btn-format-watch" onclick="openLiveBroadcast(event)">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                <rect x="2" y="7" width="20" height="15" rx="2" ry="2"/>
-                <polyline points="17 2 12 7 7 2"/>
-              </svg>
-              WATCH LIVE NEWS
-            </a>
-            
-            <a href="#latest-news" class="btn-format-updates">
+            <a href="#weekly-newspaper" class="btn-format-watch" onclick="openNewspaperEdition(event)">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
                 <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/>
                 <path d="M18 14h-8M15 18h-5M18 6h-8M18 10h-8"/>
               </svg>
-              LATEST UPDATES
+              WEEKLY NEWSPAPER
+            </a>
+            
+            <a href="#political-news" class="btn-format-updates">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <circle cx="12" cy="12" r="10"/>
+                <polygon points="12 8 8 12 12 16 12 8"/>
+                <line x1="16" y1="12" x2="8" y2="12"/>
+              </svg>
+              LATEST POLITICAL NEWS
             </a>
           </div>
         </div>
@@ -59,7 +60,7 @@
         <!-- Right Column: The ONLY Image on the Entire Page -->
         <div class="format-hero-right">
           <div class="format-studio-card">
-            <img src="{% static 'core/images/news/hero_studio.jpg' %}" alt="BAIRAVA ஆடுகளம் News Studio" class="format-studio-photo">
+            <img src="{% static 'core/images/news/hero_studio.jpg' %}" alt="BAIRAVA ஆடுகளம் Political News Studio" class="format-studio-photo">
           </div>
         </div>
       </div>
@@ -68,40 +69,106 @@
   </section>
 
   <!-- =========================================================================
-       2. LATEST NEWS SECTION (3 TEXT/ICON CARDS — NO IMAGES)
+       2. WEEKLY POLITICAL NEWSPAPER SECTION
        ========================================================================= -->
-  <section class="format-news-section" id="latest-news">
+  <section class="format-newspaper-section" id="weekly-newspaper">
     <div class="wrap">
       
       <div class="format-section-header-row">
         <div>
-          <h2 class="format-section-title">LATEST NEWS</h2>
-          <p class="format-section-sub">Stay informed with the latest updates from Tamil Nadu, India and around the world.</p>
+          <h2 class="format-section-title">WEEKLY POLITICAL NEWSPAPER</h2>
+          <p class="format-section-sub">
+            Every week, BAIRAVA ஆடுகளம் brings together important political developments, major public issues, policy discussions and political analysis in a concise digital newspaper.
+          </p>
         </div>
-        <a href="#news-enquiry" class="format-view-all-link">VIEW ALL NEWS →</a>
       </div>
 
-      <div class="format-news-cards-grid">
+      <!-- Publication Card -->
+      <div class="newspaper-feature-card">
+        <div class="newspaper-card-main">
+          <div class="newspaper-badge-row">
+            <span class="newspaper-pill">DIGITAL PUBLICATION</span>
+            <span class="newspaper-cycle">PUBLISHED EVERY SUNDAY</span>
+          </div>
+          
+          <h3 class="newspaper-edition-title">THIS WEEK'S EDITION</h3>
+          <p class="newspaper-edition-tag">POLITICAL NEWS • ANALYSIS • PUBLIC ISSUES</p>
+
+          <div class="newspaper-meta-grid">
+            <div class="newspaper-meta-item">
+              <span class="n-meta-label">PUBLICATION:</span>
+              <span class="n-meta-val">WEEKLY</span>
+            </div>
+            <div class="newspaper-meta-divider"></div>
+            <div class="newspaper-meta-item">
+              <span class="n-meta-label">FORMAT:</span>
+              <span class="n-meta-val">DIGITAL NEWSPAPER</span>
+            </div>
+            <div class="newspaper-meta-divider"></div>
+            <div class="newspaper-meta-item">
+              <span class="n-meta-label">LANGUAGE:</span>
+              <span class="n-meta-val">TAMIL & ENGLISH</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="newspaper-card-actions">
+          <button type="button" class="btn-newspaper-view" onclick="openNewspaperEdition(event)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+            VIEW NEWSPAPER
+          </button>
+          
+          <button type="button" class="btn-newspaper-download" onclick="openNewspaperEdition(event)">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            DOWNLOAD NEWSPAPER
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3. POLITICAL NEWS SECTION (4 TEXT-BASED CARDS — NO IMAGES)
+       ========================================================================= -->
+  <section class="format-news-section" id="political-news">
+    <div class="wrap">
+      
+      <div class="format-section-header-row">
+        <div>
+          <h2 class="format-section-title">POLITICAL NEWS</h2>
+          <p class="format-section-sub">Comprehensive, balanced and fact-based political coverage across key domains.</p>
+        </div>
+      </div>
+
+      <div class="political-news-grid">
         
-        <!-- Card 1: TAMIL NADU -->
+        <!-- Card 1: TAMIL NADU POLITICS -->
         <div class="format-news-card">
           <div class="format-icon-circle format-icon-tamilnadu">
-            <!-- Tamil Nadu / Temple / Heritage Landmark Icon -->
+            <!-- Assembly / Government Landmark Icon -->
             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2L9 6h6l-3-4zm-4 5h8v2H8V7zm-2 3h12v2H6v-2zm-1 3h14v2H5v-2zm-1 3h16v2H4v-2zm-2 3h20v3H2v-3z"/>
             </svg>
           </div>
           <div class="format-card-body">
-            <h3 class="format-card-title">TAMIL NADU</h3>
-            <p class="format-card-desc">Latest updates and important stories from across Tamil Nadu.</p>
-            <a href="#news-enquiry" class="format-read-more" onclick="openStoryNotice('TAMIL NADU', 'Latest updates and important stories from across Tamil Nadu.')">READ MORE →</a>
+            <h3 class="format-card-title">TAMIL NADU POLITICS</h3>
+            <p class="format-card-desc">Political developments, public issues, government decisions and important state-level discussions.</p>
+            <span class="format-read-more" style="cursor: pointer;" onclick="openNewspaperEdition(event)">READ IN WEEKLY EDITION →</span>
           </div>
         </div>
 
-        <!-- Card 2: INDIA -->
+        <!-- Card 2: INDIAN POLITICS -->
         <div class="format-news-card">
           <div class="format-icon-circle format-icon-india-flag">
-            <!-- Indian Flag Circle Emblem -->
+            <!-- Indian Tricolor Emblem -->
             <div class="india-flag-badge">
               <div class="flag-stripe flag-saffron"></div>
               <div class="flag-stripe flag-white">
@@ -111,16 +178,31 @@
             </div>
           </div>
           <div class="format-card-body">
-            <h3 class="format-card-title">INDIA</h3>
-            <p class="format-card-desc">Key national developments and people-focused stories.</p>
-            <a href="#news-enquiry" class="format-read-more" onclick="openStoryNotice('INDIA', 'Key national developments and people-focused stories.')">READ MORE →</a>
+            <h3 class="format-card-title">INDIAN POLITICS</h3>
+            <p class="format-card-desc">Parliament, national policy, elections and major political developments across India.</p>
+            <span class="format-read-more" style="cursor: pointer;" onclick="openNewspaperEdition(event)">READ IN WEEKLY EDITION →</span>
           </div>
         </div>
 
-        <!-- Card 3: WORLD -->
+        <!-- Card 3: POLICY & GOVERNANCE -->
+        <div class="format-news-card">
+          <div class="format-icon-circle">
+            <!-- Policy / Justice Balance Scale Icon -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 3v18M6 8l6-5 6 5M3 13l3-5 3 5a3 3 0 0 1-6 0zM15 13l3-5 3 5a3 3 0 0 1-6 0z"/>
+            </svg>
+          </div>
+          <div class="format-card-body">
+            <h3 class="format-card-title">POLICY &amp; GOVERNANCE</h3>
+            <p class="format-card-desc">Important government policies, legislative developments and issues affecting citizens.</p>
+            <span class="format-read-more" style="cursor: pointer;" onclick="openNewspaperEdition(event)">READ IN WEEKLY EDITION →</span>
+          </div>
+        </div>
+
+        <!-- Card 4: WORLD POLITICS -->
         <div class="format-news-card">
           <div class="format-icon-circle format-icon-world">
-            <!-- Meridian Earth Globe Icon -->
+            <!-- Global Diplomacy Globe Icon -->
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"/>
               <line x1="2" y1="12" x2="22" y2="12"/>
@@ -128,9 +210,9 @@
             </svg>
           </div>
           <div class="format-card-body">
-            <h3 class="format-card-title">WORLD</h3>
-            <p class="format-card-desc">Major international developments and global updates.</p>
-            <a href="#news-enquiry" class="format-read-more" onclick="openStoryNotice('WORLD', 'Major international developments and global updates.')">READ MORE →</a>
+            <h3 class="format-card-title">WORLD POLITICS</h3>
+            <p class="format-card-desc">Major international political developments and their wider impact.</p>
+            <span class="format-read-more" style="cursor: pointer;" onclick="openNewspaperEdition(event)">READ IN WEEKLY EDITION →</span>
           </div>
         </div>
 
@@ -140,95 +222,97 @@
   </section>
 
   <!-- =========================================================================
-       3. ABOUT & NEWS TIPS & ENQUIRIES (TWO-COLUMN EQUAL GRID)
+       4. POLITICAL ANALYSIS SECTION
        ========================================================================= -->
-  <section class="format-bottom-section" id="news-enquiry">
+  <section class="format-analysis-section">
     <div class="wrap">
-      <div class="format-bottom-grid">
-        
-        <!-- Left Column: About BAIRAVA ஆடுகளம் + 3 Values -->
-        <div class="format-panel format-about-panel">
-          <h2 class="format-section-title">ABOUT BAIRAVA ஆடுகளம்</h2>
-          
-          <p class="format-about-paragraph">
-            BAIRAVA ஆடுகளம் is a people-focused news platform dedicated to delivering accurate, unbiased and responsible journalism. We bring you stories that matter — from Tamil Nadu, India and around the world — with integrity and a commitment to the truth.
+      
+      <div class="analysis-container-box">
+        <div class="analysis-header-block">
+          <div class="format-badge-pill">EDITORIAL INSIGHTS</div>
+          <h2 class="format-section-title">POLITICAL ANALYSIS</h2>
+          <p class="analysis-lead">
+            Understand the issues behind the headlines through concise political analysis, public-policy discussions and election-focused perspectives.
           </p>
+        </div>
 
-          <!-- 3 Values Row -->
-          <div class="format-values-row">
-            <div class="format-value-col">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" class="val-svg">
-                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+        <div class="analysis-points-grid">
+          
+          <div class="analysis-point-card">
+            <div class="analysis-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
               </svg>
-              <span class="val-text">PEOPLE</span>
             </div>
-            
-            <div class="format-val-divider"></div>
+            <h3 class="analysis-point-title">KEY ISSUES</h3>
+            <p class="analysis-point-desc">
+              Fact-based analysis of pressing public concerns, fiscal policies, citizen welfare programs, and developmental priorities.
+            </p>
+          </div>
 
-            <div class="format-value-col">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="val-svg">
+          <div class="analysis-point-card">
+            <div class="analysis-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
               </svg>
-              <span class="val-text">TRUTH</span>
             </div>
-            
-            <div class="format-val-divider"></div>
+            <h3 class="analysis-point-title">POLICY &amp; GOVERNANCE</h3>
+            <p class="analysis-point-desc">
+              Objective review of legislative enactments, institutional governance frameworks, and administrative performance.
+            </p>
+          </div>
 
-            <div class="format-value-col">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="val-svg">
-                <path d="M5 9.2h3V19H5zM10.6 5h2.8v14h-2.8zm5.6 8H19v6h-2.8z"/>
+          <div class="analysis-point-card">
+            <div class="analysis-icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 13h-.68l-2 2h2.68v4H6v-4h2.68l-2-2H6c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2zm-6-3.83l2.83 2.83 1.41-1.41L12 6.34 7.76 10.59l1.41 1.41L12 9.17z"/>
               </svg>
-              <span class="val-text">PROGRESS</span>
             </div>
+            <h3 class="analysis-point-title">ELECTION WATCH</h3>
+            <p class="analysis-point-desc">
+              Non-partisan election coverage, constituency assessments, democratic processes, and grassroots political trends.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       5. OUR WEEKLY EDITION SECTION
+       ========================================================================= -->
+  <section class="format-weekly-section">
+    <div class="wrap">
+      <div class="weekly-edition-banner">
+        
+        <div class="weekly-edition-left">
+          <div class="weekly-edition-tag-row">
+            <span class="edition-badge">WEEKLY EDITION</span>
+            <span class="edition-cycle-tag">EVERY WEEK</span>
+          </div>
+          
+          <h2 class="weekly-banner-title">OUR WEEKLY EDITION</h2>
+          
+          <p class="weekly-banner-desc">
+            A new digital political newspaper will be published every week, bringing together the week's important political stories, developments, analysis and public-interest issues.
+          </p>
+
+          <div class="weekly-disclaimer-pill">
+            <span class="disclaimer-dot"></span>
+            <span>NON-PARTISAN JOURNALISM • DEMO CONTENT: Published summaries and editorial topics are presented for demo information and civic awareness.</span>
           </div>
         </div>
 
-        <!-- Right Column: NEWS TIPS & ENQUIRIES Form -->
-        <div class="format-panel format-enquiry-panel">
-          <h2 class="format-section-title">NEWS TIPS & ENQUIRIES</h2>
-          <p class="format-enquiry-lead">Share your news tips, stories or enquiries with our newsroom.</p>
-
-          {% if messages %}
-            {% for message in messages %}
-              <div class="alert alert-{% if message.tags == 'error' %}info{% else %}{{ message.tags }}{% endif %}" style="margin-bottom: 16px;">
-                {{ message }}
-              </div>
-            {% endfor %}
-          {% endif %}
-
-          <form method="post" action="{% url 'core:business_detail' slug='aadukalam' %}#news-enquiry" class="format-form">
-            {% csrf_token %}
-            
-            <div class="format-form-row">
-              <div class="format-form-group">
-                <label for="{{ form.name.id_for_label }}">Your Name *</label>
-                <input type="text" name="name" class="format-input" placeholder="Your full name" required id="{{ form.name.id_for_label }}" value="{{ form.name.value|default:'' }}">
-              </div>
-              <div class="format-form-group">
-                <label for="{{ form.phone.id_for_label }}">Phone Number *</label>
-                <input type="text" name="phone" class="format-input" placeholder="+91 98765 43210" required id="{{ form.phone.id_for_label }}" value="{{ form.phone.value|default:'' }}">
-              </div>
-            </div>
-
-            <div class="format-form-row">
-              <div class="format-form-group">
-                <label for="{{ form.email.id_for_label }}">Email Address *</label>
-                <input type="email" name="email" class="format-input" placeholder="your.email@example.com" id="{{ form.email.id_for_label }}" value="{{ form.email.value|default:'' }}">
-              </div>
-              <div class="format-form-group">
-                <label for="{{ form.message.id_for_label }}">Message *</label>
-                <input type="text" name="message" class="format-input" placeholder="Share your message, news tip or enquiry..." required id="{{ form.message.id_for_label }}" value="{{ form.message.value|default:'' }}">
-              </div>
-            </div>
-
-            <button type="submit" class="btn-format-submit">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
-                <line x1="22" y1="2" x2="11" y2="13"/>
-                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
-              </svg>
-              SUBMIT
-            </button>
-          </form>
+        <div class="weekly-edition-right">
+          <button type="button" class="btn-read-edition" onclick="openNewspaperEdition(event)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+            READ THIS WEEK'S EDITION
+          </button>
         </div>
 
       </div>
@@ -237,52 +321,81 @@
 
 </div>
 
-<!-- Live Stream Preview Modal -->
-<div class="news-modal-overlay" id="newsLiveModal" onclick="closeLiveBroadcast(event)">
-  <div class="news-modal-content" onclick="event.stopPropagation()">
-    <button type="button" class="news-modal-dismiss" onclick="closeLiveBroadcastDirect()" aria-label="Close dialog">&times;</button>
+<!-- =========================================================================
+     DIGITAL NEWSPAPER EDITION VIEWER MODAL
+     ========================================================================= -->
+<div class="news-modal-overlay" id="newspaperModal" onclick="closeNewspaperEdition(event)">
+  <div class="news-modal-content newspaper-modal-window" onclick="event.stopPropagation()">
+    <button type="button" class="news-modal-dismiss" onclick="closeNewspaperEditionDirect()" aria-label="Close dialog">&times;</button>
+    
     <div class="modal-pill-row">
       <span class="news-pulse-dot"></span>
-      <span class="modal-pill-text">BAIRAVA ஆடுகளம் LIVE BROADCAST</span>
+      <span class="modal-pill-text">BAIRAVA ஆடுகளம் • DIGITAL NEWSPAPER</span>
     </div>
-    <h3 class="modal-h3">WATCH LIVE NEWS</h3>
-    <div class="modal-stream-canvas">
-      <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="var(--news-gold)" stroke-width="1.8">
-        <circle cx="12" cy="12" r="10"/>
-        <polygon points="10 8 16 12 10 16 10 8" fill="var(--news-gold)"/>
-      </svg>
-      <p class="stream-title">24x7 DIGITAL STREAMING TRANSMISSION</p>
-      <p class="stream-sub">Live studio broadcast feed is scheduled for high-definition streaming rollout. Stay tuned for real-time coverage.</p>
+    
+    <h3 class="modal-h3">THIS WEEK'S EDITION</h3>
+    <p class="modal-sub-tag">POLITICAL NEWS • ANALYSIS • PUBLIC ISSUES</p>
+    
+    <div class="newspaper-preview-body">
+      <div class="newspaper-header-strip">
+        <div class="n-strip-item"><strong>PUBLICATION:</strong> WEEKLY</div>
+        <div class="n-strip-item"><strong>EDITION:</strong> DIGITAL EDITION 2026</div>
+        <div class="n-strip-item"><strong>FREQUENCY:</strong> EVERY SUNDAY</div>
+      </div>
+      
+      <div class="newspaper-contents-list">
+        <div class="n-list-row">
+          <span class="n-row-badge">TAMIL NADU</span>
+          <span class="n-row-text">State Assembly legislative debates, citizen policy rollouts, and district-level administrative updates.</span>
+        </div>
+        <div class="n-list-row">
+          <span class="n-row-badge">NATIONAL</span>
+          <span class="n-row-text">Parliamentary proceedings, fiscal policy evaluations, and multi-state election perspectives.</span>
+        </div>
+        <div class="n-list-row">
+          <span class="n-row-badge">ANALYSIS</span>
+          <span class="n-row-text">In-depth editorial commentary on public welfare, institutional transparency, and governance.</span>
+        </div>
+        <div class="n-list-row">
+          <span class="n-row-badge">GLOBAL</span>
+          <span class="n-row-text">International diplomatic engagements, trade policies, and democratic trends worldwide.</span>
+        </div>
+      </div>
+
+      <p class="newspaper-demo-notice">
+        <em>DEMO CONTENT: The digital political weekly is published regularly for civic education and non-partisan news analysis.</em>
+      </p>
     </div>
-    <div class="modal-btn-wrap">
-      <button type="button" class="btn-modal-close" onclick="closeLiveBroadcastDirect()">CLOSE PREVIEW</button>
+
+    <div class="modal-btn-wrap" style="gap: 12px; flex-wrap: wrap;">
+      <button type="button" class="btn-modal-close" onclick="closeNewspaperEditionDirect()">CLOSE VIEWER</button>
     </div>
   </div>
 </div>
 
 <script>
-function openLiveBroadcast(e) {
+function openNewspaperEdition(e) {
   if (e) e.preventDefault();
-  document.getElementById('newsLiveModal').style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-}
-
-function closeLiveBroadcastDirect() {
-  document.getElementById('newsLiveModal').style.display = 'none';
-  document.body.style.overflow = '';
-}
-
-function closeLiveBroadcast(e) {
-  if (e.target.id === 'newsLiveModal') {
-    closeLiveBroadcastDirect();
+  const modal = document.getElementById('newspaperModal');
+  if (modal) {
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
   }
 }
 
-function openStoryNotice(category, summary) {
-  const el = document.getElementById('news-enquiry');
-  if (el) {
-    el.scrollIntoView({ behavior: 'smooth' });
+function closeNewspaperEditionDirect() {
+  const modal = document.getElementById('newspaperModal');
+  if (modal) {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+}
+
+function closeNewspaperEdition(e) {
+  if (e.target.id === 'newspaperModal') {
+    closeNewspaperEditionDirect();
   }
 }
 </script>
 {% endblock %}
+

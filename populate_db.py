@@ -105,14 +105,14 @@ divisions_data = [
     {
         "name": "BAIRAVA ஆடுகளம்",
         "slug": "aadukalam",
-        "tagline": "NEWS FOR THE PEOPLE, VOICE FOR THE TRUTH.",
-        "short_description": "BAIRAVA ஆடுகளம் is a people-focused news platform delivering clear, responsible and timely information from Tamil Nadu, India and around the world.",
-        "full_description": "BAIRAVA ஆடுகளம் is a people-focused news platform dedicated to clear, accurate and responsible journalism. We bring stories that matter to people, communities and businesses across Tamil Nadu, India and beyond.",
+        "tagline": "POLITICS, PEOPLE & THE STORIES THAT SHAPE TOMORROW.",
+        "short_description": "BAIRAVA ஆடுகளம் is a political news platform focused on Tamil Nadu, India and global political developments, presenting important political stories, public issues and policy discussions in a clear and responsible format.",
+        "full_description": "BAIRAVA ஆடுகளம் brings together political news, public policy debates, election insights and weekly digital newspaper editions delivering concise, balanced and responsible political journalism.",
         "division_type": "business",
         "icon_name": "radio",
         "static_image_path": "core/images/divisions/aadukalam.jpg",
         "target_url": "/businesses/aadukalam/",
-        "accent_color": "#8B0000",
+        "accent_color": "#7B3426",
         "order": 7,
     },
     {
@@ -192,10 +192,10 @@ offerings_data = {
         {"title": "COMMUNITY LEAGUES & TOURNAMENTS", "badge": "EVENTS", "description": "Regular weekend friendly leagues and open tournaments encouraging healthy competitive spirit.", "order": 4},
     ],
     "aadukalam": [
-        {"title": "ACCURATE & VERIFIED REPORTING", "badge": "INTEGRITY", "description": "Meticulous fact-checking, primary source verification, and precision in every published news report.", "order": 1},
-        {"title": "RESPONSIBLE & ETHICAL JOURNALISM", "badge": "ETHICS", "description": "Unwavering commitment to ethical standards, public interest, and balanced societal reporting.", "order": 2},
-        {"title": "PEOPLE-CENTRIC & COMMUNITY FOCUS", "badge": "COMMUNITY", "description": "Amplifying citizen voices, grassroots achievements, and local public-interest developments.", "order": 3},
-        {"title": "24X7 TIMELY DIGITAL BROADCAST", "badge": "REAL-TIME", "description": "Rapid coverage delivering unfolding state, national, and global developments with clarity.", "order": 4},
+        {"title": "TAMIL NADU & NATIONAL POLITICS", "badge": "POLITICS", "description": "Balanced coverage of state assembly debates, parliamentary proceedings, and election developments.", "order": 1},
+        {"title": "POLICY & GOVERNANCE ANALYSIS", "badge": "GOVERNANCE", "description": "In-depth scrutiny of public administration, legislative decisions, and welfare reforms.", "order": 2},
+        {"title": "WEEKLY DIGITAL NEWSPAPER", "badge": "EDITION", "description": "Curated weekly edition synthesizing the week's major political events, editorial perspectives, and civic issues.", "order": 3},
+        {"title": "NON-PARTISAN CITIZEN PERSPECTIVES", "badge": "DEMOCRACY", "description": "Amplifying public interest concerns, institutional transparency, and democratic awareness.", "order": 4},
     ],
     "media": [
         {"title": "VIDEO & DOCUMENTARY PRODUCTION", "badge": "4K CINEMA", "description": "High-definition corporate films, brand profile stories, and community documentary features.", "order": 1},

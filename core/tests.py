@@ -482,89 +482,84 @@ class JKKitchenTestCase(TestCase):
         self.assertIn('download="JK-Kitchen-Profile-July-2026.pdf"', content)
 
 
-class AadukalamNewsChannelTestCase(TestCase):
+class AadukalamPoliticalNewsTestCase(TestCase):
     def setUp(self):
         from django.test import RequestFactory
         self.rf = RequestFactory()
         self.div_aadukalam = BusinessDivision.objects.create(
             name="BAIRAVA ஆடுகளம்",
             slug="aadukalam",
-            tagline="NEWS FOR THE PEOPLE, VOICE FOR THE TRUTH.",
-            short_description="BAIRAVA ஆடுகளம் is a people-focused news platform delivering clear, responsible and timely information from Tamil Nadu, India and around the world.",
-            full_description="BAIRAVA ஆடுகளம் is a people-focused news platform committed to clear, responsible and timely reporting.",
+            tagline="POLITICS, PEOPLE & THE STORIES THAT SHAPE TOMORROW.",
+            short_description="BAIRAVA ஆடுகளம் is a political news platform focused on Tamil Nadu, India and global political developments, presenting important political stories, public issues and policy discussions in a clear and responsible format.",
+            full_description="BAIRAVA ஆடுகளம் brings together political news, public policy debates, election insights and weekly digital newspaper editions delivering concise, balanced and responsible political journalism.",
             division_type="business",
             order=7
         )
 
-    def test_aadukalam_news_channel_single_image_and_clean_structure(self):
-        """Test GET /businesses/aadukalam/ renders exactly 1 image in the hero, 3 text-only cards, and short about section."""
+    def test_aadukalam_political_news_and_weekly_newspaper(self):
+        """Test GET /businesses/aadukalam/ renders Political News, Weekly Newspaper, 4-card grid, analysis, and single image."""
         from core.views import business_detail
         req = self.rf.get(reverse('core:business_detail', kwargs={'slug': 'aadukalam'}))
         response = business_detail(req, slug='aadukalam')
         self.assertEqual(response.status_code, 200)
         content = response.content.decode('utf-8')
 
-        # 1. SEO & Breadcrumb & Hero
-        self.assertIn("BAIRAVA ஆடுகளம் | NEWS CHANNEL", content)
-        self.assertIn("NEWS CHANNEL", content)
+        # 1. SEO, Breadcrumb & Hero
+        self.assertIn("BAIRAVA ஆடுகளம் | POLITICAL NEWS & WEEKLY NEWSPAPER", content)
+        self.assertIn("POLITICAL NEWS", content)
         self.assertIn("BAIRAVA ஆடுகளம்", content)
-        self.assertIn('"News for the People, Voice for the Truth."', content)
-        self.assertIn("Bairava ஆடுகளம் is a people-focused news platform delivering clear, responsible and timely information from Tamil Nadu, India and around the world.", content)
-        self.assertIn("WATCH LIVE NEWS", content)
-        self.assertIn("LATEST UPDATES", content)
+        self.assertIn('"POLITICS, PEOPLE & THE STORIES THAT SHAPE TOMORROW."', content)
+        self.assertIn("BAIRAVA ஆடுகளம் is a political news platform focused on Tamil Nadu, India and global political developments", content)
+        self.assertIn("WEEKLY NEWSPAPER", content)
+        self.assertIn("LATEST POLITICAL NEWS", content)
 
-        # 2. Hero Single Image (The ONLY image on the entire page content)
+        # 2. Hero Single Image (Strictly 1 image on entire page)
         self.assertIn("core/images/news/hero_studio.jpg", content)
-        
-        # Verify other images are NOT in the page content
         self.assertNotIn("core/images/news/tamilnadu.jpg", content)
         self.assertNotIn("core/images/news/india.jpg", content)
         self.assertNotIn("core/images/news/world.jpg", content)
-        self.assertNotIn("core/images/news/business.jpg", content)
-        self.assertNotIn("core/images/news/technology.jpg", content)
-        self.assertNotIn("core/images/news/community.jpg", content)
-        self.assertNotIn("core/images/news/reporting.jpg", content)
 
-        # 3. Latest News (3 text-only cards)
-        self.assertIn("LATEST NEWS", content)
-        self.assertIn("TAMIL NADU", content)
-        self.assertIn("Latest updates and important stories from across Tamil Nadu.", content)
-        self.assertIn("INDIA", content)
-        self.assertIn("Key national developments and people-focused stories.", content)
-        self.assertIn("WORLD", content)
-        self.assertIn("Major international developments and global updates.", content)
-        self.assertIn("READ MORE →", content)
+        # 3. Weekly Political Newspaper Section
+        self.assertIn("WEEKLY POLITICAL NEWSPAPER", content)
+        self.assertIn("THIS WEEK'S EDITION", content)
+        self.assertIn("POLITICAL NEWS • ANALYSIS • PUBLIC ISSUES", content)
+        self.assertIn("PUBLICATION:", content)
+        self.assertIn("WEEKLY", content)
+        self.assertIn("FORMAT:", content)
+        self.assertIn("DIGITAL NEWSPAPER", content)
+        self.assertIn("VIEW NEWSPAPER", content)
+        self.assertIn("DOWNLOAD NEWSPAPER", content)
 
-        # 4. About Section & 3 Values
-        self.assertIn("ABOUT BAIRAVA ஆடுகளம்", content)
-        self.assertIn("BAIRAVA ஆடுகளம் is a people-focused news platform dedicated to delivering accurate, unbiased and responsible journalism.", content)
-        self.assertIn("PEOPLE", content)
-        self.assertIn("TRUTH", content)
-        self.assertIn("PROGRESS", content)
+        # 4. Political News Section (4 text-based cards)
+        self.assertIn("POLITICAL NEWS", content)
+        self.assertIn("TAMIL NADU POLITICS", content)
+        self.assertIn("Political developments, public issues, government decisions and important state-level discussions.", content)
+        self.assertIn("INDIAN POLITICS", content)
+        self.assertIn("Parliament, national policy, elections and major political developments across India.", content)
+        self.assertIn("POLICY &amp; GOVERNANCE", content)
+        self.assertIn("Important government policies, legislative developments and issues affecting citizens.", content)
+        self.assertIn("WORLD POLITICS", content)
+        self.assertIn("Major international political developments and their wider impact.", content)
 
-        # 5. News Tips & Enquiries Form
-        self.assertIn("NEWS TIPS & ENQUIRIES", content)
-        self.assertIn("Share your news tips, stories or enquiries with our newsroom.", content)
-        self.assertIn("Your Name *", content)
-        self.assertIn("Phone Number *", content)
-        self.assertIn("Email Address *", content)
-        self.assertIn("Message *", content)
-        self.assertIn("SUBMIT", content)
+        # 5. Political Analysis Section
+        self.assertIn("POLITICAL ANALYSIS", content)
+        self.assertIn("KEY ISSUES", content)
+        self.assertIn("POLICY &amp; GOVERNANCE", content)
+        self.assertIn("ELECTION WATCH", content)
 
-        # Verify old sports content is NOT present on the public Aadukalam page
+        # 6. Our Weekly Edition Section
+        self.assertIn("OUR WEEKLY EDITION", content)
+        self.assertIn("WEEKLY EDITION", content)
+        self.assertIn("EVERY WEEK", content)
+        self.assertIn("READ THIS WEEK'S EDITION", content)
+
+        # 7. Verify no old sports content on public page
         self.assertNotIn("HERITAGE &amp; COMMUNITY SPORTS", content)
         self.assertNotIn("HERITAGE & COMMUNITY SPORTS", content)
         self.assertNotIn("TRADITIONAL SPORTS", content)
         self.assertNotIn("KABADDI", content)
         self.assertNotIn("COMMUNITY GAMES", content)
         self.assertNotIn("SPORTS ACTIVITIES", content)
-        self.assertNotIn("PARTICIPATE / REGISTER", content)
-        self.assertNotIn("EXPLORE ACTIVITIES", content)
-        self.assertNotIn("SPORTS EVENTS", content)
-        self.assertNotIn("TRADITIONAL ACTIVITIES", content)
-        self.assertNotIn("RECREATION", content)
-        self.assertNotIn("SPORTS PROGRAMS", content)
-        self.assertNotIn("SPORTS FACILITIES", content)
 
 
 
