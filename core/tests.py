@@ -215,7 +215,7 @@ class AIChatbotTestCase(TestCase):
         response = self.client.post(url, json.dumps(payload), content_type="application/json")
         self.assertEqual(response.status_code, 200)
         data = response.json()
-        self.assertIn("Bairava", data["response"])
+        self.assertIn("BAIRAVA", data["response"].upper())
         self.assertTrue("ஆடுகளம்" in data["response"] or "Aadukalam" in data["response"] or "news" in data["response"].lower())
 
     def test_chat_api_event_management_query(self):

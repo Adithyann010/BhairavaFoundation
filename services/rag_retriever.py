@@ -302,9 +302,9 @@ def get_suggested_questions(current_page: str = "") -> List[str]:
         ]
     elif 'aadukalam' in page:
         return [
-            "What is Bairava Aadukalam?",
-            "Tell me about Kabaddi tournaments and Silambam.",
-            "What rural sports events are organized?"
+            "What is BAIRAVA ஆடுகளம்?",
+            "Tell me about the Weekly Political Newspaper.",
+            "What political coverage and analysis do you provide?"
         ]
     elif 'media' in page:
         return [

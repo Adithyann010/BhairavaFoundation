@@ -196,15 +196,15 @@ def generate_rag_fallback_response(
         )
 
     # 8. Specific Division: Aadukalam
-    if any(term in q for term in ['aadukalam', 'kabaddi', 'silambam', 'traditional sport', 'rural sport']) or ('aadukalam' in page and any(term in q for term in ['what is', 'do', 'sports'])):
+    if any(term in q for term in ['aadukalam', 'news', 'political', 'politics', 'newspaper', 'weekly newspaper', 'tamil nadu politics', 'election', 'governance']) or ('aadukalam' in page and any(term in q for term in ['what is', 'do', 'news', 'paper', 'edition'])):
         return (
-            "**[Bairava Aadukalam](/businesses/aadukalam/)** is dedicated to celebrating and preserving Tamil Nadu's rich heritage of indigenous and traditional sports.\n\n"
-            "**Activities & Initiatives:**\n"
-            "- **Kabaddi Tournaments & Coaching**: State-level championships and professional clay court training.\n"
-            "- **Silambam & Traditional Martial Arts**: Ancient staff-spinning and self-defense art taught by master practitioners.\n"
-            "- **Rural Athletic Festivals**: Community galas featuring Kho-Kho, volleyball, and tug of war.\n"
-            "- **Youth Fitness Camps**: Conditioning workshops for local athletes.\n\n"
-            "Learn more on the **[Bairava Aadukalam Page](/businesses/aadukalam/)**."
+            "**[BAIRAVA ஆடுகளம்](/businesses/aadukalam/)** is our dedicated political journalism and digital weekly newspaper platform.\n\n"
+            "**Coverage & Focus Areas:**\n"
+            "- **Tamil Nadu Politics**: In-depth reporting on state government decisions, assembly updates, and constituency issues.\n"
+            "- **Indian Politics & Governance**: Balanced national policy coverage, parliament discussions, and civic administration.\n"
+            "- **Election Watch & Analysis**: Unbiased electoral insights, party manifestos, and policy impact assessments.\n"
+            "- **Weekly Digital Newspaper**: Curated weekly editions delivered digitally with clear, verified reporting.\n\n"
+            "Read our latest coverage and editions on the **[BAIRAVA ஆடுகளம் Page](/businesses/aadukalam/)**."
         )
 
     # 9. Specific Division: Event Management
@@ -301,7 +301,7 @@ def generate_rag_fallback_response(
             "3. **[Bairava Cloud Kitchen](/businesses/cloud-kitchen/)** — Authentic regional thalis, dum biryani, wholesome daily meal boxes, and catering.\n"
             "4. **[Bairava Sports Club](/businesses/sports-club/)** — BWF-standard indoor badminton courts, gym fitness conditioning, and junior coaching.\n"
             "5. **[Bairava Event Management](/businesses/event-management/)** — Luxury weddings, corporate summits, social galas, and bespoke decor planning.\n"
-            "6. **[Bairava Aadukalam](/businesses/aadukalam/)** — State-level Kabaddi tournaments, Silambam martial arts, and rural sports galas.\n"
+            "6. **[BAIRAVA ஆடுகளம்](/businesses/aadukalam/)** — Political journalism, policy analysis, and weekly digital newspaper.\n"
             "7. **[Bairava Media](/businesses/media/)** — Documentary production, podcast studio recordings, digital storytelling, and brand communications.\n"
             "8. **[Bhairava Association](/businesses/bhairava-association/)** — Community networking, professional collaboration, member engagement, and collective growth.\n\n"
             "**Community & Social Initiatives:**\n"
