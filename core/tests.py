@@ -443,7 +443,7 @@ class JKKitchenTestCase(TestCase):
         )
 
     def test_cloud_kitchen_jk_branding_and_brochure(self):
-        """Test GET /businesses/cloud-kitchen/ renders JK Kitchen logo, poster, gallery, and brochure download links."""
+        """Test GET /businesses/cloud-kitchen/ renders JK Kitchen logo, Central Kitchen identity, PDF sections, services, and brochure download links."""
         from core.views import business_detail
         req = self.rf.get(reverse('core:business_detail', kwargs={'slug': 'cloud-kitchen'}))
         response = business_detail(req, slug='cloud-kitchen')
@@ -451,35 +451,51 @@ class JKKitchenTestCase(TestCase):
         content = response.content.decode('utf-8')
 
         # Headings & Uppercase Titles
-        self.assertIn("BAIRAVA CLOUD KITCHEN", content)
         self.assertIn("JK KITCHEN", content)
-        self.assertIn("CULINARY EXCELLENCE • EVERY DAY", content)
-        self.assertIn("FRESH &amp; HYGIENIC", content)
-        self.assertIn("AUTHENTIC FLAVOURS", content)
-        self.assertIn("CORPORATE &amp; INSTITUTIONAL", content)
-        self.assertIn("SPECIAL DIET SOLUTIONS", content)
-        self.assertIn("FOOD &amp; CATERING GALLERY", content)
-        self.assertIn("BULK CATERING", content)
-        self.assertIn("CLOUD KITCHEN", content)
-        self.assertIn("EVENT &amp; PARTY CATERING", content)
-        self.assertIn("PREMIUM CATERING", content)
+        self.assertIn("CENTRAL KITCHEN", content)
+        self.assertIn("BAIRAVA GROUPS", content)
+        self.assertIn("ABOUT CENTRAL KITCHEN", content)
+        self.assertIn("PEOPLE-FIRST APPROACH", content)
+        self.assertIn("ABSOLUTE COMPLIANCE", content)
+        self.assertIn("SERVICE EXCELLENCE", content)
+        self.assertIn("CULINARY INNOVATION &amp; DIETARY EXCELLENCE", content)
+        self.assertIn("CHEF-LED INNOVATION", content)
+        self.assertIn("DIETITIAN-BACKED MENUS", content)
+        self.assertIn("MINDFUL SOURCING", content)
+        self.assertIn("OUR SERVICES", content)
+        self.assertIn("CORPORATE CATERING", content)
+        self.assertIn("INDUSTRIAL CATERING", content)
+        self.assertIn("INSTITUTIONAL CATERING", content)
+        self.assertIn("RETAIL FOOD SERVICES", content)
+        self.assertIn("SPECIAL EVENTS CATERING", content)
+        self.assertIn("CORPORATE KITCHEN PLANNING &amp; DESIGN", content)
+        self.assertIn("GUEST HOUSE MANAGEMENT", content)
+        self.assertIn("FOOD MANAGEMENT CONSULTANCY", content)
+        self.assertIn("CULINARY DEVELOPMENT", content)
+        self.assertIn("INFRASTRUCTURE &amp; SAFEGUARDS", content)
+        self.assertIn("GLOBAL SAFETY CERTIFICATIONS", content)
+        self.assertIn("24/7 CONTINUITY", content)
+        self.assertIn("CRISIS RESILIENCE", content)
+        self.assertIn("WASTE MITIGATION", content)
+        self.assertIn("SECTOR FOCUS", content)
+        self.assertIn("BUSINESS &amp; INDUSTRY", content)
+        self.assertIn("HEALTHCARE &amp; CLINICAL", content)
         self.assertIn("JK KITCHEN PROFILE", content)
         self.assertIn("VIEW BROCHURE", content)
         self.assertIn("DOWNLOAD BROCHURE", content)
 
         # Uploaded Assets
-        self.assertIn("core/images/divisions/bairava_cloud_kitchen_logo.jpg", content)
-        self.assertIn("core/images/divisions/jk_kitchen_poster.jpg", content)
+        self.assertIn("core/images/divisions/jk_kitchen_logo.jpg", content)
+        self.assertIn("core/images/divisions/jk_kitchen_hero.jpg", content)
         self.assertIn("core/images/divisions/gallery_bulk_catering.jpg", content)
-        self.assertIn("core/images/divisions/gallery_cloud_kitchen.jpg", content)
-        self.assertIn("core/images/divisions/gallery_event_party.jpg", content)
         self.assertIn("core/images/divisions/gallery_premium_catering.jpg", content)
+        self.assertIn("core/images/divisions/gallery_cloud_kitchen.jpg", content)
         self.assertIn("core/docs/JK-Kitchen-Profile-July-2026.pdf", content)
 
-        # Brochure View & Download Attributes
-        self.assertIn('target="_blank"', content)
-        self.assertIn('rel="noopener noreferrer"', content)
-        self.assertIn('download="JK-Kitchen-Profile-July-2026.pdf"', content)
+        # Contact Information
+        self.assertIn('href="tel:+919940038991"', content)
+        self.assertIn("+91 99400 38991", content)
+        self.assertIn('href="https://wa.me/919940038991"', content)
 
 
 class AadukalamPoliticalNewsTestCase(TestCase):

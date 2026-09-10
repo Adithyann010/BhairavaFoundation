@@ -1,11 +1,11 @@
 {% extends "core/base.html" %}
 {% load static %}
 
-{% block title %}BAIRAVA CLOUD KITCHEN — JK KITCHEN CATERING &amp; CULINARY DINING CHENNAI{% endblock %}
-{% block meta_desc %}Bairava Cloud Kitchen, operating under JK Kitchen, delivers hygienic, authentic and flavorful culinary experiences, bulk catering, and corporate hospitality in Chennai.{% endblock %}
+{% block title %}CENTRAL KITCHEN — JK KITCHEN | BAIRAVA GROUPS CHENNAI{% endblock %}
+{% block meta_desc %}JK Kitchen operates as our Central Kitchen under Bairava Groups, delivering sustainable food and hospitality solutions for corporates, healthcare, institutions, and industrial workforces in Chennai.{% endblock %}
 
 {% block content %}
-<!-- PAGE HERO -->
+<!-- 1. HERO SECTION -->
 <section class="page-hero">
   <div class="wrap">
     <div class="breadcrumbs">
@@ -13,156 +13,285 @@
       <span>/</span>
       <a href="{% url 'core:businesses_index' %}">BUSINESSES</a>
       <span>/</span>
-      <span>BAIRAVA CLOUD KITCHEN</span>
+      <span>CENTRAL KITCHEN</span>
     </div>
 
-    <div class="page-hero-grid">
+    <div class="page-hero-grid" style="align-items: center;">
       <div>
         <div class="cloud-kitchen-hero-badge">
-          <img src="{% static 'core/images/divisions/bairava_cloud_kitchen_logo.jpg' %}" alt="Bairava Cloud Kitchen Official Brand Logo" class="cloud-kitchen-brand-logo">
+          <img src="{% static 'core/images/divisions/jk_kitchen_logo.jpg' %}" alt="JK Kitchen Official Brand Logo" class="cloud-kitchen-brand-logo">
           <div class="cloud-kitchen-brand-meta">
             <span class="cloud-kitchen-brand-parent">BAIRAVA GROUPS</span>
-            <span class="cloud-kitchen-brand-name">BAIRAVA CLOUD KITCHEN</span>
+            <span class="cloud-kitchen-brand-name">JK KITCHEN</span>
+            <span class="cloud-kitchen-brand-type">CENTRAL KITCHEN</span>
           </div>
         </div>
         
-        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 12px;">BAIRAVA CLOUD KITCHEN</h1>
-        <p class="hero-subtitle" style="font-size: 1.25rem;">"Hygienic, Authentic &amp; Flavorful Culinary Experiences."</p>
-        <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">Bairava Cloud Kitchen brings convenient food experiences to customers through professionally managed kitchen operations and carefully prepared menus.</p>
+        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 12px;">CENTRAL KITCHEN</h1>
+        <p class="hero-subtitle" style="font-size: 1.25rem;">"Transforming Everyday Dining Experiences"</p>
+        <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">JK Kitchen delivers sustainable food and hospitality solutions for corporate professionals, students, healthcare teams and industrial workforces.</p>
         
         <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-          <a href="#jk-kitchen" class="btn btn-solid">EXPLORE MENU &amp; CONCEPT</a>
-          <a href="#kitchen-enquiry" class="btn btn-outline">PARTY / BULK ORDERS</a>
+          <a href="#services" class="btn btn-solid">OUR SERVICES</a>
+          <a href="#brochure" class="btn btn-outline">VIEW BROCHURE</a>
         </div>
       </div>
 
-      <div class="hero-logo-showcase">
-        <img src="{% static 'core/images/divisions/bairava_cloud_kitchen_logo.jpg' %}" alt="Bairava Cloud Kitchen Brand Identity" class="hero-logo-large">
+      <div class="ck-hero-visual-card">
+        <img src="{% static 'core/images/divisions/jk_kitchen_hero.jpg' %}" alt="JK Kitchen Central Kitchen Operations &amp; Corporate Dining" class="ck-hero-img">
+        <div class="ck-hero-logo-badge">
+          <img src="{% static 'core/images/divisions/jk_kitchen_logo.jpg' %}" alt="JK Kitchen Logo">
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SECTION 2: JK KITCHEN • CATERING SOLUTIONS & POSTER -->
-<section class="section" id="jk-kitchen">
+<!-- 2. ABOUT CENTRAL KITCHEN & CORE VALUES -->
+<section class="section" id="about">
   <div class="wrap">
-    <div class="jk-poster-grid">
-      <!-- LEFT: UPLOADED JK KITCHEN POSTER -->
-      <div class="jk-poster-frame">
-        <img src="{% static 'core/images/divisions/jk_kitchen_poster.jpg' %}" alt="JK Kitchen Catering Solutions for Every Need — Bulk Catering, Cloud Kitchen, IT Catering, Corporate Catering, Healthcare" class="jk-poster-img">
+    <div class="section-head" style="margin-bottom: 32px;">
+      <div>
+        <span class="badge badge-brass">ABOUT US</span>
+        <h2>ABOUT CENTRAL KITCHEN</h2>
+        <p style="max-width: 760px; margin-top: 10px; font-size: 1.08rem; line-height: 1.65;">JK Kitchen combines world-class culinary standards with local execution to deliver safe, reliable and high-quality food service solutions.</p>
+      </div>
+    </div>
+
+    <!-- 3 Core Values -->
+    <div class="ck-values-grid">
+      <div class="ck-value-card">
+        <div class="ck-value-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h4>PEOPLE-FIRST APPROACH</h4>
+        <p>Highly trained, motivated and hygienic hospitality teams.</p>
       </div>
 
-      <!-- RIGHT: JK KITCHEN CONTENT & CORE VALUES -->
-      <div>
-        <span class="badge badge-brass">JK KITCHEN</span>
-        <h2 style="margin-top: 8px; margin-bottom: 12px;">CULINARY EXCELLENCE • EVERY DAY</h2>
-        
-        <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 16px;">At JK Kitchen, we believe that a meal is more than just sustenance — it is a moment to connect, recharge, and thrive.</p>
-        <p style="font-size: 0.98rem; line-height: 1.65; margin-bottom: 24px;">We transform daily dining into culinary experiences for corporates, institutions, healthcare teams, industrial workforces and special events.</p>
-
-        <div class="jk-features-grid">
-          <div class="jk-feature-pill">
-            <svg class="jk-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <div>
-              <div class="jk-feature-title">FRESH &amp; HYGIENIC</div>
-              <p class="jk-feature-desc">Sanitized commercial facilities, stringent temperature controls, and fresh daily sourcing.</p>
-            </div>
-          </div>
-
-          <div class="jk-feature-pill">
-            <svg class="jk-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-            <div>
-              <div class="jk-feature-title">AUTHENTIC FLAVOURS</div>
-              <p class="jk-feature-desc">Traditional recipes prepared with hand-ground spices and genuine culinary heritage.</p>
-            </div>
-          </div>
-
-          <div class="jk-feature-pill">
-            <svg class="jk-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-            <div>
-              <div class="jk-feature-title">CORPORATE &amp; INSTITUTIONAL</div>
-              <p class="jk-feature-desc">Dependable cafeteria management, IT dining programs, and seamless batch deliveries.</p>
-            </div>
-          </div>
-
-          <div class="jk-feature-pill">
-            <svg class="jk-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-            <div>
-              <div class="jk-feature-title">SPECIAL DIET SOLUTIONS</div>
-              <p class="jk-feature-desc">Customized healthcare nutrition, balanced meal boxes, and special dietary menus.</p>
-            </div>
-          </div>
+      <div class="ck-value-card">
+        <div class="ck-value-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
         </div>
+        <h4>ABSOLUTE COMPLIANCE</h4>
+        <p>Transparent supply chains, workplace safety and responsible operations.</p>
+      </div>
+
+      <div class="ck-value-card">
+        <div class="ck-value-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h4>SERVICE EXCELLENCE</h4>
+        <p>Responsive management and consistent quality standards.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SECTION 3: FOOD / CATERING GALLERY (4 UNIQUE CARDS) -->
-<section class="section" style="background-color: var(--sand-light);" id="menu">
+<!-- 3. CULINARY INNOVATION & DIETARY EXCELLENCE -->
+<section class="section" style="background-color: var(--sand-light);" id="culinary-excellence">
+  <div class="wrap">
+    <div class="ck-culinary-grid">
+      <div class="ck-culinary-content">
+        <span class="badge badge-brass">NUTRITION &amp; WELLNESS</span>
+        <h2 style="margin-top: 8px; margin-bottom: 12px;">CULINARY INNOVATION &amp; DIETARY EXCELLENCE</h2>
+        <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">Wholesome, delicious and sustainable food programs designed around nutrition, health and customer wellness.</p>
+
+        <div class="ck-culinary-pillars">
+          <div class="ck-pillar-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <strong>CHEF-LED INNOVATION</strong>
+              <p>Creative menu craft and authentic flavors curated by master culinary professionals.</p>
+            </div>
+          </div>
+          <div class="ck-pillar-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <strong>DIETITIAN-BACKED MENUS</strong>
+              <p>Scientifically balanced meal plans tailored for vitality and daily wellness.</p>
+            </div>
+          </div>
+          <div class="ck-pillar-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <div>
+              <strong>MINDFUL SOURCING</strong>
+              <p>Daily fresh ingredients sourced from verified, sustainable agricultural partners.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ck-culinary-visual">
+        <img src="{% static 'core/images/divisions/gallery_bulk_catering.jpg' %}" alt="Culinary Innovation &amp; Dietary Excellence at JK Kitchen" class="ck-culinary-img">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. CATERING SERVICES / OUR SERVICES -->
+<section class="section" id="services">
   <div class="wrap">
     <div class="section-head">
       <div>
-        <span class="badge badge-brass">CULINARY EXCELLENCE</span>
-        <h2>FOOD &amp; CATERING GALLERY</h2>
-        <p style="max-width: 640px; margin-top: 8px;">Explore our specialised culinary capabilities, modern kitchen infrastructure, and diverse catering solutions.</p>
+        <span class="badge badge-brass">CAPABILITIES</span>
+        <h2>OUR SERVICES</h2>
+        <p style="max-width: 720px; margin-top: 8px;">Professional catering solutions for corporate, industrial, institutional and special events, with quality food, reliable service and hygienic kitchen operations.</p>
       </div>
     </div>
 
-    <div class="culinary-gallery-grid">
-      <!-- 1. BULK CATERING -->
-      <div class="culinary-gallery-card">
-        <div class="culinary-card-img-wrap">
-          <img src="{% static 'core/images/divisions/gallery_bulk_catering.jpg' %}" alt="Bulk Catering by JK Kitchen" class="culinary-card-img">
-          <span class="culinary-card-category-tag">BULK CATERING</span>
+    <div class="ck-services-grid">
+      <!-- 1. CORPORATE CATERING -->
+      <div class="ck-service-card">
+        <div class="ck-service-num">01</div>
+        <h4>CORPORATE CATERING</h4>
+        <p>Premium daily dining solutions for modern workplaces.</p>
+      </div>
+
+      <!-- 2. INDUSTRIAL CATERING -->
+      <div class="ck-service-card">
+        <div class="ck-service-num">02</div>
+        <h4>INDUSTRIAL CATERING</h4>
+        <p>High-volume meal programs designed for workforce nutrition and productivity.</p>
+      </div>
+
+      <!-- 3. INSTITUTIONAL CATERING -->
+      <div class="ck-service-card">
+        <div class="ck-service-num">03</div>
+        <h4>INSTITUTIONAL CATERING</h4>
+        <p>Balanced food solutions for large-scale institutions.</p>
+      </div>
+
+      <!-- 4. RETAIL FOOD SERVICES -->
+      <div class="ck-service-card">
+        <div class="ck-service-num">04</div>
+        <h4>RETAIL FOOD SERVICES</h4>
+        <p>Fresh, convenient and diverse food options for consumers.</p>
+      </div>
+
+      <!-- 5. SPECIAL EVENTS CATERING -->
+      <div class="ck-service-card">
+        <div class="ck-service-num">05</div>
+        <h4>SPECIAL EVENTS CATERING</h4>
+        <p>Bespoke menus and hospitality for special occasions.</p>
+      </div>
+
+      <!-- 6. CORPORATE KITCHEN PLANNING & DESIGN -->
+      <div class="ck-service-card">
+        <div class="ck-service-num">06</div>
+        <h4>CORPORATE KITCHEN PLANNING &amp; DESIGN</h4>
+        <p>Professional kitchen planning for safe, high-volume food production.</p>
+      </div>
+
+      <!-- 7. GUEST HOUSE MANAGEMENT -->
+      <div class="ck-service-card">
+        <div class="ck-service-num">07</div>
+        <h4>GUEST HOUSE MANAGEMENT</h4>
+        <p>Hospitality, housekeeping and dining support.</p>
+      </div>
+
+      <!-- 8. FOOD MANAGEMENT CONSULTANCY -->
+      <div class="ck-service-card">
+        <div class="ck-service-num">08</div>
+        <h4>FOOD MANAGEMENT CONSULTANCY</h4>
+        <p>Food-system audits, cost control and operational guidance.</p>
+      </div>
+
+      <!-- 9. CULINARY DEVELOPMENT -->
+      <div class="ck-service-card">
+        <div class="ck-service-num">09</div>
+        <h4>CULINARY DEVELOPMENT</h4>
+        <p>Menu innovation combining global trends and nutritional expertise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. INFRASTRUCTURE & SAFEGUARDS -->
+<section class="section" style="background-color: var(--sand-light);" id="infrastructure">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge badge-brass">RELIABILITY &amp; SAFETY</span>
+        <h2>INFRASTRUCTURE &amp; SAFEGUARDS</h2>
+        <p style="max-width: 680px; margin-top: 8px;">State-of-the-art kitchen infrastructure engineered with rigorous safeguards for uninterrupted service continuity.</p>
+      </div>
+    </div>
+
+    <div class="ck-safeguards-grid">
+      <div class="ck-safeguard-card">
+        <div class="ck-safeguard-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
-        <div class="culinary-card-body">
-          <h4>BULK CATERING</h4>
-          <p>Large-scale catering for corporate gatherings, institutions, and industrial workforces with hygienic hot buffet operations.</p>
+        <h4>GLOBAL SAFETY CERTIFICATIONS</h4>
+        <p>Strict food-safety and hygiene practices.</p>
+      </div>
+
+      <div class="ck-safeguard-card">
+        <div class="ck-safeguard-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h4>24/7 CONTINUITY</h4>
+        <p>Operational support designed for continuous service requirements.</p>
+      </div>
+
+      <div class="ck-safeguard-card">
+        <div class="ck-safeguard-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <h4>CRISIS RESILIENCE</h4>
+        <p>Prepared systems for maintaining food service during emergencies.</p>
+      </div>
+
+      <div class="ck-safeguard-card">
+        <div class="ck-safeguard-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+        </div>
+        <h4>WASTE MITIGATION</h4>
+        <p>Data-driven practices to reduce food waste and support sustainability.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. SECTOR FOCUS -->
+<section class="section" id="sectors">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge badge-brass">TARGET INDUSTRIES</span>
+        <h2>SECTOR FOCUS</h2>
+        <p style="max-width: 640px; margin-top: 8px;">Tailored culinary and hospitality programs aligned with specific sector requirements.</p>
+      </div>
+    </div>
+
+    <div class="ck-sectors-grid">
+      <div class="ck-sector-card">
+        <div class="ck-sector-img-wrap">
+          <img src="{% static 'core/images/divisions/gallery_premium_catering.jpg' %}" alt="Business &amp; Industry Catering by JK Kitchen" class="ck-sector-img">
+        </div>
+        <div class="ck-sector-body">
+          <span class="badge badge-brass" style="margin-bottom: 8px;">CORPORATE &amp; PRODUCTION</span>
+          <h4>BUSINESS &amp; INDUSTRY</h4>
+          <p>Premium dining, customized food services and workplace wellness.</p>
         </div>
       </div>
 
-      <!-- 2. CLOUD KITCHEN -->
-      <div class="culinary-gallery-card">
-        <div class="culinary-card-img-wrap">
-          <img src="{% static 'core/images/divisions/gallery_cloud_kitchen.jpg' %}" alt="Cloud Kitchen Operations by JK Kitchen" class="culinary-card-img">
-          <span class="culinary-card-category-tag">CLOUD KITCHEN</span>
+      <div class="ck-sector-card">
+        <div class="ck-sector-img-wrap">
+          <img src="{% static 'core/images/divisions/gallery_cloud_kitchen.jpg' %}" alt="Healthcare &amp; Clinical Catering by JK Kitchen" class="ck-sector-img">
         </div>
-        <div class="culinary-card-body">
-          <h4>CLOUD KITCHEN</h4>
-          <p>Professional kitchen operations equipped with sanitized stainless-steel preparation lines and strict quality standards.</p>
-        </div>
-      </div>
-
-      <!-- 3. EVENT & PARTY CATERING -->
-      <div class="culinary-gallery-card">
-        <div class="culinary-card-img-wrap">
-          <img src="{% static 'core/images/divisions/gallery_event_party.jpg' %}" alt="Event & Party Catering by JK Kitchen" class="culinary-card-img">
-          <span class="culinary-card-category-tag">EVENT &amp; PARTY CATERING</span>
-        </div>
-        <div class="culinary-card-body">
-          <h4>EVENT &amp; PARTY CATERING</h4>
-          <p>Festive celebrations, wedding banquets, private parties, and high-tea packages tailored with rich authentic dishes.</p>
-        </div>
-      </div>
-
-      <!-- 4. PREMIUM CATERING -->
-      <div class="culinary-gallery-card">
-        <div class="culinary-card-img-wrap">
-          <img src="{% static 'core/images/divisions/gallery_premium_catering.jpg' %}" alt="Premium Catering by JK Kitchen" class="culinary-card-img">
-          <span class="culinary-card-category-tag">PREMIUM CATERING</span>
-        </div>
-        <div class="culinary-card-body">
-          <h4>PREMIUM CATERING</h4>
-          <p>Executive dining, VIP boardroom lunches, and luxury multi-course gourmet banquets prepared with artistic presentation.</p>
+        <div class="ck-sector-body">
+          <span class="badge badge-brass" style="margin-bottom: 8px;">CLINICAL &amp; INSTITUTIONAL</span>
+          <h4>HEALTHCARE &amp; CLINICAL</h4>
+          <p>Hygienic meals focused on patient recovery and healthcare team wellness.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SECTION 4: JK KITCHEN PROFILE (OFFICIAL BROCHURE) -->
-<section class="section" id="brochure">
+<!-- 7. BROCHURE / OFFICIAL PROFILE -->
+<section class="section" style="background-color: var(--sand-light);" id="brochure">
   <div class="wrap">
     <div class="brochure-card">
       <div class="brochure-logo-wrap">
@@ -190,14 +319,14 @@
   </div>
 </section>
 
-<!-- SECTION 5: ENQUIRY & BULK ORDER FORM -->
-<section class="section" style="background-color: var(--sand-light);" id="kitchen-enquiry">
+<!-- 8. CONTACT SECTION & ENQUIRY FORM -->
+<section class="section" id="kitchen-enquiry">
   <div class="wrap">
     <div class="section-head">
       <div>
         <span class="badge badge-brass">ORDERS &amp; CATERING</span>
-        <h2>ORDER OR ENQUIRE WITH BAIRAVA CLOUD KITCHEN</h2>
-        <p style="max-width: 600px; margin-top: 8px;">For meal subscriptions, corporate lunches, or festive party catering across Chennai.</p>
+        <h2>ORDER OR ENQUIRE WITH JK KITCHEN</h2>
+        <p style="max-width: 600px; margin-top: 8px;">For corporate lunches, cafeteria contracts, or special event catering across Chennai.</p>
       </div>
     </div>
 
@@ -211,8 +340,8 @@
 
     <div class="division-contact-grid">
       <div class="contact-card-info">
-        <h3>KITCHEN OPERATIONS HUB</h3>
-        <p style="margin-bottom: 24px;">Orders can be scheduled in advance for corporate batches and private gatherings.</p>
+        <h3>CENTRAL KITCHEN HUB</h3>
+        <p style="margin-bottom: 24px;">Orders can be scheduled in advance for corporate batches and institutional dining.</p>
 
         <div class="contact-info-list">
           <div class="contact-info-item">
@@ -226,14 +355,14 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <div>
               <h5>ORDER HOTLINE</h5>
-              <a href="tel:+919941757555">+91 99417 57555</a>
+              <a href="tel:+919940038991">+91 99400 38991</a>
             </div>
           </div>
           <div class="contact-info-item">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
             <div>
               <h5>WHATSAPP ORDERS</h5>
-              <a href="https://wa.me/919941757555" target="_blank" rel="noopener" style="color:#25D366; font-weight:600;">Chat &amp; Order on WhatsApp →</a>
+              <a href="https://wa.me/919940038991" target="_blank" rel="noopener" style="color:#25D366; font-weight:600;">Chat &amp; Order on WhatsApp →</a>
             </div>
           </div>
         </div>
