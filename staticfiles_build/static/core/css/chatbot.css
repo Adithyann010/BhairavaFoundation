@@ -13,10 +13,10 @@
 
 @media (max-width: 600px) {
   .float-call {
-    bottom: 84px !important;
-    right: 16px !important;
-    width: 46px !important;
-    height: 46px !important;
+    bottom: calc(76px + env(safe-area-inset-bottom, 0px)) !important;
+    right: max(14px, env(safe-area-inset-right, 14px)) !important;
+    width: 44px !important;
+    height: 44px !important;
   }
 }
 
@@ -32,10 +32,11 @@
 
 @media (max-width: 600px) {
   .bairava-chatbot-root {
-    bottom: 16px;
-    right: 16px;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px)) !important;
+    right: max(14px, env(safe-area-inset-right, 14px)) !important;
   }
 }
+
 
 /* ==========================================================================
    1. FLOATING TRIGGER BUTTON

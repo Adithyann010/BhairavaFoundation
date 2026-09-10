@@ -2482,6 +2482,34 @@ footer {
   color: #1a1614 !important;
 }
 
+.btn-brochure-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: transparent;
+  color: var(--brass-light) !important;
+  border: 1.5px solid var(--brass);
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 13px 24px;
+  border-radius: var(--radius-xs);
+  transition: var(--transition);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-brochure-secondary:hover {
+  background: rgba(169, 130, 46, 0.15);
+  border-color: var(--brass-light);
+  color: var(--white) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(169, 130, 46, 0.25);
+}
+
+
 /* ==========================================================================
    BAIRAVA AADUKALAM — NEWS CHANNEL DESIGN SYSTEM
    Theme: Cream/Beige base, Dark Charcoal, Deep Maroon/Crimson News accents, Gold accents
@@ -6079,4 +6107,572 @@ footer {
 .btn-modal-close:hover {
   background: #63281c;
 }
+
+/* ==========================================================================
+   MASTER RESPONSIVE SUITE & ZERO HORIZONTAL OVERFLOW SYSTEM
+   Covers Desktop (1200px+), Tablet (768px-1024px), Mobile (320px-600px)
+   ========================================================================== */
+
+/* Universal Containment & Box Sizing */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+img, video, iframe, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Base Container Safety */
+.wrap, .wrap-narrow, .navbar, .page-hero, section, footer, header, main {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Global Button Wrap Prevention on Mobile */
+.btn {
+  max-width: 100%;
+  box-sizing: border-box;
+  word-break: break-word;
+}
+
+/* ==========================================================================
+   1. TABLET & SMALL LAPTOP BREAKPOINT (<= 1040px)
+   ========================================================================== */
+@media (max-width: 1040px) {
+  .nav-links {
+    gap: 16px;
+  }
+  .nav-link {
+    font-size: 0.84rem;
+  }
+  .businesses-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
+  }
+  .ck-services-grid,
+  .ck-safeguards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+/* ==========================================================================
+   2. TABLET PORTRAIT / MOBILE NAVIGATION SWITCH (<= 860px)
+   ========================================================================== */
+@media (max-width: 860px) {
+  /* Navigation switch */
+  .nav-links, .nav-right .call-pill {
+    display: none !important;
+  }
+  .burger-btn {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Wrap and Header padding */
+  .wrap, .wrap-narrow {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .navbar {
+    padding: 14px 20px;
+    gap: 12px;
+  }
+  .brand {
+    gap: 10px;
+    min-width: 0;
+    max-width: calc(100% - 50px);
+  }
+  .brand-logo {
+    height: 38px;
+    flex-shrink: 0;
+  }
+  .brand-title {
+    font-size: 1.15rem;
+  }
+  .brand-subtitle {
+    font-size: 0.62rem;
+  }
+
+  /* Section Spacing */
+  .section {
+    padding: 56px 0;
+  }
+
+  /* All Multi-Column Heroes & Grids to 1 Column */
+  .hero-grid,
+  .page-hero-grid,
+  .about-intro-grid,
+  .spotlight-grid,
+  .division-contact-grid,
+  .news-hero-grid,
+  .format-hero-grid,
+  .future-plan-grid,
+  .ck-culinary-grid,
+  .ck-values-grid,
+  .ck-sectors-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px;
+  }
+
+  /* Central Kitchen Hero Visual */
+  .ck-hero-visual-card {
+    width: 100%;
+    max-width: 100%;
+    max-height: 360px;
+  }
+
+  /* Central Kitchen Brochure Card */
+  .brochure-card {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    gap: 24px;
+    padding: 32px 24px;
+  }
+  .brochure-logo-wrap {
+    margin: 0 auto;
+    width: 84px;
+    height: 84px;
+  }
+  .brochure-content p {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  .brochure-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .btn-brochure-primary,
+  .btn-brochure-secondary {
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+    padding: 13px 20px;
+    font-size: 0.88rem;
+  }
+
+  /* Stats & Projects */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  .projects-grid,
+  .political-news-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  /* Forms & Contact */
+  .form-box,
+  .contact-card-info {
+    padding: 28px 22px;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+/* ==========================================================================
+   3. SMARTPHONE SCREENS (<= 600px)
+   ========================================================================== */
+@media (max-width: 600px) {
+  /* Containers */
+  .wrap, .wrap-narrow {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .navbar {
+    padding: 12px 16px;
+    gap: 8px;
+  }
+  .brand {
+    gap: 10px;
+    min-width: 0;
+  }
+  .brand-logo {
+    height: 36px;
+  }
+  .brand-title {
+    font-size: 1.08rem;
+    line-height: 1.15;
+  }
+  .brand-subtitle {
+    font-size: 0.56rem;
+    letter-spacing: 0.08em;
+  }
+
+  /* Typography */
+  h1 {
+    font-size: clamp(1.75rem, 6.5vw, 2.35rem) !important;
+    line-height: 1.2 !important;
+    word-break: break-word;
+  }
+  h2 {
+    font-size: clamp(1.35rem, 5vw, 1.85rem) !important;
+    line-height: 1.25 !important;
+    word-break: break-word;
+  }
+  h3 {
+    font-size: clamp(1.15rem, 4vw, 1.45rem) !important;
+  }
+  h4 {
+    font-size: 1.05rem !important;
+  }
+  p {
+    font-size: 0.94rem;
+    line-height: 1.6;
+  }
+
+  .section {
+    padding: 44px 0;
+  }
+  .page-hero {
+    padding: 32px 0 24px 0;
+  }
+
+  /* Hero Elements */
+  .hero-kicker {
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    margin-bottom: 12px;
+  }
+  .hero-subtitle {
+    font-size: 1.05rem;
+    margin-bottom: 12px;
+  }
+  .hero-description {
+    font-size: 0.94rem;
+    margin-bottom: 24px;
+  }
+  .hero-actions {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-trust-row {
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 16px;
+  }
+  .hero-trust-item {
+    font-size: 0.8rem;
+  }
+
+  /* Founder Card */
+  .founder-card {
+    padding: 24px 18px;
+  }
+  .founder-header {
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .founder-avatar {
+    width: 64px;
+    height: 64px;
+    flex-shrink: 0;
+  }
+  .founder-meta h4 {
+    font-size: 1.05rem;
+  }
+  .founder-meta span {
+    font-size: 0.75rem;
+  }
+  .founder-quote {
+    font-size: 0.98rem;
+    margin-bottom: 14px;
+  }
+
+  /* Central Kitchen Specifics */
+  .cloud-kitchen-hero-badge {
+    max-width: 100%;
+    padding: 8px 14px 8px 8px;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .cloud-kitchen-brand-logo {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+  }
+  .cloud-kitchen-brand-meta {
+    min-width: 0;
+  }
+  .cloud-kitchen-brand-parent {
+    font-size: 0.62rem;
+  }
+  .cloud-kitchen-brand-name {
+    font-size: 0.84rem;
+  }
+  .cloud-kitchen-brand-type {
+    font-size: 0.62rem;
+  }
+
+  .ck-hero-visual-card {
+    max-height: 280px;
+    border-radius: var(--radius-xs);
+  }
+  .ck-hero-logo-badge {
+    width: 52px;
+    height: 52px;
+    bottom: 10px;
+    right: 10px;
+    padding: 2px;
+  }
+
+  .ck-values-grid,
+  .ck-services-grid,
+  .ck-safeguards-grid,
+  .ck-sectors-grid,
+  .businesses-grid,
+  .values-grid,
+  .projects-grid,
+  .political-news-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  .ck-value-card,
+  .ck-service-card,
+  .ck-safeguard-card,
+  .ck-sector-card,
+  .value-card,
+  .business-card-body {
+    padding: 20px 16px;
+  }
+
+  .ck-service-num {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  /* Brochure Card */
+  .brochure-card {
+    padding: 24px 16px;
+    gap: 16px;
+    border-radius: var(--radius-xs);
+  }
+  .brochure-logo-wrap {
+    width: 72px;
+    height: 72px;
+    padding: 4px;
+  }
+  .brochure-content h3 {
+    font-size: 1.35rem;
+    margin-bottom: 4px;
+  }
+  .brochure-content h4 {
+    font-size: 0.92rem;
+    margin-bottom: 8px;
+  }
+  .brochure-content p {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+  .brochure-actions {
+    gap: 10px;
+  }
+  .btn-brochure-primary,
+  .btn-brochure-secondary {
+    padding: 12px 18px;
+    font-size: 0.85rem;
+    width: 100%;
+  }
+
+  /* Stats Counter Banner */
+  .stats-banner {
+    padding: 28px 0;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .stat-item b {
+    font-size: 1.95rem;
+  }
+  .stat-item span {
+    font-size: 0.78rem;
+  }
+
+  /* Forms & Enquiry */
+  .contact-card-info,
+  .form-box {
+    padding: 22px 16px;
+    border-radius: var(--radius-xs);
+  }
+  .contact-info-list {
+    margin: 18px 0;
+    gap: 14px;
+  }
+  .form-group {
+    margin-bottom: 14px;
+  }
+  .form-control {
+    font-size: 16px; /* Prevents auto-zoom on iOS */
+    padding: 10px 12px;
+  }
+
+  /* CTA Strip */
+  .cta-strip {
+    padding: 44px 0;
+    text-align: center;
+  }
+  .cta-buttons {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+  .cta-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Footer */
+  footer {
+    padding: 48px 0 24px 0;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 36px;
+  }
+  .footer-brand {
+    margin-bottom: 0;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 14px;
+    text-align: center;
+  }
+  .footer-bottom-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  /* Floating Buttons - Clean mobile positioning with safe-area */
+  .float-call {
+    bottom: calc(76px + env(safe-area-inset-bottom, 0px)) !important;
+    right: max(14px, env(safe-area-inset-right, 14px)) !important;
+    width: 44px !important;
+    height: 44px !important;
+    box-shadow: 0 4px 12px rgba(124, 59, 41, 0.4) !important;
+  }
+  .float-call svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .bairava-chatbot-root {
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px)) !important;
+    right: max(14px, env(safe-area-inset-right, 14px)) !important;
+  }
+  .chatbot-trigger-btn {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  .trigger-icon svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+}
+
+/* ==========================================================================
+   4. ULTRA-COMPACT MOBILE BREAKPOINT (<= 380px)
+   ========================================================================== */
+@media (max-width: 380px) {
+  .wrap, .wrap-narrow {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .navbar {
+    padding: 10px 12px;
+    gap: 6px;
+  }
+  .brand {
+    gap: 8px;
+    max-width: calc(100% - 44px);
+  }
+  .brand-logo {
+    height: 30px;
+  }
+  .brand-title {
+    font-size: 0.95rem;
+  }
+  .brand-subtitle {
+    font-size: 0.50rem;
+    letter-spacing: 0.05em;
+  }
+
+  h1 {
+    font-size: 1.6rem !important;
+  }
+  h2 {
+    font-size: 1.3rem !important;
+  }
+
+  .cloud-kitchen-hero-badge {
+    padding: 6px 10px 6px 6px;
+    gap: 8px;
+  }
+  .cloud-kitchen-brand-logo {
+    width: 36px;
+    height: 36px;
+  }
+  .cloud-kitchen-brand-name {
+    font-size: 0.78rem;
+  }
+  .cloud-kitchen-brand-parent,
+  .cloud-kitchen-brand-type {
+    font-size: 0.58rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .stat-item b {
+    font-size: 1.75rem;
+  }
+
+  .brochure-card {
+    padding: 20px 12px;
+  }
+  .brochure-logo-wrap {
+    width: 60px;
+    height: 60px;
+  }
+  .brochure-content h3 {
+    font-size: 1.2rem;
+  }
+  .brochure-content h4 {
+    font-size: 0.85rem;
+  }
+  .btn-brochure-primary,
+  .btn-brochure-secondary {
+    padding: 10px 14px;
+    font-size: 0.8rem;
+  }
+}
+
 
