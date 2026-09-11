@@ -433,11 +433,11 @@ class JKKitchenTestCase(TestCase):
         from django.test import RequestFactory
         self.rf = RequestFactory()
         self.div_kitchen = BusinessDivision.objects.create(
-            name="BAIRAVA CLOUD KITCHEN",
+            name="CENTRAL KITCHEN",
             slug="cloud-kitchen",
-            tagline="HYGIENIC, AUTHENTIC & FLAVORFUL CULINARY EXPERIENCES",
-            short_description="Bairava Cloud Kitchen brings convenient food experiences to customers through professionally managed kitchen operations and carefully prepared menus.",
-            full_description="Operating state-of-the-art commercial culinary hubs, Bairava Cloud Kitchen prepares wholesome regional specialties and contemporary meal packages.",
+            tagline="SUSTAINABLE FOOD & HOSPITALITY SOLUTIONS",
+            short_description="Central Kitchen delivers sustainable food and hospitality solutions for corporate professionals, students, healthcare teams and industrial workforces.",
+            full_description="Operating state-of-the-art commercial culinary hubs, Central Kitchen prepares wholesome regional specialties and contemporary meal packages.",
             division_type="business",
             order=4
         )
@@ -496,6 +496,8 @@ class JKKitchenTestCase(TestCase):
         self.assertIn('href="tel:+919940038991"', content)
         self.assertIn("+91 99400 38991", content)
         self.assertIn('href="https://wa.me/919940038991"', content)
+        self.assertIn("2A, TVS NAGAR, Kandigai Street, Korttur, Chennai - 600076", content)
+        self.assertIn("SF No 152/15B, Aambal Poo Street, Pondur Village, Sriperumbudur, Tamil Nadu - 602105", content)
 
 
 class AadukalamPoliticalNewsTestCase(TestCase):

@@ -52,7 +52,7 @@ class ConstructionProject(models.Model):
         elif 'tech' in slug_check:
             return 'core/images/projects/bairava_tech_hub.jpg'
         elif 'villa' in slug_check:
-            return 'core/images/projects/golden_villas.jpg'
+            return 'core/images/projects/bairava-construction-project.jpg'
         elif 'hq' in slug_check or 'renovation' in slug_check or 'corporate' in slug_check:
             return 'core/images/projects/corporate_hq.jpg'
         return 'core/images/divisions/construction.jpg'
