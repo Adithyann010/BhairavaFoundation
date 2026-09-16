@@ -1185,9 +1185,11 @@ header {
    ========================================================================== */
 
 .page-hero {
-  padding: 56px 0 44px 0;
+  position: relative;
+  padding: 56px 0 48px 0;
   background: var(--sand-light);
   border-bottom: 1px solid var(--line);
+  overflow: hidden;
 }
 
 .breadcrumbs {
@@ -1200,6 +1202,8 @@ header {
   text-transform: uppercase;
   color: var(--slate);
   margin-bottom: 18px;
+  position: relative;
+  z-index: 2;
 }
 
 .breadcrumbs a:hover {
@@ -1227,6 +1231,67 @@ header {
   height: 100%;
   object-fit: cover;
 }
+
+/* ==========================================================================
+   UNIFIED BUSINESS DIVISION HERO & INTEGRATED BRAND EMBLEM
+   ========================================================================== */
+.business-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: 44px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.business-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.business-brand-emblem-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.business-brand-halo {
+  position: absolute;
+  width: 130%;
+  height: 130%;
+  top: -15%;
+  left: -15%;
+  background: radial-gradient(circle at center, rgba(201, 164, 92, 0.24) 0%, rgba(201, 164, 92, 0.08) 48%, rgba(201, 164, 92, 0) 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.business-brand-emblem-img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 380px;
+  max-height: 380px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+  filter: drop-shadow(0 14px 28px rgba(124, 59, 41, 0.12)) drop-shadow(0 2px 6px rgba(36, 31, 28, 0.06));
+  transition: transform 0.4s ease, filter 0.4s ease;
+  user-select: none;
+}
+
+.business-brand-emblem-wrap:hover .business-brand-emblem-img {
+  transform: translateY(-4px) scale(1.02);
+  filter: drop-shadow(0 20px 36px rgba(124, 59, 41, 0.18)) drop-shadow(0 4px 10px rgba(36, 31, 28, 0.08));
+}
+
 
 .offerings-grid {
   display: grid;
@@ -6154,6 +6219,14 @@ img, video, iframe, canvas, svg {
   .nav-link {
     font-size: 0.84rem;
   }
+  .business-hero-grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 28px;
+  }
+  .business-brand-emblem-img {
+    max-width: 300px;
+    max-height: 300px;
+  }
   .businesses-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
@@ -6344,6 +6417,32 @@ img, video, iframe, canvas, svg {
   }
   .page-hero {
     padding: 32px 0 24px 0;
+  }
+
+  .business-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    text-align: left;
+  }
+
+  .business-brand-emblem-wrap {
+    order: -1;
+    margin: 0 auto 12px auto;
+    padding: 6px 0;
+    max-width: 240px;
+    width: 100%;
+  }
+
+  .business-brand-emblem-img {
+    max-width: 195px;
+    max-height: 195px;
+  }
+
+  .business-brand-halo {
+    width: 140%;
+    height: 140%;
+    top: -20%;
+    left: -20%;
   }
 
   /* Hero Elements */

@@ -16,8 +16,8 @@
       <span>{{ division.name|upper }}</span>
     </div>
 
-    <div class="page-hero-grid">
-      <div>
+    <div class="business-hero-grid">
+      <div class="business-hero-content">
         <span class="badge">{{ division.get_division_type_display|upper }}</span>
         <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 12px;">{{ division.name|upper }}</h1>
         {% if division.tagline %}
@@ -31,13 +31,14 @@
         </div>
       </div>
 
-      <div class="page-hero-image-wrap">
+      <div class="business-brand-emblem-wrap">
+        <div class="business-brand-halo"></div>
         {% if division.hero_image %}
-          <img src="{{ division.hero_image.url }}" alt="{{ division.name }}">
+          <img src="{{ division.hero_image.url }}" alt="{{ division.name }}" class="business-brand-emblem-img">
         {% elif division.static_image_path %}
-          <img src="{% static division.static_image_path %}" alt="{{ division.name }}">
+          <img src="{% static division.static_image_path %}" alt="{{ division.name }}" class="business-brand-emblem-img">
         {% else %}
-          <img src="{% static 'core/images/divisions/construction.jpg' %}" alt="{{ division.name }}">
+          <img src="{% static 'core/images/logo.jpg' %}" alt="{{ division.name }}" class="business-brand-emblem-img">
         {% endif %}
       </div>
     </div>
