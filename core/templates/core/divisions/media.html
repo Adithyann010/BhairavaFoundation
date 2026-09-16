@@ -16,22 +16,52 @@
       <span>BAIRAVA MEDIA</span>
     </div>
 
-    <div class="business-hero-grid">
-      <div class="business-hero-content">
-        <span class="badge badge-charcoal">COMMERCIAL DIVISION</span>
-        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 12px;">BAIRAVA MEDIA</h1>
-        <p class="hero-subtitle" style="font-size: 1.25rem;">"Meaningful Stories, Digital Production &amp; Communication."</p>
-        <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">Bairava Media focuses on storytelling, digital content, communication and media initiatives that connect businesses, communities and audiences.</p>
+    <div class="business-hero-3col">
+      <!-- LEFT: Brand Logo / Emblem -->
+      <div class="bhero-logo-col">
+        <div class="bhero-logo-halo"></div>
+        <img src="{% static 'core/images/divisions/bairava_media_logo.png' %}" alt="Bairava Media Official Logo" class="bhero-logo-img">
+      </div>
+
+      <!-- CENTER: Brand & Content -->
+      <div class="bhero-content-col">
+        <div class="bhero-brand-kicker">BAIRAVA GROUPS &bull; BUILDING &middot; CREATING &middot; SERVING</div>
+        <span class="bhero-category-badge">COMMERCIAL DIVISION</span>
+        <h1 class="bhero-title">BAIRAVA MEDIA</h1>
+        <p class="bhero-subtitle">"Meaningful Stories, Digital Production &amp; Communication."</p>
+        <p class="bhero-description">Bairava Media focuses on storytelling, digital content, communication and media initiatives that connect businesses, communities and audiences.</p>
         
-        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+        <div class="bhero-features-list">
+          <span class="bhero-feature-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Content Creation
+          </span>
+          <span class="bhero-feature-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Digital Media
+          </span>
+          <span class="bhero-feature-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Brand Communication
+          </span>
+          <span class="bhero-feature-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Media Collaboration
+          </span>
+        </div>
+
+        <div class="bhero-actions">
           <a href="#featured-stories" class="btn btn-solid">FEATURED STORIES</a>
           <a href="#media-enquiry" class="btn btn-outline">MEDIA COLLABORATION</a>
         </div>
       </div>
 
-      <div class="business-brand-emblem-wrap">
-        <div class="business-brand-halo"></div>
-        <img src="{% static 'core/images/divisions/bairava_media_logo.png' %}" alt="Bairava Media Official Logo" class="business-brand-emblem-img">
+      <!-- RIGHT: Category Visual -->
+      <div class="bhero-image-col">
+        <div class="bhero-image-wrap">
+          <img src="{% static 'core/images/divisions/media.jpg' %}" alt="Bairava Media Storytelling &amp; Production">
+          <div class="bhero-image-overlay"></div>
+        </div>
       </div>
     </div>
   </div>

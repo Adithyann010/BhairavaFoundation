@@ -1233,63 +1233,198 @@ header {
 }
 
 /* ==========================================================================
-   UNIFIED BUSINESS DIVISION HERO & INTEGRATED BRAND EMBLEM
+   UNIFIED 3-ZONE BUSINESS PAGE HERO (LEFT LOGO | CENTER CONTENT | RIGHT IMAGE)
    ========================================================================== */
-.business-hero-grid {
+.business-hero-3col {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
-  gap: 44px;
+  grid-template-columns: 210px minmax(0, 1.32fr) minmax(0, 0.95fr);
+  gap: 36px;
   align-items: center;
   position: relative;
   z-index: 2;
 }
 
-.business-hero-content {
-  position: relative;
-  z-index: 2;
-}
-
-.business-brand-emblem-wrap {
+/* Zone 1: Left Brand Logo Area */
+.bhero-logo-col {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px;
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  border-radius: 0 !important;
+  padding: 8px;
 }
 
-.business-brand-halo {
+.bhero-logo-halo {
   position: absolute;
-  width: 130%;
-  height: 130%;
-  top: -15%;
-  left: -15%;
-  background: radial-gradient(circle at center, rgba(201, 164, 92, 0.24) 0%, rgba(201, 164, 92, 0.08) 48%, rgba(201, 164, 92, 0) 70%);
+  width: 140%;
+  height: 140%;
+  top: -20%;
+  left: -20%;
+  background: radial-gradient(circle at center, rgba(201, 164, 92, 0.28) 0%, rgba(201, 164, 92, 0.08) 52%, rgba(201, 164, 92, 0) 72%);
   pointer-events: none;
   z-index: 1;
 }
 
-.business-brand-emblem-img {
+.bhero-logo-img {
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 380px;
-  max-height: 380px;
+  max-width: 210px;
+  max-height: 210px;
   height: auto;
   object-fit: contain;
   display: block;
   margin: 0 auto;
-  filter: drop-shadow(0 14px 28px rgba(124, 59, 41, 0.12)) drop-shadow(0 2px 6px rgba(36, 31, 28, 0.06));
-  transition: transform 0.4s ease, filter 0.4s ease;
+  filter: drop-shadow(0 10px 24px rgba(124, 59, 41, 0.14)) drop-shadow(0 2px 6px rgba(36, 31, 28, 0.08));
+  transition: transform 0.35s ease, filter 0.35s ease;
   user-select: none;
 }
 
-.business-brand-emblem-wrap:hover .business-brand-emblem-img {
-  transform: translateY(-4px) scale(1.02);
-  filter: drop-shadow(0 20px 36px rgba(124, 59, 41, 0.18)) drop-shadow(0 4px 10px rgba(36, 31, 28, 0.08));
+.bhero-logo-col:hover .bhero-logo-img {
+  transform: translateY(-3px) scale(1.03);
+  filter: drop-shadow(0 16px 32px rgba(124, 59, 41, 0.2)) drop-shadow(0 4px 8px rgba(36, 31, 28, 0.1));
+}
+
+/* Zone 2: Center Brand & Content Area */
+.bhero-content-col {
+  position: relative;
+  z-index: 2;
+}
+
+.bhero-brand-kicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass-dark);
+  margin-bottom: 6px;
+}
+
+.bhero-brand-kicker .bhero-submotto {
+  color: var(--slate);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.bhero-category-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(124, 59, 41, 0.09);
+  color: var(--brick);
+  border: 1px solid rgba(124, 59, 41, 0.2);
+  margin-bottom: 10px;
+}
+
+.bhero-title {
+  font-size: clamp(1.85rem, 3.1vw, 2.65rem);
+  font-family: var(--font-serif);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  color: var(--charcoal);
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+
+.bhero-subtitle {
+  font-size: 1.08rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--brass-dark);
+  line-height: 1.45;
+  margin-bottom: 12px;
+}
+
+.bhero-description {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: var(--slate-dark);
+  margin-bottom: 16px;
+}
+
+/* 4 Feature Points Chips */
+.bhero-features-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.bhero-feature-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  transition: all 0.25s ease;
+}
+
+.bhero-feature-pill:hover {
+  border-color: var(--brass);
+  color: var(--brick);
+  transform: translateY(-1px);
+}
+
+.bhero-feature-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brass);
+  flex-shrink: 0;
+}
+
+.bhero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Zone 3: Right Professional Category Visual Area */
+.bhero-image-col {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.bhero-image-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--line);
+}
+
+.bhero-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.bhero-image-wrap:hover img {
+  transform: scale(1.03);
+}
+
+.bhero-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(36, 31, 28, 0.03) 0%, rgba(36, 31, 28, 0.22) 100%);
+  pointer-events: none;
 }
 
 
@@ -6773,5 +6908,283 @@ img, video, iframe, canvas, svg {
     font-size: 0.8rem;
   }
 }
+
+/* ==========================================================================
+   UNIFIED 3-COLUMN BUSINESS & LEGAL HERO SYSTEM
+   [ LEFT BRAND LOGO ] [ CENTER BRAND & CONTENT ] [ RIGHT PROFESSIONAL VISUAL ]
+   ========================================================================== */
+
+.business-hero-3col {
+  display: grid;
+  grid-template-columns: 260px 1fr 340px;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  margin-top: 18px;
+  padding: 12px 0 24px 0;
+}
+
+/* Left Column: Brand Emblem */
+.bhero-logo-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.bhero-logo-halo {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(169, 130, 46, 0.22) 0%, rgba(124, 59, 41, 0.08) 48%, rgba(247, 243, 237, 0) 72%);
+  pointer-events: none;
+  filter: blur(14px);
+  z-index: 1;
+}
+
+.bhero-logo-img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 240px;
+  max-height: 240px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 24px rgba(44, 38, 34, 0.12));
+  transition: transform var(--transition-slow);
+}
+
+.bhero-logo-col:hover .bhero-logo-img {
+  transform: scale(1.04);
+}
+
+/* Center Column: Content & Metadata */
+.bhero-content-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.bhero-brand-kicker {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brass-dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.bhero-category-badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 4px 14px;
+  background: rgba(124, 59, 41, 0.08);
+  color: var(--brick);
+  border: 1px solid rgba(124, 59, 41, 0.22);
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.bhero-title {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(2.1rem, 3.2vw, 3.0rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--charcoal);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.bhero-subtitle {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--brick);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.bhero-description {
+  font-size: 1.02rem;
+  line-height: 1.68;
+  color: var(--slate);
+  margin: 0;
+}
+
+.bhero-features-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 10px;
+  margin: 4px 0 8px 0;
+}
+
+.bhero-feature-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: var(--paper);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.bhero-feature-pill svg {
+  stroke: var(--brick);
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.bhero-feature-pill:hover {
+  border-color: var(--brass);
+  background: var(--sand-light);
+  transform: translateY(-2px);
+}
+
+.bhero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+/* Right Column: Professional Category Visual */
+.bhero-image-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+.bhero-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 310px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-lg);
+  background: var(--sand-light);
+}
+
+.bhero-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.bhero-image-wrap:hover img {
+  transform: scale(1.04);
+}
+
+.bhero-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(44, 38, 34, 0.02) 0%, rgba(44, 38, 34, 0.28) 100%);
+  pointer-events: none;
+}
+
+/* Responsive Rules */
+@media (max-width: 1140px) {
+  .business-hero-3col {
+    grid-template-columns: 210px 1fr 280px;
+    gap: 28px;
+  }
+  .bhero-image-wrap {
+    height: 270px;
+  }
+  .bhero-logo-img {
+    max-width: 190px;
+    max-height: 190px;
+  }
+  .bhero-logo-halo {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 920px) {
+  .business-hero-3col {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    text-align: left;
+  }
+  .bhero-logo-col {
+    order: 1;
+    justify-content: center;
+    margin: 8px 0;
+  }
+  .bhero-logo-img {
+    max-width: 190px;
+    max-height: 190px;
+  }
+  .bhero-content-col {
+    order: 2;
+  }
+  .bhero-image-col {
+    order: 3;
+  }
+  .bhero-image-wrap {
+    height: 250px;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .bhero-title {
+    font-size: 1.85rem !important;
+  }
+  .bhero-subtitle {
+    font-size: 1.05rem;
+  }
+  .bhero-logo-img {
+    max-width: 160px;
+    max-height: 160px;
+  }
+  .bhero-logo-halo {
+    width: 180px;
+    height: 180px;
+  }
+  .bhero-image-wrap {
+    height: 200px;
+  }
+  .bhero-features-list {
+    gap: 6px;
+  }
+  .bhero-feature-pill {
+    font-size: 0.76rem;
+    padding: 5px 10px;
+  }
+  .bhero-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .bhero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 
 

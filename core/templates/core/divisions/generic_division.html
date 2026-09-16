@@ -16,30 +16,47 @@
       <span>{{ division.name|upper }}</span>
     </div>
 
-    <div class="business-hero-grid">
-      <div class="business-hero-content">
-        <span class="badge">{{ division.get_division_type_display|upper }}</span>
-        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 12px;">{{ division.name|upper }}</h1>
-        {% if division.tagline %}
-          <p class="hero-subtitle" style="font-size: 1.25rem;">"{{ division.tagline }}"</p>
+    <div class="business-hero-3col">
+      <!-- LEFT: Brand Logo / Emblem -->
+      <div class="bhero-logo-col">
+        <div class="bhero-logo-halo"></div>
+        {% if division.logo_image %}
+          <img src="{{ division.logo_image.url }}" alt="{{ division.name }} Logo" class="bhero-logo-img">
+        {% elif division.static_image_path %}
+          <img src="{% static division.static_image_path %}" alt="{{ division.name }} Logo" class="bhero-logo-img">
+        {% else %}
+          <img src="{% static 'core/images/logo.jpg' %}" alt="{{ division.name }} Logo" class="bhero-logo-img">
         {% endif %}
-        <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">{{ division.short_description }}</p>
+      </div>
+
+      <!-- CENTER: Brand & Content -->
+      <div class="bhero-content-col">
+        <div class="bhero-brand-kicker">BAIRAVA GROUPS &bull; BUILDING &middot; CREATING &middot; SERVING</div>
+        <span class="bhero-category-badge">{{ division.get_division_type_display|upper }}</span>
+        <h1 class="bhero-title">{{ division.name|upper }}</h1>
+        {% if division.tagline %}
+          <p class="bhero-subtitle">"{{ division.tagline }}"</p>
+        {% endif %}
+        <p class="bhero-description">{{ division.short_description }}</p>
         
-        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+        <div class="bhero-actions">
           <a href="#offerings" class="btn btn-solid">EXPLORE OFFERINGS</a>
           <a href="#division-enquiry" class="btn btn-outline">ENQUIRE NOW</a>
         </div>
       </div>
 
-      <div class="business-brand-emblem-wrap">
-        <div class="business-brand-halo"></div>
-        {% if division.hero_image %}
-          <img src="{{ division.hero_image.url }}" alt="{{ division.name }}" class="business-brand-emblem-img">
-        {% elif division.static_image_path %}
-          <img src="{% static division.static_image_path %}" alt="{{ division.name }}" class="business-brand-emblem-img">
-        {% else %}
-          <img src="{% static 'core/images/logo.jpg' %}" alt="{{ division.name }}" class="business-brand-emblem-img">
-        {% endif %}
+      <!-- RIGHT: Category Visual -->
+      <div class="bhero-image-col">
+        <div class="bhero-image-wrap">
+          {% if division.hero_image %}
+            <img src="{{ division.hero_image.url }}" alt="{{ division.name }}">
+          {% elif division.static_image_path %}
+            <img src="{% static division.static_image_path %}" alt="{{ division.name }}">
+          {% else %}
+            <img src="{% static 'core/images/logo.jpg' %}" alt="{{ division.name }}">
+          {% endif %}
+          <div class="bhero-image-overlay"></div>
+        </div>
       </div>
     </div>
   </div>

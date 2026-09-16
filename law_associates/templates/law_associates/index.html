@@ -14,23 +14,52 @@
       <span>LEGAL</span>
     </div>
 
-    <div class="business-hero-grid">
-      <div class="business-hero-content">
-        <span class="badge badge-brass">LEGAL GUIDANCE &amp; ADVISORY</span>
-        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 8px;">LEGAL</h1>
-        <h2 style="font-size: 1.5rem; color: var(--brick); margin-bottom: 12px; letter-spacing: 0.03em;">LEGAL ASSOCIATES</h2>
-        <p class="hero-subtitle" style="font-size: 1.2rem;">"Professional legal guidance for businesses, organizations and individuals."</p>
-        <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">Bairava Groups works with legal professionals to support businesses and organizations with practical legal guidance, documentation and compliance requirements.</p>
+    <div class="business-hero-3col">
+      <!-- LEFT: Brand Logo / Emblem -->
+      <div class="bhero-logo-col">
+        <div class="bhero-logo-halo"></div>
+        <img src="{% static 'core/images/divisions/bairava_law_associates_logo.png' %}" alt="Bairava Law Associates Official Logo" class="bhero-logo-img">
+      </div>
+
+      <!-- CENTER: Brand & Content -->
+      <div class="bhero-content-col">
+        <div class="bhero-brand-kicker">BAIRAVA GROUPS &bull; BUILDING &middot; CREATING &middot; SERVING</div>
+        <span class="bhero-category-badge">LEGAL GUIDANCE &amp; ADVISORY</span>
+        <h1 class="bhero-title">LEGAL ASSOCIATES</h1>
+        <p class="bhero-subtitle">"Professional legal guidance for businesses, organizations and individuals."</p>
+        <p class="bhero-description">Bairava Groups works with legal professionals to support businesses and organizations with practical legal guidance, documentation and compliance requirements.</p>
         
-        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+        <div class="bhero-features-list">
+          <span class="bhero-feature-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Legal Advisory
+          </span>
+          <span class="bhero-feature-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Documentation
+          </span>
+          <span class="bhero-feature-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Compliance
+          </span>
+          <span class="bhero-feature-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Dispute Support
+          </span>
+        </div>
+
+        <div class="bhero-actions">
           <a href="#practice-areas" class="btn btn-solid">PRACTICE AREAS</a>
           <a href="#consultation" class="btn btn-outline">REQUEST CONSULTATION</a>
         </div>
       </div>
 
-      <div class="business-brand-emblem-wrap">
-        <div class="business-brand-halo"></div>
-        <img src="{% static 'core/images/divisions/bairava_law_associates_logo.png' %}" alt="Bairava Law Associates Official Logo" class="business-brand-emblem-img">
+      <!-- RIGHT: Category Visual -->
+      <div class="bhero-image-col">
+        <div class="bhero-image-wrap">
+          <img src="{% static 'core/images/divisions/legal.jpg' %}" alt="Bairava Law Associates Legal Guidance">
+          <div class="bhero-image-overlay"></div>
+        </div>
       </div>
     </div>
   </div>
