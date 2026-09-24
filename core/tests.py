@@ -677,7 +677,7 @@ class BairavaSportsClubGalleryTestCase(TestCase):
         )
 
     def test_sports_club_real_photo_gallery(self):
-        """Test GET /businesses/sports-club/ renders the static frame photo gallery with original photos, thumbnails, counter & lightbox."""
+        """Test GET /businesses/sports-club/ renders the static frame photo gallery with all 9 original photos, thumbnails, counter & lightbox."""
         from core.views import business_detail
         req = self.rf.get(reverse('core:business_detail', kwargs={'slug': 'sports-club'}))
         response = business_detail(req, slug='sports-club')
@@ -689,20 +689,29 @@ class BairavaSportsClubGalleryTestCase(TestCase):
         self.assertIn("Moments of Passion, Teamwork &amp; Triumph.", content)
         self.assertIn("MOMENTS &amp; TRIUMPHS", content)
         self.assertIn("AUTO ROTATING", content)
+        self.assertIn('<span id="totalSlidesNum">09</span>', content)
 
-        # 2. Real Uploaded Photographs
-        self.assertIn("core/images/sports/sports-01.jpg", content)
-        self.assertIn("core/images/sports/sports-02.jpg", content)
-        self.assertIn("core/images/sports/sports-03.jpg", content)
-        self.assertIn("core/images/sports/sports-04.jpg", content)
-        self.assertIn("core/images/sports/sports-05.jpg", content)
+        # 2. All 9 Real Uploaded Photographs
+        self.assertIn("core/images/sports/sports-gallery-01.jpg", content)
+        self.assertIn("core/images/sports/sports-gallery-02.jpg", content)
+        self.assertIn("core/images/sports/sports-gallery-03.jpg", content)
+        self.assertIn("core/images/sports/sports-gallery-04.jpg", content)
+        self.assertIn("core/images/sports/sports-gallery-05.jpg", content)
+        self.assertIn("core/images/sports/sports-gallery-06.jpg", content)
+        self.assertIn("core/images/sports/sports-gallery-07.jpg", content)
+        self.assertIn("core/images/sports/sports-gallery-08.jpg", content)
+        self.assertIn("core/images/sports/sports-gallery-09.jpg", content)
 
         # 3. Accessibility Alt Texts
         self.assertIn('alt="Bairava Sports Club fitness team"', content)
-        self.assertIn('alt="Bairava Sports Club team"', content)
+        self.assertIn('alt="Bairava Sports Club gym athletes"', content)
         self.assertIn('alt="Bairava Sports Club tournament team"', content)
         self.assertIn('alt="Bairava Sports Club sports event"', content)
         self.assertIn('alt="Bairava Sports Club trophy celebration"', content)
+        self.assertIn('alt="Bairava Sports Club squad gathering"', content)
+        self.assertIn('alt="Bairava Sports Club official team jersey lineup"', content)
+        self.assertIn('alt="Bairava Sports Club team felicitation"', content)
+        self.assertIn('alt="Bairava Sports Club annual awards presentation"', content)
 
         # 4. Captions
         self.assertIn("FITNESS &amp; STRENGTH CONDITIONING TEAM", content)
@@ -710,6 +719,10 @@ class BairavaSportsClubGalleryTestCase(TestCase):
         self.assertIn("OFFICIAL TEAM JERSEY FELICITATION", content)
         self.assertIn("TEAM GATHERING &amp; CELEBRATION", content)
         self.assertIn("TOURNAMENT CHAMPIONSHIP &amp; TROPHY CELEBRATION", content)
+        self.assertIn("SPORTS CLUB SQUAD &amp; COMMUNITY MEET", content)
+        self.assertIn("OFFICIAL BAIRAVA TEAM JERSEY LINEUP", content)
+        self.assertIn("HONORARY FELICITATION &amp; TEAM RECOGNITION", content)
+        self.assertIn("ANNUAL SPORTS AWARDS &amp; MEMENTO PRESENTATION", content)
 
         # 5. Controls, Static Frame, Thumbnails & Lightbox
         self.assertIn("galleryPhotoFrame", content)
