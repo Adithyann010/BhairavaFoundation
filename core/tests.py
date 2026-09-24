@@ -677,7 +677,7 @@ class BairavaSportsClubGalleryTestCase(TestCase):
         )
 
     def test_sports_club_real_photo_gallery(self):
-        """Test GET /businesses/sports-club/ renders the 3D coverflow photo gallery with original photos, thumbnails, counter & lightbox."""
+        """Test GET /businesses/sports-club/ renders the static frame photo gallery with original photos, thumbnails, counter & lightbox."""
         from core.views import business_detail
         req = self.rf.get(reverse('core:business_detail', kwargs={'slug': 'sports-club'}))
         response = business_detail(req, slug='sports-club')
@@ -711,11 +711,11 @@ class BairavaSportsClubGalleryTestCase(TestCase):
         self.assertIn("TEAM GATHERING &amp; CELEBRATION", content)
         self.assertIn("TOURNAMENT CHAMPIONSHIP &amp; TROPHY CELEBRATION", content)
 
-        # 5. Controls, Thumbnails & Lightbox
-        self.assertIn("coverflow-stage", content)
-        self.assertIn("coverflowPrevBtn", content)
-        self.assertIn("coverflowNextBtn", content)
-        self.assertIn("coverflowDots", content)
+        # 5. Controls, Static Frame, Thumbnails & Lightbox
+        self.assertIn("galleryPhotoFrame", content)
+        self.assertIn("galleryPrevBtn", content)
+        self.assertIn("galleryNextBtn", content)
+        self.assertIn("galleryDots", content)
         self.assertIn("galleryThumbsList", content)
         self.assertIn("sportsLightbox", content)
         self.assertIn("lightboxCloseBtn", content)

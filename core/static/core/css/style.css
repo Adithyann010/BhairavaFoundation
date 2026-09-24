@@ -7367,12 +7367,13 @@ img, video, iframe, canvas, svg {
 }
 
 /* ==========================================================================
-   BAIRAVA SPORTS CLUB — 3D COVERFLOW GALLERY & LIGHTBOX
+/* ==========================================================================
+   BAIRAVA SPORTS CLUB — STATIC FRAME PHOTO-ONLY GALLERY & LIGHTBOX
    ========================================================================== */
 
 .sports-gallery-section {
   background: var(--sand-light);
-  padding: 76px 0 84px;
+  padding: 72px 0 80px;
   position: relative;
   overflow: hidden;
   border-top: 1px solid var(--line);
@@ -7382,7 +7383,7 @@ img, video, iframe, canvas, svg {
 .sports-gallery-header {
   text-align: center;
   max-width: 780px;
-  margin: 0 auto 36px;
+  margin: 0 auto 32px;
   padding: 0 20px;
 }
 
@@ -7465,208 +7466,162 @@ img, video, iframe, canvas, svg {
   50% { opacity: 0.5; transform: scale(0.85); }
 }
 
-/* Coverflow Stage */
-.coverflow-wrap {
-  position: relative;
-  max-width: 1140px;
+/* Static Gallery Showcase Area */
+.sports-gallery-showcase {
+  max-width: 960px;
   margin: 0 auto;
-  perspective: 1200px;
-  overflow: visible;
-  padding: 10px 0 20px;
+  position: relative;
+  padding: 0 16px;
 }
 
-.coverflow-stage {
+/* Fixed Photo Frame (Zero page movement, constant dimensions) */
+.gallery-photo-frame {
   position: relative;
   width: 100%;
-  height: 480px;
-  transform-style: preserve-3d;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.coverflow-slide {
-  position: absolute;
-  top: 0;
-  width: min(640px, 78vw);
-  height: 450px;
+  aspect-ratio: 16 / 10;
+  max-height: 560px;
+  min-height: 320px;
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--charcoal);
-  box-shadow: 0 12px 36px rgba(31, 28, 26, 0.16);
-  transition: transform 0.55s cubic-bezier(0.25, 1, 0.5, 1),
-              opacity 0.55s cubic-bezier(0.25, 1, 0.5, 1),
-              filter 0.55s ease,
-              box-shadow 0.55s ease;
-  user-select: none;
-  cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 18px 48px rgba(31, 28, 26, 0.18);
+  border: 2px solid var(--brass);
 }
 
-.coverflow-slide img {
+/* Photo Slide with Pure Crossfade Animation */
+.gallery-photo-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 0.85s ease-in-out, visibility 0.85s ease-in-out;
+}
+
+.gallery-photo-slide.active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+.gallery-photo-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center 25%;
   display: block;
-  transition: transform 0.4s ease;
+  user-select: none;
 }
 
-.coverflow-slide .slide-overlay {
+/* Subtle gradient overlay at bottom for caption readability */
+.gallery-photo-slide .slide-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(15,12,10,0.88) 100%);
-  opacity: 0;
-  transition: opacity 0.35s ease;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 24px;
+  padding: 24px 28px;
   color: #FFF;
   pointer-events: none;
-}
-
-.coverflow-slide.pos-center .slide-overlay {
-  opacity: 1;
+  z-index: 3;
 }
 
 .slide-caption-title {
   font-family: 'Fraunces', Georgia, serif;
-  font-size: 1.15rem;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
   font-weight: 600;
   color: #FFF;
   margin-bottom: 4px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
 }
 
 .slide-caption-sub {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--brass-light);
   display: flex;
   align-items: center;
   gap: 6px;
   font-weight: 600;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
 }
 
+/* Fullscreen trigger button */
 .slide-expand-btn {
   position: absolute;
   top: 16px;
   right: 16px;
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   color: #FFF;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid rgba(255, 255, 255, 0.35);
-  opacity: 0;
-  transform: scale(0.85);
-  transition: all 0.3s ease;
-  pointer-events: auto;
+  cursor: pointer;
+  z-index: 5;
+  transition: all 0.25s ease;
 }
 
-.coverflow-slide.pos-center:hover .slide-expand-btn {
-  opacity: 1;
-  transform: scale(1);
+.slide-expand-btn:hover {
+  background: var(--brick);
+  border-color: var(--brick);
+  transform: scale(1.08);
 }
 
-/* 3D Coverflow Positions */
-.coverflow-slide.pos-center {
-  transform: translateX(0) scale(1) translateZ(0);
-  opacity: 1;
-  z-index: 10;
-  filter: blur(0px) brightness(1);
-  box-shadow: 0 22px 60px rgba(31, 28, 26, 0.24);
-  border: 2px solid var(--brass);
-}
-
-.coverflow-slide.pos-center:hover img {
-  transform: scale(1.02);
-}
-
-.coverflow-slide.pos-prev {
-  transform: translateX(-56%) scale(0.82) rotateY(16deg) translateZ(-60px);
-  opacity: 0.68;
-  z-index: 6;
-  filter: blur(0.5px) brightness(0.88);
-}
-
-.coverflow-slide.pos-next {
-  transform: translateX(56%) scale(0.82) rotateY(-16deg) translateZ(-60px);
-  opacity: 0.68;
-  z-index: 6;
-  filter: blur(0.5px) brightness(0.88);
-}
-
-.coverflow-slide.pos-prev2 {
-  transform: translateX(-92%) scale(0.66) rotateY(26deg) translateZ(-140px);
-  opacity: 0.3;
-  z-index: 3;
-  filter: blur(1.5px) brightness(0.7);
-}
-
-.coverflow-slide.pos-next2 {
-  transform: translateX(92%) scale(0.66) rotateY(-26deg) translateZ(-140px);
-  opacity: 0.3;
-  z-index: 3;
-  filter: blur(1.5px) brightness(0.7);
-}
-
-.coverflow-slide.pos-hidden {
-  transform: translateX(0) scale(0.5) translateZ(-200px);
-  opacity: 0;
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* Nav Arrows */
-.coverflow-nav-btn {
+/* Nav Arrows Inside Frame */
+.gallery-nav-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--paper);
+  background: rgba(255, 255, 255, 0.92);
   border: 1px solid var(--line-strong);
   color: var(--charcoal);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 20;
-  box-shadow: var(--shadow-md);
+  z-index: 10;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
   transition: all 0.25s ease;
 }
 
-.coverflow-nav-btn:hover {
-  background: var(--charcoal);
+.gallery-nav-btn:hover {
+  background: var(--brick);
   color: #FFF;
-  border-color: var(--charcoal);
+  border-color: var(--brick);
   transform: translateY(-50%) scale(1.08);
 }
 
-.coverflow-nav-btn.prev-btn {
-  left: 12px;
+.gallery-nav-btn.prev-btn {
+  left: 16px;
 }
 
-.coverflow-nav-btn.next-btn {
-  right: 12px;
+.gallery-nav-btn.next-btn {
+  right: 16px;
 }
 
 /* Pagination Dots */
-.coverflow-dots {
+.gallery-dots {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin: 18px 0 24px;
+  margin: 20px 0 16px;
 }
 
-.coverflow-dot {
+.gallery-dot {
   width: 10px;
   height: 10px;
   border-radius: var(--radius-full);
@@ -7677,48 +7632,38 @@ img, video, iframe, canvas, svg {
   transition: all 0.3s ease;
 }
 
-.coverflow-dot.active {
+.gallery-dot.active {
   width: 28px;
   background: var(--brick);
 }
 
-/* Horizontal Thumbnail Strip */
+/* Horizontal Thumbnail Strip (Static container) */
 .gallery-thumbs-wrap {
-  max-width: 860px;
+  max-width: 760px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 10px;
 }
 
 .gallery-thumbs-scroll {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 12px;
   overflow-x: auto;
-  padding: 8px 4px 14px;
-  scrollbar-width: thin;
-  scrollbar-color: var(--sand-dark) transparent;
-}
-
-.gallery-thumbs-scroll::-webkit-scrollbar {
-  height: 4px;
-}
-.gallery-thumbs-scroll::-webkit-scrollbar-thumb {
-  background: var(--sand-dark);
-  border-radius: 4px;
+  padding: 6px 4px 10px;
 }
 
 .gallery-thumb-item {
   position: relative;
-  flex: 0 0 108px;
-  height: 72px;
+  flex: 0 0 96px;
+  height: 64px;
   border-radius: var(--radius-md);
   overflow: hidden;
   border: 2px solid transparent;
   cursor: pointer;
   background: var(--charcoal);
   box-shadow: var(--shadow-sm);
-  transition: all 0.28s ease;
+  transition: all 0.25s ease;
 }
 
 .gallery-thumb-item img {
@@ -7726,13 +7671,12 @@ img, video, iframe, canvas, svg {
   height: 100%;
   object-fit: cover;
   display: block;
-  opacity: 0.65;
-  transition: opacity 0.25s ease, transform 0.25s ease;
+  opacity: 0.6;
+  transition: opacity 0.25s ease;
 }
 
 .gallery-thumb-item:hover img {
   opacity: 0.9;
-  transform: scale(1.05);
 }
 
 .gallery-thumb-item.active {
@@ -7872,48 +7816,32 @@ img, video, iframe, canvas, svg {
 /* Mobile Media Queries */
 @media (max-width: 768px) {
   .sports-gallery-section {
-    padding: 48px 0 54px;
+    padding: 46px 0 52px;
   }
 
-  .coverflow-stage {
-    height: 360px;
+  .gallery-photo-frame {
+    aspect-ratio: 4 / 3;
+    min-height: 260px;
+    border-radius: var(--radius-md);
   }
 
-  .coverflow-slide {
-    width: 88vw;
-    height: 330px;
-  }
-
-  .coverflow-slide.pos-prev {
-    transform: translateX(-42%) scale(0.85) rotateY(8deg);
-    opacity: 0.45;
-  }
-
-  .coverflow-slide.pos-next {
-    transform: translateX(42%) scale(0.85) rotateY(-8deg);
-    opacity: 0.45;
-  }
-
-  .coverflow-slide.pos-prev2,
-  .coverflow-slide.pos-next2 {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .coverflow-nav-btn {
+  .gallery-nav-btn {
     width: 40px;
     height: 40px;
   }
 
-  .gallery-thumbs-scroll {
-    justify-content: flex-start;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
+  .gallery-nav-btn.prev-btn { left: 8px; }
+  .gallery-nav-btn.next-btn { right: 8px; }
 
   .gallery-thumb-item {
-    flex: 0 0 84px;
-    height: 58px;
+    flex: 0 0 76px;
+    height: 52px;
+  }
+
+  .gallery-thumbs-scroll {
+    justify-content: flex-start;
+    padding-left: 6px;
+    padding-right: 6px;
   }
 
   .lightbox-nav-btn {
