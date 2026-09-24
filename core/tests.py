@@ -331,78 +331,41 @@ class FuturePlanTestCase(TestCase):
         self.assertIn("What is Bairava Water Solutions?", data["suggestions"])
 
 
-class BairavaLawAssociatesAndLegalTestCase(TestCase):
+class LegalAssociatesRemovalTestCase(TestCase):
     def setUp(self):
         from django.test import RequestFactory
         self.rf = RequestFactory()
-        self.div_assoc = BusinessDivision.objects.create(
-            name="BAIRAVA LAW ASSOCIATES",
-            slug="law-associates",
-            tagline="COMMUNITY • CONNECTION • COLLABORATION",
-            short_description="Building stronger communities through networking, collaboration, engagement and collective growth.",
-            full_description="Bairava Law Associates is focused on bringing people, professionals, businesses and communities together through meaningful connections, collaboration and organized initiatives.",
-            division_type="business",
-            order=8
-        )
-        DivisionOffering.objects.create(
-            division=self.div_assoc,
-            title="COMMUNITY NETWORKING",
-            badge="NETWORKING",
-            description="Building meaningful connections among members, professionals and local communities.",
-            order=1
-        )
 
-    def test_bairava_law_associates_page(self):
-        """Test GET /businesses/law-associates/ returns 200 and renders law associates template."""
-        from core.views import business_detail
-        req = self.rf.get(reverse('core:business_detail', kwargs={'slug': 'law-associates'}))
-        response = business_detail(req, slug='law-associates')
-        self.assertEqual(response.status_code, 200)
-        content = response.content.decode('utf-8')
-
-        self.assertIn("BAIRAVA LAW ASSOCIATES", content)
-        self.assertIn("COMMUNITY • CONNECTION • COLLABORATION", content)
-        self.assertIn("COMMUNITY NETWORKING", content)
-        self.assertIn("core/images/logos/bairava-law-associates-logo.png", content)
-
-    def test_legacy_association_redirect(self):
-        """Test GET /businesses/bhairava-association/ redirects to /businesses/law-associates/."""
-        from core.views import business_detail
-        req = self.rf.get('/businesses/bhairava-association/')
-        response = business_detail(req, slug='bhairava-association')
+    def test_legal_url_redirects_to_businesses(self):
+        """Test GET /legal/ permanently redirects (301) to /businesses/."""
+        response = self.client.get('/legal/')
         self.assertEqual(response.status_code, 301)
-        self.assertEqual(response.url, reverse('core:business_detail', kwargs={'slug': 'law-associates'}))
+        self.assertEqual(response.url, reverse('core:businesses_index'))
 
-    def test_navbar_businesses_count_and_law_associates(self):
-        """Test that navbar shows BUSINESSES (8 DIVISIONS) and includes BAIRAVA LAW ASSOCIATES."""
+    def test_legacy_routes_redirect_to_businesses(self):
+        """Test legacy routes permanently redirect (301) to /businesses/."""
+        for path in ['/association/', '/law-associates/', '/businesses/law-associates/', '/businesses/bhairava-association/', '/businesses/legal/']:
+            response = self.client.get(path)
+            self.assertEqual(response.status_code, 301)
+            self.assertEqual(response.url, reverse('core:businesses_index'))
+
+    def test_navbar_and_footer_no_legal_associates(self):
+        """Test that navbar and footer do not contain Legal Associates or Law Associates references."""
         from core.views import home
         req = self.rf.get(reverse('core:home'))
         response = home(req)
         self.assertEqual(response.status_code, 200)
         content = response.content.decode('utf-8')
 
-        self.assertIn("BUSINESSES (8 DIVISIONS)", content)
-        self.assertIn("BAIRAVA LAW ASSOCIATES", content)
+        self.assertNotIn("LEGAL ASSOCIATES", content)
+        self.assertNotIn("BAIRAVA LAW ASSOCIATES", content)
+        self.assertNotIn("BAIRAVA ASSOCIATION", content)
+        self.assertNotIn("LEGAL GUIDANCE & ADVISORY", content)
+        # Ensure remaining commercial businesses are present
         self.assertIn("BAIRAVA FINANCE", content)
+        self.assertIn("CENTRAL KITCHEN", content)
+        self.assertIn("BAIRAVA SPORTS CLUB", content)
         self.assertIn("BAIRAVA MEDIA", content)
-
-    def test_legal_page_content_and_image(self):
-        """Test GET /legal/ returns 200 and renders updated Legal Associates content & image."""
-        from law_associates.views import legal_index
-        req = self.rf.get(reverse('law_associates:index'))
-        response = legal_index(req)
-        self.assertEqual(response.status_code, 200)
-        content = response.content.decode('utf-8')
-
-        self.assertIn("LEGAL", content)
-        self.assertIn("LEGAL ASSOCIATES", content)
-        self.assertIn("CORPORATE &amp; BUSINESS LAW", content)
-        self.assertIn("CONTRACTS &amp; AGREEMENTS", content)
-        self.assertIn("PROPERTY &amp; REAL ESTATE LAW", content)
-        self.assertIn("COMPLIANCE &amp; DOCUMENTATION", content)
-        self.assertIn("LEGAL ADVISORY", content)
-        self.assertIn("DISPUTE SUPPORT", content)
-        self.assertIn("core/images/divisions/legal.jpg", content)
 
 
 class ConstructionProjectsTestCase(TestCase):

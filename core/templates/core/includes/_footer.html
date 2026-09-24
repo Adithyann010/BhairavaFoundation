@@ -12,18 +12,17 @@
         <p style="font-size: 0.84rem; color: var(--brass-light); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">BUILDING BUSINESSES. CREATING OPPORTUNITIES. SERVING COMMUNITIES.</p>
       </div>
 
-      <!-- Column 2: Businesses (8 Divisions) -->
+      <!-- Column 2: Businesses (7 Divisions) -->
       <div class="footer-col">
         <h4>BUSINESSES</h4>
         <ul>
           <li><a href="{% url 'core:business_detail' slug='finance' %}">BAIRAVA FINANCE</a></li>
           <li><a href="{% url 'core:business_detail' slug='construction' %}">BAIRAVA CONSTRUCTION &amp; LAND PROMOTERS</a></li>
-          <li><a href="{% url 'core:business_detail' slug='cloud-kitchen' %}">BAIRAVA CLOUD KITCHEN</a></li>
+          <li><a href="{% url 'core:business_detail' slug='cloud-kitchen' %}">CENTRAL KITCHEN</a></li>
           <li><a href="{% url 'core:business_detail' slug='sports-club' %}">BAIRAVA SPORTS CLUB</a></li>
           <li><a href="{% url 'core:business_detail' slug='event-management' %}">BAIRAVA EVENT MANAGEMENT</a></li>
           <li><a href="{% url 'core:business_detail' slug='aadukalam' %}">BAIRAVA ஆடுகளம் (POLITICAL NEWS)</a></li>
           <li><a href="{% url 'core:business_detail' slug='media' %}">BAIRAVA MEDIA</a></li>
-          <li><a href="{% url 'core:business_detail' slug='law-associates' %}">BAIRAVA LAW ASSOCIATES</a></li>
         </ul>
       </div>
 
@@ -47,7 +46,6 @@
           <li><a href="{% url 'core:future_plan' %}">FUTURE PLAN</a></li>
           <li style="padding-left: 10px; font-size: 0.84rem;"><a href="{% url 'core:future_plan' %}#water-solutions" style="color: var(--brass-light);">• BAIRAVA WATER SOLUTIONS</a></li>
           <li style="padding-left: 10px; font-size: 0.84rem;"><a href="{% url 'core:future_plan' %}#jewellery" style="color: var(--brass-light);">• BAIRAVA JEWELLERY</a></li>
-          <li><a href="{% url 'law_associates:index' %}">LEGAL ASSOCIATES</a></li>
           <li><a href="{% url 'core:contact' %}">CONTACT US</a></li>
           <li><a href="{% url 'core:businesses_index' %}">ALL BUSINESSES DIRECTORY</a></li>
         </ul>
@@ -73,8 +71,8 @@
     <div class="footer-bottom">
       <span>© 2026 La Fortune Makers. All rights reserved. Chennai, Tamil Nadu.</span>
       <div class="footer-bottom-links">
-        <a href="{% url 'law_associates:index' %}">PRIVACY POLICY</a>
-        <a href="{% url 'law_associates:index' %}">TERMS &amp; CONDITIONS</a>
+        <a href="{% url 'core:about' %}">PRIVACY POLICY</a>
+        <a href="{% url 'core:about' %}">TERMS &amp; CONDITIONS</a>
         <a href="{% url 'core:contact' %}">SUPPORT</a>
       </div>
     </div>

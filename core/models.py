@@ -20,7 +20,6 @@ class NewsItem(models.Model):
         ('trust', 'TRUST ACTIVITY'),
         ('community', 'COMMUNITY'),
         ('construction', 'CONSTRUCTION'),
-        ('legal', 'LEGAL'),
         ('events', 'EVENTS'),
         ('sports', 'SPORTS & YOUTH'),
         ('media', 'MEDIA & PRESS'),
@@ -41,7 +40,7 @@ class NewsItem(models.Model):
 
 
 class BusinessDivision(models.Model):
-    """Core model representing each of the 9 Bairava Groups divisions."""
+    """Core model representing Bairava Groups business divisions and initiatives."""
     DIVISION_TYPE_CHOICES = [
         ('business', 'COMMERCIAL BUSINESS'),
         ('foundation_trust', 'FOUNDATION & SOCIAL INITIATIVE'),
@@ -129,15 +128,12 @@ class ContactEnquiry(models.Model):
         ('foundation', 'BAIRAVA FOUNDATION'),
         ('finance', 'BAIRAVA FINANCE'),
         ('construction', 'BAIRAVA CONSTRUCTION & LAND PROMOTERS'),
-        ('cloud_kitchen', 'BAIRAVA CLOUD KITCHEN'),
+        ('cloud_kitchen', 'CENTRAL KITCHEN'),
         ('sports_club', 'BAIRAVA SPORTS CLUB'),
         ('event_management', 'BAIRAVA EVENT MANAGEMENT'),
         ('aadukalam', 'BAIRAVA AADUKALAM'),
         ('trust', 'BAIRAVA TRUST'),
         ('media', 'BAIRAVA MEDIA'),
-        ('association', 'BAIRAVA LAW ASSOCIATES'),
-        ('law_associates', 'BAIRAVA LAW ASSOCIATES'),
-        ('legal', 'LEGAL CONSULTATION'),
     ]
     name = models.CharField(max_length=150)
     phone = models.CharField(max_length=20)

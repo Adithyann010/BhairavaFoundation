@@ -129,19 +129,6 @@ divisions_data = [
         "order": 8,
     },
     {
-        "name": "BAIRAVA LAW ASSOCIATES",
-        "slug": "law-associates",
-        "tagline": "COMMUNITY • CONNECTION • COLLABORATION",
-        "short_description": "Building stronger communities through networking, collaboration, engagement and collective growth.",
-        "full_description": "Bairava Law Associates is focused on bringing people, professionals, businesses and communities together through meaningful connections, collaboration and organized initiatives. The associates aim to create a strong platform for networking, community engagement, knowledge sharing and collective development.",
-        "division_type": "business",
-        "icon_name": "users",
-        "static_image_path": "core/images/divisions/association.jpg",
-        "target_url": "/businesses/law-associates/",
-        "accent_color": "#7C3B29",
-        "order": 9,
-    },
-    {
         "name": "BAIRAVA TRUST",
         "slug": "trust",
         "tagline": "COMPASSIONATE SOCIAL CARE & DAILY COMMUNITY SERVICE",
@@ -152,7 +139,7 @@ divisions_data = [
         "static_image_path": "core/images/divisions/trust.jpg",
         "target_url": "/trust/",
         "accent_color": "#7C3B29",
-        "order": 10,
+        "order": 9,
     },
 ]
 
@@ -203,14 +190,6 @@ offerings_data = {
         {"title": "EVENT & LIVE STREAM COVERAGE", "badge": "LIVE BROADCAST", "description": "Multi-camera live streaming and high-speed social media feeds for corporate summits and cultural festivals.", "order": 3},
         {"title": "BRAND STORYTELLING & PR STRATEGY", "badge": "STRATEGY", "description": "Narrative-driven press releases, promotional video campaigns, and social digital storytelling.", "order": 4},
     ],
-    "law-associates": [
-        {"title": "COMMUNITY NETWORKING", "badge": "NETWORKING", "description": "Building meaningful connections among members, professionals and local communities.", "order": 1},
-        {"title": "PROFESSIONAL COLLABORATION", "badge": "COLLABORATION", "description": "Encouraging partnerships, knowledge sharing and opportunities for professional growth.", "order": 2},
-        {"title": "COMMUNITY INITIATIVES", "badge": "INITIATIVES", "description": "Supporting programs and activities that contribute to community development.", "order": 3},
-        {"title": "MEMBER ENGAGEMENT", "badge": "ENGAGEMENT", "description": "Creating events, meetings and activities that encourage participation and stronger relationships.", "order": 4},
-        {"title": "KNOWLEDGE & NETWORKING", "badge": "KNOWLEDGE", "description": "Providing opportunities to exchange ideas, experience and practical knowledge.", "order": 5},
-        {"title": "COLLECTIVE GROWTH", "badge": "GROWTH", "description": "Working together to create sustainable opportunities and positive community impact.", "order": 6},
-    ],
     "foundation": [
         {"title": "EDUCATIONAL SCHOLARSHIPS & SUPPLIES", "badge": "EDUCATION", "description": "Direct financial aid for school fees, notebooks, uniform kits, and digital learning devices for deserving students.", "order": 1},
         {"title": "COMMUNITY WELFARE & MEDICAL SUPPORT", "badge": "WELFARE", "description": "Regular health screenings, eye checkup camps, and distribution of essential health provisions in underserved areas.", "order": 2},
@@ -236,7 +215,7 @@ for slug, items in offerings_data.items():
 # 3. POPULATE STATS
 stats_data = [
     {"value": "20+", "label": "YEARS OF EXCELLENCE", "order": 1},
-    {"value": "10", "label": "INTEGRATED DIVISIONS", "order": 2},
+    {"value": "9", "label": "INTEGRATED DIVISIONS", "order": 2},
     {"value": "100+", "label": "DEDICATED TEAM MEMBERS", "order": 3},
     {"value": "500+", "label": "DAILY BENEFICIARIES", "order": 4},
 ]
@@ -414,76 +393,11 @@ for p in ConstructionProject.objects.exclude(slug__in=valid_project_slugs):
 
 print(f"Construction projects verified count: {ConstructionProject.objects.count()}")
 
-# 7. POPULATE LEGAL ASSOCIATES DATA
-legal_practice_data = [
-    {
-        "title": "CORPORATE & BUSINESS LAW",
-        "category": "notice",
-        "turnaround_time": "ADVISORY & DRAFTING",
-        "description": "Legal support for business operations, agreements, corporate documentation and commercial matters.",
-        "order": 1,
-    },
-    {
-        "title": "CONTRACTS & AGREEMENTS",
-        "category": "notice",
-        "turnaround_time": "REVIEW & STRUCTURING",
-        "description": "Assistance with reviewing, preparing and organizing business contracts and agreements.",
-        "order": 2,
-    },
-    {
-        "title": "PROPERTY & REAL ESTATE LAW",
-        "category": "property",
-        "turnaround_time": "TITLE & DUE DILIGENCE",
-        "description": "Legal support related to property transactions, documentation and real-estate matters.",
-        "order": 3,
-    },
-    {
-        "title": "COMPLIANCE & DOCUMENTATION",
-        "category": "notice",
-        "turnaround_time": "STATUTORY AUDIT",
-        "description": "Support for maintaining appropriate legal documentation and business compliance processes.",
-        "order": 4,
-    },
-    {
-        "title": "LEGAL ADVISORY",
-        "category": "notice",
-        "turnaround_time": "STRATEGIC COUNSEL",
-        "description": "Professional legal guidance to help businesses make informed decisions and manage legal requirements.",
-        "order": 5,
-    },
-    {
-        "title": "DISPUTE SUPPORT",
-        "category": "recovery",
-        "turnaround_time": "COORDINATION & ADVOCACY",
-        "description": "Assistance in understanding legal matters and coordinating with appropriate legal professionals when disputes arise.",
-        "order": 6,
-    },
-]
-
-valid_legal_practice_titles = {lp["title"] for lp in legal_practice_data}
-LegalPracticeDetail.objects.exclude(title__in=valid_legal_practice_titles).delete()
-
-for lp in legal_practice_data:
-    LegalPracticeDetail.objects.update_or_create(
-        title=lp["title"],
-        defaults=lp
-    )
-print("Legal practice details populated and deduplicated!")
-
-legal_services_data = [
-    {"description": "Corporate & Business Law Support", "tag": "CORPORATE", "order": 1},
-    {"description": "Contracts, MOUs & Commercial Agreements", "tag": "CONTRACTS", "order": 2},
-    {"description": "Property Title Verification & Due Diligence", "tag": "PROPERTY", "order": 3},
-    {"description": "Business Compliance & Legal Documentation", "tag": "COMPLIANCE", "order": 4},
-    {"description": "Strategic Business Legal Advisory", "tag": "ADVISORY", "order": 5},
-    {"description": "Commercial Dispute Coordination & Resolution", "tag": "DISPUTE", "order": 6},
-]
-
-for ls in legal_services_data:
-    LegalService.objects.update_or_create(
-        description=ls["description"],
-        defaults=ls
-    )
-print("Legal services populated!")
+# 7. CLEANUP OBSOLETE LEGAL DATA
+LegalPracticeDetail.objects.all().delete()
+LegalService.objects.all().delete()
+BusinessDivision.objects.filter(slug__in=['law-associates', 'association', 'bhairava-association', 'legal']).delete()
+print("Cleaned up any obsolete Legal Associates database records!")
 
 print("All Bairava Groups database models successfully populated and synced!")
+

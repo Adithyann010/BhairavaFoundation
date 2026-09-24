@@ -211,33 +211,7 @@
       {% endfor %}
     </div>
 
-    <!-- 3. LEGAL ENQUIRIES -->
-    <div class="enquiry-section">
-      <h2>
-        <span>⚖️ LEGAL ASSOCIATES CONSULTATIONS</span>
-        <span class="enquiry-tag" style="background:var(--charcoal); color:var(--paper);">{{ legal_enquiries|length }} SUBMISSIONS</span>
-      </h2>
 
-      {% for eq in legal_enquiries %}
-      <div class="enquiry-card">
-        <div class="enquiry-header">
-          <div>
-            <div class="enquiry-title">{{ eq.name }}</div>
-            <div class="enquiry-meta">📞 {{ eq.phone }} {% if eq.email %}| ✉️ {{ eq.email }}{% endif %}</div>
-          </div>
-          <div style="text-align:right;">
-            <span class="enquiry-tag">{{ eq.get_issue_type_display|upper }} ({{ eq.get_urgency_display|upper }})</span>
-            <div style="font-size:0.78rem; color:var(--slate); margin-top:4px;">{{ eq.created_at|date:"d M Y, h:i A" }}</div>
-          </div>
-        </div>
-        <div class="enquiry-body">
-          <strong>Confidential Details:</strong> {{ eq.brief_details }}
-        </div>
-      </div>
-      {% empty %}
-      <p style="color:var(--slate); font-style:italic;">No legal consultation enquiries received yet.</p>
-      {% endfor %}
-    </div>
 
     <!-- 4. EVENT ENQUIRIES -->
     <div class="enquiry-section">

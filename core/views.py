@@ -169,20 +169,20 @@ def foundation_view(request):
 
 
 def redirect_association(request):
-    """Redirect legacy /association/ route to /businesses/law-associates/."""
-    return redirect('core:business_detail', slug='law-associates', permanent=True)
+    """Redirect legacy /association/ route to businesses index."""
+    return redirect('core:businesses_index', permanent=True)
 
 
 def redirect_law_associates(request):
-    """Redirect shortcut /law-associates/ route to /businesses/law-associates/."""
-    return redirect('core:business_detail', slug='law-associates', permanent=True)
+    """Redirect legacy /law-associates/ route to businesses index."""
+    return redirect('core:businesses_index', permanent=True)
 
 
 def business_detail(request, slug):
     """Serve dedicated pages for individual business divisions."""
-    # Redirect legacy association slug to new law-associates route safely
-    if slug in ('bhairava-association', 'association'):
-        return redirect('core:business_detail', slug='law-associates', permanent=True)
+    # Redirect legacy association/law-associates slugs to businesses overview safely
+    if slug in ('bhairava-association', 'association', 'law-associates', 'legal'):
+        return redirect('core:businesses_index', permanent=True)
 
     division = get_object_or_404(BusinessDivision, slug=slug)
 
@@ -213,8 +213,6 @@ def business_detail(request, slug):
         'sports-club': 'core/divisions/sports_club.html',
         'aadukalam': 'core/divisions/aadukalam.html',
         'media': 'core/divisions/media.html',
-        'law-associates': 'core/divisions/association.html',
-        'bhairava-association': 'core/divisions/association.html',
     }
 
     template_name = template_map.get(slug, 'core/divisions/generic_division.html')
