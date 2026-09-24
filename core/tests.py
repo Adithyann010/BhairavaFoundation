@@ -853,6 +853,33 @@ class BairavaAboutAchievementsGalleryTestCase(TestCase):
         self.assertIn("aboutLightboxNextBtn", content)
 
 
+class BairavaMainLogoTestCase(TestCase):
+    def setUp(self):
+        from django.test import RequestFactory
+        self.rf = RequestFactory()
+
+    def test_main_logo_and_favicon_across_pages(self):
+        """Test GET / renders official Bairava Groups main logo in navbar, footer, og:image, and favicon."""
+        from core.views import home
+        req = self.rf.get(reverse('core:home'))
+        response = home(req)
+        self.assertEqual(response.status_code, 200)
+        content = response.content.decode('utf-8')
+
+        # 1. Main Logo in Navbar and Footer
+        self.assertIn("core/images/logos/bairava-groups-logo.png", content)
+        self.assertIn('alt="Bairava Groups Logo"', content)
+
+        # 2. Favicon Links
+        self.assertIn("core/images/favicon.png", content)
+        self.assertIn("core/images/favicon.ico", content)
+        self.assertIn('rel="apple-touch-icon"', content)
+
+        # 3. OpenGraph Meta
+        self.assertIn('property="og:image"', content)
+
+
+
 
 
 
