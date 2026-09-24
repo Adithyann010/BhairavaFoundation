@@ -7368,10 +7368,11 @@ img, video, iframe, canvas, svg {
 
 /* ==========================================================================
 /* ==========================================================================
-   BAIRAVA SPORTS CLUB — STATIC FRAME PHOTO-ONLY GALLERY & LIGHTBOX
+   BAIRAVA SPORTS CLUB & LAW ASSOCIATES — STATIC PHOTO GALLERIES & LIGHTBOX
    ========================================================================== */
 
-.sports-gallery-section {
+.sports-gallery-section,
+.law-gallery-section {
   background: var(--sand-light);
   padding: 72px 0 80px;
   position: relative;
@@ -7380,26 +7381,30 @@ img, video, iframe, canvas, svg {
   border-bottom: 1px solid var(--line);
 }
 
-.sports-gallery-header {
+.sports-gallery-header,
+.law-gallery-header {
   text-align: center;
   max-width: 780px;
   margin: 0 auto 32px;
   padding: 0 20px;
 }
 
-.sports-gallery-header .badge {
+.sports-gallery-header .badge,
+.law-gallery-header .badge {
   display: inline-block;
   margin-bottom: 12px;
 }
 
-.sports-gallery-header h2 {
+.sports-gallery-header h2,
+.law-gallery-header h2 {
   font-size: clamp(2rem, 3.5vw, 2.85rem);
   color: var(--charcoal);
   margin-bottom: 10px;
   letter-spacing: 0.02em;
 }
 
-.sports-gallery-header p {
+.sports-gallery-header p,
+.law-gallery-header p {
   font-size: 1.08rem;
   color: var(--slate);
   font-weight: 500;
@@ -7467,7 +7472,8 @@ img, video, iframe, canvas, svg {
 }
 
 /* Static Gallery Showcase Area */
-.sports-gallery-showcase {
+.sports-gallery-showcase,
+.law-gallery-showcase {
   max-width: 960px;
   margin: 0 auto;
   position: relative;
@@ -7690,7 +7696,8 @@ img, video, iframe, canvas, svg {
 }
 
 /* Lightbox Modal */
-.sports-lightbox-modal {
+.sports-lightbox-modal,
+.law-lightbox-modal {
   position: fixed;
   inset: 0;
   background: rgba(12, 10, 8, 0.94);
@@ -7705,7 +7712,8 @@ img, video, iframe, canvas, svg {
   transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.sports-lightbox-modal.open {
+.sports-lightbox-modal.open,
+.law-lightbox-modal.open {
   opacity: 1;
   visibility: visible;
 }
@@ -7815,7 +7823,8 @@ img, video, iframe, canvas, svg {
 
 /* Mobile Media Queries */
 @media (max-width: 768px) {
-  .sports-gallery-section {
+  .sports-gallery-section,
+  .law-gallery-section {
     padding: 46px 0 52px;
   }
 

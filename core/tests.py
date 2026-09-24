@@ -736,6 +736,71 @@ class BairavaSportsClubGalleryTestCase(TestCase):
         self.assertIn("lightboxNextBtn", content)
 
 
+class BairavaLawAssociatesGalleryTestCase(TestCase):
+    def setUp(self):
+        from django.test import RequestFactory
+        self.rf = RequestFactory()
+        self.div_law, _ = BusinessDivision.objects.update_or_create(
+            slug="law-associates",
+            defaults={
+                "name": "BAIRAVA LAW ASSOCIATES",
+                "tagline": "Your Trusted Legal Partner.",
+                "short_description": "Delivering practical, professional and client-focused legal solutions for individuals, businesses and organizations with integrity, expertise and commitment.",
+                "full_description": "Bairava Law Associates provides practical legal guidance and professional support for individuals, businesses and organizations.",
+                "division_type": "business",
+                "order": 11,
+            }
+        )
+
+    def test_law_associates_photo_gallery(self):
+        """Test GET /businesses/law-associates/ renders the static frame photo gallery with all original photos, thumbnails, counter & lightbox."""
+        from core.views import business_detail
+        req = self.rf.get(reverse('core:business_detail', kwargs={'slug': 'law-associates'}))
+        response = business_detail(req, slug='law-associates')
+        self.assertEqual(response.status_code, 200)
+        content = response.content.decode('utf-8')
+
+        # 1. Gallery Section & Headings
+        self.assertIn("OUR LAW ASSOCIATES GALLERY", content)
+        self.assertIn("People, Practice, Community &amp; Professional Moments.", content)
+        self.assertIn("PRACTICE &amp; PROFESSIONAL LIFE", content)
+        self.assertIn("AUTO ROTATING", content)
+        self.assertIn('<span id="lawTotalSlidesNum">05</span>', content)
+
+        # 2. Uploaded Original Photographs
+        self.assertIn("core/images/law_associates/law-associates-gallery-01.jpg", content)
+        self.assertIn("core/images/law_associates/law-associates-gallery-02.jpg", content)
+        self.assertIn("core/images/law_associates/law-associates-gallery-03.jpg", content)
+        self.assertIn("core/images/law_associates/law-associates-gallery-04.jpg", content)
+        self.assertIn("core/images/law_associates/law-associates-gallery-05.jpg", content)
+
+        # 3. Accessibility Alt Texts
+        self.assertIn('alt="Bairava Law Associates team gathering"', content)
+        self.assertIn('alt="Bairava Law Associates legal team"', content)
+        self.assertIn('alt="Bairava Law Associates commemorative event"', content)
+        self.assertIn('alt="Bairava Law Associates advocates cohort"', content)
+        self.assertIn('alt="Bairava Law Associates professional honors"', content)
+
+        # 4. Captions
+        self.assertIn("LEGAL TEAM &amp; ASSOCIATES GATHERING", content)
+        self.assertIn("ADVOCATE LEADERSHIP &amp; LEGAL PRACTICE TEAM", content)
+        self.assertIn("COMMEMORATIVE RECOGNITION &amp; FELICITATION", content)
+        self.assertIn("BAR ADVOCATES COHORT &amp; LEGAL FRATERNITY", content)
+        self.assertIn("LEGAL PROFESSIONAL HONORS &amp; CELEBRATION", content)
+
+        # 5. Controls, Static Frame, Thumbnails & Lightbox
+        self.assertIn("lawGalleryPhotoFrame", content)
+        self.assertIn("lawGalleryPrevBtn", content)
+        self.assertIn("lawGalleryNextBtn", content)
+        self.assertIn("lawGalleryDots", content)
+        self.assertIn("lawGalleryThumbsList", content)
+        self.assertIn("lawLightbox", content)
+        self.assertIn("lawLightboxCloseBtn", content)
+        self.assertIn("lawLightboxPrevBtn", content)
+        self.assertIn("lawLightboxNextBtn", content)
+
+
+
 
 
 

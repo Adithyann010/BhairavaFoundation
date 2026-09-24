@@ -52,6 +52,7 @@
 
         <div class="bhero-actions">
           <a href="#consultation" class="btn btn-solid">GET LEGAL CONSULTATION</a>
+          <a href="#law-gallery" class="btn btn-outline" style="border-color: var(--brass-dark); color: var(--brass-dark);">OUR PHOTO GALLERY</a>
           <a href="#practice-areas" class="btn btn-outline">OUR PRACTICE AREAS</a>
         </div>
       </div>
@@ -113,6 +114,164 @@
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     OUR LAW ASSOCIATES GALLERY — STATIC FRAME PHOTO-ONLY CROSSFADE GALLERY & LIGHTBOX
+     ========================================================================== -->
+<section class="law-gallery-section" id="law-gallery" aria-label="Bairava Law Associates Photo Gallery">
+  <div class="wrap">
+    
+    <!-- Section Header (Completely Static) -->
+    <div class="law-gallery-header">
+      <span class="badge badge-brass">PRACTICE &amp; PROFESSIONAL LIFE</span>
+      <h2>OUR LAW ASSOCIATES GALLERY</h2>
+      <p>People, Practice, Community &amp; Professional Moments.</p>
+    </div>
+
+    <!-- Gallery Controls & Counter Bar (Completely Static) -->
+    <div class="gallery-meta-bar">
+      <div class="gallery-counter" id="lawGalleryCounter" aria-live="polite">
+        <span class="current-num" id="lawCurrentSlideNum">01</span>
+        <span class="total-num">/ <span id="lawTotalSlidesNum">05</span></span>
+      </div>
+
+      <div class="gallery-autoplay-status" id="lawGalleryAutoplayBadge" title="Photographs automatically advance every 4.5 seconds">
+        <span class="gallery-autoplay-dot"></span>
+        <span>AUTO ROTATING</span>
+      </div>
+    </div>
+
+    <!-- Static Gallery Showcase Area (Zero Page Movement) -->
+    <div class="law-gallery-showcase" id="lawGalleryShowcase">
+      
+      <!-- Fixed Photo Frame (Dimensions constant, zero layout shift) -->
+      <div class="gallery-photo-frame" id="lawGalleryPhotoFrame">
+        
+        <!-- Slide 1 -->
+        <div class="gallery-photo-slide active" data-index="0" data-caption="LEGAL TEAM &amp; ASSOCIATES GATHERING" data-sub="Dedicated Legal Practitioners &amp; Professional Counsel">
+          <img src="{% static 'core/images/law_associates/law-associates-gallery-01.jpg' %}" alt="Bairava Law Associates team gathering" loading="eager">
+          <div class="slide-overlay">
+            <h3 class="slide-caption-title">LEGAL TEAM &amp; ASSOCIATES GATHERING</h3>
+            <p class="slide-caption-sub">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              Dedicated Legal Practitioners &amp; Professional Counsel
+            </p>
+          </div>
+          <button class="slide-expand-btn" aria-label="View photo in fullscreen" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          </button>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="gallery-photo-slide" data-index="1" data-caption="ADVOCATE LEADERSHIP &amp; LEGAL PRACTICE TEAM" data-sub="Committed to Justice, Ethics &amp; Client Advocacy">
+          <img src="{% static 'core/images/law_associates/law-associates-gallery-02.jpg' %}" alt="Bairava Law Associates legal team" loading="lazy">
+          <div class="slide-overlay">
+            <h3 class="slide-caption-title">ADVOCATE LEADERSHIP &amp; LEGAL PRACTICE TEAM</h3>
+            <p class="slide-caption-sub">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              Committed to Justice, Ethics &amp; Client Advocacy
+            </p>
+          </div>
+          <button class="slide-expand-btn" aria-label="View photo in fullscreen" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          </button>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="gallery-photo-slide" data-index="2" data-caption="COMMEMORATIVE RECOGNITION &amp; FELICITATION" data-sub="Honoring Constitutional Values &amp; Legal Heritage">
+          <img src="{% static 'core/images/law_associates/law-associates-gallery-03.jpg' %}" alt="Bairava Law Associates commemorative event" loading="lazy">
+          <div class="slide-overlay">
+            <h3 class="slide-caption-title">COMMEMORATIVE RECOGNITION &amp; FELICITATION</h3>
+            <p class="slide-caption-sub">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              Honoring Constitutional Values &amp; Legal Heritage
+            </p>
+          </div>
+          <button class="slide-expand-btn" aria-label="View photo in fullscreen" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          </button>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="gallery-photo-slide" data-index="3" data-caption="BAR ADVOCATES COHORT &amp; LEGAL FRATERNITY" data-sub="Professional Legal Representation &amp; Constitutional Respect">
+          <img src="{% static 'core/images/law_associates/law-associates-gallery-04.jpg' %}" alt="Bairava Law Associates advocates cohort" loading="lazy">
+          <div class="slide-overlay">
+            <h3 class="slide-caption-title">BAR ADVOCATES COHORT &amp; LEGAL FRATERNITY</h3>
+            <p class="slide-caption-sub">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              Professional Legal Representation &amp; Constitutional Respect
+            </p>
+          </div>
+          <button class="slide-expand-btn" aria-label="View photo in fullscreen" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          </button>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="gallery-photo-slide" data-index="4" data-caption="LEGAL PROFESSIONAL HONORS &amp; CELEBRATION" data-sub="Recognizing Excellence &amp; Dedicated Legal Service">
+          <img src="{% static 'core/images/law_associates/law-associates-gallery-05.jpg' %}" alt="Bairava Law Associates professional honors" loading="lazy">
+          <div class="slide-overlay">
+            <h3 class="slide-caption-title">LEGAL PROFESSIONAL HONORS &amp; CELEBRATION</h3>
+            <p class="slide-caption-sub">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              Recognizing Excellence &amp; Dedicated Legal Service
+            </p>
+          </div>
+          <button class="slide-expand-btn" aria-label="View photo in fullscreen" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          </button>
+        </div>
+
+        <!-- Prev / Next Controls positioned inside the frame -->
+        <button class="gallery-nav-btn prev-btn" id="lawGalleryPrevBtn" aria-label="Previous photograph" type="button">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button class="gallery-nav-btn next-btn" id="lawGalleryNextBtn" aria-label="Next photograph" type="button">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+
+      </div>
+
+      <!-- Pagination Dots (Fixed underneath frame) -->
+      <div class="gallery-dots" id="lawGalleryDots" aria-label="Gallery slides navigation">
+        <button class="gallery-dot active" data-slide="0" aria-label="Go to photo 1"></button>
+        <button class="gallery-dot" data-slide="1" aria-label="Go to photo 2"></button>
+        <button class="gallery-dot" data-slide="2" aria-label="Go to photo 3"></button>
+        <button class="gallery-dot" data-slide="3" aria-label="Go to photo 4"></button>
+        <button class="gallery-dot" data-slide="4" aria-label="Go to photo 5"></button>
+      </div>
+
+      <!-- Horizontal Thumbnail Strip (Static container) -->
+      <div class="gallery-thumbs-wrap">
+        <div class="gallery-thumbs-scroll" id="lawGalleryThumbsList" role="tablist" aria-label="Law Associates Photo Thumbnails">
+          
+          <div class="gallery-thumb-item active" data-index="0" role="tab" aria-selected="true" tabindex="0" title="Photo 1: Legal Team & Associates Gathering">
+            <img src="{% static 'core/images/law_associates/law-associates-gallery-01.jpg' %}" alt="Thumbnail 1">
+          </div>
+
+          <div class="gallery-thumb-item" data-index="1" role="tab" aria-selected="false" tabindex="0" title="Photo 2: Advocate Leadership & Legal Practice Team">
+            <img src="{% static 'core/images/law_associates/law-associates-gallery-02.jpg' %}" alt="Thumbnail 2">
+          </div>
+
+          <div class="gallery-thumb-item" data-index="2" role="tab" aria-selected="false" tabindex="0" title="Photo 3: Commemorative Recognition & Felicitation">
+            <img src="{% static 'core/images/law_associates/law-associates-gallery-03.jpg' %}" alt="Thumbnail 3">
+          </div>
+
+          <div class="gallery-thumb-item" data-index="3" role="tab" aria-selected="false" tabindex="0" title="Photo 4: Bar Advocates Cohort & Legal Fraternity">
+            <img src="{% static 'core/images/law_associates/law-associates-gallery-04.jpg' %}" alt="Thumbnail 4">
+          </div>
+
+          <div class="gallery-thumb-item" data-index="4" role="tab" aria-selected="false" tabindex="0" title="Photo 5: Legal Professional Honors & Celebration">
+            <img src="{% static 'core/images/law_associates/law-associates-gallery-05.jpg' %}" alt="Thumbnail 5">
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </section>
 
@@ -344,4 +503,294 @@
     </div>
   </div>
 </section>
+
+<!-- ==========================================================================
+     FULLSCREEN LIGHTBOX MODAL — LAW ASSOCIATES
+     ========================================================================== -->
+<div class="law-lightbox-modal" id="lawLightbox" role="dialog" aria-modal="true" aria-label="Fullscreen Photo Lightbox" aria-hidden="true">
+  
+  <!-- Header -->
+  <div class="lightbox-header">
+    <div class="lightbox-title-wrap">
+      <h4 id="lawLightboxTitle">LEGAL TEAM &amp; ASSOCIATES GATHERING</h4>
+      <p id="lawLightboxSub">BAIRAVA LAW ASSOCIATES &bull; PHOTO <span id="lawLightboxIndex">01</span> / <span id="lawLightboxTotal">05</span></p>
+    </div>
+    <button class="lightbox-close-btn" id="lawLightboxCloseBtn" type="button" aria-label="Close fullscreen view">
+      &times;
+    </button>
+  </div>
+
+  <!-- Stage -->
+  <div class="lightbox-stage">
+    
+    <button class="lightbox-nav-btn prev-btn" id="lawLightboxPrevBtn" type="button" aria-label="Previous image">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+
+    <div class="lightbox-img-wrap">
+      <img src="{% static 'core/images/law_associates/law-associates-gallery-01.jpg' %}" id="lawLightboxMainImg" alt="Bairava Law Associates Fullscreen Photo">
+    </div>
+
+    <button class="lightbox-nav-btn next-btn" id="lawLightboxNextBtn" type="button" aria-label="Next image">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="lightbox-footer">
+    <span>Use Left/Right arrow keys or swipe to navigate &bull; Press ESC to close</span>
+  </div>
+
+</div>
+
+<!-- ==========================================================================
+     STATIC FRAME PHOTO-ONLY CROSSFADE & LIGHTBOX JAVASCRIPT
+     ========================================================================== -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const slides = Array.from(document.querySelectorAll('#lawGalleryShowcase .gallery-photo-slide'));
+  const dots = Array.from(document.querySelectorAll('#lawGalleryDots .gallery-dot'));
+  const thumbs = Array.from(document.querySelectorAll('#lawGalleryThumbsList .gallery-thumb-item'));
+  const currentNumEl = document.getElementById('lawCurrentSlideNum');
+  const prevBtn = document.getElementById('lawGalleryPrevBtn');
+  const nextBtn = document.getElementById('lawGalleryNextBtn');
+  const showcase = document.getElementById('lawGalleryShowcase');
+  const frame = document.getElementById('lawGalleryPhotoFrame');
+
+  // Lightbox elements
+  const lightbox = document.getElementById('lawLightbox');
+  const lightboxImg = document.getElementById('lawLightboxMainImg');
+  const lightboxTitle = document.getElementById('lawLightboxTitle');
+  const lightboxIndex = document.getElementById('lawLightboxIndex');
+  const lightboxClose = document.getElementById('lawLightboxCloseBtn');
+  const lightboxPrev = document.getElementById('lawLightboxPrevBtn');
+  const lightboxNext = document.getElementById('lawLightboxNextBtn');
+
+  if (!slides.length) return;
+
+  const total = slides.length;
+  let currentIndex = 0;
+  let autoTimer = null;
+  const AUTO_INTERVAL = 4500; // 4.5 seconds
+
+  // Transition photos smoothly inside the static frame
+  function showSlide(newIndex) {
+    currentIndex = (newIndex + total) % total;
+
+    slides.forEach((slide, i) => {
+      const isActive = (i === currentIndex);
+      slide.classList.toggle('active', isActive);
+    });
+
+    // Update Counter (Static text update)
+    if (currentNumEl) {
+      currentNumEl.textContent = String(currentIndex + 1).padStart(2, '0');
+    }
+
+    // Update Pagination Dots
+    dots.forEach((dot, i) => {
+      const isActive = (i === currentIndex);
+      dot.classList.toggle('active', isActive);
+      dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    // Update Thumbnails (Pure visual highlight - NO page movement)
+    thumbs.forEach((thumb, i) => {
+      const isActive = (i === currentIndex);
+      thumb.classList.toggle('active', isActive);
+      thumb.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    // Sync Lightbox if open
+    if (lightbox && lightbox.classList.contains('open')) {
+      syncLightbox(currentIndex);
+    }
+  }
+
+  function nextSlide() {
+    showSlide(currentIndex + 1);
+  }
+
+  function prevSlide() {
+    showSlide(currentIndex - 1);
+  }
+
+  // Autoplay controls
+  function startAutoplay() {
+    stopAutoplay();
+    autoTimer = setInterval(nextSlide, AUTO_INTERVAL);
+  }
+
+  function stopAutoplay() {
+    if (autoTimer) {
+      clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  }
+
+  // Event Listeners for Nav Buttons
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      nextSlide();
+      startAutoplay();
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      prevSlide();
+      startAutoplay();
+    });
+  }
+
+  // Click on active slide opens Lightbox
+  slides.forEach((slide, idx) => {
+    slide.addEventListener('click', function(e) {
+      if (e.target.closest('.gallery-nav-btn')) return;
+      openLightbox(idx);
+    });
+  });
+
+  // Dots click
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', (e) => {
+      e.preventDefault();
+      showSlide(idx);
+      startAutoplay();
+    });
+  });
+
+  // Thumbnails click
+  thumbs.forEach((thumb, idx) => {
+    thumb.addEventListener('click', (e) => {
+      e.preventDefault();
+      showSlide(idx);
+      startAutoplay();
+    });
+    thumb.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        showSlide(idx);
+        startAutoplay();
+      }
+    });
+  });
+
+  // Pause autoplay on mouse hover over gallery showcase
+  if (showcase) {
+    showcase.addEventListener('mouseenter', stopAutoplay);
+    showcase.addEventListener('mouseleave', startAutoplay);
+  }
+
+  // Touch Swipe on photo frame
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  if (frame) {
+    frame.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      stopAutoplay();
+    }, { passive: true });
+
+    frame.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+      startAutoplay();
+    }, { passive: true });
+  }
+
+  function handleSwipe() {
+    const diff = touchEndX - touchStartX;
+    if (Math.abs(diff) > 40) {
+      if (diff < 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+  }
+
+  // Keyboard Navigation
+  document.addEventListener('keydown', (e) => {
+    if (lightbox && lightbox.classList.contains('open')) {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    }
+  });
+
+  // Lightbox functions
+  function syncLightbox(index) {
+    const slide = slides[index];
+    if (!slide) return;
+    const img = slide.querySelector('img');
+    const caption = slide.getAttribute('data-caption') || '';
+    
+    if (lightboxImg && img) {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+    }
+    if (lightboxTitle) {
+      lightboxTitle.innerHTML = caption;
+    }
+    if (lightboxIndex) {
+      lightboxIndex.textContent = String(index + 1).padStart(2, '0');
+    }
+  }
+
+  function openLightbox(index) {
+    syncLightbox(index);
+    if (lightbox) {
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      stopAutoplay();
+    }
+  }
+
+  function closeLightbox() {
+    if (lightbox) {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      startAutoplay();
+    }
+  }
+
+  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+  if (lightboxNext) lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); nextSlide(); });
+  if (lightboxPrev) lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); prevSlide(); });
+
+  if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target.classList.contains('lightbox-stage')) {
+        closeLightbox();
+      }
+    });
+
+    let lbTouchStartX = 0;
+    let lbTouchEndX = 0;
+    lightbox.addEventListener('touchstart', (e) => {
+      lbTouchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    lightbox.addEventListener('touchend', (e) => {
+      lbTouchEndX = e.changedTouches[0].screenX;
+      const diff = lbTouchEndX - lbTouchStartX;
+      if (Math.abs(diff) > 40) {
+        if (diff < 0) nextSlide();
+        else prevSlide();
+      }
+    }, { passive: true });
+  }
+
+  // Initialize
+  showSlide(0);
+  startAutoplay();
+});
+</script>
 {% endblock %}
