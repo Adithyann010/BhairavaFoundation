@@ -231,10 +231,10 @@ def generate_rag_fallback_response(
             "Explore published articles on the **[Bairava Media Page](/businesses/media/)**."
         )
 
-    # 11. Specific Division: Bhairava Association
-    if any(term in q for term in ['association', 'bhairava association', 'networking', 'member engagement']) or ('association' in page and any(term in q for term in ['do', 'services', 'about', 'join', 'connect'])):
+    # 11. Specific Division: Bairava Law Associates
+    if any(term in q for term in ['association', 'law associates', 'bairava law associates', 'bhairava association', 'networking', 'member engagement']) or (('association' in page or 'law-associates' in page) and any(term in q for term in ['do', 'services', 'about', 'join', 'connect'])):
         return (
-            "**[Bhairava Association](/businesses/bhairava-association/)** focuses on bringing people, professionals, businesses and communities together (\"Community • Connection • Collaboration\").\n\n"
+            "**[Bairava Law Associates](/businesses/law-associates/)** focuses on bringing people, professionals, businesses and communities together (\"Community • Connection • Collaboration\").\n\n"
             "**Key Focus Areas:**\n"
             "- **Community Networking**: Building meaningful connections among members, professionals and local communities.\n"
             "- **Professional Collaboration**: Encouraging partnerships, knowledge sharing and professional growth.\n"
@@ -242,7 +242,7 @@ def generate_rag_fallback_response(
             "- **Member Engagement**: Creating events, meetings and activities that encourage participation.\n"
             "- **Knowledge & Networking**: Exchanging ideas, experience and practical knowledge.\n"
             "- **Collective Growth**: Working together for sustainable opportunities and positive community impact.\n\n"
-            "Connect with us on the **[Bhairava Association Page](/businesses/bhairava-association/)**."
+            "Connect with us on the **[Bairava Law Associates Page](/businesses/law-associates/)**."
         )
 
     # 12. Legal Associates Advisory
@@ -303,7 +303,7 @@ def generate_rag_fallback_response(
             "5. **[Bairava Event Management](/businesses/event-management/)** — Luxury weddings, corporate summits, social galas, and bespoke decor planning.\n"
             "6. **[BAIRAVA ஆடுகளம்](/businesses/aadukalam/)** — Political journalism, policy analysis, and weekly digital newspaper.\n"
             "7. **[Bairava Media](/businesses/media/)** — Documentary production, podcast studio recordings, digital storytelling, and brand communications.\n"
-            "8. **[Bhairava Association](/businesses/bhairava-association/)** — Community networking, professional collaboration, member engagement, and collective growth.\n\n"
+            "8. **[Bairava Law Associates](/businesses/law-associates/)** — Community networking, professional collaboration, member engagement, and collective growth.\n\n"
             "**Community & Social Initiatives:**\n"
             "9. **[Bairava Foundation](/foundation/)** — Community empowerment, school scholarships, and healthcare access.\n"
             "10. **[Bairava Trust](/trust/)** — Compassionate social care, daily Annadhanam (500+ free meals daily), and elder care shelter.\n\n"

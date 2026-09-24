@@ -26,7 +26,7 @@ def get_group_general_knowledge() -> str:
         "5. BAIRAVA EVENT MANAGEMENT: End-to-end event planning, luxury weddings, corporate summits, social galas, and bespoke decor coordination (/businesses/event-management/).\n"
         "6. BAIRAVA ஆடுகளம்: Political news & weekly digital newspaper platform delivering balanced political analysis, policy discussions, and public issues across Tamil Nadu, India and worldwide (/businesses/aadukalam/).\n"
         "7. BAIRAVA MEDIA: Meaningful visual storytelling, documentary production, digital content, podcast studio, and brand communications (/businesses/media/).\n"
-        "8. BHAIRAVA ASSOCIATION: Community networking, professional collaboration, member engagement, knowledge sharing and collective development (/businesses/bhairava-association/).\n"
+        "8. BAIRAVA LAW ASSOCIATES: Community networking, professional collaboration, member engagement, knowledge sharing and collective development (/businesses/law-associates/).\n"
         "\n"
         "TWO SOCIAL & COMMUNITY INITIATIVES:\n"
         "9. BAIRAVA FOUNDATION: Sustainable community empowerment through educational scholarships, healthcare access, welfare development, and youth mentorship (/foundation/).\n"
@@ -82,8 +82,9 @@ def retrieve_website_context(user_query: str, current_page: str = "", division_c
         'sports': 'sports-club',
         'aadukalam': 'aadukalam',
         'media': 'media',
-        'association': 'bhairava-association',
-        'bhairava-association': 'bhairava-association',
+        'association': 'law-associates',
+        'bhairava-association': 'law-associates',
+        'law-associates': 'law-associates',
         'legal': 'legal',
         'event': 'event-management',
         'events': 'event-management',
@@ -106,7 +107,7 @@ def retrieve_website_context(user_query: str, current_page: str = "", division_c
         'aadukalam': ['aadukalam', 'news', 'political', 'politics', 'newspaper', 'weekly newspaper', 'tamil nadu politics', 'election', 'policy', 'governance'],
         'event-management': ['event', 'events', 'wedding', 'reception', 'conference', 'summit', 'gala', 'decor', 'party', 'coordination', 'planner'],
         'media': ['media', 'video', 'documentary', 'podcast', 'storytelling', 'press', 'production', 'broadcast', 'article', 'news story'],
-        'association': ['association', 'bhairava association', 'networking', 'collaboration', 'community networking', 'member engagement', 'collective growth'],
+        'association': ['association', 'law associates', 'bairava law associates', 'bhairava association', 'networking', 'collaboration', 'community networking', 'member engagement', 'collective growth'],
         'legal': ['legal', 'lawyer', 'advocate', 'corporate law', 'contracts', 'property law', 'compliance', 'legal advisory', 'dispute'],
         'contact': ['contact', 'phone', 'email', 'address', 'enquiry', 'reach', 'office', 'touch', 'call', 'talk', 'location', 'where', 'number']
     }
@@ -312,11 +313,11 @@ def get_suggested_questions(current_page: str = "") -> List[str]:
             "What video production and podcast services exist?",
             "Tell me about your published stories."
         ]
-    elif 'association' in page:
+    elif 'association' in page or 'law-associates' in page:
         return [
-            "What is Bhairava Association?",
+            "What is Bairava Law Associates?",
             "Tell me about community networking and collaboration.",
-            "How can I participate or connect with the association?"
+            "How can I participate or connect with Bairava Law Associates?"
         ]
     elif 'legal' in page:
         return [

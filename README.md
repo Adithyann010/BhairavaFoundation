@@ -21,7 +21,7 @@ The website features dedicated sections and enquiry interfaces for each operatio
 5. **BAIRAVA EVENT MANAGEMENT** — End-to-end corporate event planning, weddings, cultural celebrations, and exhibitions.
 6. **BAIRAVA AADUKALAM** — State-of-the-art sports arenas, Kabaddi championships, and indigenous sports leagues.
 7. **BAIRAVA MEDIA** — Digital media production, brand promotion, video production, and advertising services.
-8. **BHAIRAVA ASSOCIATION** — Community networking, professional collaboration, member engagement, and collective development.
+8. **BAIRAVA LAW ASSOCIATES** — Community networking, professional collaboration, member engagement, and collective development.
 
 ---
 

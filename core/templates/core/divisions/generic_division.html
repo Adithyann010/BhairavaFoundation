@@ -25,7 +25,7 @@
         {% elif division.static_image_path %}
           <img src="{% static division.static_image_path %}" alt="{{ division.name }} Logo" class="bhero-logo-img">
         {% else %}
-          <img src="{% static 'core/images/logo.jpg' %}" alt="{{ division.name }} Logo" class="bhero-logo-img">
+          <img src="{% static 'core/images/logos/bairava-groups-logo.png' %}" alt="{{ division.name }} Logo" class="bhero-logo-img">
         {% endif %}
       </div>
 
@@ -53,7 +53,7 @@
           {% elif division.static_image_path %}
             <img src="{% static division.static_image_path %}" alt="{{ division.name }}">
           {% else %}
-            <img src="{% static 'core/images/logo.jpg' %}" alt="{{ division.name }}">
+            <img src="{% static 'core/images/logos/bairava-groups-logo.png' %}" alt="{{ division.name }}">
           {% endif %}
           <div class="bhero-image-overlay"></div>
         </div>

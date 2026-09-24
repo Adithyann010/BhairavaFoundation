@@ -129,15 +129,15 @@ divisions_data = [
         "order": 8,
     },
     {
-        "name": "BHAIRAVA ASSOCIATION",
-        "slug": "bhairava-association",
+        "name": "BAIRAVA LAW ASSOCIATES",
+        "slug": "law-associates",
         "tagline": "COMMUNITY • CONNECTION • COLLABORATION",
         "short_description": "Building stronger communities through networking, collaboration, engagement and collective growth.",
-        "full_description": "Bhairava Association is focused on bringing people, professionals, businesses and communities together through meaningful connections, collaboration and organized initiatives. The association aims to create a strong platform for networking, community engagement, knowledge sharing and collective development.",
+        "full_description": "Bairava Law Associates is focused on bringing people, professionals, businesses and communities together through meaningful connections, collaboration and organized initiatives. The associates aim to create a strong platform for networking, community engagement, knowledge sharing and collective development.",
         "division_type": "business",
         "icon_name": "users",
         "static_image_path": "core/images/divisions/association.jpg",
-        "target_url": "/businesses/bhairava-association/",
+        "target_url": "/businesses/law-associates/",
         "accent_color": "#7C3B29",
         "order": 9,
     },
@@ -203,7 +203,7 @@ offerings_data = {
         {"title": "EVENT & LIVE STREAM COVERAGE", "badge": "LIVE BROADCAST", "description": "Multi-camera live streaming and high-speed social media feeds for corporate summits and cultural festivals.", "order": 3},
         {"title": "BRAND STORYTELLING & PR STRATEGY", "badge": "STRATEGY", "description": "Narrative-driven press releases, promotional video campaigns, and social digital storytelling.", "order": 4},
     ],
-    "bhairava-association": [
+    "law-associates": [
         {"title": "COMMUNITY NETWORKING", "badge": "NETWORKING", "description": "Building meaningful connections among members, professionals and local communities.", "order": 1},
         {"title": "PROFESSIONAL COLLABORATION", "badge": "COLLABORATION", "description": "Encouraging partnerships, knowledge sharing and opportunities for professional growth.", "order": 2},
         {"title": "COMMUNITY INITIATIVES", "badge": "INITIATIVES", "description": "Supporting programs and activities that contribute to community development.", "order": 3},

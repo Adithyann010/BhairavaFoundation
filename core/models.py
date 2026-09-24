@@ -135,7 +135,8 @@ class ContactEnquiry(models.Model):
         ('aadukalam', 'BAIRAVA AADUKALAM'),
         ('trust', 'BAIRAVA TRUST'),
         ('media', 'BAIRAVA MEDIA'),
-        ('association', 'BHAIRAVA ASSOCIATION'),
+        ('association', 'BAIRAVA LAW ASSOCIATES'),
+        ('law_associates', 'BAIRAVA LAW ASSOCIATES'),
         ('legal', 'LEGAL CONSULTATION'),
     ]
     name = models.CharField(max_length=150)

@@ -168,8 +168,22 @@ def foundation_view(request):
     return render(request, 'core/foundation.html', context)
 
 
+def redirect_association(request):
+    """Redirect legacy /association/ route to /businesses/law-associates/."""
+    return redirect('core:business_detail', slug='law-associates', permanent=True)
+
+
+def redirect_law_associates(request):
+    """Redirect shortcut /law-associates/ route to /businesses/law-associates/."""
+    return redirect('core:business_detail', slug='law-associates', permanent=True)
+
+
 def business_detail(request, slug):
     """Serve dedicated pages for individual business divisions."""
+    # Redirect legacy association slug to new law-associates route safely
+    if slug in ('bhairava-association', 'association'):
+        return redirect('core:business_detail', slug='law-associates', permanent=True)
+
     division = get_object_or_404(BusinessDivision, slug=slug)
 
     # Route specialized existing apps if accessed via /businesses/<slug>/
@@ -199,6 +213,7 @@ def business_detail(request, slug):
         'sports-club': 'core/divisions/sports_club.html',
         'aadukalam': 'core/divisions/aadukalam.html',
         'media': 'core/divisions/media.html',
+        'law-associates': 'core/divisions/association.html',
         'bhairava-association': 'core/divisions/association.html',
     }
 

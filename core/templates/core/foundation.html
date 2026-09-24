@@ -16,21 +16,33 @@
       <span>BAIRAVA FOUNDATION</span>
     </div>
 
-    <div class="page-hero-grid">
-      <div>
-        <span class="badge" style="background: rgba(124, 59, 41, 0.1);">SOCIAL INITIATIVE</span>
-        <h1 style="font-size: clamp(2.2rem, 3.8vw, 3.2rem); margin-bottom: 12px;">BAIRAVA FOUNDATION</h1>
-        <p class="hero-subtitle" style="font-size: 1.25rem;">"Empowering Communities. Nurturing Potential. Creating Opportunities."</p>
-        <p style="font-size: 1.05rem; line-height: 1.7; margin-bottom: 24px;">Bairava Foundation focuses on initiatives that support communities through education, welfare, development and meaningful social programmes.</p>
+    <div class="business-hero-3col">
+      <!-- LEFT: Brand Logo / Emblem -->
+      <div class="bhero-logo-col">
+        <div class="bhero-logo-halo"></div>
+        <img src="{% static 'core/images/logos/bairava-foundation-logo.png' %}" alt="Bairava Foundation Official Logo" class="bhero-logo-img">
+      </div>
+
+      <!-- CENTER: Brand & Content -->
+      <div class="bhero-content-col">
+        <div class="bhero-brand-kicker">BAIRAVA GROUPS &bull; BUILDING &middot; CREATING &middot; SERVING</div>
+        <span class="bhero-category-badge">SOCIAL INITIATIVE</span>
+        <h1 class="bhero-title">BAIRAVA FOUNDATION</h1>
+        <p class="bhero-subtitle">"Empowering Communities. Nurturing Potential. Creating Opportunities."</p>
+        <p class="bhero-description">Bairava Foundation focuses on initiatives that support communities through education, welfare, development and meaningful social programmes.</p>
         
-        <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+        <div class="bhero-actions">
           <a href="#initiatives" class="btn btn-solid">COMMUNITY INITIATIVES</a>
           <a href="#contact-foundation" class="btn btn-outline">CONNECT WITH US</a>
         </div>
       </div>
 
-      <div class="page-hero-image-wrap">
-        <img src="{% static 'core/images/divisions/foundation.jpg' %}" alt="Bairava Foundation Community Education">
+      <!-- RIGHT: Category Visual -->
+      <div class="bhero-image-col">
+        <div class="bhero-image-wrap">
+          <img src="{% static 'core/images/divisions/foundation.jpg' %}" alt="Bairava Foundation Community Education">
+          <div class="bhero-image-overlay"></div>
+        </div>
       </div>
     </div>
   </div>

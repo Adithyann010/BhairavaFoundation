@@ -301,7 +301,7 @@ class FuturePlanTestCase(TestCase):
         self.assertIn("COMING SOON", content)
 
         # Footer copyright test
-        self.assertIn("Copyrights 2026 Bairava Groups All Rights Reserved. Chennai, Tamil Nadu.", content)
+        self.assertIn("© 2026 La Fortune Makers. All rights reserved. Chennai, Tamil Nadu.", content)
 
     def test_future_plan_nav_in_all_pages(self):
         """Test that Future Plan appears in the header between Businesses and Foundation & Trust."""
@@ -331,16 +331,16 @@ class FuturePlanTestCase(TestCase):
         self.assertIn("What is Bairava Water Solutions?", data["suggestions"])
 
 
-class BhairavaAssociationAndLegalTestCase(TestCase):
+class BairavaLawAssociatesAndLegalTestCase(TestCase):
     def setUp(self):
         from django.test import RequestFactory
         self.rf = RequestFactory()
         self.div_assoc = BusinessDivision.objects.create(
-            name="BHAIRAVA ASSOCIATION",
-            slug="bhairava-association",
+            name="BAIRAVA LAW ASSOCIATES",
+            slug="law-associates",
             tagline="COMMUNITY • CONNECTION • COLLABORATION",
             short_description="Building stronger communities through networking, collaboration, engagement and collective growth.",
-            full_description="Bhairava Association is focused on bringing people, professionals, businesses and communities together through meaningful connections, collaboration and organized initiatives.",
+            full_description="Bairava Law Associates is focused on bringing people, professionals, businesses and communities together through meaningful connections, collaboration and organized initiatives.",
             division_type="business",
             order=8
         )
@@ -352,21 +352,29 @@ class BhairavaAssociationAndLegalTestCase(TestCase):
             order=1
         )
 
-    def test_bhairava_association_page(self):
-        """Test GET /businesses/bhairava-association/ returns 200 and renders association template."""
+    def test_bairava_law_associates_page(self):
+        """Test GET /businesses/law-associates/ returns 200 and renders law associates template."""
         from core.views import business_detail
-        req = self.rf.get(reverse('core:business_detail', kwargs={'slug': 'bhairava-association'}))
-        response = business_detail(req, slug='bhairava-association')
+        req = self.rf.get(reverse('core:business_detail', kwargs={'slug': 'law-associates'}))
+        response = business_detail(req, slug='law-associates')
         self.assertEqual(response.status_code, 200)
         content = response.content.decode('utf-8')
 
-        self.assertIn("BHAIRAVA ASSOCIATION", content)
+        self.assertIn("BAIRAVA LAW ASSOCIATES", content)
         self.assertIn("COMMUNITY • CONNECTION • COLLABORATION", content)
         self.assertIn("COMMUNITY NETWORKING", content)
-        self.assertIn("core/images/divisions/association.jpg", content)
+        self.assertIn("core/images/logos/bairava-law-associates-logo.png", content)
 
-    def test_navbar_businesses_count_and_association(self):
-        """Test that navbar shows BUSINESSES (8 DIVISIONS) and includes BHAIRAVA ASSOCIATION."""
+    def test_legacy_association_redirect(self):
+        """Test GET /businesses/bhairava-association/ redirects to /businesses/law-associates/."""
+        from core.views import business_detail
+        req = self.rf.get('/businesses/bhairava-association/')
+        response = business_detail(req, slug='bhairava-association')
+        self.assertEqual(response.status_code, 301)
+        self.assertEqual(response.url, reverse('core:business_detail', kwargs={'slug': 'law-associates'}))
+
+    def test_navbar_businesses_count_and_law_associates(self):
+        """Test that navbar shows BUSINESSES (8 DIVISIONS) and includes BAIRAVA LAW ASSOCIATES."""
         from core.views import home
         req = self.rf.get(reverse('core:home'))
         response = home(req)
@@ -374,7 +382,7 @@ class BhairavaAssociationAndLegalTestCase(TestCase):
         content = response.content.decode('utf-8')
 
         self.assertIn("BUSINESSES (8 DIVISIONS)", content)
-        self.assertIn("BHAIRAVA ASSOCIATION", content)
+        self.assertIn("BAIRAVA LAW ASSOCIATES", content)
         self.assertIn("BAIRAVA FINANCE", content)
         self.assertIn("BAIRAVA MEDIA", content)
 
@@ -485,7 +493,7 @@ class JKKitchenTestCase(TestCase):
         self.assertIn("DOWNLOAD BROCHURE", content)
 
         # Uploaded Assets
-        self.assertIn("core/images/divisions/jk_kitchen_logo.jpg", content)
+        self.assertIn("core/images/logos/bairava-kitchen-logo.png", content)
         self.assertIn("core/images/divisions/jk_kitchen_hero.jpg", content)
         self.assertIn("core/images/divisions/gallery_bulk_catering.jpg", content)
         self.assertIn("core/images/divisions/gallery_premium_catering.jpg", content)

@@ -12,6 +12,8 @@ urlpatterns = [
     path('future-plan/', views.future_plan_view, name='future_plan'),
     path('businesses/', views.businesses_index, name='businesses_index'),
     path('businesses/<slug:slug>/', views.business_detail, name='business_detail'),
+    path('association/', views.redirect_association, name='redirect_association'),
+    path('law-associates/', views.redirect_law_associates, name='redirect_law_associates'),
     path('enquiries/', views.all_enquiries, name='all_enquiries'),
     
     # AI Chatbot API Endpoints

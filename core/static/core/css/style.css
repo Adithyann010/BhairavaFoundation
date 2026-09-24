@@ -152,6 +152,15 @@ header {
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
+.logo-image,
+.business-logo,
+.division-logo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
 .brand-info {
   display: flex;
   flex-direction: column;
