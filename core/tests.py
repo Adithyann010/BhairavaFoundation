@@ -660,6 +660,70 @@ class AadukalamPoliticalNewsTestCase(TestCase):
         self.assertNotIn("SPORTS ACTIVITIES", content)
 
 
+class BairavaSportsClubGalleryTestCase(TestCase):
+    def setUp(self):
+        from django.test import RequestFactory
+        self.rf = RequestFactory()
+        self.div_sports, _ = BusinessDivision.objects.update_or_create(
+            slug="sports-club",
+            defaults={
+                "name": "BAIRAVA SPORTS CLUB",
+                "tagline": "Nurturing Athletic Talent & Active Communities.",
+                "short_description": "Bairava Sports Club promotes sports, fitness, training and community participation.",
+                "full_description": "Premier athletic training facilities, fitness academies, and sports tournaments.",
+                "division_type": "business",
+                "order": 5,
+            }
+        )
+
+    def test_sports_club_real_photo_gallery(self):
+        """Test GET /businesses/sports-club/ renders the 3D coverflow photo gallery with original photos, thumbnails, counter & lightbox."""
+        from core.views import business_detail
+        req = self.rf.get(reverse('core:business_detail', kwargs={'slug': 'sports-club'}))
+        response = business_detail(req, slug='sports-club')
+        self.assertEqual(response.status_code, 200)
+        content = response.content.decode('utf-8')
+
+        # 1. Gallery Section & Headings
+        self.assertIn("OUR SPORTS GALLERY", content)
+        self.assertIn("Moments of Passion, Teamwork &amp; Triumph.", content)
+        self.assertIn("MOMENTS &amp; TRIUMPHS", content)
+        self.assertIn("AUTO ROTATING", content)
+
+        # 2. Real Uploaded Photographs
+        self.assertIn("core/images/sports/sports-01.jpg", content)
+        self.assertIn("core/images/sports/sports-02.jpg", content)
+        self.assertIn("core/images/sports/sports-03.jpg", content)
+        self.assertIn("core/images/sports/sports-04.jpg", content)
+        self.assertIn("core/images/sports/sports-05.jpg", content)
+
+        # 3. Accessibility Alt Texts
+        self.assertIn('alt="Bairava Sports Club fitness team"', content)
+        self.assertIn('alt="Bairava Sports Club team"', content)
+        self.assertIn('alt="Bairava Sports Club tournament team"', content)
+        self.assertIn('alt="Bairava Sports Club sports event"', content)
+        self.assertIn('alt="Bairava Sports Club trophy celebration"', content)
+
+        # 4. Captions
+        self.assertIn("FITNESS &amp; STRENGTH CONDITIONING TEAM", content)
+        self.assertIn("GYM ATHLETES &amp; BODYBUILDING SQUAD", content)
+        self.assertIn("OFFICIAL TEAM JERSEY FELICITATION", content)
+        self.assertIn("TEAM GATHERING &amp; CELEBRATION", content)
+        self.assertIn("TOURNAMENT CHAMPIONSHIP &amp; TROPHY CELEBRATION", content)
+
+        # 5. Controls, Thumbnails & Lightbox
+        self.assertIn("coverflow-stage", content)
+        self.assertIn("coverflowPrevBtn", content)
+        self.assertIn("coverflowNextBtn", content)
+        self.assertIn("coverflowDots", content)
+        self.assertIn("galleryThumbsList", content)
+        self.assertIn("sportsLightbox", content)
+        self.assertIn("lightboxCloseBtn", content)
+        self.assertIn("lightboxPrevBtn", content)
+        self.assertIn("lightboxNextBtn", content)
+
+
+
 
 
 

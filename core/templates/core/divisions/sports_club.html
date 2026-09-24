@@ -51,8 +51,8 @@
         </div>
 
         <div class="bhero-actions">
-          <a href="#facilities" class="btn btn-solid">SPORTS FACILITIES</a>
-          <a href="#sports-enquiry" class="btn btn-outline">MEMBERSHIP &amp; BOOKING</a>
+          <a href="#sports-gallery" class="btn btn-solid">OUR PHOTO GALLERY</a>
+          <a href="#facilities" class="btn btn-outline">SPORTS FACILITIES</a>
         </div>
       </div>
 
@@ -66,6 +66,206 @@
     </div>
   </div>
 </section>
+
+<!-- ==========================================================================
+     OUR SPORTS GALLERY — 3D ROTATING COVERFLOW CAROUSEL & LIGHTBOX
+     ========================================================================== -->
+<section class="sports-gallery-section" id="sports-gallery" aria-label="Bairava Sports Club Photo Gallery">
+  <div class="wrap">
+    
+    <!-- Section Header -->
+    <div class="sports-gallery-header">
+      <span class="badge badge-brass">MOMENTS &amp; TRIUMPHS</span>
+      <h2>OUR SPORTS GALLERY</h2>
+      <p>Moments of Passion, Teamwork &amp; Triumph.</p>
+    </div>
+
+    <!-- Gallery Controls & Counter Bar -->
+    <div class="gallery-meta-bar">
+      <div class="gallery-counter" id="galleryCounter" aria-live="polite">
+        <span class="current-num" id="currentSlideNum">01</span>
+        <span class="total-num">/ <span id="totalSlidesNum">05</span></span>
+      </div>
+
+      <div class="gallery-autoplay-status" id="galleryAutoplayBadge" title="Gallery automatically advances every 3.5 seconds">
+        <span class="gallery-autoplay-dot"></span>
+        <span>AUTO ROTATING</span>
+      </div>
+    </div>
+
+    <!-- 3D Coverflow Container -->
+    <div class="coverflow-wrap" id="sportsCoverflowWrap">
+      
+      <!-- Prev Button -->
+      <button class="coverflow-nav-btn prev-btn" id="coverflowPrevBtn" aria-label="Previous photograph" type="button">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+
+      <!-- 3D Stage -->
+      <div class="coverflow-stage" id="coverflowStage">
+        
+        <!-- Slide 1 -->
+        <div class="coverflow-slide" data-index="0" data-caption="FITNESS &amp; STRENGTH CONDITIONING TEAM" data-sub="Athletic Excellence &amp; Dedicated Physical Training">
+          <img src="{% static 'core/images/sports/sports-01.jpg' %}" alt="Bairava Sports Club fitness team" loading="eager">
+          <div class="slide-overlay">
+            <h3 class="slide-caption-title">FITNESS &amp; STRENGTH CONDITIONING TEAM</h3>
+            <p class="slide-caption-sub">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              Athletic Excellence &amp; Dedicated Physical Training
+            </p>
+          </div>
+          <button class="slide-expand-btn" aria-label="View photo in fullscreen" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          </button>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="coverflow-slide" data-index="1" data-caption="GYM ATHLETES &amp; BODYBUILDING SQUAD" data-sub="Champion Discipline &amp; Core Strength">
+          <img src="{% static 'core/images/sports/sports-02.jpg' %}" alt="Bairava Sports Club team" loading="lazy">
+          <div class="slide-overlay">
+            <h3 class="slide-caption-title">GYM ATHLETES &amp; BODYBUILDING SQUAD</h3>
+            <p class="slide-caption-sub">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              Champion Discipline &amp; Core Strength
+            </p>
+          </div>
+          <button class="slide-expand-btn" aria-label="View photo in fullscreen" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          </button>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="coverflow-slide" data-index="2" data-caption="OFFICIAL TEAM JERSEY FELICITATION" data-sub="Team Pride &amp; Executive Recognition">
+          <img src="{% static 'core/images/sports/sports-03.jpg' %}" alt="Bairava Sports Club tournament team" loading="lazy">
+          <div class="slide-overlay">
+            <h3 class="slide-caption-title">OFFICIAL TEAM JERSEY FELICITATION</h3>
+            <p class="slide-caption-sub">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              Team Pride &amp; Executive Recognition
+            </p>
+          </div>
+          <button class="slide-expand-btn" aria-label="View photo in fullscreen" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          </button>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="coverflow-slide" data-index="3" data-caption="TEAM GATHERING &amp; CELEBRATION" data-sub="Unity, Camaraderie &amp; Sporting Spirit">
+          <img src="{% static 'core/images/sports/sports-04.jpg' %}" alt="Bairava Sports Club sports event" loading="lazy">
+          <div class="slide-overlay">
+            <h3 class="slide-caption-title">TEAM GATHERING &amp; CELEBRATION</h3>
+            <p class="slide-caption-sub">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              Unity, Camaraderie &amp; Sporting Spirit
+            </p>
+          </div>
+          <button class="slide-expand-btn" aria-label="View photo in fullscreen" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          </button>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="coverflow-slide" data-index="4" data-caption="TOURNAMENT CHAMPIONSHIP &amp; TROPHY CELEBRATION" data-sub="Victorious Moments &amp; Sportsmanship on the Field">
+          <img src="{% static 'core/images/sports/sports-05.jpg' %}" alt="Bairava Sports Club trophy celebration" loading="lazy">
+          <div class="slide-overlay">
+            <h3 class="slide-caption-title">TOURNAMENT CHAMPIONSHIP &amp; TROPHY CELEBRATION</h3>
+            <p class="slide-caption-sub">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              Victorious Moments &amp; Sportsmanship on the Field
+            </p>
+          </div>
+          <button class="slide-expand-btn" aria-label="View photo in fullscreen" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Next Button -->
+      <button class="coverflow-nav-btn next-btn" id="coverflowNextBtn" aria-label="Next photograph" type="button">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+
+    </div>
+
+    <!-- Pagination Dots -->
+    <div class="coverflow-dots" id="coverflowDots" aria-label="Gallery slides navigation">
+      <button class="coverflow-dot active" data-slide="0" aria-label="Go to photo 1"></button>
+      <button class="coverflow-dot" data-slide="1" aria-label="Go to photo 2"></button>
+      <button class="coverflow-dot" data-slide="2" aria-label="Go to photo 3"></button>
+      <button class="coverflow-dot" data-slide="3" aria-label="Go to photo 4"></button>
+      <button class="coverflow-dot" data-slide="4" aria-label="Go to photo 5"></button>
+    </div>
+
+    <!-- Horizontal Thumbnail Strip -->
+    <div class="gallery-thumbs-wrap">
+      <div class="gallery-thumbs-scroll" id="galleryThumbsList" role="tablist" aria-label="Sports Club Photo Thumbnails">
+        
+        <div class="gallery-thumb-item active" data-index="0" role="tab" aria-selected="true" tabindex="0" title="Photo 1: Fitness & Strength Conditioning Team">
+          <img src="{% static 'core/images/sports/sports-01.jpg' %}" alt="Thumbnail 1">
+        </div>
+
+        <div class="gallery-thumb-item" data-index="1" role="tab" aria-selected="false" tabindex="0" title="Photo 2: Gym Athletes & Bodybuilding Squad">
+          <img src="{% static 'core/images/sports/sports-02.jpg' %}" alt="Thumbnail 2">
+        </div>
+
+        <div class="gallery-thumb-item" data-index="2" role="tab" aria-selected="false" tabindex="0" title="Photo 3: Official Team Jersey Felicitation">
+          <img src="{% static 'core/images/sports/sports-03.jpg' %}" alt="Thumbnail 3">
+        </div>
+
+        <div class="gallery-thumb-item" data-index="3" role="tab" aria-selected="false" tabindex="0" title="Photo 4: Team Gathering & Celebration">
+          <img src="{% static 'core/images/sports/sports-04.jpg' %}" alt="Thumbnail 4">
+        </div>
+
+        <div class="gallery-thumb-item" data-index="4" role="tab" aria-selected="false" tabindex="0" title="Photo 5: Tournament Championship & Trophy Celebration">
+          <img src="{% static 'core/images/sports/sports-05.jpg' %}" alt="Thumbnail 5">
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==========================================================================
+     FULLSCREEN LIGHTBOX MODAL
+     ========================================================================== -->
+<div class="sports-lightbox-modal" id="sportsLightbox" role="dialog" aria-modal="true" aria-label="Fullscreen Photo Lightbox" aria-hidden="true">
+  
+  <!-- Header -->
+  <div class="lightbox-header">
+    <div class="lightbox-title-wrap">
+      <h4 id="lightboxTitle">FITNESS &amp; STRENGTH CONDITIONING TEAM</h4>
+      <p id="lightboxSub">BAIRAVA SPORTS CLUB &bull; PHOTO <span id="lightboxIndex">01</span> / 05</p>
+    </div>
+    <button class="lightbox-close-btn" id="lightboxCloseBtn" type="button" aria-label="Close fullscreen view">
+      &times;
+    </button>
+  </div>
+
+  <!-- Stage -->
+  <div class="lightbox-stage">
+    
+    <button class="lightbox-nav-btn prev-btn" id="lightboxPrevBtn" type="button" aria-label="Previous image">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+
+    <div class="lightbox-img-wrap">
+      <img src="{% static 'core/images/sports/sports-01.jpg' %}" id="lightboxMainImg" alt="Bairava Sports Club Fullscreen Photo">
+    </div>
+
+    <button class="lightbox-nav-btn next-btn" id="lightboxNextBtn" type="button" aria-label="Next image">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="lightbox-footer">
+    <span>Use Left/Right arrow keys or swipe to navigate &bull; Press ESC to close</span>
+  </div>
+
+</div>
 
 <!-- ABOUT SPORTS CLUB -->
 <section class="section">
@@ -156,44 +356,6 @@
   </div>
 </section>
 
-<!-- SPORTS GALLERY -->
-<section class="section">
-  <div class="wrap">
-    <div class="section-head-center">
-      <span class="badge">FACILITY GALLERY</span>
-      <h2>ENERGY, PASSION &amp; PERFORMANCE</h2>
-      <p>A view of our indoor court facilities, coaching batches, and training routines.</p>
-    </div>
-
-    <div class="projects-grid">
-      <div class="project-item-card">
-        <img src="{% static 'core/images/divisions/sports_club.jpg' %}" alt="Badminton Action" class="project-item-img">
-        <div class="project-item-body">
-          <span class="project-item-cat">BADMINTON ARENA</span>
-          <h4>TOURNAMENT COURT MATCHES</h4>
-          <p>Professional synthetic courts with clear court marking and spectator viewing gallery.</p>
-        </div>
-      </div>
-      <div class="project-item-card">
-        <img src="{% static 'core/images/divisions/aadukalam.jpg' %}" alt="Community Sports" class="project-item-img">
-        <div class="project-item-body">
-          <span class="project-item-cat">OUTDOOR TRAINING</span>
-          <h4>OPEN ATHLETICS &amp; FIELD DRILLS</h4>
-          <p>Endurance training, speed drills, and team sports conditioning.</p>
-        </div>
-      </div>
-      <div class="project-item-card">
-        <img src="{% static 'core/images/divisions/events.jpg' %}" alt="Tournament Ceremonies" class="project-item-img">
-        <div class="project-item-body">
-          <span class="project-item-cat">EVENTS &amp; AWARDS</span>
-          <h4>CHAMPIONSHIPS &amp; FELICITATIONS</h4>
-          <p>Annual athletic celebrations recognizing winners, runners-up, and rising sports talent.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ENQUIRY & MEMBERSHIP FORM -->
 <section class="section" style="background-color: var(--sand-light);" id="sports-enquiry">
   <div class="wrap">
@@ -276,4 +438,286 @@
 
 <!-- CTA STRIP -->
 {% include "core/includes/_cta.html" %}
+
+<!-- ==========================================================================
+     INTERACTIVE 3D COVERFLOW & LIGHTBOX JAVASCRIPT
+     ========================================================================== -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const slides = Array.from(document.querySelectorAll('.coverflow-slide'));
+  const dots = Array.from(document.querySelectorAll('.coverflow-dot'));
+  const thumbs = Array.from(document.querySelectorAll('.gallery-thumb-item'));
+  const currentNumEl = document.getElementById('currentSlideNum');
+  const prevBtn = document.getElementById('coverflowPrevBtn');
+  const nextBtn = document.getElementById('coverflowNextBtn');
+  const wrap = document.getElementById('sportsCoverflowWrap');
+
+  // Lightbox elements
+  const lightbox = document.getElementById('sportsLightbox');
+  const lightboxImg = document.getElementById('lightboxMainImg');
+  const lightboxTitle = document.getElementById('lightboxTitle');
+  const lightboxIndex = document.getElementById('lightboxIndex');
+  const lightboxClose = document.getElementById('lightboxCloseBtn');
+  const lightboxPrev = document.getElementById('lightboxPrevBtn');
+  const lightboxNext = document.getElementById('lightboxNextBtn');
+
+  if (!slides.length) return;
+
+  const total = slides.length;
+  let currentIndex = 0;
+  let autoTimer = null;
+  const AUTO_INTERVAL = 3500; // 3.5 seconds
+
+  // Update classes and positioning for 3D Coverflow
+  function updateCoverflow(newIndex) {
+    currentIndex = (newIndex + total) % total;
+
+    slides.forEach((slide, i) => {
+      // Remove all position classes
+      slide.classList.remove('pos-center', 'pos-prev', 'pos-next', 'pos-prev2', 'pos-next2', 'pos-hidden', 'active');
+      
+      const diff = (i - currentIndex + total) % total;
+
+      if (diff === 0) {
+        slide.classList.add('pos-center', 'active');
+      } else if (diff === 1 || diff === -(total - 1)) {
+        slide.classList.add('pos-next');
+      } else if (diff === total - 1 || diff === -1) {
+        slide.classList.add('pos-prev');
+      } else if (diff === 2 || diff === -(total - 2)) {
+        slide.classList.add('pos-next2');
+      } else if (diff === total - 2 || diff === -2) {
+        slide.classList.add('pos-prev2');
+      } else {
+        slide.classList.add('pos-hidden');
+      }
+    });
+
+    // Update Counter
+    if (currentNumEl) {
+      currentNumEl.textContent = String(currentIndex + 1).padStart(2, '0');
+    }
+
+    // Update Pagination Dots
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIndex);
+      dot.setAttribute('aria-selected', i === currentIndex ? 'true' : 'false');
+    });
+
+    // Update Thumbnails
+    thumbs.forEach((thumb, i) => {
+      const isActive = i === currentIndex;
+      thumb.classList.toggle('active', isActive);
+      thumb.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      if (isActive) {
+        thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    });
+
+    // Sync Lightbox if open
+    if (lightbox && lightbox.classList.contains('open')) {
+      syncLightbox(currentIndex);
+    }
+  }
+
+  function nextSlide() {
+    updateCoverflow(currentIndex + 1);
+  }
+
+  function prevSlide() {
+    updateCoverflow(currentIndex - 1);
+  }
+
+  // Autoplay controls
+  function startAutoplay() {
+    stopAutoplay();
+    autoTimer = setInterval(nextSlide, AUTO_INTERVAL);
+  }
+
+  function stopAutoplay() {
+    if (autoTimer) {
+      clearInterval(autoTimer);
+      autoTimer = null;
+    }
+  }
+
+  // Event Listeners for Nav Buttons
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      nextSlide();
+      startAutoplay();
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      prevSlide();
+      startAutoplay();
+    });
+  }
+
+  // Click on slides
+  slides.forEach((slide, idx) => {
+    slide.addEventListener('click', function(e) {
+      if (idx === currentIndex) {
+        // Click on active slide opens Lightbox
+        openLightbox(currentIndex);
+      } else {
+        // Click on side slide brings it to center
+        updateCoverflow(idx);
+        startAutoplay();
+      }
+    });
+  });
+
+  // Dots click
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', () => {
+      updateCoverflow(idx);
+      startAutoplay();
+    });
+  });
+
+  // Thumbnails click & keyboard navigation
+  thumbs.forEach((thumb, idx) => {
+    thumb.addEventListener('click', () => {
+      updateCoverflow(idx);
+      startAutoplay();
+    });
+    thumb.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        updateCoverflow(idx);
+        startAutoplay();
+      }
+    });
+  });
+
+  // Pause autoplay on mouse hover over gallery
+  if (wrap) {
+    wrap.addEventListener('mouseenter', stopAutoplay);
+    wrap.addEventListener('mouseleave', startAutoplay);
+    wrap.addEventListener('focusin', stopAutoplay);
+    wrap.addEventListener('focusout', startAutoplay);
+  }
+
+  // Touch Swipe Support on Carousel
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const stage = document.getElementById('coverflowStage');
+
+  if (stage) {
+    stage.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      stopAutoplay();
+    }, { passive: true });
+
+    stage.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+      startAutoplay();
+    }, { passive: true });
+  }
+
+  function handleSwipe() {
+    const diff = touchEndX - touchStartX;
+    if (Math.abs(diff) > 40) {
+      if (diff < 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+  }
+
+  // Keyboard Navigation on Carousel
+  document.addEventListener('keydown', (e) => {
+    if (lightbox && lightbox.classList.contains('open')) {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    } else {
+      // If coverflow area is in view
+      const rect = wrap ? wrap.getBoundingClientRect() : null;
+      if (rect && rect.top < window.innerHeight && rect.bottom > 0) {
+        if (e.key === 'ArrowRight') { nextSlide(); startAutoplay(); }
+        if (e.key === 'ArrowLeft') { prevSlide(); startAutoplay(); }
+      }
+    }
+  });
+
+  // ==========================================
+  // LIGHTBOX LOGIC
+  // ==========================================
+  function syncLightbox(index) {
+    const slide = slides[index];
+    if (!slide) return;
+    const img = slide.querySelector('img');
+    const caption = slide.getAttribute('data-caption') || '';
+    
+    if (lightboxImg && img) {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+    }
+    if (lightboxTitle) {
+      lightboxTitle.innerHTML = caption;
+    }
+    if (lightboxIndex) {
+      lightboxIndex.textContent = String(index + 1).padStart(2, '0');
+    }
+  }
+
+  function openLightbox(index) {
+    syncLightbox(index);
+    if (lightbox) {
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      stopAutoplay();
+    }
+  }
+
+  function closeLightbox() {
+    if (lightbox) {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      startAutoplay();
+    }
+  }
+
+  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+  if (lightboxNext) lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); nextSlide(); });
+  if (lightboxPrev) lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); prevSlide(); });
+
+  if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox || e.target.classList.contains('lightbox-stage')) {
+        closeLightbox();
+      }
+    });
+
+    // Touch swipe in lightbox
+    let lbTouchStartX = 0;
+    let lbTouchEndX = 0;
+    lightbox.addEventListener('touchstart', (e) => {
+      lbTouchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+    lightbox.addEventListener('touchend', (e) => {
+      lbTouchEndX = e.changedTouches[0].screenX;
+      const diff = lbTouchEndX - lbTouchStartX;
+      if (Math.abs(diff) > 40) {
+        if (diff < 0) nextSlide();
+        else prevSlide();
+      }
+    }, { passive: true });
+  }
+
+  // Initial State Setup
+  updateCoverflow(0);
+  startAutoplay();
+});
+</script>
 {% endblock %}
