@@ -129,6 +129,19 @@ divisions_data = [
         "order": 8,
     },
     {
+        "name": "BAIRAVA LAW ASSOCIATES",
+        "slug": "law-associates",
+        "tagline": "YOUR TRUSTED LEGAL PARTNER.",
+        "short_description": "Delivering practical, professional and client-focused legal solutions for individuals, businesses and organizations with integrity, expertise and commitment.",
+        "full_description": "Bairava Law Associates provides practical legal guidance and professional support for individuals, businesses and organizations. Our approach focuses on clear communication, responsible advice, careful documentation and client-focused legal solutions.",
+        "division_type": "business",
+        "icon_name": "scale",
+        "static_image_path": "core/images/divisions/legal.jpg",
+        "target_url": "/businesses/law-associates/",
+        "accent_color": "#7C3B29",
+        "order": 9,
+    },
+    {
         "name": "BAIRAVA TRUST",
         "slug": "trust",
         "tagline": "COMPASSIONATE SOCIAL CARE & DAILY COMMUNITY SERVICE",
@@ -139,7 +152,7 @@ divisions_data = [
         "static_image_path": "core/images/divisions/trust.jpg",
         "target_url": "/trust/",
         "accent_color": "#7C3B29",
-        "order": 9,
+        "order": 10,
     },
 ]
 
@@ -190,6 +203,16 @@ offerings_data = {
         {"title": "EVENT & LIVE STREAM COVERAGE", "badge": "LIVE BROADCAST", "description": "Multi-camera live streaming and high-speed social media feeds for corporate summits and cultural festivals.", "order": 3},
         {"title": "BRAND STORYTELLING & PR STRATEGY", "badge": "STRATEGY", "description": "Narrative-driven press releases, promotional video campaigns, and social digital storytelling.", "order": 4},
     ],
+    "law-associates": [
+        {"title": "1. CORPORATE & COMMERCIAL LAW", "badge": "COMMERCIAL", "description": "Business structuring, contracts, agreements and compliance support.", "order": 1},
+        {"title": "2. CIVIL LAW", "badge": "CIVIL & DISPUTES", "description": "Legal guidance, dispute resolution, documentation and representation support.", "order": 2},
+        {"title": "3. PROPERTY & REAL ESTATE LAW", "badge": "PROPERTY & REAL ESTATE", "description": "Property documentation, agreements, due diligence and property-related legal matters.", "order": 3},
+        {"title": "4. CRIMINAL LAW", "badge": "DEFENCE & LITIGATION", "description": "Legal guidance and representation relating to criminal proceedings and defence matters.", "order": 4},
+        {"title": "5. FAMILY & PERSONAL LAW", "badge": "FAMILY & INDIVIDUAL", "description": "Professional guidance for family and personal legal matters.", "order": 5},
+        {"title": "6. LEGAL DOCUMENTATION", "badge": "DOCUMENTATION & NOTICES", "description": "Drafting, reviewing and organizing legal agreements, notices and documentation.", "order": 6},
+        {"title": "7. LABOUR & EMPLOYMENT LAW", "badge": "LABOUR & WORKPLACE", "description": "Guidance relating to employment matters, workplace issues, contracts and compliance.", "order": 7},
+        {"title": "8. LEGAL CONSULTATION", "badge": "CONSULTATION & ADVICE", "description": "Professional consultation for individuals, businesses and organizations.", "order": 8},
+    ],
     "foundation": [
         {"title": "EDUCATIONAL SCHOLARSHIPS & SUPPLIES", "badge": "EDUCATION", "description": "Direct financial aid for school fees, notebooks, uniform kits, and digital learning devices for deserving students.", "order": 1},
         {"title": "COMMUNITY WELFARE & MEDICAL SUPPORT", "badge": "WELFARE", "description": "Regular health screenings, eye checkup camps, and distribution of essential health provisions in underserved areas.", "order": 2},
@@ -215,7 +238,7 @@ for slug, items in offerings_data.items():
 # 3. POPULATE STATS
 stats_data = [
     {"value": "20+", "label": "YEARS OF EXCELLENCE", "order": 1},
-    {"value": "9", "label": "INTEGRATED DIVISIONS", "order": 2},
+    {"value": "10", "label": "INTEGRATED DIVISIONS", "order": 2},
     {"value": "100+", "label": "DEDICATED TEAM MEMBERS", "order": 3},
     {"value": "500+", "label": "DAILY BENEFICIARIES", "order": 4},
 ]
@@ -393,11 +416,8 @@ for p in ConstructionProject.objects.exclude(slug__in=valid_project_slugs):
 
 print(f"Construction projects verified count: {ConstructionProject.objects.count()}")
 
-# 7. CLEANUP OBSOLETE LEGAL DATA
-LegalPracticeDetail.objects.all().delete()
-LegalService.objects.all().delete()
-BusinessDivision.objects.filter(slug__in=['law-associates', 'association', 'bhairava-association', 'legal']).delete()
-print("Cleaned up any obsolete Legal Associates database records!")
+# 7. CLEANUP OBSOLETE ASSOCIATIONS DATA
+BusinessDivision.objects.filter(slug__in=['association', 'bhairava-association']).delete()
 
 print("All Bairava Groups database models successfully populated and synced!")
 

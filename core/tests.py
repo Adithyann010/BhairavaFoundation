@@ -331,41 +331,150 @@ class FuturePlanTestCase(TestCase):
         self.assertIn("What is Bairava Water Solutions?", data["suggestions"])
 
 
-class LegalAssociatesRemovalTestCase(TestCase):
+class BairavaLawAssociatesTestCase(TestCase):
     def setUp(self):
         from django.test import RequestFactory
         self.rf = RequestFactory()
+        self.div_law, _ = BusinessDivision.objects.update_or_create(
+            slug="law-associates",
+            defaults={
+                "name": "BAIRAVA LAW ASSOCIATES",
+                "tagline": "Your Trusted Legal Partner.",
+                "short_description": "Delivering practical, professional and client-focused legal solutions for individuals, businesses and organizations with integrity, expertise and commitment.",
+                "full_description": "Bairava Law Associates provides practical legal guidance and professional support for individuals, businesses and organizations.",
+                "division_type": "business",
+                "order": 8,
+            }
+        )
+        practice_areas = [
+            ("CORPORATE & COMMERCIAL LAW", "Business structuring, contracts, agreements and compliance support.", "contracts", 1),
+            ("CIVIL LAW", "Legal guidance, dispute resolution, documentation and representation support.", "dispute", 2),
+            ("PROPERTY & REAL ESTATE LAW", "Property documentation, agreements, due diligence and property-related legal matters.", "property", 3),
+            ("CRIMINAL LAW", "Legal guidance and representation relating to criminal proceedings and defence matters.", "defense", 4),
+            ("FAMILY & PERSONAL LAW", "Professional guidance for family and personal legal matters.", "family", 5),
+            ("LEGAL DOCUMENTATION", "Drafting, reviewing and organizing legal agreements, notices and documentation.", "documentation", 6),
+            ("LABOUR & EMPLOYMENT LAW", "Guidance relating to employment matters, workplace issues, contracts and compliance.", "employment", 7),
+            ("LEGAL CONSULTATION", "Professional consultation for individuals, businesses and organizations.", "consultation", 8),
+        ]
+        for title, desc, badge, order in practice_areas:
+            DivisionOffering.objects.update_or_create(
+                division=self.div_law,
+                title=title,
+                defaults={
+                    "description": desc,
+                    "badge": badge,
+                    "order": order
+                }
+            )
 
-    def test_legal_url_redirects_to_businesses(self):
-        """Test GET /legal/ permanently redirects (301) to /businesses/."""
+    def test_law_associates_page_status_and_content(self):
+        """Test GET /businesses/law-associates/ returns 200 and renders exact legal content and structure."""
+        from core.views import business_detail
+        req = self.rf.get(reverse('core:business_detail', kwargs={'slug': 'law-associates'}))
+        response = business_detail(req, slug='law-associates')
+        self.assertEqual(response.status_code, 200)
+        content = response.content.decode('utf-8')
+
+        # SEO & Headings
+        self.assertIn("Bairava Law Associates | Professional Legal Guidance", content)
+        self.assertIn("HOME", content)
+        self.assertIn("LEGAL", content)
+        self.assertIn("BAIRAVA LAW ASSOCIATES", content)
+        self.assertIn("JUSTICE", content)
+        self.assertIn("INTEGRITY", content)
+        self.assertIn("SOLUTIONS", content)
+        self.assertIn("LEGAL GUIDANCE &amp; ADVISORY", content)
+        self.assertIn('"Your Trusted Legal Partner."', content)
+        self.assertIn("Delivering practical, professional and client-focused legal solutions", content)
+
+        # Buttons
+        self.assertIn("GET LEGAL CONSULTATION", content)
+        self.assertIn("OUR PRACTICE AREAS", content)
+
+        # Restored Exact Logo
+        self.assertIn("core/images/logos/bairava-law-associates-logo.png", content)
+
+        # Trust Strip
+        self.assertIn("EXPERIENCED TEAM", content)
+        self.assertIn("Skilled legal professionals", content)
+        self.assertIn("TRUSTED ADVISORY", content)
+        self.assertIn("Practical &amp; transparent legal guidance", content)
+        self.assertIn("CLIENT FOCUSED", content)
+        self.assertIn("Personalized legal solutions", content)
+        self.assertIn("RESULT ORIENTED", content)
+        self.assertIn("Professional and responsible legal support", content)
+
+        # 8 Practice Areas
+        self.assertIn("OUR PRACTICE AREAS", content)
+        self.assertIn("Comprehensive Legal Solutions", content)
+        self.assertIn("CORPORATE &amp; COMMERCIAL LAW", content)
+        self.assertIn("CIVIL LAW", content)
+        self.assertIn("PROPERTY &amp; REAL ESTATE LAW", content)
+        self.assertIn("CRIMINAL LAW", content)
+        self.assertIn("FAMILY &amp; PERSONAL LAW", content)
+        self.assertIn("LEGAL DOCUMENTATION", content)
+        self.assertIn("LABOUR &amp; EMPLOYMENT LAW", content)
+        self.assertIn("LEGAL CONSULTATION", content)
+
+        # About Section
+        self.assertIn("ABOUT BAIRAVA LAW ASSOCIATES", content)
+        self.assertIn("Committed to Justice, Driven by Integrity", content)
+        self.assertIn("INTEGRITY", content)
+        self.assertIn("EXPERTISE", content)
+        self.assertIn("CLIENT FOCUS", content)
+        self.assertIn("LONG-TERM SUPPORT", content)
+
+        # Consultation CTA & Form
+        self.assertIn("NEED LEGAL GUIDANCE?", content)
+        self.assertIn("Speak with Bairava Law Associates for professional legal consultation and practical guidance.", content)
+        self.assertIn("REQUEST CONSULTATION", content)
+        self.assertIn("CONTACT US", content)
+
+        # Verify removal of old Association identity
+        self.assertNotIn("BAIRAVA ASSOCIATION", content)
+        self.assertNotIn("Community • Connection • Collaboration", content)
+        self.assertNotIn("Professional Growth", content)
+        self.assertNotIn("Social Impact", content)
+
+    def test_legal_url_routes_to_law_associates(self):
+        """Test GET /legal/ successfully redirects to Bairava Law Associates."""
         response = self.client.get('/legal/')
         self.assertEqual(response.status_code, 301)
-        self.assertEqual(response.url, reverse('core:businesses_index'))
+        self.assertEqual(response.url, reverse('core:business_detail', kwargs={'slug': 'law-associates'}))
 
-    def test_legacy_routes_redirect_to_businesses(self):
-        """Test legacy routes permanently redirect (301) to /businesses/."""
-        for path in ['/association/', '/law-associates/', '/businesses/law-associates/', '/businesses/bhairava-association/', '/businesses/legal/']:
+    def test_legacy_routes_redirect_to_law_associates(self):
+        """Test legacy routes redirect to /businesses/law-associates/."""
+        for path in ['/association/', '/businesses/association/', '/businesses/legal/']:
             response = self.client.get(path)
             self.assertEqual(response.status_code, 301)
-            self.assertEqual(response.url, reverse('core:businesses_index'))
+            self.assertEqual(response.url, reverse('core:business_detail', kwargs={'slug': 'law-associates'}))
 
-    def test_navbar_and_footer_no_legal_associates(self):
-        """Test that navbar and footer do not contain Legal Associates or Law Associates references."""
+    def test_navbar_and_footer_contain_bairava_law_associates(self):
+        """Test that navbar and footer contain Legal and Bairava Law Associates links."""
         from core.views import home
         req = self.rf.get(reverse('core:home'))
         response = home(req)
         self.assertEqual(response.status_code, 200)
         content = response.content.decode('utf-8')
 
-        self.assertNotIn("LEGAL ASSOCIATES", content)
-        self.assertNotIn("BAIRAVA LAW ASSOCIATES", content)
+        self.assertIn("LEGAL", content)
+        self.assertIn("BAIRAVA LAW ASSOCIATES", content)
         self.assertNotIn("BAIRAVA ASSOCIATION", content)
-        self.assertNotIn("LEGAL GUIDANCE & ADVISORY", content)
-        # Ensure remaining commercial businesses are present
         self.assertIn("BAIRAVA FINANCE", content)
         self.assertIn("CENTRAL KITCHEN", content)
         self.assertIn("BAIRAVA SPORTS CLUB", content)
         self.assertIn("BAIRAVA MEDIA", content)
+
+    def test_chat_api_law_associates_query(self):
+        """Test asking AI chatbot about Bairava Law Associates."""
+        url = reverse('core:chat_api')
+        payload = {"message": "Tell me about Bairava Law Associates and your practice areas", "conversation_id": "test_conv_law"}
+        response = self.client.post(url, json.dumps(payload), content_type="application/json")
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIn("Bairava Law Associates", data["response"])
+        self.assertIn("Corporate & Commercial Law", data["response"])
+        self.assertIn("Civil Law", data["response"])
 
 
 class ConstructionProjectsTestCase(TestCase):

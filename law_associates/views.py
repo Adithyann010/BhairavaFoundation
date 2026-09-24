@@ -2,6 +2,7 @@ from django.shortcuts import redirect
 
 
 def legal_index(request):
-    """Safely redirect legacy /legal/ route to the businesses directory."""
-    return redirect('core:businesses_index', permanent=True)
+    """Route /legal/ to Bairava Law Associates business page."""
+    return redirect('core:business_detail', slug='law-associates', permanent=True)
+
 

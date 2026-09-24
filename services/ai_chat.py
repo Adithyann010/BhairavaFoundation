@@ -112,7 +112,7 @@ def generate_rag_fallback_response(
         'need more information', 'call you', 'email', 'touch with you', 'reach out',
         'office address', 'where are you located'
     ]
-    if any(ct in q for ct in contact_triggers) and not any(k in q for k in ['foundation', 'trust', 'construction', 'finance', 'sports', 'kitchen', 'event', 'media', 'aadukalam']):
+    if any(ct in q for ct in contact_triggers) and not any(k in q for k in ['foundation', 'trust', 'construction', 'finance', 'sports', 'kitchen', 'event', 'media', 'aadukalam', 'law', 'legal']):
         return (
             "Sure. You can contact the Bairava Groups team through our **[Contact Us](/contact/)** page or directly reach us by phone at **[+91 99417 57555](tel:+919941757555)**.\n\n"
             "Our team is happy to assist you with commercial business enquiries, project requirements, foundation initiatives, and charitable trust partnerships."
@@ -231,7 +231,23 @@ def generate_rag_fallback_response(
             "Explore published articles on the **[Bairava Media Page](/businesses/media/)**."
         )
 
-    # 11. Future Plan (Upcoming Ventures - Coming Soon)
+    # 11. Specific Division: Law Associates
+    if any(term in q for term in ['law', 'legal', 'lawyer', 'advocate', 'practice area', 'court', 'litigation', 'civil law', 'criminal law', 'property law', 'corporate law', 'family law', 'documentation', 'labour law', 'legal consultation', 'legal advisory', 'bairava law associates']) or (('law-associates' in page or 'legal' in page) and any(term in q for term in ['what', 'services', 'practice', 'areas', 'consultation', 'offer', 'do'])):
+        return (
+            "**[Bairava Law Associates](/businesses/law-associates/)** provides practical, professional and client-focused legal solutions for individuals, businesses and organizations with integrity, expertise and commitment.\n\n"
+            "**Key Practice Areas:**\n"
+            "- **Corporate & Commercial Law**: Business structuring, contracts, agreements and compliance support.\n"
+            "- **Civil Law**: Legal guidance, dispute resolution, documentation and representation support.\n"
+            "- **Property & Real Estate Law**: Property documentation, agreements, due diligence and property-related legal matters.\n"
+            "- **Criminal Law**: Legal guidance and representation relating to criminal proceedings and defence matters.\n"
+            "- **Family & Personal Law**: Professional guidance for family and personal legal matters.\n"
+            "- **Legal Documentation**: Drafting, reviewing and organizing legal agreements, notices and documentation.\n"
+            "- **Labour & Employment Law**: Guidance relating to employment matters, workplace issues, contracts and compliance.\n"
+            "- **Legal Consultation**: Professional consultation for individuals, businesses and organizations.\n\n"
+            "Request a consultation on the **[Bairava Law Associates Page](/businesses/law-associates/)** or via **[Contact Us](/contact/)**."
+        )
+
+    # 12. Future Plan (Upcoming Ventures - Coming Soon)
     if any(term in q for term in ['future plan', 'future business', 'upcoming venture', 'upcoming business', 'vision ahead']) or ('future-plan' in page and any(term in q for term in ['what', 'tell me', 'about', 'plan'])):
         return (
             "**Future Plan — Our Vision Ahead**\n\n"
@@ -241,7 +257,7 @@ def generate_rag_fallback_response(
             "Both ventures are currently marked as **Coming Soon**. Explore more details on our dedicated **[Future Plan Page](/future-plan/)**."
         )
 
-    # 12. Specific Upcoming Venture: Bairava Water Solutions
+    # 13. Specific Upcoming Venture: Bairava Water Solutions
     if any(term in q for term in ['water solution', 'water solutions', 'bairava water', 'water can', 'drinking water', 'packaged water']):
         return (
             "**[Bairava Water Solutions](/future-plan/#water-solutions)** is a planned upcoming venture under Bairava Groups (\"Pure Water. Healthier Lives.\").\n\n"
@@ -252,7 +268,7 @@ def generate_rag_fallback_response(
             "Status: **Coming Soon**. Read more on the **[Future Plan Page](/future-plan/)**."
         )
 
-    # 13. Specific Upcoming Venture: Bairava Jewellery
+    # 14. Specific Upcoming Venture: Bairava Jewellery
     if any(term in q for term in ['jewellery', 'jewelry', 'bairava jewellery', 'gold jewellery']):
         return (
             "**[Bairava Jewellery](/future-plan/#jewellery)** is a planned upcoming venture under Bairava Groups (\"Timeless Beauty. Lasting Value.\").\n\n"
@@ -263,10 +279,10 @@ def generate_rag_fallback_response(
             "Status: **Coming Soon**. Read more on the **[Future Plan Page](/future-plan/)**."
         )
 
-    # 14. General businesses / divisions overview
-    if any(term in q for term in ['what businesses', 'business divisions', 'seven business', '7 business', 'divisions', 'ventures', 'what does bairava do', 'tell me about bairava groups', 'about bairava groups', 'overview']):
+    # 15. General businesses / divisions overview
+    if any(term in q for term in ['what businesses', 'business divisions', 'eight business', '8 business', 'divisions', 'ventures', 'what does bairava do', 'tell me about bairava groups', 'about bairava groups', 'overview']):
         return (
-            "**Bairava Groups** operates across **7 commercial business divisions** and **2 social & charitable initiatives**:\n\n"
+            "**Bairava Groups** operates across **8 commercial business divisions** and **2 social & charitable initiatives**:\n\n"
             "**Commercial Businesses:**\n"
             "1. **[Bairava Finance](/businesses/finance/)** — Transparent, professional, and responsible financial solutions & advisory.\n"
             "2. **[Bairava Construction & Land Promoters](/businesses/construction/)** — Turnkey residential, luxury villas, commercial developments, and interior executions in Chennai.\n"
@@ -274,10 +290,11 @@ def generate_rag_fallback_response(
             "4. **[Bairava Sports Club](/businesses/sports-club/)** — BWF-standard indoor badminton courts, gym fitness conditioning, and junior coaching.\n"
             "5. **[Bairava Event Management](/businesses/event-management/)** — Luxury weddings, corporate summits, social galas, and bespoke decor planning.\n"
             "6. **[BAIRAVA ஆடுகளம்](/businesses/aadukalam/)** — Political journalism, policy analysis, and weekly digital newspaper.\n"
-            "7. **[Bairava Media](/businesses/media/)** — Documentary production, podcast studio recordings, digital storytelling, and brand communications.\n\n"
+            "7. **[Bairava Media](/businesses/media/)** — Documentary production, podcast studio recordings, digital storytelling, and brand communications.\n"
+            "8. **[Bairava Law Associates](/businesses/law-associates/)** — Practical, client-focused legal advisory across corporate, civil, property, criminal, family, documentation, and labour law.\n\n"
             "**Community & Social Initiatives:**\n"
-            "8. **[Bairava Foundation](/foundation/)** — Community empowerment, school scholarships, and healthcare access.\n"
-            "9. **[Bairava Trust](/trust/)** — Compassionate social care, daily Annadhanam (500+ free meals daily), and elder care shelter.\n\n"
+            "9. **[Bairava Foundation](/foundation/)** — Community empowerment, school scholarships, and healthcare access.\n"
+            "10. **[Bairava Trust](/trust/)** — Compassionate social care, daily Annadhanam (500+ free meals daily), and elder care shelter.\n\n"
             "How can I assist you with any specific division or project?"
         )
 

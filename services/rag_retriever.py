@@ -16,9 +16,9 @@ def get_group_general_knowledge() -> str:
         "- Heritage: Over 20+ years of excellence across diverse industry verticals.\n"
         "- Contact Phone: +91 99417 57555\n"
         "- Contact URL: /contact/\n"
-        "- Total Divisions: 9 integrated divisions comprising 7 commercial businesses and 2 social & charitable initiatives.\n"
+        "- Total Divisions: 10 integrated divisions comprising 8 commercial businesses and 2 social & charitable initiatives.\n"
         "\n"
-        "SEVEN COMMERCIAL BUSINESS DIVISIONS:\n"
+        "EIGHT COMMERCIAL BUSINESS DIVISIONS:\n"
         "1. BAIRAVA FINANCE: Transparent, professional & responsible financial solutions & advisory (/businesses/finance/).\n"
         "2. BAIRAVA CONSTRUCTION & LAND PROMOTERS: Turnkey residential, commercial, luxury villas, architectural builds and property development in Chennai (/businesses/construction/).\n"
         "3. CENTRAL KITCHEN (JK KITCHEN): Hygienic, authentic culinary experiences, traditional South Indian thalis, dum biryani, and daily wholesome meal boxes (/businesses/cloud-kitchen/).\n"
@@ -26,10 +26,11 @@ def get_group_general_knowledge() -> str:
         "5. BAIRAVA EVENT MANAGEMENT: End-to-end event planning, luxury weddings, corporate summits, social galas, and bespoke decor coordination (/businesses/event-management/).\n"
         "6. BAIRAVA ஆடுகளம்: Political news & weekly digital newspaper platform delivering balanced political analysis, policy discussions, and public issues across Tamil Nadu, India and worldwide (/businesses/aadukalam/).\n"
         "7. BAIRAVA MEDIA: Meaningful visual storytelling, documentary production, digital content, podcast studio, and brand communications (/businesses/media/).\n"
+        "8. BAIRAVA LAW ASSOCIATES: Practical, professional and client-focused legal solutions for individuals, businesses and organizations across corporate, civil, property, criminal, family, documentation and labour law (/businesses/law-associates/ or /legal/).\n"
         "\n"
         "TWO SOCIAL & COMMUNITY INITIATIVES:\n"
-        "8. BAIRAVA FOUNDATION: Sustainable community empowerment through educational scholarships, healthcare access, welfare development, and youth mentorship (/foundation/).\n"
-        "9. BAIRAVA TRUST: Compassionate social care, daily Annadhanam (free meals for 500+ daily), full-time elder care shelter, low-income student support, and community relief drives (/trust/).\n"
+        "9. BAIRAVA FOUNDATION: Sustainable community empowerment through educational scholarships, healthcare access, welfare development, and youth mentorship (/foundation/).\n"
+        "10. BAIRAVA TRUST: Compassionate social care, daily Annadhanam (free meals for 500+ daily), full-time elder care shelter, low-income student support, and community relief drives (/trust/).\n"
         "\n"
         "FUTURE PLAN (UPCOMING VENTURES - COMING SOON):\n"
         "- BAIRAVA WATER SOLUTIONS: Planned venture for packaged drinking water and water-can distribution for homes, offices and businesses. Tagline: 'Pure Water. Healthier Lives.' (/future-plan/#water-solutions).\n"
@@ -81,6 +82,9 @@ def retrieve_website_context(user_query: str, current_page: str = "", division_c
         'event': 'event-management',
         'events': 'event-management',
         'event-management': 'event-management',
+        'law-associates': 'law-associates',
+        'legal': 'law-associates',
+        'law': 'law-associates',
     }
 
     for key, slug in slug_map.items():
@@ -99,6 +103,7 @@ def retrieve_website_context(user_query: str, current_page: str = "", division_c
         'aadukalam': ['aadukalam', 'news', 'political', 'politics', 'newspaper', 'weekly newspaper', 'tamil nadu politics', 'election', 'policy', 'governance'],
         'event-management': ['event', 'events', 'wedding', 'reception', 'conference', 'summit', 'gala', 'decor', 'party', 'coordination', 'planner'],
         'media': ['media', 'video', 'documentary', 'podcast', 'storytelling', 'press', 'production', 'broadcast', 'article', 'news story'],
+        'law-associates': ['law', 'legal', 'lawyer', 'advocate', 'practice area', 'corporate law', 'civil law', 'property law', 'criminal law', 'family law', 'documentation', 'labour law', 'legal consultation', 'legal advisory', 'bairava law associates'],
         'contact': ['contact', 'phone', 'email', 'address', 'enquiry', 'reach', 'office', 'touch', 'call', 'talk', 'location', 'where', 'number']
     }
 
@@ -302,6 +307,12 @@ def get_suggested_questions(current_page: str = "") -> List[str]:
             "What does Bairava Media do?",
             "What video production and podcast services exist?",
             "Tell me about your published stories."
+        ]
+    elif 'law-associates' in page or 'legal' in page or 'law' in page:
+        return [
+            "What practice areas does Bairava Law Associates handle?",
+            "How can I schedule a legal consultation?",
+            "Tell me about property and real estate legal support."
         ]
     elif 'future-plan' in page or 'future' in page:
         return [

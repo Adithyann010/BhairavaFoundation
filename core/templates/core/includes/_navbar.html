@@ -20,8 +20,8 @@
         <a href="{% url 'core:about' %}" class="nav-link">ABOUT</a>
       </div>
 
-      <!-- Businesses Dropdown (7 Divisions) -->
-      <div class="nav-item {% if 'businesses' in request.path %}active{% endif %}">
+      <!-- Businesses Dropdown (8 Divisions) -->
+      <div class="nav-item {% if 'businesses' in request.path and 'law-associates' not in request.path %}active{% endif %}">
         <a href="{% url 'core:businesses_index' %}" class="nav-link">
           BUSINESSES
           <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
@@ -73,6 +73,12 @@
             <div class="dropdown-item-content">
               <h5>BAIRAVA MEDIA</h5>
               <p>Video production, podcasting &amp; storytelling</p>
+            </div>
+          </a>
+          <a href="{% url 'core:business_detail' slug='law-associates' %}" class="dropdown-item">
+            <div class="dropdown-item-content">
+              <h5>BAIRAVA LAW ASSOCIATES</h5>
+              <p>Corporate, civil, property &amp; legal advisory</p>
             </div>
           </a>
         </div>
@@ -152,8 +158,20 @@
         </div>
       </div>
 
-      <div class="nav-item {% if 'cloud-kitchen' in request.path %}active{% endif %}">
-        <a href="{% url 'core:business_detail' slug='cloud-kitchen' %}" class="nav-link">CENTRAL KITCHEN</a>
+      <!-- Legal Navigation -->
+      <div class="nav-item {% if 'law-associates' in request.path or 'legal' in request.path %}active{% endif %}">
+        <a href="{% url 'core:business_detail' slug='law-associates' %}" class="nav-link">
+          LEGAL
+          <svg class="dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="dropdown-menu">
+          <a href="{% url 'core:business_detail' slug='law-associates' %}" class="dropdown-item">
+            <div class="dropdown-item-content">
+              <h5>BAIRAVA LAW ASSOCIATES</h5>
+              <p>Practical &amp; client-focused legal advisory</p>
+            </div>
+          </a>
+        </div>
       </div>
 
       <div class="nav-item {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
@@ -195,7 +213,7 @@
       <!-- Mobile Businesses Accordion -->
       <div class="mobile-nav-item">
         <button class="mobile-accordion-toggle" data-target="mBusinesses">
-          <span>BUSINESSES (7 DIVISIONS)</span>
+          <span>BUSINESSES (8 DIVISIONS)</span>
           <svg class="dropdown-arrow accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px; height:14px;"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="mobile-accordion-content" id="mBusinesses">
@@ -207,6 +225,7 @@
           <a href="{% url 'core:business_detail' slug='event-management' %}" class="mobile-sublink">BAIRAVA EVENT MANAGEMENT</a>
           <a href="{% url 'core:business_detail' slug='aadukalam' %}" class="mobile-sublink">BAIRAVA ஆடுகளம் (POLITICAL NEWS)</a>
           <a href="{% url 'core:business_detail' slug='media' %}" class="mobile-sublink">BAIRAVA MEDIA</a>
+          <a href="{% url 'core:business_detail' slug='law-associates' %}" class="mobile-sublink">BAIRAVA LAW ASSOCIATES</a>
         </div>
       </div>
 
@@ -238,8 +257,15 @@
         </div>
       </div>
 
+      <!-- Mobile Legal Item -->
       <div class="mobile-nav-item">
-        <a href="{% url 'core:business_detail' slug='cloud-kitchen' %}">CENTRAL KITCHEN</a>
+        <button class="mobile-accordion-toggle" data-target="mLegal">
+          <span>LEGAL</span>
+          <svg class="dropdown-arrow accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:14px; height:14px;"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="mobile-accordion-content" id="mLegal">
+          <a href="{% url 'core:business_detail' slug='law-associates' %}" class="mobile-sublink">BAIRAVA LAW ASSOCIATES</a>
+        </div>
       </div>
 
       <div class="mobile-nav-item">

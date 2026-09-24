@@ -169,20 +169,20 @@ def foundation_view(request):
 
 
 def redirect_association(request):
-    """Redirect legacy /association/ route to businesses index."""
-    return redirect('core:businesses_index', permanent=True)
+    """Redirect legacy /association/ route to /businesses/law-associates/."""
+    return redirect('core:business_detail', slug='law-associates', permanent=True)
 
 
 def redirect_law_associates(request):
-    """Redirect legacy /law-associates/ route to businesses index."""
-    return redirect('core:businesses_index', permanent=True)
+    """Redirect shortcut /law-associates/ route to /businesses/law-associates/."""
+    return redirect('core:business_detail', slug='law-associates', permanent=True)
 
 
 def business_detail(request, slug):
     """Serve dedicated pages for individual business divisions."""
-    # Redirect legacy association/law-associates slugs to businesses overview safely
-    if slug in ('bhairava-association', 'association', 'law-associates', 'legal'):
-        return redirect('core:businesses_index', permanent=True)
+    # Redirect legacy association / legal slugs to new law-associates route safely
+    if slug in ('bhairava-association', 'association', 'legal'):
+        return redirect('core:business_detail', slug='law-associates', permanent=True)
 
     division = get_object_or_404(BusinessDivision, slug=slug)
 
@@ -213,6 +213,7 @@ def business_detail(request, slug):
         'sports-club': 'core/divisions/sports_club.html',
         'aadukalam': 'core/divisions/aadukalam.html',
         'media': 'core/divisions/media.html',
+        'law-associates': 'core/divisions/law_associates.html',
     }
 
     template_name = template_map.get(slug, 'core/divisions/generic_division.html')
@@ -228,6 +229,8 @@ def business_detail(request, slug):
         extra_context['facilities'] = division.offerings.all()
     elif slug == 'aadukalam':
         extra_context['activities'] = division.offerings.all()
+    elif slug == 'law-associates':
+        extra_context['practice_areas'] = division.offerings.all()
 
     context = {
         'division': division,

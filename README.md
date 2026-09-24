@@ -10,7 +10,7 @@ The **Bairava Groups Website** serves as the central digital platform representi
 
 ---
 
-## Business Divisions (7 Commercial Divisions)
+## Business Divisions (8 Commercial Divisions)
 
 The website features dedicated sections and enquiry interfaces for each operational division:
 
@@ -19,8 +19,9 @@ The website features dedicated sections and enquiry interfaces for each operatio
 3. **CENTRAL KITCHEN (JK KITCHEN)** — Premium culinary operations, bulk catering, and modern food delivery.
 4. **BAIRAVA SPORTS CLUB** — Premier athletic training facilities, fitness academies, and sports tournaments.
 5. **BAIRAVA EVENT MANAGEMENT** — End-to-end corporate event planning, weddings, cultural celebrations, and exhibitions.
-6. **BAIRAVA AADUKALAM** — State-of-the-art sports arenas, Kabaddi championships, and indigenous sports leagues.
+6. **BAIRAVA AADUKALAM** — Political news & weekly digital newspaper platform delivering balanced reporting and policy discussions.
 7. **BAIRAVA MEDIA** — Digital media production, brand promotion, video production, and advertising services.
+8. **BAIRAVA LAW ASSOCIATES** — Practical, client-focused legal advisory across corporate, civil, property, criminal, family, documentation, and labour law.
 
 ---
 

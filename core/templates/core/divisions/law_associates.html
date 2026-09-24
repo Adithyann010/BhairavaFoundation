@@ -1,0 +1,347 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Bairava Law Associates | Professional Legal Guidance{% endblock %}
+{% block meta_desc %}Bairava Law Associates provides professional legal guidance, consultation, documentation and support for individuals, businesses and organizations.{% endblock %}
+
+{% block content %}
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="breadcrumbs">
+      <a href="{% url 'core:home' %}">HOME</a>
+      <span>/</span>
+      <a href="{% url 'core:business_detail' slug='law-associates' %}">LEGAL</a>
+      <span>/</span>
+      <span>BAIRAVA LAW ASSOCIATES</span>
+    </div>
+
+    <div class="business-hero-3col">
+      <!-- LEFT: Brand Logo / Emblem -->
+      <div class="bhero-logo-col">
+        <div class="bhero-logo-halo"></div>
+        <img src="{% static 'core/images/logos/bairava-law-associates-logo.png' %}" alt="BAIRAVA LAW ASSOCIATES Official Logo" class="bhero-logo-img">
+      </div>
+
+      <!-- CENTER: Brand & Content -->
+      <div class="bhero-content-col">
+        <div class="bhero-brand-kicker">BAIRAVA GROUPS &bull; JUSTICE &middot; INTEGRITY &middot; SOLUTIONS</div>
+        <span class="bhero-category-badge">LEGAL GUIDANCE &amp; ADVISORY</span>
+        <h1 class="bhero-title">BAIRAVA LAW ASSOCIATES</h1>
+        <p class="bhero-subtitle">"Your Trusted Legal Partner."</p>
+        <p class="bhero-description">Delivering practical, professional and client-focused legal solutions for individuals, businesses and organizations with integrity, expertise and commitment.</p>
+        
+        <div class="bhero-features-list">
+          <span class="bhero-feature-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Integrity
+          </span>
+          <span class="bhero-feature-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Expertise
+          </span>
+          <span class="bhero-feature-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Advisory
+          </span>
+          <span class="bhero-feature-pill">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Solutions
+          </span>
+        </div>
+
+        <div class="bhero-actions">
+          <a href="#consultation" class="btn btn-solid">GET LEGAL CONSULTATION</a>
+          <a href="#practice-areas" class="btn btn-outline">OUR PRACTICE AREAS</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Category Visual -->
+      <div class="bhero-image-col">
+        <div class="bhero-image-wrap">
+          <img src="{% static 'core/images/divisions/legal.jpg' %}" alt="Bairava Law Associates Legal Guidance &amp; Advisory">
+          <div class="bhero-image-overlay"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST & SERVICE HIGHLIGHTS STRIP -->
+<section class="section" style="padding-top: 0; padding-bottom: 24px; margin-top: -16px;">
+  <div class="wrap">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+      
+      <div style="background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 22px 20px; box-shadow: var(--shadow-sm); display: flex; align-items: flex-start; gap: 14px;">
+        <div style="width: 44px; height: 44px; border-radius: 8px; background: rgba(124, 59, 41, 0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--brick);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        </div>
+        <div>
+          <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; color: var(--charcoal); letter-spacing: 0.02em;">EXPERIENCED TEAM</h4>
+          <p style="font-size: 0.85rem; color: var(--slate); margin: 0; line-height: 1.4;">Skilled legal professionals</p>
+        </div>
+      </div>
+
+      <div style="background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 22px 20px; box-shadow: var(--shadow-sm); display: flex; align-items: flex-start; gap: 14px;">
+        <div style="width: 44px; height: 44px; border-radius: 8px; background: rgba(169, 130, 46, 0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--brass-dark);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        </div>
+        <div>
+          <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; color: var(--charcoal); letter-spacing: 0.02em;">TRUSTED ADVISORY</h4>
+          <p style="font-size: 0.85rem; color: var(--slate); margin: 0; line-height: 1.4;">Practical &amp; transparent legal guidance</p>
+        </div>
+      </div>
+
+      <div style="background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 22px 20px; box-shadow: var(--shadow-sm); display: flex; align-items: flex-start; gap: 14px;">
+        <div style="width: 44px; height: 44px; border-radius: 8px; background: rgba(124, 59, 41, 0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--brick);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path><circle cx="12" cy="12" r="4"></circle></svg>
+        </div>
+        <div>
+          <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; color: var(--charcoal); letter-spacing: 0.02em;">CLIENT FOCUSED</h4>
+          <p style="font-size: 0.85rem; color: var(--slate); margin: 0; line-height: 1.4;">Personalized legal solutions</p>
+        </div>
+      </div>
+
+      <div style="background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 22px 20px; box-shadow: var(--shadow-sm); display: flex; align-items: flex-start; gap: 14px;">
+        <div style="width: 44px; height: 44px; border-radius: 8px; background: rgba(169, 130, 46, 0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--brass-dark);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        </div>
+        <div>
+          <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; color: var(--charcoal); letter-spacing: 0.02em;">RESULT ORIENTED</h4>
+          <p style="font-size: 0.85rem; color: var(--slate); margin: 0; line-height: 1.4;">Professional and responsible legal support</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICE AREAS SECTION -->
+<section class="section" style="background-color: var(--sand-light);" id="practice-areas">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="badge badge-brass">OUR PRACTICE AREAS</span>
+        <h2>Comprehensive Legal Solutions</h2>
+        <p style="max-width: 680px; margin-top: 8px; font-size: 1.05rem;">Professional legal guidance across key areas to support individuals, businesses and organizations.</p>
+      </div>
+    </div>
+
+    <div class="offerings-grid">
+      {% for offering in offerings %}
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>{{ offering.title }}</h4>
+          {% if offering.badge %}
+            <span class="offering-badge">{{ offering.badge }}</span>
+          {% endif %}
+        </div>
+        <p>{{ offering.description }}</p>
+      </div>
+      {% empty %}
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>1. CORPORATE &amp; COMMERCIAL LAW</h4>
+          <span class="offering-badge">COMMERCIAL</span>
+        </div>
+        <p>Business structuring, contracts, agreements and compliance support.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>2. CIVIL LAW</h4>
+          <span class="offering-badge">CIVIL &amp; DISPUTES</span>
+        </div>
+        <p>Legal guidance, dispute resolution, documentation and representation support.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>3. PROPERTY &amp; REAL ESTATE LAW</h4>
+          <span class="offering-badge">PROPERTY &amp; REAL ESTATE</span>
+        </div>
+        <p>Property documentation, agreements, due diligence and property-related legal matters.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>4. CRIMINAL LAW</h4>
+          <span class="offering-badge">DEFENCE &amp; LITIGATION</span>
+        </div>
+        <p>Legal guidance and representation relating to criminal proceedings and defence matters.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>5. FAMILY &amp; PERSONAL LAW</h4>
+          <span class="offering-badge">FAMILY &amp; INDIVIDUAL</span>
+        </div>
+        <p>Professional guidance for family and personal legal matters.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>6. LEGAL DOCUMENTATION</h4>
+          <span class="offering-badge">DOCUMENTATION &amp; NOTICES</span>
+        </div>
+        <p>Drafting, reviewing and organizing legal agreements, notices and documentation.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>7. LABOUR &amp; EMPLOYMENT LAW</h4>
+          <span class="offering-badge">LABOUR &amp; WORKPLACE</span>
+        </div>
+        <p>Guidance relating to employment matters, workplace issues, contracts and compliance.</p>
+      </div>
+      <div class="offering-card">
+        <div class="offering-head">
+          <h4>8. LEGAL CONSULTATION</h4>
+          <span class="offering-badge">CONSULTATION &amp; ADVICE</span>
+        </div>
+        <p>Professional consultation for individuals, businesses and organizations.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT BAIRAVA LAW ASSOCIATES -->
+<section class="section">
+  <div class="wrap">
+    <div class="about-intro-grid">
+      <div>
+        <span class="badge">ABOUT BAIRAVA LAW ASSOCIATES</span>
+        <h2>Committed to Justice, Driven by Integrity</h2>
+        <p style="margin-bottom: 16px; font-size: 1.05rem; line-height: 1.7;">Bairava Law Associates provides practical legal guidance and professional support for individuals, businesses and organizations. Our approach focuses on clear communication, responsible advice, careful documentation and client-focused legal solutions.</p>
+        <p style="margin-bottom: 16px; line-height: 1.7;">We understand that legal matters demand accuracy, discretion, and strategic clarity. Whether navigating complex corporate agreements, property transactions, compliance requirements, or dispute resolution, our team provides reliable counsel tailored to your specific circumstances.</p>
+        <div style="margin-top: 24px;">
+          <a href="#consultation" class="btn btn-solid">SCHEDULE A CONSULTATION</a>
+        </div>
+      </div>
+
+      <div style="background: var(--sand-light); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 32px;">
+        <h4 style="color: var(--brick); margin-bottom: 18px; font-size: 1.1rem; letter-spacing: 0.02em;">OUR PILLARS OF PRACTICE</h4>
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>INTEGRITY:</strong> Professional and responsible legal service.</div>
+          </div>
+
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>EXPERTISE:</strong> Focused legal knowledge and practical guidance.</div>
+          </div>
+
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>CLIENT FOCUS:</strong> Solutions designed around client requirements.</div>
+          </div>
+
+          <div style="display: flex; gap: 12px; font-size: 0.94rem;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--brick)" stroke-width="2.5" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+            <div><strong>LONG-TERM SUPPORT:</strong> Professional assistance throughout the legal process.</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEGAL CONSULTATION / ENQUIRY SECTION -->
+<section class="section" style="background: var(--sand-light); border-top: 1px solid var(--line);" id="consultation">
+  <div class="wrap">
+    <div style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: flex-start;">
+      
+      <!-- Left: Guidance Copy & Direct Contact Details -->
+      <div>
+        <span class="badge badge-brick">LEGAL GUIDANCE &amp; ADVISORY</span>
+        <h2 style="font-size: clamp(2rem, 3.2vw, 2.8rem); margin-top: 12px; margin-bottom: 16px;">NEED LEGAL GUIDANCE?</h2>
+        <p style="font-size: 1.05rem; line-height: 1.7; color: var(--charcoal); margin-bottom: 24px;">Speak with Bairava Law Associates for professional legal consultation and practical guidance.</p>
+
+        <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 28px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 38px; height: 38px; border-radius: 50%; background: var(--brick); color: var(--paper); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <div style="font-size: 0.8rem; color: var(--slate); font-weight: 600; text-transform: uppercase;">Direct Line</div>
+              <a href="tel:+919941757555" style="font-weight: 700; color: var(--charcoal); font-size: 1.05rem;">+91 99417 57555</a>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 38px; height: 38px; border-radius: 50%; background: var(--brass-dark); color: var(--paper); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <div style="font-size: 0.8rem; color: var(--slate); font-weight: 600; text-transform: uppercase;">Official Email</div>
+              <a href="mailto:sribairavaassociates@gmail.com" style="font-weight: 600; color: var(--charcoal); font-size: 0.95rem;">sribairavaassociates@gmail.com</a>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 38px; height: 38px; border-radius: 50%; background: var(--charcoal); color: var(--paper); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div style="font-size: 0.8rem; color: var(--slate); font-weight: 600; text-transform: uppercase;">Office Hub</div>
+              <div style="font-weight: 600; color: var(--charcoal); font-size: 0.95rem;">KK Nagar Central Hub, Chennai 600078, Tamil Nadu</div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <a href="{% url 'core:contact' %}?division=law_associates" class="btn btn-outline" style="border-color: var(--charcoal); color: var(--charcoal);">CONTACT US</a>
+        </div>
+      </div>
+
+      <!-- Right: Consultation Form -->
+      <div style="background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 36px; box-shadow: var(--shadow-md);">
+        <h3 style="font-size: 1.35rem; margin-bottom: 8px; color: var(--charcoal);">REQUEST CONSULTATION</h3>
+        <p style="font-size: 0.9rem; color: var(--slate); margin-bottom: 24px;">Submit your legal inquiry confidentially. Our advisory team will connect with you promptly.</p>
+
+        <form method="POST" action="{% url 'core:business_detail' slug='law-associates' %}">
+          {% csrf_token %}
+          
+          <div style="margin-bottom: 16px;">
+            <label for="id_name" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--charcoal);">Full Name *</label>
+            <input type="text" name="name" id="id_name" required placeholder="Your full name" style="width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 4px; font-family: inherit; font-size: 0.95rem;">
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 16px;">
+            <div>
+              <label for="id_phone" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--charcoal);">Phone Number *</label>
+              <input type="tel" name="phone" id="id_phone" required placeholder="+91 XXXXX XXXXX" style="width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 4px; font-family: inherit; font-size: 0.95rem;">
+            </div>
+            <div>
+              <label for="id_email" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--charcoal);">Email Address</label>
+              <input type="email" name="email" id="id_email" placeholder="name@example.com" style="width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 4px; font-family: inherit; font-size: 0.95rem;">
+            </div>
+          </div>
+
+          <div style="margin-bottom: 16px;">
+            <label for="id_requirement_type" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--charcoal);">Practice Area of Inquiry</label>
+            <select name="requirement_type" id="id_requirement_type" style="width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 4px; font-family: inherit; font-size: 0.95rem; background: #fff;">
+              <option value="Corporate & Commercial Law">Corporate &amp; Commercial Law</option>
+              <option value="Civil Law">Civil Law</option>
+              <option value="Property & Real Estate Law">Property &amp; Real Estate Law</option>
+              <option value="Criminal Law">Criminal Law</option>
+              <option value="Family & Personal Law">Family &amp; Personal Law</option>
+              <option value="Legal Documentation">Legal Documentation</option>
+              <option value="Labour & Employment Law">Labour &amp; Employment Law</option>
+              <option value="General Legal Consultation" selected>General Legal Consultation</option>
+            </select>
+          </div>
+
+          <div style="margin-bottom: 24px;">
+            <label for="id_message" style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--charcoal);">Brief Details / Requirements *</label>
+            <textarea name="message" id="id_message" rows="4" required placeholder="Please provide brief, non-confidential details of your legal enquiry..." style="width: 100%; padding: 12px 14px; border: 1px solid var(--line); border-radius: 4px; font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-solid" style="width: 100%; justify-content: center; padding: 14px;">
+            REQUEST CONSULTATION
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+{% endblock %}
