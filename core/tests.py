@@ -800,6 +800,60 @@ class BairavaLawAssociatesGalleryTestCase(TestCase):
         self.assertIn("lawLightboxNextBtn", content)
 
 
+class BairavaAboutAchievementsGalleryTestCase(TestCase):
+    def setUp(self):
+        from django.test import RequestFactory
+        self.rf = RequestFactory()
+
+    def test_about_achievements_and_moments_gallery(self):
+        """Test GET /about/ renders the static frame achievements and moments gallery with all original photos, thumbnails, counter & lightbox."""
+        from core.views import about_view
+        req = self.rf.get(reverse('core:about'))
+        response = about_view(req)
+        self.assertEqual(response.status_code, 200)
+        content = response.content.decode('utf-8')
+
+        # 1. Gallery Section & Headings
+        self.assertIn("ACHIEVEMENTS &amp; MOMENTS", content)
+        self.assertIn("Celebrating milestones, recognition, community and meaningful moments.", content)
+        self.assertIn("MILESTONES &amp; HONORS", content)
+        self.assertIn("AUTO ROTATING", content)
+        self.assertIn('<span id="aboutTotalSlidesNum">05</span>', content)
+
+        # 2. Uploaded Original Photographs
+        self.assertIn("core/images/about/about-achievement-01.jpg", content)
+        self.assertIn("core/images/about/about-achievement-02.jpg", content)
+        self.assertIn("core/images/about/about-achievement-03.jpg", content)
+        self.assertIn("core/images/about/about-achievement-04.jpg", content)
+        self.assertIn("core/images/about/about-achievement-05.jpg", content)
+
+        # 3. Accessibility Alt Texts
+        self.assertIn('alt="Bairava Groups leadership stage recognition and flower bouquet felicitation"', content)
+        self.assertIn('alt="Bairava Groups honored at YEF Business Awards with traditional shawl"', content)
+        self.assertIn('alt="Bairava Foundation traditional lamp lighting and prayer ceremony"', content)
+        self.assertIn('alt="Bairava Groups team and delegates gathering at awards celebration"', content)
+        self.assertIn('alt="YEF Business Awards presentation ceremony with eminent dignitaries"', content)
+
+        # 4. Captions
+        self.assertIn("LEADERSHIP FELICITATION &amp; HONORS", content)
+        self.assertIn("YEF BUSINESS AWARDS HONORS", content)
+        self.assertIn("FOUNDATION INAUGURAL BLESSINGS", content)
+        self.assertIn("TEAM UNITY &amp; DELEGATES COHORT", content)
+        self.assertIn("BUSINESS EXCELLENCE &amp; DIGNITARY HONORS", content)
+
+        # 5. Controls, Static Frame, Thumbnails & Lightbox
+        self.assertIn("aboutGalleryPhotoFrame", content)
+        self.assertIn("aboutGalleryPrevBtn", content)
+        self.assertIn("aboutGalleryNextBtn", content)
+        self.assertIn("aboutGalleryDots", content)
+        self.assertIn("aboutGalleryThumbsList", content)
+        self.assertIn("aboutLightbox", content)
+        self.assertIn("aboutLightboxCloseBtn", content)
+        self.assertIn("aboutLightboxPrevBtn", content)
+        self.assertIn("aboutLightboxNextBtn", content)
+
+
+
 
 
 
