@@ -128,7 +128,7 @@ class ContactEnquiry(models.Model):
         ('foundation', 'BAIRAVA FOUNDATION'),
         ('finance', 'BAIRAVA FINANCE'),
         ('construction', 'BAIRAVA CONSTRUCTION & LAND PROMOTERS'),
-        ('cloud_kitchen', 'CENTRAL KITCHEN'),
+        ('cloud_kitchen', 'BAIRAVA & JK KITCHEN'),
         ('sports_club', 'BAIRAVA SPORTS CLUB'),
         ('event_management', 'BAIRAVA EVENT MANAGEMENT'),
         ('aadukalam', 'BAIRAVA AADUKALAM'),

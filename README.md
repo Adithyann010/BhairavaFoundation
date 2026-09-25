@@ -16,7 +16,7 @@ The website features dedicated sections and enquiry interfaces for each operatio
 
 1. **BAIRAVA FINANCE** — Comprehensive financial advisory, business funding, and financial solutions.
 2. **BAIRAVA CONSTRUCTION & LAND PROMOTERS** — Turnkey residential & commercial construction, land development, and architectural projects.
-3. **CENTRAL KITCHEN (JK KITCHEN)** — Premium culinary operations, bulk catering, and modern food delivery.
+3. **BAIRAVA & JK KITCHEN** — Premium culinary operations, bulk catering, and modern food delivery.
 4. **BAIRAVA SPORTS CLUB** — Premier athletic training facilities, fitness academies, and sports tournaments.
 5. **BAIRAVA EVENT MANAGEMENT** — End-to-end corporate event planning, weddings, cultural celebrations, and exhibitions.
 6. **BAIRAVA AADUKALAM** — Political news & weekly digital newspaper platform delivering balanced reporting and policy discussions.

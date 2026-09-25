@@ -191,11 +191,11 @@ class AIChatbotTestCase(TestCase):
     def test_chat_api_cloud_kitchen_query(self):
         """Test asking about cloud kitchen food and menu."""
         url = reverse('core:chat_api')
-        payload = {"message": "What does Bairava Cloud Kitchen offer?", "conversation_id": "test_conv_6"}
+        payload = {"message": "What does BAIRAVA & JK KITCHEN offer?", "conversation_id": "test_conv_6"}
         response = self.client.post(url, json.dumps(payload), content_type="application/json")
         self.assertEqual(response.status_code, 200)
         data = response.json()
-        self.assertIn("Bairava Cloud Kitchen", data["response"])
+        self.assertIn("BAIRAVA & JK KITCHEN", data["response"])
         self.assertIn("Thali", data["response"])
 
     def test_chat_api_sports_club_query(self):
@@ -461,7 +461,7 @@ class BairavaLawAssociatesTestCase(TestCase):
         self.assertIn("BAIRAVA LAW ASSOCIATES", content)
         self.assertNotIn("BAIRAVA ASSOCIATION", content)
         self.assertIn("BAIRAVA FINANCE", content)
-        self.assertIn("CENTRAL KITCHEN", content)
+        self.assertIn("BAIRAVA &amp; JK KITCHEN", content)
         self.assertIn("BAIRAVA SPORTS CLUB", content)
         self.assertIn("BAIRAVA MEDIA", content)
 
@@ -513,17 +513,17 @@ class JKKitchenTestCase(TestCase):
         from django.test import RequestFactory
         self.rf = RequestFactory()
         self.div_kitchen = BusinessDivision.objects.create(
-            name="CENTRAL KITCHEN",
+            name="BAIRAVA & JK KITCHEN",
             slug="cloud-kitchen",
             tagline="SUSTAINABLE FOOD & HOSPITALITY SOLUTIONS",
-            short_description="Central Kitchen delivers sustainable food and hospitality solutions for corporate professionals, students, healthcare teams and industrial workforces.",
-            full_description="Operating state-of-the-art commercial culinary hubs, Central Kitchen prepares wholesome regional specialties and contemporary meal packages.",
+            short_description="BAIRAVA & JK KITCHEN delivers sustainable food and hospitality solutions for corporate professionals, students, healthcare teams and industrial workforces.",
+            full_description="Operating state-of-the-art commercial culinary hubs, BAIRAVA & JK KITCHEN prepares wholesome regional specialties and contemporary meal packages.",
             division_type="business",
             order=4
         )
 
     def test_cloud_kitchen_jk_branding_and_brochure(self):
-        """Test GET /businesses/cloud-kitchen/ renders JK Kitchen logo, Central Kitchen identity, PDF sections, services, and brochure download links."""
+        """Test GET /businesses/cloud-kitchen/ renders JK Kitchen logo, BAIRAVA & JK KITCHEN identity, PDF sections, services, and brochure download links."""
         from core.views import business_detail
         req = self.rf.get(reverse('core:business_detail', kwargs={'slug': 'cloud-kitchen'}))
         response = business_detail(req, slug='cloud-kitchen')
@@ -531,10 +531,10 @@ class JKKitchenTestCase(TestCase):
         content = response.content.decode('utf-8')
 
         # Headings & Uppercase Titles
-        self.assertIn("JK KITCHEN", content)
-        self.assertIn("CENTRAL KITCHEN", content)
+        self.assertIn("BAIRAVA &amp; JK KITCHEN", content)
         self.assertIn("BAIRAVA GROUPS", content)
-        self.assertIn("ABOUT CENTRAL KITCHEN", content)
+        self.assertIn("ABOUT BAIRAVA &amp; JK KITCHEN", content)
+        self.assertNotIn("CENTRAL KITCHEN", content)
         self.assertIn("PEOPLE-FIRST APPROACH", content)
         self.assertIn("ABSOLUTE COMPLIANCE", content)
         self.assertIn("SERVICE EXCELLENCE", content)

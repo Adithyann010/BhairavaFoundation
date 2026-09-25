@@ -170,17 +170,17 @@ def generate_rag_fallback_response(
             "Submit your financial advisory enquiry on the **[Bairava Finance Page](/businesses/finance/)**."
         )
 
-    # 6. Specific Division: Cloud Kitchen & JK Kitchen
+    # 6. Specific Division: BAIRAVA & JK KITCHEN
     if any(term in q for term in ['cloud kitchen', 'jk kitchen', 'kitchen', 'food', 'thali', 'biryani', 'menu', 'meal box', 'catering', 'culinary', 'brochure']) or ('cloud-kitchen' in page and any(term in q for term in ['offer', 'menu', 'food', 'brochure', 'profile'])):
         return (
-            "**[Bairava Cloud Kitchen (JK Kitchen)](/businesses/cloud-kitchen/)** prepares hygienic, authentic, and flavorful culinary dining and catering experiences using farm-fresh ingredients.\n\n"
+            "**[BAIRAVA & JK KITCHEN](/businesses/cloud-kitchen/)** prepares hygienic, authentic, and flavorful culinary dining and catering experiences using farm-fresh ingredients.\n\n"
             "**JK Kitchen Specialities & Solutions:**\n"
             "- **Signature South Indian Thali**: Authentic recipes with hand-ground spices, sambar, rasam, seasonal poriyal, and appalam.\n"
             "- **Dum Biryani Specialties**: Slow-cooked aromatic Seeraga Samba and Basmati preparations.\n"
             "- **Daily Wholesome Meal Boxes**: Balanced subscription lunches and dinners for corporate staff, students, and families.\n"
             "- **Bulk Catering & Party Orders**: Freshly prepared banquet meals and live counters for corporate and private gatherings.\n"
             "- **Official Profile & Brochure**: Download or view our complete 4-page profile covering our culinary philosophy, safeguards, and hospitality management.\n\n"
-            "Explore our menu and download the profile on the **[Bairava Cloud Kitchen Page](/businesses/cloud-kitchen/)**."
+            "Explore our menu and download the profile on the **[BAIRAVA & JK KITCHEN Page](/businesses/cloud-kitchen/)**."
         )
 
     # 7. Specific Division: Sports Club
@@ -286,7 +286,7 @@ def generate_rag_fallback_response(
             "**Commercial Businesses:**\n"
             "1. **[Bairava Finance](/businesses/finance/)** — Transparent, professional, and responsible financial solutions & advisory.\n"
             "2. **[Bairava Construction & Land Promoters](/businesses/construction/)** — Turnkey residential, luxury villas, commercial developments, and interior executions in Chennai.\n"
-            "3. **[Central Kitchen (JK Kitchen)](/businesses/cloud-kitchen/)** — Authentic regional thalis, dum biryani, wholesome daily meal boxes, and catering.\n"
+            "3. **[BAIRAVA & JK KITCHEN](/businesses/cloud-kitchen/)** — Authentic regional thalis, dum biryani, wholesome daily meal boxes, and catering.\n"
             "4. **[Bairava Sports Club](/businesses/sports-club/)** — BWF-standard indoor badminton courts, gym fitness conditioning, and junior coaching.\n"
             "5. **[Bairava Event Management](/businesses/event-management/)** — Luxury weddings, corporate summits, social galas, and bespoke decor planning.\n"
             "6. **[BAIRAVA ஆடுகளம்](/businesses/aadukalam/)** — Political journalism, policy analysis, and weekly digital newspaper.\n"

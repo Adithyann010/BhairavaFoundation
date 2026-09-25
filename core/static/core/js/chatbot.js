@@ -126,7 +126,7 @@
     else if (p.includes('/trust')) name = 'Bairava Trust';
     else if (p.includes('/event')) name = 'Bairava Event Management';
     else if (p.includes('/finance')) name = 'Bairava Finance';
-    else if (p.includes('/cloud-kitchen')) name = 'Bairava Cloud Kitchen';
+    else if (p.includes('/cloud-kitchen')) name = 'BAIRAVA & JK KITCHEN';
     else if (p.includes('/sports')) name = 'Bairava Sports Club';
     else if (p.includes('/aadukalam')) name = 'Bairava Aadukalam';
     else if (p.includes('/media')) name = 'Bairava Media';

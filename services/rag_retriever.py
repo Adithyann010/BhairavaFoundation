@@ -21,7 +21,7 @@ def get_group_general_knowledge() -> str:
         "EIGHT COMMERCIAL BUSINESS DIVISIONS:\n"
         "1. BAIRAVA FINANCE: Transparent, professional & responsible financial solutions & advisory (/businesses/finance/).\n"
         "2. BAIRAVA CONSTRUCTION & LAND PROMOTERS: Turnkey residential, commercial, luxury villas, architectural builds and property development in Chennai (/businesses/construction/).\n"
-        "3. CENTRAL KITCHEN (JK KITCHEN): Hygienic, authentic culinary experiences, traditional South Indian thalis, dum biryani, and daily wholesome meal boxes (/businesses/cloud-kitchen/).\n"
+        "3. BAIRAVA & JK KITCHEN: Hygienic, authentic culinary experiences, traditional South Indian thalis, dum biryani, and daily wholesome meal boxes (/businesses/cloud-kitchen/).\n"
         "4. BAIRAVA SPORTS CLUB: World-class sports facilities, BWF-standard indoor badminton courts, fitness & strength conditioning, and junior coaching academies (/businesses/sports-club/).\n"
         "5. BAIRAVA EVENT MANAGEMENT: End-to-end event planning, luxury weddings, corporate summits, social galas, and bespoke decor coordination (/businesses/event-management/).\n"
         "6. BAIRAVA ஆடுகளம்: Political news & weekly digital newspaper platform delivering balanced political analysis, policy discussions, and public issues across Tamil Nadu, India and worldwide (/businesses/aadukalam/).\n"
@@ -286,7 +286,7 @@ def get_suggested_questions(current_page: str = "") -> List[str]:
         ]
     elif 'cloud-kitchen' in page or 'kitchen' in page:
         return [
-            "What does Bairava Cloud Kitchen offer?",
+            "What does BAIRAVA & JK KITCHEN offer?",
             "Tell me about your meal boxes and thalis.",
             "Do you cater for bulk orders and events?"
         ]
