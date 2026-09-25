@@ -24,7 +24,7 @@ def get_group_general_knowledge() -> str:
         "3. BAIRAVA & JK KITCHEN: Hygienic, authentic culinary experiences, traditional South Indian thalis, dum biryani, and daily wholesome meal boxes (/businesses/cloud-kitchen/).\n"
         "4. BAIRAVA SPORTS CLUB: World-class sports facilities, BWF-standard indoor badminton courts, fitness & strength conditioning, and junior coaching academies (/businesses/sports-club/).\n"
         "5. BAIRAVA EVENT MANAGEMENT: End-to-end event planning, luxury weddings, corporate summits, social galas, and bespoke decor coordination (/businesses/event-management/).\n"
-        "6. BAIRAVA ஆடுகளம்: Political news & weekly digital newspaper platform delivering balanced political analysis, policy discussions, and public issues across Tamil Nadu, India and worldwide (/businesses/aadukalam/).\n"
+        "6. BAIRAVA ஆடுகளம்: Community & cultural activities, sports & recreational engagement, and local events (/businesses/aadukalam/).\n"
         "7. BAIRAVA MEDIA: Meaningful visual storytelling, documentary production, digital content, podcast studio, and brand communications (/businesses/media/).\n"
         "8. BAIRAVA LAW ASSOCIATES: Practical, professional and client-focused legal solutions for individuals, businesses and organizations across corporate, civil, property, criminal, family, documentation and labour law (/businesses/law-associates/ or /legal/).\n"
         "\n"
@@ -100,7 +100,7 @@ def retrieve_website_context(user_query: str, current_page: str = "", division_c
         'finance': ['finance', 'financial', 'advisory', 'loan', 'capital', 'working capital', 'equipment', 'funding', 'asset finance'],
         'cloud-kitchen': ['cloud kitchen', 'kitchen', 'food', 'meal', 'thali', 'biryani', 'catering', 'menu', 'culinary', 'lunch', 'dinner', 'order food', 'boxes'],
         'sports-club': ['sports club', 'badminton', 'court', 'fitness', 'gym', 'training', 'coach', 'coaching', 'athletic', 'bwf', 'indoor court'],
-        'aadukalam': ['aadukalam', 'news', 'political', 'politics', 'newspaper', 'weekly newspaper', 'tamil nadu politics', 'election', 'policy', 'governance'],
+        'aadukalam': ['aadukalam', 'cultural', 'culture', 'recreation', 'community activities', 'traditional sports', 'local events', 'traditional'],
         'event-management': ['event', 'events', 'wedding', 'reception', 'conference', 'summit', 'gala', 'decor', 'party', 'coordination', 'planner'],
         'media': ['media', 'video', 'documentary', 'podcast', 'storytelling', 'press', 'production', 'broadcast', 'article', 'news story'],
         'law-associates': ['law', 'legal', 'lawyer', 'advocate', 'practice area', 'corporate law', 'civil law', 'property law', 'criminal law', 'family law', 'documentation', 'labour law', 'legal consultation', 'legal advisory', 'bairava law associates'],

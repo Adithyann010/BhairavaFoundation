@@ -196,15 +196,15 @@ def generate_rag_fallback_response(
         )
 
     # 8. Specific Division: Aadukalam
-    if any(term in q for term in ['aadukalam', 'news', 'political', 'politics', 'newspaper', 'weekly newspaper', 'tamil nadu politics', 'election', 'governance']) or ('aadukalam' in page and any(term in q for term in ['what is', 'do', 'news', 'paper', 'edition'])):
+    if any(term in q for term in ['aadukalam', 'cultural', 'culture', 'recreation', 'community activities', 'traditional sports', 'local events']) or ('aadukalam' in page and any(term in q for term in ['what is', 'do', 'activities', 'programs', 'events'])):
         return (
-            "**[BAIRAVA ஆடுகளம்](/businesses/aadukalam/)** is our dedicated political journalism and digital weekly newspaper platform.\n\n"
-            "**Coverage & Focus Areas:**\n"
-            "- **Tamil Nadu Politics**: In-depth reporting on state government decisions, assembly updates, and constituency issues.\n"
-            "- **Indian Politics & Governance**: Balanced national policy coverage, parliament discussions, and civic administration.\n"
-            "- **Election Watch & Analysis**: Unbiased electoral insights, party manifestos, and policy impact assessments.\n"
-            "- **Weekly Digital Newspaper**: Curated weekly editions delivered digitally with clear, verified reporting.\n\n"
-            "Read our latest coverage and editions on the **[BAIRAVA ஆடுகளம் Page](/businesses/aadukalam/)**."
+            "**[BAIRAVA ஆடுகளம்](/businesses/aadukalam/)** is our dedicated division for community and cultural activities, sports and recreational engagement, and local event participation.\n\n"
+            "**Core Focus Areas:**\n"
+            "- **Community & Cultural Activities**: Festive cultural gatherings, traditional celebrations, and social programs.\n"
+            "- **Sports & Recreational Engagement**: Grassroots sports, fitness promotion, and friendly community tournaments.\n"
+            "- **Local Events & Participation**: Neighborhood engagement initiatives and inclusive public events.\n"
+            "- **Traditional & Social Initiatives**: Heritage arts, traditional sports, and intergenerational community bonding.\n\n"
+            "Explore our programs on the **[BAIRAVA ஆடுகளம் Page](/businesses/aadukalam/)**."
         )
 
     # 9. Specific Division: Event Management
@@ -289,7 +289,7 @@ def generate_rag_fallback_response(
             "3. **[BAIRAVA & JK KITCHEN](/businesses/cloud-kitchen/)** — Authentic regional thalis, dum biryani, wholesome daily meal boxes, and catering.\n"
             "4. **[Bairava Sports Club](/businesses/sports-club/)** — BWF-standard indoor badminton courts, gym fitness conditioning, and junior coaching.\n"
             "5. **[Bairava Event Management](/businesses/event-management/)** — Luxury weddings, corporate summits, social galas, and bespoke decor planning.\n"
-            "6. **[BAIRAVA ஆடுகளம்](/businesses/aadukalam/)** — Political journalism, policy analysis, and weekly digital newspaper.\n"
+            "6. **[BAIRAVA ஆடுகளம்](/businesses/aadukalam/)** — Community & cultural activities, sports & recreational engagement, and local events.\n"
             "7. **[Bairava Media](/businesses/media/)** — Documentary production, podcast studio recordings, digital storytelling, and brand communications.\n"
             "8. **[Bairava Law Associates](/businesses/law-associates/)** — Practical, client-focused legal advisory across corporate, civil, property, criminal, family, documentation, and labour law.\n\n"
             "**Community & Social Initiatives:**\n"

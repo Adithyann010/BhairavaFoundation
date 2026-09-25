@@ -301,7 +301,7 @@ class FuturePlanTestCase(TestCase):
         self.assertIn("COMING SOON", content)
 
         # Footer copyright test
-        self.assertIn("© 2026 La Fortune Makers. All rights reserved. Chennai, Tamil Nadu.", content)
+        self.assertIn("© 2026 BAIRAVA GROUPS. All rights reserved. Chennai, Tamil Nadu.", content)
 
     def test_future_plan_nav_in_all_pages(self):
         """Test that Future Plan appears in the header between Businesses and Foundation & Trust."""
@@ -580,84 +580,62 @@ class JKKitchenTestCase(TestCase):
         self.assertIn("SF No 152/15B, Aambal Poo Street, Pondur Village, Sriperumbudur, Tamil Nadu - 602105", content)
 
 
-class AadukalamPoliticalNewsTestCase(TestCase):
+class BairavaAadukalamTestCase(TestCase):
     def setUp(self):
         from django.test import RequestFactory
         self.rf = RequestFactory()
-        self.div_aadukalam = BusinessDivision.objects.create(
-            name="BAIRAVA ஆடுகளம்",
+        self.div_aadukalam, _ = BusinessDivision.objects.update_or_create(
             slug="aadukalam",
-            tagline="POLITICS, PEOPLE & THE STORIES THAT SHAPE TOMORROW.",
-            short_description="BAIRAVA ஆடுகளம் is a political news platform focused on Tamil Nadu, India and global political developments, presenting important political stories, public issues and policy discussions in a clear and responsible format.",
-            full_description="BAIRAVA ஆடுகளம் brings together political news, public policy debates, election insights and weekly digital newspaper editions delivering concise, balanced and responsible political journalism.",
-            division_type="business",
-            order=7
+            defaults={
+                "name": "BAIRAVA ஆடுகளம்",
+                "tagline": "COMMUNITY & CULTURAL ENGAGEMENT · SPORTS & SOCIAL PARTICIPATION",
+                "short_description": "BAIRAVA ஆடுகளம் promotes community-focused cultural activities, sports and recreational engagement, local events, and traditional and contemporary social initiatives.",
+                "full_description": "BAIRAVA ஆடுகளம் serves as a dedicated platform for community enrichment, cultural celebration, and recreational engagement, bringing people together through organized activities, sports meets, and cultural programs.",
+                "division_type": "business",
+                "order": 7,
+            }
         )
 
-    def test_aadukalam_political_news_and_weekly_newspaper(self):
-        """Test GET /businesses/aadukalam/ renders Political News, Weekly Newspaper, 4-card grid, analysis, and single image."""
+    def test_aadukalam_page_structure_and_branding(self):
+        """Test GET /businesses/aadukalam/ renders BAIRAVA ஆடுகளம் identity, uploaded logo, 3-col hero, focus areas, and initiatives."""
         from core.views import business_detail
         req = self.rf.get(reverse('core:business_detail', kwargs={'slug': 'aadukalam'}))
         response = business_detail(req, slug='aadukalam')
         self.assertEqual(response.status_code, 200)
         content = response.content.decode('utf-8')
 
-        # 1. SEO, Breadcrumb & Hero
-        self.assertIn("BAIRAVA ஆடுகளம் | POLITICAL NEWS & WEEKLY NEWSPAPER", content)
-        self.assertIn("POLITICAL NEWS", content)
+        # 1. SEO & Breadcrumb & Titles
         self.assertIn("BAIRAVA ஆடுகளம்", content)
-        self.assertIn('"POLITICS, PEOPLE & THE STORIES THAT SHAPE TOMORROW."', content)
-        self.assertIn("BAIRAVA ஆடுகளம் is a political news platform focused on Tamil Nadu, India and global political developments", content)
-        self.assertIn("WEEKLY NEWSPAPER", content)
-        self.assertIn("LATEST POLITICAL NEWS", content)
+        self.assertIn("COMMERCIAL DIVISION", content)
+        self.assertIn("Community &amp; Cultural Activities", content)
+        self.assertIn("BAIRAVA GROUPS &bull; BUILDING &middot; CREATING &middot; SERVING", content)
 
-        # 2. Hero Single Image (Strictly 1 image on entire page)
-        self.assertIn("core/images/news/hero_studio.jpg", content)
-        self.assertNotIn("core/images/news/tamilnadu.jpg", content)
-        self.assertNotIn("core/images/news/india.jpg", content)
-        self.assertNotIn("core/images/news/world.jpg", content)
+        # 2. Uploaded Logo in 3-col hero
+        self.assertIn("core/images/logos/bairava-aadukalam-logo.png", content)
+        self.assertIn('alt="BAIRAVA ஆடுகளம் Official Logo"', content)
 
-        # 3. Weekly Political Newspaper Section
-        self.assertIn("WEEKLY POLITICAL NEWSPAPER", content)
-        self.assertIn("THIS WEEK'S EDITION", content)
-        self.assertIn("POLITICAL NEWS • ANALYSIS • PUBLIC ISSUES", content)
-        self.assertIn("PUBLICATION:", content)
-        self.assertIn("WEEKLY", content)
-        self.assertIn("FORMAT:", content)
-        self.assertIn("DIGITAL NEWSPAPER", content)
-        self.assertIn("VIEW NEWSPAPER", content)
-        self.assertIn("DOWNLOAD NEWSPAPER", content)
+        # 3. Category Visual
+        self.assertIn("core/images/divisions/aadukalam.jpg", content)
 
-        # 4. Political News Section (4 text-based cards)
-        self.assertIn("POLITICAL NEWS", content)
-        self.assertIn("TAMIL NADU POLITICS", content)
-        self.assertIn("Political developments, public issues, government decisions and important state-level discussions.", content)
-        self.assertIn("INDIAN POLITICS", content)
-        self.assertIn("Parliament, national policy, elections and major political developments across India.", content)
-        self.assertIn("POLICY &amp; GOVERNANCE", content)
-        self.assertIn("Important government policies, legislative developments and issues affecting citizens.", content)
-        self.assertIn("WORLD POLITICS", content)
-        self.assertIn("Major international political developments and their wider impact.", content)
+        # 4. Feature Pills
+        self.assertIn("Community Activities", content)
+        self.assertIn("Cultural Engagement", content)
+        self.assertIn("Sports &amp; Recreation", content)
+        self.assertIn("Local Events", content)
 
-        # 5. Political Analysis Section
-        self.assertIn("POLITICAL ANALYSIS", content)
-        self.assertIn("KEY ISSUES", content)
-        self.assertIn("POLICY &amp; GOVERNANCE", content)
-        self.assertIn("ELECTION WATCH", content)
+        # 5. Focus Areas & Initiatives
+        self.assertIn("ABOUT BAIRAVA ஆடுகளம்", content)
+        self.assertIn("CORE FOCUS AREAS", content)
+        self.assertIn("OUR INITIATIVES", content)
+        self.assertIn("COMMUNITY &amp; CULTURAL ACTIVITIES", content)
+        self.assertIn("SPORTS &amp; RECREATIONAL ENGAGEMENT", content)
+        self.assertIn("LOCAL EVENTS &amp; PARTICIPATION", content)
+        self.assertIn("TRADITIONAL &amp; SOCIAL INITIATIVES", content)
 
-        # 6. Our Weekly Edition Section
-        self.assertIn("OUR WEEKLY EDITION", content)
-        self.assertIn("WEEKLY EDITION", content)
-        self.assertIn("EVERY WEEK", content)
-        self.assertIn("READ THIS WEEK'S EDITION", content)
-
-        # 7. Verify no old sports content on public page
-        self.assertNotIn("HERITAGE &amp; COMMUNITY SPORTS", content)
-        self.assertNotIn("HERITAGE & COMMUNITY SPORTS", content)
-        self.assertNotIn("TRADITIONAL SPORTS", content)
-        self.assertNotIn("KABADDI", content)
-        self.assertNotIn("COMMUNITY GAMES", content)
-        self.assertNotIn("SPORTS ACTIVITIES", content)
+        # 6. Enquiry Section & Footer
+        self.assertIn("CONNECT WITH BAIRAVA ஆடுகளம்", content)
+        self.assertIn("COMMUNITY ENGAGEMENT DESK", content)
+        self.assertIn("© 2026 BAIRAVA GROUPS. All rights reserved. Chennai, Tamil Nadu.", content)
 
 
 class BairavaSportsClubGalleryTestCase(TestCase):
